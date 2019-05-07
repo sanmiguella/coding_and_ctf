@@ -1,1 +1,1 @@
-Cybersecurity self learning
+Cybersecurity learning notes
