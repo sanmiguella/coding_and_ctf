@@ -1,1 +1,1 @@
-Cybersecurity learning notes
+Cybersecurity study
