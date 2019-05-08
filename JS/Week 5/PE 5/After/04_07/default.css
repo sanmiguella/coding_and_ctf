@@ -1,0 +1,12 @@
+body {
+    background: lightgrey;
+    font-family: "Comic Sans Ms"; 
+    color: blue;
+}
+
+#functional_expressions {
+    background: white;
+    width: 50%;
+    height: 300px;
+    font-family: "Comic Sans Ms";
+}
