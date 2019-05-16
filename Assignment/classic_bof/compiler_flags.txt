@@ -1,0 +1,1 @@
+gcc -m32 -fno-stack-protector -z execstack -o 2_event0 2_event0.c
