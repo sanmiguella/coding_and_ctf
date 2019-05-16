@@ -1,0 +1,3 @@
+#!/bin/bash
+# sudo ./disable_ASLR.sh
+echo 0 | sudo tee /proc/sys/kernel/randomize_va_space 
