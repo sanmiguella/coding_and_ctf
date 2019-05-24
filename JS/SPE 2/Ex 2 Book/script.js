@@ -1,10 +1,3 @@
-/**
- * Title: PES-EX2
- * AUTHOR: SUHAIRY BIN SUBORI
- * ID: P7358646
- * CLASS: DICS1/CE/1910/1
- * **/
-
 // Method 2: Book
 function reverse_anything(x) {
     // If an empty string ("") is used as the separator, the string is split between each character

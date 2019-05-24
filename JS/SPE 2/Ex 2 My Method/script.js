@@ -1,10 +1,3 @@
-/**
- * Title: PES-EX2
- * AUTHOR: SUHAIRY BIN SUBORI
- * ID: P7358646
- * CLASS: DICS1/CE/1910/1
- * **/
-
 // My method
 function reverse_anything(x) {
     // String is an array and as such, the upper bound of the array is the length of the array subtracted

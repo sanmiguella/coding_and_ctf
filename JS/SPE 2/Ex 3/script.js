@@ -1,10 +1,3 @@
-/** 
- * Title: PES-EX3
- * AUTHOR: SUHAIRY BIN SUBORI
- * ID: P7358646
- * CLASS: DICS1/CE/1910/1
- * **/
-
 // Object constructor for Members object
 function Members(id, name, date_of_birth, address, mobile_num) {
     this.id = id; 
@@ -16,9 +9,9 @@ function Members(id, name, date_of_birth, address, mobile_num) {
 
 // Populate membership Array with Members object
 var membership = [ 
-    new Members(1, "Harry", "01-02-1990", "Jurong", "+65 9090 0000"),
-    new Members(2, "Amin", "02-02-1990", "Boon lay", "+65 9191 0101"),
-    new Members(3, "Randell", "03-02-1990", "Yew tee", "+65 9292 0202")
+    new Members(1, "Alex", "01-02-1990", "Addr 1", "+65 9090 0000"),
+    new Members(2, "Tom", "02-02-1990", "Addr 2", "+65 9191 0101"),
+    new Members(3, "Dick", "03-02-1990", "Addr 3", "+65 9292 0202")
 ];
 
 // Array starts with 0 

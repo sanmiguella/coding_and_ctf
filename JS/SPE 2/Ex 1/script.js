@@ -1,10 +1,3 @@
-/**
- * Title: PES-EX1
- * AUTHOR: SUHAIRY BIN SUBORI
- * ID: P7358646
- * CLASS: DICS1/CE/1910/1
- * **/
-
 function find_biggest_fraction(a, b) {
     var result = "";  // Declared variable scope : Local
 
