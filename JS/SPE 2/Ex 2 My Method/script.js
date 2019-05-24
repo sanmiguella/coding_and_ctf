@@ -2,13 +2,13 @@
 function reverse_anything(x) {
     // String is an array and as such, the upper bound of the array is the length of the array subtracted
     // by 1 since array usually begins with 0
-    var upper_bound = user_input.length - 1; 
+    var upper_bound = x.length - 1; 
     var reversed_str = "";  // Initialize a variable because we do not want any random values in it, good coding practice
 
     i = upper_bound; 
     while (i >= 0 ) { // Loop continues as long as we haven't execeed the lower bound of user_input
         // If string is Hello, this loop will start with 'o', then, 'l', etc...
-        reversed_str += user_input[i]; 
+        reversed_str += x[i]; 
         i--;   // Remember to decrement, else this while loop will go on forever
     }
 

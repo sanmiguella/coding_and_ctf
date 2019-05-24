@@ -1,7 +1,7 @@
 // Method 2: Book
 function reverse_anything(x) {
     // If an empty string ("") is used as the separator, the string is split between each character
-    uInput_split = user_input.split(""); 
+    uInput_split = x.split(""); 
     uInput_reverse = uInput_split.reverse(); // Reverse the order of elements in an array
     // Seperator used: whitespace, to prevent the joined string from forming into a string separated with commas(,)
     uInput_join = uInput_reverse.join(""); 
