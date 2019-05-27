@@ -1,5 +1,0 @@
-break main
-disable $bpnum
-break main
-disable $bpnum
-
