@@ -2,7 +2,7 @@
 
 from pwn import *
 
-p = process("./final-zero")
+p = process("/opt/phoenix/i486/final-zero")
 
 def main():
 	# Skips banner
