@@ -1,0 +1,3 @@
+﻿  Assembling Main.asm...
+Main.asm(31): warning A4023: with /coff switch, leading underscore required for start address : main
+  DataScan.vcxproj -> C:\Users\adminuser\source\repos\DataScan\Debug\DataScan.exe
