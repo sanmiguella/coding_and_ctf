@@ -1,0 +1,5 @@
+﻿  Assembling CalcArraySum.asm...
+  pch.cpp
+  ArrayElementAccess.cpp
+  ArrayElementAccess.vcxproj -> C:\Users\adminuser\source\repos\ArrayElementAccess\Debug\ArrayElementAccess.exe
+  ArrayElementAccess.vcxproj -> C:\Users\adminuser\source\repos\ArrayElementAccess\Debug\ArrayElementAccess.pdb (Partial -> Full PDB)
