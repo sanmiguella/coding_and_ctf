@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v142:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0
 Debug|Win32|C:\Users\adminuser.ITFLEE\source\repos\CalcArrayRowColSum\|
+=======
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v142:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0
+Debug|Win32|C:\Users\adminuser.ITFLEE\source\repos\CalcArrayRowColSum\|
+>>>>>>> cfc854dfa9fd320b235f29d08d85c99e9712d20e

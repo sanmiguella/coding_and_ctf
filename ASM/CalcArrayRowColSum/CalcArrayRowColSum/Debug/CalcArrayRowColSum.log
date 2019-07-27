@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ﻿  Assembling RowColSumCalculator.asm...
   CalcArrayRowColSum.vcxproj -> C:\Users\adminuser.ITFLEE\source\repos\CalcArrayRowColSum\Debug\CalcArrayRowColSum.exe
+=======
+﻿  Assembling RowColSumCalculator.asm...
+  CalcArrayRowColSum.vcxproj -> C:\Users\adminuser.ITFLEE\source\repos\CalcArrayRowColSum\Debug\CalcArrayRowColSum.exe
+>>>>>>> cfc854dfa9fd320b235f29d08d85c99e9712d20e
