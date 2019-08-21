@@ -1,0 +1,110 @@
+body {
+    background-color: lightgray;
+    background-image: url(img/test2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    font-family: 'Nunito', sans-serif;
+    margin: 0 auto;
+}
+
+h2 {
+    color: orange;
+    text-shadow: 2px 2px black;
+}
+
+input:hover {
+    background-color: lightyellow; 
+}
+
+.view {
+    float: right;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+#page_title {
+    text-align: center;
+}
+
+#data td, #data th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#data th {
+    background-color: lightblue;
+}
+
+#data tr {
+    background-color: lightyellow;
+}
+
+#data tr:hover {
+    background-color: orange;
+}
+
+#search td, #search th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#search th {
+    background-color: lightblue;
+}
+
+#search tr {
+    background-color: lightyellow;
+}
+
+#search tr:hover {
+    background-color: orange;
+}
+
+#entry th {
+    text-shadow: 2px 2px black;
+    color: orange;
+}
+
+#listing {
+    padding-left: 2%;
+    text-align: center;
+}
+
+#cart td, #cart th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#cart th {
+    background-color: lightblue;
+}
+
+#cart tr {
+    background-color: lightyellow;
+}
+
+#cart tr:hover {
+    background-color: orange;
+}
+
+#prod_list {
+    border-spacing: 15px 20px;
+}
+
+#prod_list tr {
+    background-color: lightblue;
+}
+
+#prod_list td:hover {
+    background-color: orange;
+}
+
+#paypal-button-container {
+    display: none;
+}
+
+

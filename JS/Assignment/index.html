@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+    <title>Suhairy Bin Subori p7358646</title>
+    <script src="default.js" defer></script>
+
+    <link rel="stylesheet" type="text/css" href="default.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQmRsg8g_dUJXtsFCnQIXeINaPOotC5R0fEADyZWH6tXZM3-CgacidU-x9qXL334Zjj_LcBLqhutYCo6&currency=SGD"></script>
+
+    <button class="view" id="btn_admin_view" onclick="toggle_admin_view()">Switch to admin view</button>
+    <br><br>
+
+    <button class="view" id="btn_cust_view" onclick="toggle_cust_view()">Switch to customer view</button>
+    <br><br>
+
+    <div id = "customer_console">
+        <h2 align='center'><u>&#9760;Shadowrun Underground&#9760;</u></h2>
+        <div id="shop_cart">
+            <table align="right" id="cart">
+                <tr>
+                    <th>Items</th>
+                    <th>Unit cost</th>
+                    <th>Qty</th>
+                    <th>Sub-total $</th>
+                    <th>Action</th>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="listing"></div>
+    </div>
+
+    <div id="admin_console">
+        <h2 align='center'>Welcome to the Admin Console</h2>
+
+        <div class="wrapper">
+            <button id="btn_add_products" onclick="toggle_entry_table()">Add Products</button>
+            <button id="btn_list_products" onclick="toggle_display_table()">List Products</button>
+            <button id="btn_search_products" onclick="search_display_table()">Search Products</button>
+        </div>
+        <br>
+
+        <table align="center" id="search">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Unit price ($)</th>
+                <th>Stock</th>
+            </tr>
+        </table>
+
+        <table align="center" id="data">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Unit price ($)</th>
+                <th>Stock</th>
+                <th>Image Path</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+        
+        <br>
+        <table align="center" id="entry">
+            <tr>
+                <th align='right'>ID: </th>
+                <td> <input type="text" id="prod_id"> </td>
+            </tr>
+
+            <tr>
+                <th align='right'>Name: </th>
+                <td> <input type="text" id="name"> </td>
+            </tr>
+
+            <tr>
+                <th align='right'>Desc: </th>
+                <td> <input type="text" id="desc"> </td>
+            </tr>
+
+            <tr>
+                <th align='right'>Unit price($): </th>
+                <td> <input type="text" id="price"> </td>
+            </tr>
+
+            <tr>
+                <th align='right'>Stock: </th>
+                <td> <input type="text" id="stock"> </td>
+            </tr>
+
+            <tr>
+                <th align='right'>Image: </th>
+                <!--
+                <td> <input type="text" id="image"> </td> -->
+                <td> 
+                    <select id='image'>
+                        <option value='img/a.png'>Cyberjack</option>
+                        <option value='img/c.png'>Hacker</option>
+                        <option value='img/b.png'>Scream</option>
+                        <option value='img/z.png'>Future</option>
+                        <option value='img/e.png'>Battle</option>
+                        <option value='img/gravity.png'>Gravity</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align='right'></td>
+
+                <td>
+                    <button class="admin" onclick="clear_entry()" id="btn_clear">Clear</button>
+                    <button class="admin" onclick="update()" id="btn_update">Update</button>
+                    <button class="admin" onclick="add_product()" id="btn_add">Add</button>
+                </td>                      
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>
