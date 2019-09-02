@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect("localhost", "root", "password", "loginapps");
+$connection = mysqli_connect("localhost", "root", "password", "shopping_items");
 
 // Checks database connection.
 if (!$connection) { // IF database connection can't be established, throw an error and continue no further.

@@ -22,6 +22,8 @@ update_table();
 <body>
 
 <div class="col-sm-6">
+    <h4 class="text">Update login account</h4><br>
+
     <form action="login_update.php" method="post">
 
         <div class="form-group">

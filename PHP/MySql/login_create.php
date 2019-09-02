@@ -21,6 +21,9 @@ create_row();
 <body>
 
 <div class="col-sm-6"> <!-- Column extra small 6 -->
+
+    <h4 class="text">Create login account</h4><br>
+
     <form action="login_create.php" method="post">
         <div class="form-group">
             <label for="username"><b>Username</b></label>

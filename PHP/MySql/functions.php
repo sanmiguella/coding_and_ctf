@@ -2,7 +2,7 @@
 
 include "db.php";
 
-function show_all_data() {
+function gather_data() {
     /*
     If $connection isn't global, it means that $connection will be a local scope variable and the value in $connection will not be from db.php, it will mess up the webpage. 
     */
@@ -14,6 +14,37 @@ function show_all_data() {
     if (!$result) { // IF query returned by mysqli_query() is FALSE. 
         die("<br>Query FAILED." . mysqli_error()); 
     }
+
+    return $result;
+}
+
+function gather_specific_data($id) {
+    /*
+    If $connection isn't global, it means that $connection will be a local scope variable and the value in $connection will not be from db.php, it will mess up the webpage. 
+    */
+    global $connection;
+
+    /*
+    Query sample:
+
+    SELECT * FROM users WHERE id = x; 
+    */
+    $query  = "SELECT * FROM users "; // Query to be send to MySql.
+    $query .= "WHERE id = $id";
+
+    $result = mysqli_query($connection, $query); // $connection is from "db.php". 
+
+    if (!$result) { // IF query returned by mysqli_query() is FALSE. 
+        die("<br>Query FAILED." . mysqli_error()); 
+    }
+
+    return $result;
+
+}
+
+function show_all_data() {
+
+    $result = gather_data();
 
     /*
     While there are still rows, display the id values on the option selection box.
@@ -37,28 +68,16 @@ function update_table() {
         $password = $_POST["password"]; // Taken from password entry field in webpage.
         
         $id = $_POST["id"]; // Taken from option selection button in webpage.
-    
-        /* 
-        Sample Query for selecting username password based on id:
-        SELECT username, password from users where id = 1;
-        */
-        $query  = "SELECT username, password from users ";
-        $query .= "WHERE id = $id";
-    
-        $result = mysqli_query($connection, $query);
+        
+        $result = gather_specific_data($id);
     
         $row = mysqli_fetch_assoc($result); // $result only has 1 row.
 
         // To be used to display results later for comparison's sake.
         $old_username = $row["username"];
         $old_password = $row["password"];
-    
-        if (!$result) { // IF there is something wrong with the MySql query.
-            die("<br>Query Failed!" . mysqli_error());
-        }
-    
+        
         // Display old username/password.
-        echo "Query string : <b><i>$query</i></b><br>";
         echo "OLD username : <b><i>$old_username</i></b><br>"; 
         echo "OLD password : <b><i>$old_password</i></b><br><br>";
     
@@ -97,18 +116,7 @@ function delete_row() {
 
         $id = $_POST["id"]; // Taken from option select value in the webpage.
 
-        /* 
-        Sample Query for selecting username password based on id:
-        SELECT username, password from users where id = 1;
-        */
-        $query  = "SELECT username, password from users ";
-        $query .= "WHERE id = $id";
-
-        $result = mysqli_query($connection, $query);
-
-        if (!$result) { // IF there is something wrong with the query.
-            die("<h3>Query Failed!</h3>" . mysqli_error());
-        }
+        $result = gather_specific_data($id);
 
         $row = mysqli_fetch_assoc($result); // $result only has 1 row.
 
@@ -146,7 +154,7 @@ function create_row() {
 
         $password = $_POST["password"]; // Password taken from password input field in the webpage.
 
-        if($username && $password) { // IF username AND password is not blank
+        if ($username && $password) { // IF username AND password is not blank
             /*
             Sample MySql query:
             
@@ -166,12 +174,38 @@ function create_row() {
                 die("<h3>Query Failed! </h3>" . mysqli_error());
             }
         }
-        else {
+
+        else { // IF username and/or password is blank.
             echo "Username/Password Field must not be blank!";
         }
 
     }
 
+}
+
+function display_data() {
+    /*
+    If $connection isn't global, it means that $connection will be a local scope variable and the value in $connection will not be from db.php, it will mess up the webpage. 
+    */
+    global $connection;
+
+    if ( isset($_POST["read"]) ) { // IF submit button is pressed.
+        $result = gather_data();
+    
+        $count = 0; 
+        /*
+        For associative array, column name will be in string.
+        Array ( [id] => 2 [username] => test [password] => myP@ss ) 
+        */
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "Index[$count] : ";
+            print_r($row); // Prints the value of each row.
+            echo "<br>";
+    
+            $count++; // Increment count by 1.
+        }
+        echo "<hr>";
+    }
 }
 
 ?>
