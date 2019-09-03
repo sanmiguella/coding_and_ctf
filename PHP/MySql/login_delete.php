@@ -2,7 +2,9 @@
 
 include "functions.php";
 
-delete_row();
+if ( isset($_POST["delete"]) ) { // IF delete button is pressed.
+    delete_row();
+}
 
 ?>
 

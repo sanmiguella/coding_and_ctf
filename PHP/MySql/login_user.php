@@ -2,8 +2,11 @@
 
 include "functions.php";
 
-if ( isset($_POST["create"]) ) { // IF submit button is pressed.
-    create_row();
+if ( isset($_POST["login"]) ) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    check_username_password($username, $password);
 }
 
 ?>
@@ -12,7 +15,7 @@ if ( isset($_POST["create"]) ) { // IF submit button is pressed.
 <html lang='en'>
 <head>
     <meta charset='utf-8'>
-    <title>Login create</title>
+    <title>User login</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -24,9 +27,9 @@ if ( isset($_POST["create"]) ) { // IF submit button is pressed.
 
 <div class="col-sm-6"> <!-- Column extra small 6 -->
 
-    <h4 class="text">Create login account</h4><br>
+    <h4 class="text">User login</h4><br>
 
-    <form action="login_create.php" method="post">
+    <form action="login_user.php" method="post">
         <div class="form-group">
             <label for="username"><b>Username</b></label>
 
@@ -41,7 +44,7 @@ if ( isset($_POST["create"]) ) { // IF submit button is pressed.
             <input type="password" class="form-control" name="password">
         </div>
 
-        <input class="btn btn-primary" type="submit" name="create" value="Create"> <!-- btn & btn-primary to make buttons looks nicer -->
+        <input class="btn btn-primary" type="submit" name="login" value="Login"> <!-- btn & btn-primary to make buttons looks nicer -->
     </form> 
 </div>
 

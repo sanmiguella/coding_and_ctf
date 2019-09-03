@@ -2,7 +2,9 @@
 
 include "functions.php";
 
-update_table();
+if ( isset($_POST["update"]) ) { // IF update button is pressed.
+    update_table();
+}
 
 ?>
 

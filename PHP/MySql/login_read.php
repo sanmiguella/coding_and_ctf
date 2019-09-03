@@ -2,7 +2,9 @@
 
 include "functions.php"; 
 
-display_data();
+if ( isset($_POST["read"]) ) { // IF submit button is pressed.
+    display_data();
+}
 
 ?>
 
