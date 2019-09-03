@@ -6,6 +6,14 @@ if ( isset($_POST["login"]) ) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
+    /*
+    Prevent SQL injection by turning quote(') into (\') thus escaping it. 
+
+    SELECT * FROM users WHERE username = '2admin\' #' AND password = '2password'
+    */
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+
     check_username_password($username, $password);
 }
 

@@ -134,15 +134,11 @@ function delete_row() {
     echo "<b><i>$username</i></b> with an id of <b><i>$id</i></b> and password as <b><i>$password</i></b> has been <b><i>deleted</i></b> from the database!<hr>";
 }
 
-function create_row() {
+function create_row($username, $password) {
     /*
     If $connection isn't global, it means that $connection will be a local scope variable and the value in $connection will not be from db.php, it will mess up the webpage. 
     */
     global $connection;
-
-    $username = $_POST["username"]; // Username taken from text input field in the webpage.
-
-    $password = $_POST["password"]; // Password taken from password input field in the webpage.
 
     if ($username && $password) { // IF username AND password is not blank
         /*

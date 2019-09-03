@@ -3,7 +3,19 @@
 include "functions.php";
 
 if ( isset($_POST["create"]) ) { // IF submit button is pressed.
-    create_row();
+    $username = $_POST["username"]; // Username taken from text input field in the webpage.
+
+    $password = $_POST["password"]; // Password taken from password input field in the webpage.
+
+    /*
+    Prevent SQL injection by turning quote(') into (\') thus escaping it. 
+
+    SELECT * FROM users WHERE username = '2admin\' #' AND password = '2password'
+    */
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+
+    create_row($username, $password);
 }
 
 ?>
