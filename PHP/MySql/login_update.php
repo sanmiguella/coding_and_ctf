@@ -3,7 +3,24 @@
 include "functions.php";
 
 if ( isset($_POST["update"]) ) { // IF update button is pressed.
-    update_table();
+    
+    $id = $_POST["id"]; // Taken from option selection button in webpage.
+    $password = $_POST["password"]; // Taken from password entry field in webpage.
+
+    if ($password) {
+        /*
+        Prevent SQL injection by turning quote(') into (\') thus escaping it. 
+
+        SELECT * FROM users WHERE username = '2admin\' #' AND password = '2password'
+        */
+        $password = mysqli_real_escape_string($connection, $password);
+
+        update_table($id, $password);
+    } 
+
+    else {
+        echo "<p>Password field must not be blank!</p><hr>";
+    }
 }
 
 ?>
@@ -27,11 +44,6 @@ if ( isset($_POST["update"]) ) { // IF update button is pressed.
     <h4 class="text">Update login account</h4><br>
 
     <form action="login_update.php" method="post">
-
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username" class="form-control">
-        </div>
 
         <div class="form-group"> 
             <label for="password">Password</label>

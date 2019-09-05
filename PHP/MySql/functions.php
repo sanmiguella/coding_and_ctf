@@ -54,36 +54,22 @@ function show_all_data() {
     }
 }
 
-function update_table() {
+function update_table($id, $password) {
     /*
     If $connection isn't global, it means that $connection will be a local scope variable and the value in $connection will not be from db.php, it will mess up the webpage. 
     */
     global $connection;
-
-    $username = $_POST["username"]; // Taken from username entry field in webpage.
-
-    $password = $_POST["password"]; // Taken from password entry field in webpage.
     
-    $id = $_POST["id"]; // Taken from option selection button in webpage.
-    
-    $result = gather_specific_data($id);
-
+    $result = gather_specific_data($id); // Gather data for that particular row.
     $row = mysqli_fetch_assoc($result); // $result only has 1 row.
 
-    // To be used to display results later for comparison's sake.
-    $old_username = $row["username"];
-    $old_password = $row["password"];
-    
-    // Display old username/password.
-    echo "OLD username : <b><i>$old_username</i></b><br>"; 
-    echo "OLD password : <b><i>$old_password</i></b><br><br>";
+    $password = hash_password($password); // Encrypt $password.
 
     /*
     Sample Query for updating DB:
     UPDATE `users` SET `username` = 'memtest13', `password` = 'myP@ss13' WHERE `users`.`id` = 2;
     */
     $query  = "UPDATE users SET "; 
-    $query .= "username = '$username', ";
     $query .= "password = '$password' "; 
     $query .= "WHERE id = $id";
 
@@ -93,9 +79,11 @@ function update_table() {
         die("<br>Query Failed!" . mysqli_error());
     }
 
-    echo "Query string : <b><i>$query</i></b><br>"; 
-    echo "NEW username : <b><i>$username</i></b><br>";
-    echo "NEW password : <b><i>$password</i></b><br><hr>";  
+    echo "<p>$query</p>"; 
+    echo "NEW password : $password<br>"; 
+    
+    $username = $row["username"]; 
+    echo "<p>Updated password for <b>$username</b>!</p><hr>";
 }
 
 function delete_row() {
@@ -152,11 +140,11 @@ function create_row($username, $password) {
         $result = mysqli_query($connection, $query);
         
         if ($result) { // IF there are no errors with the query.
-            echo "<p><b><i>$query</i></b></p>";
+            echo "<p>$query</p>";
 
-            echo "<h4>Entry Created!</h4>";
-            echo "<i>$username</i> as username...<br>"; 
-            echo "<i>$password</i> as password...<br><hr>"; 
+            echo "<p<b>Entry Created!</b></p>";
+            echo "<b>$username</b> as username...<br>"; 
+            echo "<b>$password</b> as password...<br><hr>"; 
         }
 
         else { // IF there are errors with the query.
@@ -177,19 +165,26 @@ function display_data() {
 
     $result = gather_data();
 
-    $count = 0; 
-    /*
-    For associative array, column name will be in string.
-    Array ( [id] => 2 [username] => test [password] => myP@ss ) 
-    */
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "Index[$count] : ";
-        print_r($row); // Prints the value of each row.
-        echo "<br>";
+    // Table header.
+    echo "<div class='container'>";
+    echo "<table border=1 width=30%>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>";
 
-        $count++; // Increment count by 1.
+    // While row exist, fetch username/password and display them accordingly.
+    while ($row = mysqli_fetch_assoc($result)) {
+        $username = $row["username"];
+        $password = $row["password"];
+
+        echo "<tr>
+                    <td>$username</td>
+                    <td>$password</td>
+              </tr>";
     }
-    echo "<hr>";
+
+    echo "</table></div><hr>"; // Closing tags.
 }
 
 function check_username_password($username, $password) {
@@ -202,12 +197,12 @@ function check_username_password($username, $password) {
 
         // SELECT * FROM users WHERE username = x AND password = y;
         $query  = "SELECT * FROM users WHERE ";
-        $query .= " username = '$username' AND  password = '$password'";
+        $query .= "username = '$username' AND  password = '$password'";
 
         $result = mysqli_query($connection, $query); 
         $num_rows = mysqli_num_rows($result); // Return the number of rows for the said query.
 
-        echo "<i><b>$query</b></i><br><br>";
+        echo "<p>$query</p>";
 
         if ($num_rows > 0) { // IF number of rows greater than 0, it means that username and password is found.
 
@@ -222,6 +217,51 @@ function check_username_password($username, $password) {
 
     else { // Displays error if either username or password entry is left blank.
         echo "<h4>Username and/or Password must not be blank!</h4><hr>";
+    }
+}
+
+function hash_password($password) {
+    /*
+   Blowfish hashing with a salt as follows: "$2a$", "$2x$" or "$2y$", a two digit cost parameter, "$", and 22 characters from the alphabet "./0-9A-Za-z". Using characters outside of this range in the salt will cause crypt() to return a zero-length string.
+
+    To summarise, developers targeting only PHP 5.3.7 and later should use "$2y$" in preference to "$2a$".
+
+    crypt ( string $str [, string $salt ] ) : string
+    */
+    $hash_format = "$2y$10$";
+    $salt = "Th1sSaltHasT0AtLeast22";
+
+    echo "Hash format : <b>$hash_format</b><br>"; 
+    echo "Salt : <b>$salt</b><br><br>";
+
+    $hashFormat_and_salt = $hash_format . $salt; 
+    $password = crypt($password, $hashFormat_and_salt);
+
+    return $password;
+}
+
+function check_duplicate($username) {
+    /*
+    If $connection isn't global, it means that $connection will be a local scope variable and the value in $connection will not be from db.php, it will mess up the webpage. 
+    */
+    global $connection;
+
+    $query  = "SELECT * FROM users WHERE ";
+    $query .= "username = '$username'";
+
+    $result = mysqli_query($connection, $query); 
+
+    $num_rows = mysqli_num_rows($result); // Return the number of rows for the said query.
+
+    echo "<p>$query</p>";
+
+    if ($num_rows > 0) { // IF row is greater than 0, username exists in database.
+        echo "<p><b>$username</b> exists in database!</p>";
+        return TRUE; 
+    }
+
+    else { // IF row is 0, username doesn't exist in database.
+        return FALSE;
     }
 }
 

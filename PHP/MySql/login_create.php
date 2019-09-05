@@ -7,15 +7,27 @@ if ( isset($_POST["create"]) ) { // IF submit button is pressed.
 
     $password = $_POST["password"]; // Password taken from password input field in the webpage.
 
-    /*
-    Prevent SQL injection by turning quote(') into (\') thus escaping it. 
+    if ($username && $password) {
+        /*
+        Prevent SQL injection by turning quote(') into (\') thus escaping it. 
 
-    SELECT * FROM users WHERE username = '2admin\' #' AND password = '2password'
-    */
-    $username = mysqli_real_escape_string($connection, $username);
-    $password = mysqli_real_escape_string($connection, $password);
+        SELECT * FROM users WHERE username = '2admin\' #' AND password = '2password'
+        */
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
 
-    create_row($username, $password);
+        $username_found = check_duplicate($username); 
+
+        if (!$username_found) {
+            // IF duplicate username isn't found, hash password and create user.
+            $password = hash_password($password); // Hash password.
+            create_row($username, $password); // Create user.
+        }
+    }
+
+    else {
+        echo "<p>Username and/or Password field must not be blank!</p>";
+    }
 }
 
 ?>

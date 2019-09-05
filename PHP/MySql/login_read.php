@@ -25,12 +25,12 @@ if ( isset($_POST["read"]) ) { // IF submit button is pressed.
 
 <form action="login_read.php" method="post">
 
-    <h4 class="text">Display login account</h4><br>
+    <div class="container">
+        <h4 class="text">Display login account</h4><br>
 
-    <input class="btn btn-primary" type="submit" name="read" value="Read"> <!-- btn & btn-primary to make buttons looks nicer -->
-
+        <input class="btn btn-primary" type="submit" name="read" value="Read"> <!-- btn & btn-primary to make buttons looks nicer -->
+    </div>
 </form> 
-
 
 </body>
 </html>
