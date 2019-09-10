@@ -1,7 +1,7 @@
 <?php
 
 $cookieName = "MyCookie";
-$cookieValue = 50; 
+$cookieValue = 120; 
 
 // Cookie set to expire in a week.
 $cookieExpiry = time() + (60 * 60 * 24 * 7); // 60s(1min), 60m(1hr), 24hr(1day), 7days(1wk)
@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
     $myName = $_POST["myName"];
     
     if ($myName) {
-        echo "Name : $myName<br>";
+        echo "<p>Name : $myName</p>";
 
         $secretCookieName = "MySecretCookie"; 
         $secretCookieValue = $myName;
@@ -21,6 +21,8 @@ if (isset($_POST["submit"])) {
         $secretCookieExpiry = time() + (60 * 60 * 24 * 7 * 4); // 60s(1min), 60m(1hr), 24hr(1day), 7days(1wk), 4wks(1mth)
 
         setcookie($secretCookieName, $secretCookieValue, $secretCookieExpiry);
+
+        echo "<p>Cookie <b>SET</b>!<hr>";
     } else {
         echo "<p>Name must not be empty!</p>";
     }
@@ -42,10 +44,32 @@ if (isset($_POST["submit"])) {
 </head>
 <body>
 
+<?php 
+
+// Still buggy.
+
+if (isset($_COOKIE[$cookieName])) { // IF cookie is SET, assign cookie value to $cName.
+    $cName = $_COOKIE[$cookieName];
+} else {
+    $cName = "<b>NOT SET!</b>"; // To be used for echo later.
+}
+
+echo "<p>Value 1 : $cName</p><hr>"; 
+
+if (isset($secretCookieName)) { // IF cookie is set, assign cookie value to $scName.
+    $scName = $_COOKIE[$secretCookieName]; 
+} else {
+    $scName = "<b>NOT SET!</b>"; // To be used for echo later.
+}
+
+echo "<p>Value 2 : $scName</p><hr>";
+
+?>
+
 <div class="container">
     <div class="col-sm-6"> 
 
-        <h2 class="text">Cookie</h2><hr>
+        <h2 class="text">Cookie Creator</h2><hr>
 
         <form action="cookie.php" method="POST">
             <div class="form-group">
