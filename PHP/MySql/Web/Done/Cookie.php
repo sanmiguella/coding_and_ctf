@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
 
 <?php 
 
-// Still buggy.
+// Still buggy. 
 
 if (isset($_COOKIE[$cookieName])) { // IF cookie is SET, assign cookie value to $cName.
     $cName = $_COOKIE[$cookieName];
