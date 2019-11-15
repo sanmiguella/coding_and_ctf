@@ -16,7 +16,7 @@ parser.add_option("-m", "--mac", dest="newMac", help="New mac address")
 interface = options.interface
 newMac = options.newMac
 
-print("Changing mac address for interface " + interface + " to " + newMac)
+print("[+] Changing mac address for interface " + interface + " to " + newMac + "\n")
 
 # Every command is a separate string
 subprocess.call(["ifconfig", interface, "down"]) # Brings interface down 
