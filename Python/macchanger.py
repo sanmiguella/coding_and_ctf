@@ -15,8 +15,15 @@ def getArguments():
     parser.add_option("-i", "--interface", dest="interface", help="Interface for mac address change")
     parser.add_option("-m", "--mac", dest="new_mac", help="New mac address") 
 
-    # Return values to the calling function()
-    return parser.parse_args()
+    (options, arguments) = parser.parse_args() 
+
+    if not options.interface: # If user doesn't input an interface
+        parser.error("Please specify an interface, use --help for more info.")
+
+    elif not options.new_mac: # If user doesn't input a mac address
+        parser.error("Please specifiy a mac address, use --help for more info.")
+
+    return options # If user input both interface and mac address
 
 
 # Function must be defined first here before calling it later
@@ -29,5 +36,6 @@ def changeMacAddress(interface, new_mac):
     subprocess.call(['ifconfig', interface]) # Shows the interface details
 
 
-(options, arguments) = getArguments()
-changeMacAddress(options.interface, options.new_mac)
+options = getArguments() # Gets argument from user
+changeMacAddress(options.interface, options.new_mac) # Changes mac address
+
