@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 # Import the required modules for this program to work
-import subprocess
-import optparse
+import subprocess, optparse, re
 
 # To restore to original mac addr:
 # root@kali:~/scripts# ethtool -P eth0
@@ -37,5 +36,17 @@ def changeMacAddress(interface, new_mac):
 
 
 options = getArguments() # Gets argument from user
-changeMacAddress(options.interface, options.new_mac) # Changes mac address
+#changeMacAddress(options.interface, options.new_mac) # Changes mac address
 
+ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
+
+print(ifconfig_result) # Prints ifconfig_results to the console
+
+# Using regex filter on ifconfig_results because we are only interested in mac address
+match_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
+
+if match_result: # If there is a match
+    print(match_result.group(0))
+
+else: # If there isn't a match
+    print("[-] Could not read MAC address.")
