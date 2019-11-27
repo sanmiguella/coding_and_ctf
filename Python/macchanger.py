@@ -34,19 +34,28 @@ def changeMacAddress(interface, new_mac):
     subprocess.call(['ifconfig', interface, 'up']) # Brings interface up
     subprocess.call(['ifconfig', interface]) # Shows the interface details
 
+def get_current_mac(interface):
+    ifconfig_result = subprocess.check_output(["ifconfig", interface])
+
+    # Using regex filter on ifconfig_results because we are only interested in mac address
+    match_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
+
+    if match_result: # If there is a match
+        return(match_result.group(0))
+
+    else: # If there isn't a match
+        print("[-] Could not read MAC address.")
 
 options = getArguments() # Gets argument from user
+current_mac = get_current_mac(options.interface) # Calls function to get the current mac address
+
+'''
+if current_mac: # If there is a value inside current_mac variable
+    print("Current MAC = " + current_mac) # Print current mac address to the console
+'''
+
+# So that when there's no value: None, it will display as None
+print("Current MAC = " + str(current_mac)) 
+
 #changeMacAddress(options.interface, options.new_mac) # Changes mac address
 
-ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
-
-print(ifconfig_result) # Prints ifconfig_results to the console
-
-# Using regex filter on ifconfig_results because we are only interested in mac address
-match_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
-
-if match_result: # If there is a match
-    print(match_result.group(0))
-
-else: # If there isn't a match
-    print("[-] Could not read MAC address.")
