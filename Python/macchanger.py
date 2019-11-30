@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Import the required modules for this program to work
-import subprocess, optparse, re
+import subprocess, optparse, re, sys
 
 # To restore to original mac addr:
 # root@kali:~/scripts# ethtool -P eth0
@@ -27,35 +27,42 @@ def getArguments():
 
 # Function must be defined first here before calling it later
 def changeMacAddress(interface, new_mac):
-    print('[+] Changing mac address for ' + interface + ' to ' + new_mac + '\n') 
+    print('[+] Changing mac address for ' + interface + ' to ' + new_mac) 
 
     subprocess.call(['ifconfig', interface, 'down']) # Brings interface down
     subprocess.call(['ifconfig', interface, 'hw', 'ether', new_mac]) # Changes MAC addr
     subprocess.call(['ifconfig', interface, 'up']) # Brings interface up
-    subprocess.call(['ifconfig', interface]) # Shows the interface details
 
 def get_current_mac(interface):
-    ifconfig_result = subprocess.check_output(["ifconfig", interface])
+    try:
+        ifconfig_result = subprocess.check_output(["ifconfig", interface])
 
-    # Using regex filter on ifconfig_results because we are only interested in mac address
-    match_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
+        # Using regex filter on ifconfig_results because we are only interested in mac address
+        match_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
 
-    if match_result: # If there is a match
-        return(match_result.group(0))
+        if match_result: # If there is a match
+            return(match_result.group(0))
 
-    else: # If there isn't a match
-        print("[-] Could not read MAC address.")
+        else: # If there isn't a match
+            print("[-] Could not read MAC address.")
+
+    # If there are errors for example, -i lo1, program exit with an error status
+    except subprocess.CalledProcessError as e:
+        sys.exit(1)
 
 options = getArguments() # Gets argument from user
 current_mac = get_current_mac(options.interface) # Calls function to get the current mac address
 
-'''
-if current_mac: # If there is a value inside current_mac variable
-    print("Current MAC = " + current_mac) # Print current mac address to the console
-'''
-
 # So that when there's no value: None, it will display as None
 print("Current MAC = " + str(current_mac)) 
 
-#changeMacAddress(options.interface, options.new_mac) # Changes mac address
+changeMacAddress(options.interface, options.new_mac) # Changes mac address
+current_mac = get_current_mac(options.interface) # Calls function to get the current mac address
 
+# If current mac address is equal to the mac address that was given as argument
+if current_mac == options.new_mac: 
+    print("[+] Mac address was successfully changed to " + current_mac)
+
+# IF current mac address is not equal to the mac address that was given as argument
+else:
+    print("[-] Mac address change was not successful.")
