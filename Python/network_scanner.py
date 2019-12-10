@@ -26,16 +26,25 @@ def scan(ip):
 
 	# srp - send and receive
 	# List - Arrays in python
-	answered_list = scapy.srp(arp_request_broadcast, timeout=1)[0]	
+	answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]	
+	
+	# Banner
+	print "-----" * 10
+	print "IP" + "\t" * 3 + "MAC"
+	print "-----" * 10 
+
+	clients_list = []
 
 	for element in answered_list:	
-		print "\n" + "=====" * 10
-		print "Reply from"
-		print "=====" * 10
-		print "IP  ~ " + element[1].psrc 
-		print "MAC ~ " + element[1].hwsrc
-		print "=====" * 10
+		# Dictionary of IP and MAC address
+		clients_dict = {"ip":element[1].psrc, "mac":element[1].hwsrc}
+
+		# Adds dictionary into list
+		clients_list.append(clients_dict)
+		print  clients_dict["ip"] + "\t" * 2 + clients_dict["mac"]
+
 	print "\n"
+	print clients_list
 
 	# print str(answered_list.summary()) + "\n"
 
