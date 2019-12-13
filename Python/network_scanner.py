@@ -1,7 +1,27 @@
 #!/usr/bin/env python
 
 import scapy.all as scapy
-import struct
+import optparse
+
+def getArguments():
+	parser = optparse.OptionParser()
+
+	# Arguments for the progra:
+	#	-i : subnetwork ip address
+	#	-m : subnet mask
+	parser.add_option("-i", "--ip", dest="ip_addr", help="Subnetwork ip address")
+	parser.add_option("-m", "--mask", dest="mask", help="Subnet mask")
+
+	(options, arguments) = parser.parse_args()
+
+	if not options.ip_addr: # If user doesn't specify ip address
+		parser.error("Please specify an ip address, use --help for more info")
+	elif not options.mask: # If user doesn't specify subnet mask
+		parser.error("Please specify subnet mask, use --help for more info")
+	
+	# Returns both the ip address and subnet mask to the calling variable
+	return options 
+
 
 def scan(ip):
 	# Set the required destination IP field
@@ -36,12 +56,13 @@ def print_result(results_list):
 	print "IP" + "\t" * 3 + "MAC"
 	print "-----" * 10 
 
+	# Prints every client in results list
 	for client in results_list:
-		#print(client)
 		print  client["ip"] + "\t" * 2 + client["mac"]
 
 
-scan_results = scan("192.168.2.0/24")
-print_result(scan_results)
-
+options = getArguments() # Get argument
+ip = options.ip_addr + "/" + options.mask # Form argument to be passed to scan()
+scan_results = scan(ip) # Scans the network
+print_result(scan_results) # Print result to user in readable form
 
