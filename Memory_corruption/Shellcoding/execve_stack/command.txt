@@ -1,0 +1,1 @@
+objdump -D -M intel ./execve | grep '[0-9a-f]:' | grep -v format | cut -d $'\t' -f2 | tr -d ' \n' | sed 's/../\\x&/g' | sed 's/^/"/g' | sed 's/$/"/g' | tee shellcode.txt
