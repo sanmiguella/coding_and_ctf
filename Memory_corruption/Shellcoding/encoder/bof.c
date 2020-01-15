@@ -3,18 +3,20 @@
 
 void overflow(char *src)
 {
-    char dest[256];
+    char buf[256];
 
-    strcpy(dest, src);
-    printf("[+] You entered : %s\n", dest);
+    strcpy(buf, src);
+    printf("\n[+] You entered : %s\n", buf);
 }
 
-int main(int argc, char *argv[]) 
+int main()
 {
-    if (argc > 1) {
-       overflow(argv[1]); 
-    } 
-    else {
-       printf("[!] You did not enter any data...\n");
-    }
+    char buf[512]; 
+    
+    printf("[+] Please enter data :\n"); 
+    gets(buf); 
+
+    overflow(buf);
+
+    return 0;
 }
