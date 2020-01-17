@@ -9,7 +9,7 @@ fi
 
 FILE="test.c"
 if [ -f "$FILE" ]; then
-    echo "[+]Compiling $FILE to $1.."
+    echo "[+]Compiling $FILE to test"
     gcc -m32 -zexecstack -fno-stack-protector -no-pie $FILE -o test
 else
     echo "[!]$FILE not found.."
