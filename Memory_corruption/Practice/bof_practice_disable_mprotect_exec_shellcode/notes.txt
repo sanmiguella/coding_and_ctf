@@ -1,0 +1,1 @@
+Since shellcode has setresuid(0,0,0) , be sure to chown root:root bof and chmod +s bof
