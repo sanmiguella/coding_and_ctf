@@ -1,0 +1,1 @@
+objdump -D -M intel shell | grep -v file | grep -v Disassembly | grep '[0-9a-f]:' | cut -d $'\t' -f2 | tr -d ' \n' | sed 's/../\\x&/g' | sed 's/^/"/g' | sed 's/$/"/g' | tee shellcode.txt
