@@ -1,0 +1,1 @@
+objdump -D -M intel ./decoder | grep '[a-f0-9]:' | grep -v format | grep -v Disassembly | cut -d $'\t' -f2 | tr -d ' \n' | sed 's/../\\x&/g' | sed 's/^/"/g' | sed 's/$/"/g' | tee encoder.txt
