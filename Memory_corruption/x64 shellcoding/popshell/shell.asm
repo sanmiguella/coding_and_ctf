@@ -6,7 +6,6 @@ _start:
     ; Zero-ing of registers rax-rcx & rsi-rdi
     xor rax, rax
     xor rbx, rbx
-    xor rcx, rcx
 
     xor rdi, rdi
     xor rsi, rsi
