@@ -27,6 +27,9 @@ _start:
 	xor rax, rax
 	mov rax, repeat_buffer
 
+	xor rax, rax
+	mov rax, buffer
+
         ; exit gracefully
 
         mov rax, 60
@@ -43,7 +46,7 @@ section .data
         var3: dd 0xaabbccdd		; Define dword
         var4: dq 0xaabbccdd11223344	; Define qword
 
-        repeat_buffer: times 123 db 0x41
+        repeat_buffer: times 128 db 0x41
 
-section .bss
+section .bss				; Reserving uninitialized data space
         buffer: resb 64
