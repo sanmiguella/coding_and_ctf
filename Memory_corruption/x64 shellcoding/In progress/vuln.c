@@ -2,7 +2,7 @@
 #include <string.h>
 
 /* To compile:
-    gcc -fno-stack-protector -zexecstack vuln.c -o vuln
+    gcc -no-pie -fno-stack-protector -zexecstack vuln.c -o vuln
 */
 
 void overflow() {
