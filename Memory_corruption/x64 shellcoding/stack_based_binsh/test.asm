@@ -19,7 +19,7 @@ retain_root_priv:
     add al, 119 ; Syscall for setresgid
     syscall     ; Calls kernel
 
-popShell:
+pop_shell:
     xor rax, rax
     
     push rax    ; For null terminator
