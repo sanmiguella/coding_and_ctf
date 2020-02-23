@@ -11,5 +11,5 @@ if [ -f $1.c ]; then
     echo "[+] Compiling $1.c to $1"
     gcc -fno-stack-protector -zexecstack -no-pie $1.c -o $1
 else
-    echo "[-] $1.c not found!"
+    echo "[!] $1.c not found!"
 fi
