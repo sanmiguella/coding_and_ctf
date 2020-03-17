@@ -2,11 +2,12 @@
 CFLAGS=-fno-stack-protector -no-pie -zexecstack
 
 # Will be used for make clean later
-binaries=ex1 ex2
+binaries=ex1 ex2 ex3
 
 # Associate source code with corresponding binary name
 ex1: ex1.c
 ex2: ex2.c
+ex3: ex3.c
 
 # Make all will clean directory too
 all: clean $(binaries)
