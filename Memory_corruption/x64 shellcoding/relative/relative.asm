@@ -4,8 +4,8 @@ section .text
 
 _start:
     xor rax, rax            ; Zeroes rax register
-    mul rcx
-    mul rdx
+    mul rcx                 ; Zeroes rcx
+    mul rdx                 ; Zeroes rdx
     add cl, 8               ; rcx = 8 , length of /bin//sh
 
     push rax                ; For null terminator
