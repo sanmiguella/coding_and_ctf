@@ -119,7 +119,7 @@ def display_even():
         print("\n%s\n" % output)
         pause()
 
-    except:
+    except ValueError:
         print("\nInput must be numeric!\n")
         minor_pause()
 
