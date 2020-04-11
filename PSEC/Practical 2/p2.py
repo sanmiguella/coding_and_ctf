@@ -35,6 +35,7 @@ def odd_or_even():
         if (user_input % 2) == 0:  # No remainder even number
             print("\n%d is an even number.\n" % user_input)
             pause()
+            
         else:                     # Any remainder odd number
             print("\n%d is an odd number.\n" % user_input)
             pause()
@@ -108,6 +109,7 @@ def display_even():
             for number in range(start_number, end_number):
                 if (number % 2 == 0):
                     output += str(number) + "\t"
+
         else:
             # For loop decrement, highest to lowest
             for number in range(start_number -1, end_number, -1):
