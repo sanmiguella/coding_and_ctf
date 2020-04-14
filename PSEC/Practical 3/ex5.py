@@ -65,7 +65,6 @@ def search_service():
 
     if len(port_dict) > 0: # If dictionary is empty, show an error message, else continue as per normal
 
-
         service_input = input("Enter service: ").strip()
 
         not_found = True
