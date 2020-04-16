@@ -106,7 +106,7 @@ def search_food(food_to_search):
         print_dishes(similar_dishes)
 
         print("")
-        mini_pause()
+        longer_pause()
         clear()
 
         order_dishes(similar_dishes)
