@@ -195,8 +195,7 @@ def menu():
     print("1. Display Today's Menu")
     print("2. Search Menu")
     print("3. Display Cart")
-    print("4. Modify Cart")
-    print("5. Check Out\n")
+    print("4. Check Out\n")
 
     choice = input("Please input your choice of action (ENTER to exit): ")
     return(choice)
@@ -220,7 +219,7 @@ def start():
                 print("\nYou have not ordered anything so menu is not accessible!")
                 pause()
 
-        elif (choice == "5"):
+        elif (choice == "4"):
             if len(ordered_food_list) > 0:  # If cart isnt empty, calls a function to display a nice formatted summaryt of ordered items, else prints out an error message
                 tabulate_orders()
 
