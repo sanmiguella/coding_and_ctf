@@ -80,7 +80,7 @@ def search_service():
                     break
             
             if not_found:
-                print(f"\n{service} not found!")
+                print(f"\n{service_input} not found!")
                 pause()
         
         else:
