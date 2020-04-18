@@ -46,7 +46,7 @@ def display_dict():
 
     # Header
     print("=" * 64)
-    print("Menu for today")
+    print("\t\t\tMenu for today")
     print("=" * 64)
 
     # Food menu starts at 1
@@ -85,7 +85,7 @@ def tabulate_orders():
 
         # Food Quantity Price
         # A    x1       $1.20
-        print("%s\tx%d\t\t$%.2f" %(food_format, quantity, price))
+        print("%s\t%d\t\t$%.2f" %(food_format, quantity, price))
 
     # Footer
     footer_total = "Total".ljust(24)
@@ -120,7 +120,8 @@ def order_food(food_list, price_list):
 
             if choice == 0:  
                 if len(ordered_food_list) > 0:  # If cart isn't empty, prints out the cart
-                    print(f"\nYou have ordered {ordered_food_list}")  
+                    clear()
+                    print(f"You have ordered {ordered_food_list}")  
                     pause()
 
                 else:   # If cart is empty, prints out an error message
@@ -186,18 +187,156 @@ def search_menu():
             print("\nPlease enter only strings")
             pause()
 
+def remove_dish_from_cart(selected_dish):
+    # Counts the occurences of the selected dish from the ordered_food_list
+    quantity = ordered_food_list.count(selected_dish)
+
+    try:
+        quantity_to_be_removed = int(input(f"Input the quantity of {selected_dish} to be removed: "))
+
+        if quantity_to_be_removed > quantity:   # If the quantity to be removed is greater than the current quantity in the cart
+            print(f"\nYou can only remove a total of {quantity} x {selected_dish} from the cart!")
+            pause()
+
+        elif quantity_to_be_removed < 0:    # If the quantity to be removed is lesser than 0
+            print("\nNegative values are not accepted!")
+            pause()
+        
+        elif quantity_to_be_removed == 0:   # If user has chosed not to remove any quantity of the selected dish
+            print(f"\nYou have chosen not to remove any {selected_dish} from the cart!")
+            pause()
+
+        else:
+            removed_items = 0
+            
+            # Loop continues as long as the current count of removed items is not equals to the desired number of items to be removed
+            while removed_items < quantity_to_be_removed:
+                ordered_food_list.remove(selected_dish)
+                removed_items += 1
+
+            print(f"\nRemoved {quantity_to_be_removed} x {selected_dish} from the cart!")
+            pause()
+
+    except ValueError:  # If user inputs anything besides numeric values
+        print("\nOnly numeric values are accepted!")
+        pause()
+
+def add_dish_to_cart(selected_dish):
+    try:
+        quantity_to_be_added = int(input(f"Input the quantity of {selected_dish} to be added: "))
+
+        if quantity_to_be_added < 0:    # If user inputs negative values
+            print("\nNegative values are not accepted!")
+            pause()
+
+        elif quantity_to_be_added == 0: # If user chosed not to add any quantity of the selected dish
+            print(f"\nYou have chosen not to add any {selected_dish} to the cart!")
+            pause()
+
+        else:
+            count = 0
+
+            # Loop continues as long as the current count of items to be added is not equals to the desired number of items to be added
+            while count < quantity_to_be_added:
+                ordered_food_list.append(selected_dish)
+                count += 1
+
+            print(f"\nAdded {quantity_to_be_added} x {selected_dish} to the cart!")
+            pause()
+
+    except ValueError:
+        print("\nOnly numeric values are accepted!")
+        pause()
+
+def modify_cart():
+    while True:
+        try:
+            clear()
+            unique_list = [] 
+
+            # Given [1, 2, 3, 1, 1]. If 1 is not inside unique_list, adds it as an element to unique_list, else do nothing
+            for food in ordered_food_list:
+                if food not in unique_list:
+                    unique_list.append(food)
+
+            # Header
+            header_food = "Food".ljust(24)
+            print("=" * 64)
+            print("Nr\t%s\tQuantity" % header_food)
+            print("=" * 64)
+
+            count = 0
+            for food in unique_list:
+                food_format = food
+                food_format = food_format.ljust(24)
+
+                quantity = ordered_food_list.count(food)
+
+                '''
+                Index Food Quantity
+                1     A    1 
+                '''     
+                print("%s\t%s\t%d" %(count +1, food_format, quantity))
+
+                count += 1
+
+            select_food = int(input("\nPlease select the dish number to modify or enter 0 to go back to the main menu: "))
+
+            len_unique_list = len(unique_list)
+            
+            if select_food == 0:    # Return to main menu
+                print("\nReturning back to the main menu")
+                mini_pause()
+                break
+
+            elif select_food < 1 or select_food > len_unique_list:  # Out of bound error checking to ensure that user only selects food that is being on the menu
+                print(f"\nOnly selection 1 to {len_unique_list} are valid!")
+                pause()
+
+            else:
+                selected_dish = unique_list[select_food -1] # Due to the fact that index starts at 0
+               
+                clear()
+                print(f"1. Remove {selected_dish}")
+                print(f"2. Add {selected_dish}")
+                modify_choice = int(input("\nChoice: "))
+
+                if modify_choice == 1:
+                    clear()
+                    remove_dish_from_cart(selected_dish)
+
+                    # If there are no more food in the cart, exits loop
+                    if len(ordered_food_list) == 0:
+                        clear()
+                        print("You have no items in the cart!")
+                        pause()
+                        break
+
+                elif modify_choice == 2:
+                    clear()
+                    add_dish_to_cart(selected_dish)
+
+                else:
+                    print("\nInvalid input!")
+                    mini_pause()
+
+        except ValueError:
+            print("\nOnly numeric values are accepted!")
+            mini_pause()
+
 def menu():
     clear()
 
     print("=" * 64)
-    print("Welcome to SPAM")
+    print("\t\t\tWelcome to SPAM")
     print("=" * 64)
     print("1. Display Today's Menu")
     print("2. Search Menu")
     print("3. Display Cart")
-    print("4. Check Out\n")
+    print("4. Modify Cart")
+    print("5. Check Out")
 
-    choice = input("Please input your choice of action (ENTER to exit): ")
+    choice = input("\nPlease input your choice of action (ENTER to exit): ")
     return(choice)
 
 def start():
@@ -212,15 +351,23 @@ def start():
             search_menu()
 
         elif (choice == "3"):
-            if len(ordered_food_list) > 0:  # If cart isnt empty, display items in the cart, else prints out an error message
+            if len(ordered_food_list) > 0:  # If cart isn't empty, display items in the cart, else prints out an error message
                 display_cart()
 
             else:
                 print("\nYou have not ordered anything so menu is not accessible!")
                 pause()
-
+        
         elif (choice == "4"):
-            if len(ordered_food_list) > 0:  # If cart isnt empty, calls a function to display a nice formatted summaryt of ordered items, else prints out an error message
+            if len(ordered_food_list) > 0:
+                modify_cart()
+
+            else:
+                print("\nYou have not ordered anything so menu is not accessible!")
+                pause()
+
+        elif (choice == "5"):
+            if len(ordered_food_list) > 0:  # If cart isn't empty, calls a function to display a nice formatted summary of ordered items, else prints out an error message
                 tabulate_orders()
 
             else:
