@@ -36,15 +36,11 @@ def read_data(data_file):
         dish_dict[food.strip()] = float(price) 
 
 def display_cart():
-    # Unformatted printing of the items which has been added to the cart
     clear()
 
-    unique_list = []
-
-    # Given [1, 2, 3, 1, 1]. If 1 is not inside unique_list, adds it as an element to unique_list, else do nothing
-    for food in ordered_food_list:
-        if food not in unique_list:
-            unique_list.append(food)
+    # https://www.geeksforgeeks.org/python-get-unique-values-list/
+    list_set = set(ordered_food_list)
+    unique_list = (list(list_set))
 
     # Header
     header_food = "Food".ljust(24)
@@ -77,10 +73,7 @@ def display_cart():
 def display_dict():
     clear()
 
-    # Header
-    print("=" * 64)
-    print("\t\t\tMenu for today")
-    print("=" * 64)
+    print_header("Menu for today")
 
     # Food menu starts at 1
     count = 1
@@ -99,9 +92,8 @@ def order_food(food_list, food_being_searched):
         try:
             clear()          
 
-            print("=" * 64)
-            print(f"\t\tDishes similar to \"{food_being_searched}\"")
-            print("=" * 64)
+            header_message = f"Dishes similar to \"{food_being_searched}\""
+            print_header(header_message)
 
             count = 0
             for food in food_list:
@@ -266,12 +258,10 @@ def modify_cart():
     while True:
         try:
             clear()
-            unique_list = [] 
-
-            # Given [1, 2, 3, 1, 1]. If 1 is not inside unique_list, adds it as an element to unique_list, else do nothing
-            for food in ordered_food_list:
-                if food not in unique_list:
-                    unique_list.append(food)
+            
+            # https://www.geeksforgeeks.org/python-get-unique-values-list/
+            list_set = set(ordered_food_list)
+            unique_list = (list(list_set))
 
             # Header
             header_food = "Food".ljust(24)
@@ -309,8 +299,8 @@ def modify_cart():
                
                 clear()
 
-                print(f"1. Remove {selected_dish}")
-                print(f"2. Add {selected_dish}")
+                print(f"1. Remove {selected_dish} from the cart")
+                print(f"2. Add {selected_dish} to the cart")
                 modify_choice = int(input("\nChoice: "))
 
                 if modify_choice == 1:
@@ -338,12 +328,15 @@ def modify_cart():
 
             mini_pause()
 
+def print_header(header_message):
+    print("=" * 64)
+    print(f"\t\t\t{header_message}")
+    print("=" * 64)
+
 def menu():
     clear()
 
-    print("=" * 64)
-    print("\t\t\tWelcome to SPAM")
-    print("=" * 64)
+    print_header("Welcome to SPAM")
     print("1. Display Today's Menu")
     print("2. Search Menu")
     print("3. Display Cart")
