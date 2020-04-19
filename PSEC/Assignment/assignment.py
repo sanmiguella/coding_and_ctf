@@ -36,7 +36,7 @@ def read_data(data_file, dict):
     with open(data_file, 'r') as f:
         lines = f.read().splitlines()
     
-    # Parsing every line and separating it by using ',' as a delimiter. food is the key while price is the value
+    # Parsing every line and separating it by using ',' as a delimiter.
     for line in lines:
         name, price = line.split(",")
         dict[name.strip()] = float(price) 
