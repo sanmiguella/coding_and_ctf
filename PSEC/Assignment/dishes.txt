@@ -1,4 +1,6 @@
-beef curry,12.00
-curry prata,4.20
-kimchi fried rice,8.50
-katsu curry,10.00
+Beef Curry,4.00
+Curry Prata,2.50
+Kimchi Fried Rice,4.50
+Katsu Curry,5.00
+Chicken Rice,4.00
+Fish And Chips,6.00
