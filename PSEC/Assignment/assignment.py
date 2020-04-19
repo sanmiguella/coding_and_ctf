@@ -3,14 +3,20 @@ import time
 
 SLEEP_DURATION = 1      # Duration of mini pause
 
+discount_dict = {}      # Dictionary to store discount rates
 dish_dict = {}          # Dictionary to store initial food as well as price
 ordered_food_list = []  # List to store food which has been ordered
+discount_rate = 0       # Discount rate in percentage(%)
 
 # For use in initially reading the data file that contains food as well as pricing of the said food
 current_path = os.getcwd()
 subdir = "\\Assignment\\"
+
 data_file = "dishes.txt"
-full_path = current_path + subdir + data_file
+discount_file = "discount.txt"
+
+full_dishes_file_path = current_path + subdir + data_file
+full_discount_file_path = current_path + subdir + discount_file
 
 def clear():
     # Clears screen of any input
@@ -25,15 +31,15 @@ def pause():
     print("")
     os.system("pause")
 
-def read_data(data_file):
+def read_data(data_file, dict):
     # File is opened for reading and split according to newlines
     with open(data_file, 'r') as f:
         lines = f.read().splitlines()
     
     # Parsing every line and separating it by using ',' as a delimiter. food is the key while price is the value
     for line in lines:
-        food, price = line.split(",")
-        dish_dict[food.strip()] = float(price) 
+        name, price = line.split(",")
+        dict[name.strip()] = float(price) 
 
 def display_cart(option):
     clear()
@@ -60,7 +66,8 @@ def display_cart(option):
         print("%s.\t%s\t%d\t\t$%.2f" % (count +1, food_format, quantity, price))
         count += 1
 
-    if option == "full":
+    # Option to display footer in full which includes total amount
+    if option == "full":    
         # Footer
         footer_total = "Total".ljust(24)
 
@@ -69,7 +76,28 @@ def display_cart(option):
         print("-" * 64)
 
         return total
-    
+
+    # Option to display footer in discount format which includes total, grand total, discounted rate, discounted price
+    elif option == "discount":
+        # Footer
+        footer_total = "Subtotal".ljust(24)
+        print("-" * 64)
+        print("%s\t\t%d\t\t$%.2f" % (footer_total, len(ordered_food_list), total))
+
+        discounted_price = total * (discount_rate / 100.0)
+        footer_total = f"Less {int(discount_rate)}% discount".ljust(24)
+        print("%s\t\t\t\t$%.2f" % (footer_total, discounted_price))
+        
+        grand_total = total * ((100.0 - discount_rate) / 100.0)
+        footer_total = "Grand Total".ljust(24)
+        
+        print("=" * 64)
+        print("%s\t\t%d\t\t$%.2f" % (footer_total, len(ordered_food_list), grand_total))
+        print("=" * 64)
+
+        print("\nThank you for using SPAM. Please pay a total of($%.2f)" % grand_total)
+
+    # Option that does not include total, grand total, discounted rate, discounted price
     elif option == "basic":
         print("-" * 64)
 
@@ -326,6 +354,33 @@ def print_header(header_message):
     print(f"{header_message}")
     print("=" * 64)
 
+def menu_discount(): 
+    global discount_rate    # To facilitate the change of values of global variable, else scope will be local
+    discount_rate = 0   # Resetting discount rate
+
+    clear()
+
+    # Strips off whitespaces and makes it into a lowercase string
+    discount_coupon_name = input("Enter name of discount coupon: ").strip().lower()
+
+    coupon_found = False
+    for coupon_name in discount_dict: # Case insensitive searching, if the name of the discount coupon matches the coupon name in the dictionary then coupon_found is set to True
+        if discount_coupon_name == coupon_name.lower():
+            coupon_found = True
+
+    if coupon_found:    # coupon_found means coupon_found == True
+        discount_rate = discount_dict[discount_coupon_name]
+        print(f"\nThere is a [{int(discount_rate)}%] off purchases for [{discount_coupon_name}] discount coupon!")
+        
+        pause()
+        return(True)
+    
+    else:
+        print(f"\n[{discount_coupon_name}] discount coupon does not exist!")
+
+        pause()
+        return(False)
+
 def menu():
     clear()
 
@@ -336,7 +391,7 @@ def menu():
     print("4. Modify Cart")
     print("5. Check Out")
 
-    choice = input("\nPlease input your choice of action press [ENTER] to exit: ")
+    choice = input("\nPlease input your choice of action or press [ENTER] to exit: ")
 
     return(choice)
 
@@ -374,11 +429,22 @@ def start():
 
         elif (choice == "5"):
             if len(ordered_food_list) > 0:  # If cart isn't empty, calls a function to display a nice formatted summary of ordered items, else prints out an error message
-                total = display_cart("full")
+                while True:
+                    total = display_cart("full")
 
-                print("\nThank you for using SPAM. Please pay total of ($%.2f)" % total)
+                    discount = input("\nThank you for using SPAM. Please pay a total of ($%.2f)\n\nAlternatively, please press 'd' if you have a discount coupon or press [ENTER] to go back to the main menu: " % total)
 
-                pause()
+                    if discount == 'd': # If 'd' was entered, fires up the menu_discount() and gets its return value, if discount exists, shows its result, else, print out the full summary of the cart and prompts for a choice between entering discount or going back to the main menu
+                        discount_exist = menu_discount()
+                        
+                        if discount_exist:  # discount_exist means discount_exist == True
+                            display_cart("discount")
+                            pause()
+
+                            break
+                                            
+                    elif discount == "": # Exits back to main menu if user pressed enter
+                        break
 
             else:
                 print("\nYou have not ordered anything so menu is not accessible!")
@@ -399,6 +465,7 @@ def start():
             mini_pause()
             clear()
 
-read_data(full_path)
+read_data(full_dishes_file_path, dish_dict)
+read_data(full_discount_file_path, discount_dict)
 start()
 
