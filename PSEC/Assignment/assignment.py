@@ -1,7 +1,7 @@
 import os
 import time
 
-SLEEP_DURATION = 1  # Duration of mini pause
+SLEEP_DURATION = 1      # Duration of mini pause
 
 dish_dict = {}          # Dictionary to store initial food as well as price
 ordered_food_list = []  # List to store food which has been ordered
@@ -312,6 +312,7 @@ def modify_cart():
                         clear()
                         print("You have no items in the cart!")
                         pause()
+
                         break
 
                 elif modify_choice == 2:
@@ -344,6 +345,7 @@ def menu():
     print("5. Check Out")
 
     choice = input("\nPlease input your choice of action press [ENTER] to exit: ")
+
     return(choice)
 
 def start():
