@@ -35,7 +35,7 @@ def read_data(data_file):
         food, price = line.split(",")
         dish_dict[food.strip()] = float(price) 
 
-def display_cart():
+def display_cart(option):
     clear()
 
     # https://www.geeksforgeeks.org/python-get-unique-values-list/
@@ -44,9 +44,8 @@ def display_cart():
 
     # Header
     header_food = "Food".ljust(24)
-    print("=" * 64)
-    print("Nr\t%s\tQuantity\tPrice" % header_food)
-    print("=" * 64)
+    header = f"Nr\t{header_food}\tQuantity\tPrice"
+    print_header(header)
 
     total = 0
     count = 0
@@ -61,29 +60,29 @@ def display_cart():
         print("%s.\t%s\t%d\t\t$%.2f" % (count +1, food_format, quantity, price))
         count += 1
 
-    # Footer
-    footer_total = "Total".ljust(24)
+    if option == "full":
+        # Footer
+        footer_total = "Total".ljust(24)
 
-    print("-" * 64)
-    print("%s\t\t%d\t\t$%.2f" % (footer_total, len(ordered_food_list), total))
-    print("-" * 64)
+        print("-" * 64)
+        print("%s\t\t%d\t\t$%.2f" % (footer_total, len(ordered_food_list), total))
+        print("-" * 64)
 
-    return total
+        return total
+    
+    elif option == "basic":
+        print("-" * 64)
 
-def display_dict():
-    clear()
-
-    print_header("Menu for today")
-
-    # Food menu starts at 1
-    count = 1
-    for food in dish_dict:
+def display_food_list(food_list):
+    count = 0
+    for food in food_list:
+        # To ensure proper and even formatting across multiple entries
         food_format = food
-        food_format = food_format.ljust(24) # To ensure proper and even formatting of `index. food      :     price` across multiple entries
+        food_format = food_format.ljust(24)
 
-        print("%s. %s :\t\t$%.2f" %(count, food_format, float(dish_dict[food])))
-        count += 1 # If there aren't any increments, index will remain at 1
-        
+        print("%s. %s :\t\t$%.2f" %(count + 1, food_format, float(dish_dict[food])))
+        count += 1  # If there aren't any increments, index will remain at 1
+
 def order_food(food_list, food_being_searched):
     global ordered_food_list    # To allow modification of ordered_food_list, else its scope will be local instead of global
     max_dish = len(food_list)
@@ -95,22 +94,15 @@ def order_food(food_list, food_being_searched):
             header_message = f"Dishes similar to \"{food_being_searched}\""
             print_header(header_message)
 
-            count = 0
-            for food in food_list:
-                food_format = food
-                food_format = food_format.ljust(24) 
-
-                print("%s. %s :\t\t$%.2f" %(count +1, food_format, float(dish_dict[food])))
-
-                count += 1 # If not index will always remain as 1
-
+            display_food_list(food_list)
+            
             # Only accepts numeric input with try-except block
             choice = int(input(f"\nEnter the dish 1 to {max_dish} that you would like to order, or 0 to stop: "))
 
             if choice == 0:  
                 if len(ordered_food_list) > 0:  # If cart isn't empty, prints out the cart
                     clear()
-                    display_cart()
+                    display_cart("basic")
                     pause()
 
                 else:   # If cart is empty, prints out an error message
@@ -238,9 +230,8 @@ def add_dish_to_cart(selected_dish):
             mini_pause()
 
         else:
-            count = 0
-
             # Loop continues as long as the current count of items to be added is not equals to the desired number of items to be added
+            count = 0
             while count < quantity_to_be_added:
                 ordered_food_list.append(selected_dish)
                 count += 1
@@ -265,9 +256,8 @@ def modify_cart():
 
             # Header
             header_food = "Food".ljust(24)
-            print("=" * 64)
-            print("Nr\t%s\tQuantity" % header_food)
-            print("=" * 64)
+            header = f"Nr\t{header_food}\tQuantity"
+            print_header(header)
 
             count = 0
             for food in unique_list:
@@ -278,6 +268,8 @@ def modify_cart():
 
                 print("%s\t%s\t%d" %(count +1, food_format, quantity))
                 count += 1
+            
+            print("-" * 64)
 
             select_food = int(input("\nPlease select the dish number to modify or enter [0] to go back to the main menu: "))
             
@@ -331,7 +323,7 @@ def modify_cart():
 
 def print_header(header_message):
     print("=" * 64)
-    print(f"\t\t\t{header_message}")
+    print(f"{header_message}")
     print("=" * 64)
 
 def menu():
@@ -353,7 +345,9 @@ def start():
         choice = menu()
 
         if (choice == "1"):
-            display_dict()
+            clear()
+            print_header("Menu for today")
+            display_food_list(dish_dict)
             pause()
 
         elif (choice == "2"):
@@ -361,7 +355,7 @@ def start():
 
         elif (choice == "3"):
             if len(ordered_food_list) > 0:  # If cart isn't empty, display items in the cart, else prints out an error message
-                display_cart()
+                display_cart("basic")
                 pause()
 
             else:
@@ -380,7 +374,7 @@ def start():
 
         elif (choice == "5"):
             if len(ordered_food_list) > 0:  # If cart isn't empty, calls a function to display a nice formatted summary of ordered items, else prints out an error message
-                total = display_cart()
+                total = display_cart("full")
 
                 print("\nThank you for using SPAM. Please pay total of ($%.2f)" % total)
 
