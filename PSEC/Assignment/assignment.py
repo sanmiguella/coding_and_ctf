@@ -453,16 +453,16 @@ def start():
 
                     discount = input("\nThank you for using SPAM. Please pay a total of ($%.2f)\n\nAlternatively, please press 'd' if you have a discount coupon or press [ENTER] to go back to the main menu: " % total)
 
-                    if discount == 'd': # If 'd' was entered, fires up the menu_discount() and gets its return value, if discount exists, shows its result, else, print out the full summary of the cart and prompts for a choice between entering discount or going back to the main menu
+                    if discount == 'd':         # If 'd' was entered, fires up the menu_discount() and gets its return value, if discount exists, shows its result, else, print out the full summary of the cart and prompts for a choice between entering discount or going back to the main menu
                         discount_exist = menu_discount()
                         
-                        if discount_exist:  # discount_exist means discount_exist == True
+                        if discount_exist:      # discount_exist means discount_exist == True
                             display_cart("discount")
                             pause()
 
                             break
                                             
-                    elif discount == "": # Exits back to main menu if user pressed enter
+                    elif discount == "":        # Exits back to main menu if user pressed enter
                         break
 
             else:
