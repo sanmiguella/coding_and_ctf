@@ -43,8 +43,8 @@ def read_data(data_file, arg_dict, option):
             lines = f.read().splitlines()
         
         # Parsing every line and separating it by using ',' as a delimiter.
-        for line in lines: 
-            name, price = line.split(",")
+        for row in lines: 
+            name, price = row.split(",")
             arg_dict[name.strip()] = float(price) 
 
     elif option == "nested":    # Reading from file to nested dictionary
