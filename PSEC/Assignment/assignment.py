@@ -143,7 +143,7 @@ def order_food(food_list, food_being_searched):
             choice = int(input(f"\nEnter the dish 1 to {max_dish} that you would like to order, or 0 to stop: "))
 
             if choice == 0:  
-                if len(ordered_food_list) > 0:  # If cart isn't empty, prints out the cart
+                if len(ordered_food_list) > 0:          # If cart isn't empty, prints out the cart
                     clear()
                     display_cart("basic")
                     pause()
@@ -155,7 +155,7 @@ def order_food(food_list, food_being_searched):
 
                 break   # Breaks out of the endless while loop to order food and goes back to the main menu
 
-            elif choice < 1 or choice > max_dish:   # Out of bounds checking to prevent choice lesser than 1 or greater than the number of dish being displayed
+            elif choice < 1 or choice > max_dish:       # Out of bounds checking to prevent choice lesser than 1 or greater than the number of dish being displayed
                 print(f"\nChosen dish must be between 1 to {max_dish}!")
 
                 mini_pause()
@@ -371,7 +371,7 @@ def print_header(header_message):
 
 def menu_discount(): 
     global discount_rate    # To facilitate the change of values of global variable, else scope will be local
-    discount_rate = 0   # Resetting discount rate
+    discount_rate = 0       # Resetting discount rate
 
     clear()
 
@@ -383,7 +383,7 @@ def menu_discount():
         if discount_coupon_name == coupon_name.lower():
             coupon_found = True
 
-    if coupon_found:    # coupon_found means coupon_found == True
+    if coupon_found:        # coupon_found means coupon_found == True
         discount_rate = discount_dict[discount_coupon_name]
         print(f"\nThere is a [{int(discount_rate)}%] off purchases for [{discount_coupon_name}] discount coupon!")
         
