@@ -7,7 +7,7 @@ import csv
 SLEEP_DURATION = 1      # Duration of mini pause
 
 discount_dict = {}      # Dictionary to store discount rates
-nested_dish_dict = {}   # Dictionary to store nested dictionaries
+nested_dish_dict = {}   # Dictionary to store the whole monday to sunday dishes and price
 dish_dict = {}          # Dictionary to store initial food as well as price
 ordered_food_list = []  # List to store food which has been ordered
 discount_rate = 0       # Discount rate in percentage(%)
@@ -37,17 +37,17 @@ def pause():
     os.system("pause")
 
 def read_data(data_file, arg_dict, option):
-    if option == "basic":   # Reading from file to dictionary
+    if option == "basic":       # Reading from file to dictionary
         # File is opened for reading and split according to newlines
         with open(data_file, 'r') as f:
             lines = f.read().splitlines()
         
         # Parsing every line and separating it by using ',' as a delimiter.
-        for line in lines:  # Reading from file to nested dictionary
+        for line in lines: 
             name, price = line.split(",")
             arg_dict[name.strip()] = float(price) 
 
-    elif option == "nested":
+    elif option == "nested":    # Reading from file to nested dictionary
         with open(data_file, 'r') as f:
             data = csv.DictReader(f, delimiter=",")
 
@@ -161,8 +161,8 @@ def order_food(food_list, food_being_searched):
                 mini_pause()
 
             else:
-                food_choice = food_list[choice -1] # To ensure proper selection because index starts with 0 and not 1
-                ordered_food_list.append(food_choice) # Appends the selected food to ordered_food_list
+                food_choice = food_list[choice -1]      # To ensure proper selection because index starts with 0 and not 1
+                ordered_food_list.append(food_choice)   # Appends the selected food to ordered_food_list
 
                 print(f"\nAdded [1 x {food_choice}] to the cart!")
 
@@ -203,7 +203,7 @@ def search_menu():
         # Strips whitespaces we don't want any cases of user unable to search for chicken rice if he accidentally entered ' rice   ' 
         food_to_search = input("Please input food to search or press [Enter] to go back to the main menu: ").strip()
 
-        if (food_to_search == ""):  # If user doesn't enter anything and press enter, he will be redirected back to the main menu
+        if (food_to_search == ""):          # If user doesn't enter anything and press enter, he will be redirected back to the main menu
             print("\nGoing back to the main menu...")
 
             mini_pause()
@@ -231,12 +231,12 @@ def remove_dish_from_cart(selected_dish):
 
             pause()
 
-        elif quantity_to_be_removed < 0:    # If the quantity to be removed is lesser than 0
+        elif quantity_to_be_removed < 0:        # If the quantity to be removed is lesser than 0
             print("\nNegative values are not accepted!")
 
             pause()
         
-        elif quantity_to_be_removed == 0:   # If user has chosed not to remove any quantity of the selected dish
+        elif quantity_to_be_removed == 0:       # If user has chosed not to remove any quantity of the selected dish
             print(f"\nYou have chosen not to remove any [{selected_dish}] from the cart!")
 
             mini_pause()
@@ -411,8 +411,9 @@ def menu():
     return(choice)
 
 def start():
+    # To prevent dish_dict from getting a local scope
     global dish_dict
-    dish_dict = nested_dish_dict[day_of_the_week]
+    dish_dict = nested_dish_dict[day_of_the_week]   # Get the dish of the day from the nested dictionary and store it in dish_dist
     
     while True:
         choice = menu()
@@ -427,7 +428,7 @@ def start():
             search_menu()
 
         elif (choice == "3"):
-            if len(ordered_food_list) > 0:  # If cart isn't empty, display items in the cart, else prints out an error message
+            if len(ordered_food_list) > 0:      # If cart isn't empty, display items in the cart, else prints out an error message
                 display_cart("basic")
                 pause()
 
@@ -446,7 +447,7 @@ def start():
                 pause()
 
         elif (choice == "5"):
-            if len(ordered_food_list) > 0:  # If cart isn't empty, calls a function to display a nice formatted summary of ordered items, else prints out an error message
+            if len(ordered_food_list) > 0:      # If cart isn't empty, calls a function to display a nice formatted summary of ordered items, else prints out an error message
                 while True:
                     total = display_cart("full")
 
@@ -486,4 +487,3 @@ def start():
 read_data(full_dishes_file_path, nested_dish_dict, "nested")
 read_data(full_discount_file_path, discount_dict, "basic")
 start()
-
