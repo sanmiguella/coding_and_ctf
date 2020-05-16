@@ -10,6 +10,8 @@ Great job! Notice that we used the .search() method. The reason is that we want 
 
 print("The password {pass_example} is a valid password".format(pass_example=example))
 '''
+# \d digit, \w word character, \W special char, \s whitespace, \S string
+# * zero or more times, + once or more, ? zero or once.
 
 passwords = ['Apple34!rose', 'My87hou#4$', 'abc123']
 
