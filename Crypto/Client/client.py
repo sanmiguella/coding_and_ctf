@@ -153,19 +153,19 @@ class Client:
                     b64encoded_session_key, b64encoded_iv_and_ciphertext = security.aes_encrypt(plaintext_block)
 
                     print(f"\n[X] Unencrypted Session key - {b64encoded_session_key}")
-                    print(f"[X] AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)}) - {b64encoded_iv_and_ciphertext}")
+                    print(f"[X] AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)} bytes) - {b64encoded_iv_and_ciphertext}")
 
                     # 344 Bytes on RSA signature
                     # RSA signature on iv and ciphertext
                     client_private_key = security.get_key_from_file(security.client_private_key)
                     rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode('utf-8'), client_private_key)
-                    print(f"[X] RSA signature on iv and ciphertext ({len(rsa_signature_iv_and_ciphertext)}) - {rsa_signature_iv_and_ciphertext}")    
+                    print(f"[X] RSA signature on iv and ciphertext ({len(rsa_signature_iv_and_ciphertext)} bytes) - {rsa_signature_iv_and_ciphertext}")    
 
                     rsa_signed_b64encoded_iv_and_ciphertext = rsa_signature_iv_and_ciphertext + b64encoded_iv_and_ciphertext 
 
                     # HMAC signature -> [RSA signature] + [b64 encoded iv and ciphertext].
                     hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'), b64decode(b64encoded_session_key))
-                    print(f"[X] HMAC signature ({len(hmac_signature)})- {hmac_signature}")
+                    print(f"[X] HMAC signature ({len(hmac_signature)} bytes)- {hmac_signature}")
 
                     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
                         connect_to_server.connect((self.server_ip, self.server_port))
@@ -179,7 +179,7 @@ class Client:
                             rsa_encrypted_session_key_bytes = security.rsa_encrypt(b64decode(b64encoded_session_key), server_public_key)
                             b64encoded_rsa_encrypted_session_key = b64encode(rsa_encrypted_session_key_bytes)
 
-                            print(f"[X] RSA encrypted session key - {b64encoded_rsa_encrypted_session_key.decode('utf-8')}")
+                            print(f"[X] RSA encrypted session key ({len(b64encoded_rsa_encrypted_session_key.decode('utf-8'))} bytes) - {b64encoded_rsa_encrypted_session_key.decode('utf-8')}")
 
                             # First 64 bytes - signature , After 64 bytes - b64 encoded rsa encrypted session key   
                             hmac_signature_and_b64encoded_rsa_encrypted_session_key = hmac_signature + b64encoded_rsa_encrypted_session_key.decode('utf-8')
@@ -194,19 +194,19 @@ class Client:
                     b64encoded_session_key, b64encoded_iv_and_ciphertext = security.aes_encrypt(b"upload_finished")
 
                     print(f"\n[X] Unencrypted Session key - {b64encoded_session_key}")
-                    print(f"[X] AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)}) - {b64encoded_iv_and_ciphertext}")
+                    print(f"[X] AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)} bytes) - {b64encoded_iv_and_ciphertext}")
 
                     # 344 Bytes on RSA signature
                     # RSA signature on iv and ciphertext
                     client_private_key = security.get_key_from_file(security.client_private_key)
                     rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode('utf-8'), client_private_key)
-                    print(f"[X] RSA signature on iv and ciphertext ({len(rsa_signature_iv_and_ciphertext)}) - {rsa_signature_iv_and_ciphertext}")    
+                    print(f"[X] RSA signature on (iv and ciphertext) ({len(rsa_signature_iv_and_ciphertext)} bytes) - {rsa_signature_iv_and_ciphertext}")    
 
                     rsa_signed_b64encoded_iv_and_ciphertext = rsa_signature_iv_and_ciphertext + b64encoded_iv_and_ciphertext 
 
                     # HMAC signature -> [RSA signature] + [b64 encoded iv and ciphertext].
                     hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'), b64decode(b64encoded_session_key))
-                    print(f"[X] HMAC signature ({len(hmac_signature)})- {hmac_signature}")
+                    print(f"[X] HMAC signature on (RSA signature + IV +  AES Ciphertext) ({len(hmac_signature)} bytes)- {hmac_signature}")
 
                     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
                         connect_to_server.connect((self.server_ip, self.server_port))
