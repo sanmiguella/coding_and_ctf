@@ -143,6 +143,47 @@ class Client:
     def short_pause(self):
         sleep(self.short_sleep_time)
 
+    def upload_data(self, data_to_send):
+        b64encoded_session_key, b64encoded_iv_and_ciphertext = security.aes_encrypt(data_to_send)
+
+        print(f"\n[X] Unencrypted Session key - {b64encoded_session_key}")
+        print(f"[X] AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)} bytes) - {b64encoded_iv_and_ciphertext}")
+
+        # 344 Bytes on RSA signature
+        # RSA signature on iv and ciphertext
+        client_private_key = security.get_key_from_file(security.client_private_key)
+        rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode('utf-8'), client_private_key)
+        print(f"[X] RSA signature on iv and ciphertext ({len(rsa_signature_iv_and_ciphertext)} bytes) - {rsa_signature_iv_and_ciphertext}")    
+
+        rsa_signed_b64encoded_iv_and_ciphertext = rsa_signature_iv_and_ciphertext + b64encoded_iv_and_ciphertext 
+
+        # HMAC signature -> [RSA signature] + [b64 encoded iv and ciphertext].
+        hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'), b64decode(b64encoded_session_key))
+        print(f"[X] HMAC signature ({len(hmac_signature)} bytes)- {hmac_signature}")
+
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
+            connect_to_server.connect((self.server_ip, self.server_port))
+
+            connect_to_server.send(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'))
+            data_from_server = connect_to_server.recv(self.buffer_size)
+
+            if data_from_server == b"Encrypted data ok":
+                # Encrypt session key with server's public key.
+                server_public_key = security.get_key_from_file(security.server_public_key)
+                rsa_encrypted_session_key_bytes = security.rsa_encrypt(b64decode(b64encoded_session_key), server_public_key)
+                b64encoded_rsa_encrypted_session_key = b64encode(rsa_encrypted_session_key_bytes)
+
+                print(f"[X] RSA encrypted session key ({len(b64encoded_rsa_encrypted_session_key.decode('utf-8'))} bytes) - {b64encoded_rsa_encrypted_session_key.decode('utf-8')}")
+
+                # First 64 bytes - signature , After 64 bytes - b64 encoded rsa encrypted session key   
+                hmac_signature_and_b64encoded_rsa_encrypted_session_key = hmac_signature + b64encoded_rsa_encrypted_session_key.decode('utf-8')
+
+                connect_to_server.send(hmac_signature_and_b64encoded_rsa_encrypted_session_key.encode('utf-8'))
+                data_from_server = connect_to_server.recv(self.buffer_size)
+
+                if data_from_server == b"Session key ok":
+                    pass
+
     def client_start(self):
         while True:
             with open(self.data_file, "rb") as df:
@@ -150,86 +191,11 @@ class Client:
                 plaintext_block = df.read(self.data_block_size)
 
                 while plaintext_block != b"":
-                    b64encoded_session_key, b64encoded_iv_and_ciphertext = security.aes_encrypt(plaintext_block)
+                    self.upload_data(plaintext_block)
+                    plaintext_block = df.read(self.data_block_size)
 
-                    print(f"\n[X] Unencrypted Session key - {b64encoded_session_key}")
-                    print(f"[X] AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)} bytes) - {b64encoded_iv_and_ciphertext}")
-
-                    # 344 Bytes on RSA signature
-                    # RSA signature on iv and ciphertext
-                    client_private_key = security.get_key_from_file(security.client_private_key)
-                    rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode('utf-8'), client_private_key)
-                    print(f"[X] RSA signature on iv and ciphertext ({len(rsa_signature_iv_and_ciphertext)} bytes) - {rsa_signature_iv_and_ciphertext}")    
-
-                    rsa_signed_b64encoded_iv_and_ciphertext = rsa_signature_iv_and_ciphertext + b64encoded_iv_and_ciphertext 
-
-                    # HMAC signature -> [RSA signature] + [b64 encoded iv and ciphertext].
-                    hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'), b64decode(b64encoded_session_key))
-                    print(f"[X] HMAC signature ({len(hmac_signature)} bytes)- {hmac_signature}")
-
-                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
-                        connect_to_server.connect((self.server_ip, self.server_port))
-
-                        connect_to_server.send(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'))
-                        data_from_server = connect_to_server.recv(self.buffer_size)
-
-                        if data_from_server == b"Encrypted data ok":
-                            # Encrypt session key with server's public key.
-                            server_public_key = security.get_key_from_file(security.server_public_key)
-                            rsa_encrypted_session_key_bytes = security.rsa_encrypt(b64decode(b64encoded_session_key), server_public_key)
-                            b64encoded_rsa_encrypted_session_key = b64encode(rsa_encrypted_session_key_bytes)
-
-                            print(f"[X] RSA encrypted session key ({len(b64encoded_rsa_encrypted_session_key.decode('utf-8'))} bytes) - {b64encoded_rsa_encrypted_session_key.decode('utf-8')}")
-
-                            # First 64 bytes - signature , After 64 bytes - b64 encoded rsa encrypted session key   
-                            hmac_signature_and_b64encoded_rsa_encrypted_session_key = hmac_signature + b64encoded_rsa_encrypted_session_key.decode('utf-8')
-
-                            connect_to_server.send(hmac_signature_and_b64encoded_rsa_encrypted_session_key.encode('utf-8'))
-                            data_from_server = connect_to_server.recv(self.buffer_size)
-
-                            if data_from_server == b"Session key ok":
-                                plaintext_block = df.read(self.data_block_size)
-
-                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
-                    b64encoded_session_key, b64encoded_iv_and_ciphertext = security.aes_encrypt(b"upload_finished")
-
-                    print(f"\n[X] Unencrypted Session key - {b64encoded_session_key}")
-                    print(f"[X] AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)} bytes) - {b64encoded_iv_and_ciphertext}")
-
-                    # 344 Bytes on RSA signature
-                    # RSA signature on iv and ciphertext
-                    client_private_key = security.get_key_from_file(security.client_private_key)
-                    rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode('utf-8'), client_private_key)
-                    print(f"[X] RSA signature on (iv and ciphertext) ({len(rsa_signature_iv_and_ciphertext)} bytes) - {rsa_signature_iv_and_ciphertext}")    
-
-                    rsa_signed_b64encoded_iv_and_ciphertext = rsa_signature_iv_and_ciphertext + b64encoded_iv_and_ciphertext 
-
-                    # HMAC signature -> [RSA signature] + [b64 encoded iv and ciphertext].
-                    hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'), b64decode(b64encoded_session_key))
-                    print(f"[X] HMAC signature on (RSA signature + IV +  AES Ciphertext) ({len(hmac_signature)} bytes)- {hmac_signature}")
-
-                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
-                        connect_to_server.connect((self.server_ip, self.server_port))
-
-                        connect_to_server.send(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'))
-                        data_from_server = connect_to_server.recv(self.buffer_size)
-
-                        if data_from_server == b"Encrypted data ok":
-                            # Encrypt session key with server's public key.
-                            server_public_key = security.get_key_from_file(security.server_public_key)
-                            rsa_encrypted_session_key_bytes = security.rsa_encrypt(b64decode(b64encoded_session_key), server_public_key)
-                            b64encoded_rsa_encrypted_session_key = b64encode(rsa_encrypted_session_key_bytes)
-
-                            print(f"[X] RSA encrypted session key - {b64encoded_rsa_encrypted_session_key.decode('utf-8')}")
-
-                            # First 64 bytes - signature , After 64 bytes - b64 encoded rsa encrypted session key   
-                            hmac_signature_and_b64encoded_rsa_encrypted_session_key = hmac_signature + b64encoded_rsa_encrypted_session_key.decode('utf-8')
-
-                            connect_to_server.send(hmac_signature_and_b64encoded_rsa_encrypted_session_key.encode('utf-8'))
-                            data_from_server = connect_to_server.recv(self.buffer_size)
-
-                            if data_from_server == b"Session key ok":
-                                break
+            self.upload_data(b"upload_finished")
+            break
 
 security = Security()
 client = Client("127.0.0.1", 4444)
