@@ -22,7 +22,8 @@ class Security:
         self.client_public_key = self.base_key_path + "client_public.pem"
         self.client_private_key = self.base_key_path + "client_private.pem"
         self.server_public_key = self.base_key_path + "server_public.pem"
-
+        self.default_encoding = 'utf-8'
+        
     # Get key from file and return it in binary format.
     def get_key_from_file(self, key_file):
         key = RSA.import_key(open(key_file, "rb").read())
@@ -53,14 +54,14 @@ class Security:
         iv = cipher.iv
         
         # After b64 encoding iv, iv will be constant length of 24 bytes.
-        b64encoded_iv = b64encode(iv).decode('utf-8')
+        b64encoded_iv = b64encode(iv).decode(self.default_encoding)
 
-        b64encoded_ciphertext = b64encode(ciphertext_bytes).decode('utf-8')
+        b64encoded_ciphertext = b64encode(ciphertext_bytes).decode(self.default_encoding)
 
         # Combine both iv and ciphertext to become one string.
         b64encoded_iv_and_ciphertext = b64encoded_iv + b64encoded_ciphertext
 
-        return b64encode(session_key).decode('utf-8'), b64encoded_iv_and_ciphertext
+        return b64encode(session_key).decode(self.default_encoding), b64encoded_iv_and_ciphertext
 
     # iv - b64 encoded. 
     # iv_and_ciphertext - b64 encoded.
@@ -77,7 +78,7 @@ class Security:
         padded_plaintext = cipher.decrypt(ciphertext)
         plaintext = unpad(padded_plaintext, AES.block_size)
 
-        return plaintext.decode('utf-8')
+        return plaintext.decode(self.default_encoding)
 
     # message - has to be encoded first.
     # secret_key - binary format.
@@ -109,7 +110,7 @@ class Security:
         digest = SHA256.new(message)
         signature = pss.new(private_key).sign(digest)
 
-        return b64encode(signature).decode('utf-8')
+        return b64encode(signature).decode(self.default_encoding)
     
     # message - has to be encoded first.
     # signature - binary format.
@@ -133,6 +134,7 @@ class Client:
         self.data_file = getcwd() + "\\logs\\" + "log.txt"
         self.data_block_size = 256
         self.short_sleep_time = 1.2
+        self.default_encoding = 'utf-8'
 
     def clear_screen(self):
         system("cls")
@@ -152,19 +154,19 @@ class Client:
         # 344 Bytes on RSA signature
         # RSA signature on iv and ciphertext
         client_private_key = security.get_key_from_file(security.client_private_key)
-        rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode('utf-8'), client_private_key)
+        rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode(self.default_encoding), client_private_key)
         print(f"[X] RSA signature on iv and ciphertext ({len(rsa_signature_iv_and_ciphertext)} bytes) - {rsa_signature_iv_and_ciphertext}")    
 
         rsa_signed_b64encoded_iv_and_ciphertext = rsa_signature_iv_and_ciphertext + b64encoded_iv_and_ciphertext 
 
         # HMAC signature -> [RSA signature] + [b64 encoded iv and ciphertext].
-        hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'), b64decode(b64encoded_session_key))
+        hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(b64encoded_session_key))
         print(f"[X] HMAC signature ({len(hmac_signature)} bytes)- {hmac_signature}")
 
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
             connect_to_server.connect((self.server_ip, self.server_port))
 
-            connect_to_server.send(rsa_signed_b64encoded_iv_and_ciphertext.encode('utf-8'))
+            connect_to_server.send(rsa_signed_b64encoded_iv_and_ciphertext.encode(self.default_encoding))
             data_from_server = connect_to_server.recv(self.buffer_size)
 
             if data_from_server == b"Encrypted data ok":
@@ -173,12 +175,12 @@ class Client:
                 rsa_encrypted_session_key_bytes = security.rsa_encrypt(b64decode(b64encoded_session_key), server_public_key)
                 b64encoded_rsa_encrypted_session_key = b64encode(rsa_encrypted_session_key_bytes)
 
-                print(f"[X] RSA encrypted session key ({len(b64encoded_rsa_encrypted_session_key.decode('utf-8'))} bytes) - {b64encoded_rsa_encrypted_session_key.decode('utf-8')}")
+                print(f"[X] RSA encrypted session key ({len(b64encoded_rsa_encrypted_session_key.decode(self.default_encoding))} bytes) - {b64encoded_rsa_encrypted_session_key.decode(self.default_encoding)}")
 
                 # First 64 bytes - signature , After 64 bytes - b64 encoded rsa encrypted session key   
-                hmac_signature_and_b64encoded_rsa_encrypted_session_key = hmac_signature + b64encoded_rsa_encrypted_session_key.decode('utf-8')
+                hmac_signature_and_b64encoded_rsa_encrypted_session_key = hmac_signature + b64encoded_rsa_encrypted_session_key.decode(self.default_encoding)
 
-                connect_to_server.send(hmac_signature_and_b64encoded_rsa_encrypted_session_key.encode('utf-8'))
+                connect_to_server.send(hmac_signature_and_b64encoded_rsa_encrypted_session_key.encode(self.default_encoding))
                 data_from_server = connect_to_server.recv(self.buffer_size)
 
                 if data_from_server == b"Session key ok":
