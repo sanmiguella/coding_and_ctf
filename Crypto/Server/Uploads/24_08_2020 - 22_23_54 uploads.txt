@@ -1,0 +1,26 @@
+Monday,Chicken Fried Rice,3.5
+Monday,Mamak Fried Rice,3.7
+Monday,Fried Hokkien Noodles,2.4
+Monday,Fried Noodle,2.5
+Tuesday,Fish and Chips,5.5
+Tuesday,Cheese Fries,3.5
+Tuesday,Royale Coleslaw,2.5
+Tuesday,French Fries,2.5
+Tuesday,Spaghetti Bolognaise,5.4
+Wednesday,Mee Rebus,4.5
+Wednesday,Asam Laksa,4.9
+Wednesday,Laksa Royale,5.9
+Thursday,Tom Yam,7.0
+Thursday,Nasi Paprik,5.5
+Thursday,Nasi Goreng Paprik,7.0
+Friday,Double Mac Spicy Meal,8.0
+Friday,Samurai Burger Meal,7.0
+Friday,Ebi Burger Meal,6.5
+Saturday,Rendang Chicken,5.0
+Saturday,Rendang Beef,6.0
+Saturday,Ayam Penyet,6.5
+Saturday,Chicken Congee,5.4
+Sunday,Chicken Kebab,8.0
+Sunday,Chicken Burger,5.5
+Sunday,Beef Burger,5.9
+Sunday,Oblong Burger,5.5

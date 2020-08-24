@@ -1,5 +1,6 @@
 import socket
 import os
+import sys, signal
 
 from os import system, getcwd
 from base64 import b64encode, b64decode
@@ -156,6 +157,10 @@ class Server:
         current_time = now.strftime("%H_%M_%S")
         return current_time
 
+    def signal_handler(self, signal, frame):
+        self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Server terminated by CTRL+C , Goodbye!")
+        sys.exit(0) # Graceful exit.
+
     def print_and_log(self, data):
         log_filename = self.log_base_directory + self.get_current_date() + " - log.txt"
 
@@ -163,7 +168,63 @@ class Server:
             print(data)
             log_file.write(data + "\n")
 
+    def receive_and_decrypt(self, connection, client_ip, client_port):
+        with connection:
+            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Connected by - Client IP : {client_ip} , Client PORT : {client_port}")
+
+            # Receiving of data from Client.
+            rsa_signed_b64encoded_iv_and_ciphertext = connection.recv(self.buffer_size).decode(self.default_encoding)
+
+            rsa_signature_iv_and_ciphertext = rsa_signed_b64encoded_iv_and_ciphertext[0:344]
+            b64encoded_iv_and_ciphertext = rsa_signed_b64encoded_iv_and_ciphertext[344:]
+
+            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) AES Encrypted data (iv & ciphertext) - {b64encoded_iv_and_ciphertext}")
+            connection.send(b"Encrypted data ok")
+
+            data_signature_and_b64encoded_rsa_encrypted_session_key = connection.recv(self.buffer_size).decode(self.default_encoding)
+            data_signature = data_signature_and_b64encoded_rsa_encrypted_session_key[0:64]
+            b64encoded_rsa_encrypted_session_key = data_signature_and_b64encoded_rsa_encrypted_session_key[64:]
+
+            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) HMAC signature - {data_signature}")
+
+            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) RSA encrypted Session key - {b64encoded_rsa_encrypted_session_key}")
+            connection.send(b"Session key ok")
+
+            # Decrypt session key with server's private key
+            server_private_key = security.get_key_from_file(security.server_private_key)
+            rsa_decrypted_session_key_bytes = security.rsa_decrypt(b64decode(b64encoded_rsa_encrypted_session_key), server_private_key)
+            b64encoded_rsa_decrypted_session_key = b64encode(rsa_decrypted_session_key_bytes).decode(self.default_encoding)
+            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) RSA decrypted Session key - {b64encoded_rsa_decrypted_session_key}")
+
+            hmac_message_verified = security.verify_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(b64encoded_rsa_decrypted_session_key), data_signature)
+
+            # If message is hmac verified, proceed to do rsa verification.
+            if hmac_message_verified == True:
+                self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Message HMAC verified.")
+                
+                client_public_key = security.get_key_from_file(security.client_public_key)
+                rsa_message_verified = security.rsa_verify(b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(rsa_signature_iv_and_ciphertext), client_public_key)
+
+                # If message is rsa verified, proceed to do aes decryption.
+                if rsa_message_verified:
+                    self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Message RSA verified.")
+
+                    decrypted_message = security.aes_decrypt(b64encoded_rsa_decrypted_session_key, b64encoded_iv_and_ciphertext)
+                    self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Plaintext:\n{decrypted_message}")
+
+                    return decrypted_message
+
+                else:
+                    self.print_and_log(f"[!] ({self.get_current_date()} {self.get_current_time()}) RSA Signature verification failed.")
+                    return "error"
+
+            else:
+                self.print_and_log(f"[!] ({self.get_current_date()} {self.get_current_time()}) HMAC Message verification failed.")
+                return "error"
+
     def server_start(self):
+        signal.signal(signal.SIGINT, server.signal_handler)
+
         self.clear_screen()
         print(f"[+] ({self.get_current_date()} {self.get_current_time()}) Starting server.")
 
@@ -179,77 +240,35 @@ class Server:
                         connection, address = server_connection.accept()
                         client_ip, client_port = address
 
-                        with connection:
-                            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Connected by - Client IP : {client_ip} , Client PORT : {client_port}")
+                        decrypted_message = self.receive_and_decrypt(connection, client_ip, client_port)
 
-                            rsa_signed_b64encoded_iv_and_ciphertext = connection.recv(self.buffer_size).decode(self.default_encoding)
-                            rsa_signature_iv_and_ciphertext = rsa_signed_b64encoded_iv_and_ciphertext[0:344]
-                            b64encoded_iv_and_ciphertext = rsa_signed_b64encoded_iv_and_ciphertext[344:]
+                        if decrypted_message == 'exit' or decrypted_message == 'quit':
+                            self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Terminating Server.")
+                            break
 
-                            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) AES Encrypted data (iv & ciphertext) - {b64encoded_iv_and_ciphertext}")
-                            connection.send(b"Encrypted data ok")
+                        elif decrypted_message == 'upload_finished':
+                            upload_filename = self.upload_base_directory + self.get_current_date() + " - " + self.get_current_time_for_file() + " uploads.txt"
 
-                            data_signature_and_b64encoded_rsa_encrypted_session_key = connection.recv(self.buffer_size).decode(self.default_encoding)
-                            data_signature = data_signature_and_b64encoded_rsa_encrypted_session_key[0:64]
-                            b64encoded_rsa_encrypted_session_key = data_signature_and_b64encoded_rsa_encrypted_session_key[64:]
+                            with open(upload_filename, "w", newline = "\n") as upload_fname:
+                                for data in self.uploaded_data:
+                                    upload_fname.write(data)
 
-                            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) HMAC signature - {data_signature}")
+                            print(f"[+] Saved uploaded data as \"{upload_filename}\"")
+                            self.uploaded_data.clear()
 
-                            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) RSA encrypted Session key - {b64encoded_rsa_encrypted_session_key}")
-                            connection.send(b"Session key ok")
+                        elif decrypted_message == "error":
+                            pass
 
-                            # Decrypt session key with server's private key
-                            server_private_key = security.get_key_from_file(security.server_private_key)
-                            rsa_decrypted_session_key_bytes = security.rsa_decrypt(b64decode(b64encoded_rsa_encrypted_session_key), server_private_key)
-                            b64encoded_rsa_decrypted_session_key = b64encode(rsa_decrypted_session_key_bytes).decode(self.default_encoding)
-                            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) RSA decrypted Session key - {b64encoded_rsa_decrypted_session_key}")
+                        else:
+                            self.uploaded_data.append(decrypted_message)
 
-                            hmac_message_verified = security.verify_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(b64encoded_rsa_decrypted_session_key), data_signature)
-
-                            # If message is hmac verified, proceed to do rsa verification.
-                            if hmac_message_verified == True:
-                                print(f"[X] ({self.get_current_date()} {self.get_current_time()}) Message HMAC verified.")
-                                
-                                client_public_key = security.get_key_from_file(security.client_public_key)
-                                rsa_message_verified = security.rsa_verify(b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(rsa_signature_iv_and_ciphertext), client_public_key)
-
-                                # If message is rsa verified, proceed to do aes decryption.
-                                if rsa_message_verified:
-                                    print(f"[X] ({self.get_current_date()} {self.get_current_time()}) Message RSA verified.")
-
-                                    decrypted_message = security.aes_decrypt(b64encoded_rsa_decrypted_session_key, b64encoded_iv_and_ciphertext)
-                                    self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Plaintext:\n{decrypted_message}")
-
-                                    self.uploaded_data.append(decrypted_message)
-
-                                    if decrypted_message == 'exit' or decrypted_message == 'quit':
-                                        self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Terminating Server.")
-                                        break
-
-                                    if decrypted_message == 'upload_finished':
-                                        self.uploaded_data.pop()
-                                        upload_filename = self.upload_base_directory + self.get_current_date() + " - " + self.get_current_time_for_file() + " uploads.txt"
-
-                                        with open(upload_filename, "w", newline = "\n") as upload_fname:
-                                            for data in self.uploaded_data:
-                                                upload_fname.write(data)
-
-                                        print(f"[+] Saved uploaded data as \"{upload_filename}\"")
-                                        self.uploaded_data.clear()
-
-                                else:
-                                    print(f"[!] ({self.get_current_date()} {self.get_current_time()}) RSA Signature verification failed.")
-
-                            else:
-                                print(f"[!] ({self.get_current_date()} {self.get_current_time()}) HMAC Message verification failed.")
-
-                    except KeyboardInterrupt:
-                        self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) CTRL + C pressed. Terminating Server.")
-                        break
+                    except ConnectionError as error:
+                        self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Connection error:\n{error}")
 
                     except Exception as error:
                         self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Error:\n{error}")
 
 security = Security()
 server = Server("127.0.0.1", 4444)
+
 server.server_start()
