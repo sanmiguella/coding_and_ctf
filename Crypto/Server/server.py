@@ -25,6 +25,7 @@ class Security:
         self.server_private_key = self.base_key_path + "server_private.pem"
         self.client_public_key = self.base_key_path + "client_public.pem"
         self.default_encoding = 'utf-8'
+        self.salt = 'P@ssw0rd!'
 
     # Get key from file and return it in binary format.
     def get_key_from_file(self, key_file):
@@ -124,10 +125,10 @@ class Security:
 
         try:
             verifier.verify(digest, signature)
-            return True
+            return True # Verified.
         
         except (ValueError, TypeError):
-            return False
+            return False # Not verified.
 
 class Server:
     def __init__(self, server_ip, server_port):
@@ -136,33 +137,37 @@ class Server:
         self.buffer_size = 1024  
         self.log_base_directory = getcwd() + "\\Logs\\"
         self.upload_base_directory = getcwd() + "\\Uploads\\"
+        self.menu_base_directory = getcwd() + "\\Menu\\"
         self.uploaded_data = list()
         self.default_encoding = 'utf-8'
 
     def clear_screen(self):
         system("cls")
 
+    @property
     def get_current_date(self):
         today = date.today()
         todays_date = today.strftime("%d_%m_%Y")
         return todays_date
 
+    @property
     def get_current_time(self):
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
         return current_time
 
+    @property
     def get_current_time_for_file(self):
         now = datetime.now()
         current_time = now.strftime("%H_%M_%S")
         return current_time
 
     def signal_handler(self, signal, frame):
-        self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Server terminated by CTRL+C , Goodbye!")
+        self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Server terminated by CTRL+C , Goodbye!")
         sys.exit(0) # Graceful exit.
 
     def print_and_log(self, data):
-        log_filename = self.log_base_directory + self.get_current_date() + " - log.txt"
+        log_filename = self.log_base_directory + self.get_current_date + " - log.txt"
 
         with open(log_filename, "a+") as log_file:
             print(data)
@@ -170,7 +175,7 @@ class Server:
 
     def receive_and_decrypt(self, connection, client_ip, client_port):
         with connection:
-            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Connected by - Client IP : {client_ip} , Client PORT : {client_port}")
+            self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) Connected by - Client IP : {client_ip} , Client PORT : {client_port}")
 
             # Receiving of data from Client.
             rsa_signed_b64encoded_iv_and_ciphertext = connection.recv(self.buffer_size).decode(self.default_encoding)
@@ -178,64 +183,64 @@ class Server:
             rsa_signature_iv_and_ciphertext = rsa_signed_b64encoded_iv_and_ciphertext[0:344]
             b64encoded_iv_and_ciphertext = rsa_signed_b64encoded_iv_and_ciphertext[344:]
 
-            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) AES Encrypted data (iv & ciphertext) - {b64encoded_iv_and_ciphertext}")
+            self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) AES Encrypted data (iv & ciphertext) - {b64encoded_iv_and_ciphertext}")
             connection.send(b"Encrypted data ok")
 
             data_signature_and_b64encoded_rsa_encrypted_session_key = connection.recv(self.buffer_size).decode(self.default_encoding)
             data_signature = data_signature_and_b64encoded_rsa_encrypted_session_key[0:64]
             b64encoded_rsa_encrypted_session_key = data_signature_and_b64encoded_rsa_encrypted_session_key[64:]
 
-            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) HMAC signature - {data_signature}")
+            self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) HMAC signature - {data_signature}")
 
-            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) RSA encrypted Session key - {b64encoded_rsa_encrypted_session_key}")
+            self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) RSA encrypted Session key - {b64encoded_rsa_encrypted_session_key}")
             connection.send(b"Session key ok")
 
             # Decrypt session key with server's private key
             server_private_key = security.get_key_from_file(security.server_private_key)
             rsa_decrypted_session_key_bytes = security.rsa_decrypt(b64decode(b64encoded_rsa_encrypted_session_key), server_private_key)
             b64encoded_rsa_decrypted_session_key = b64encode(rsa_decrypted_session_key_bytes).decode(self.default_encoding)
-            self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) RSA decrypted Session key - {b64encoded_rsa_decrypted_session_key}")
+            self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) RSA decrypted Session key - {b64encoded_rsa_decrypted_session_key}")
 
             hmac_message_verified = security.verify_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(b64encoded_rsa_decrypted_session_key), data_signature)
 
             # If message is hmac verified, proceed to do rsa verification.
             if hmac_message_verified == True:
-                self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Message HMAC verified.")
+                self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) Message HMAC verified.")
                 
                 client_public_key = security.get_key_from_file(security.client_public_key)
                 rsa_message_verified = security.rsa_verify(b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(rsa_signature_iv_and_ciphertext), client_public_key)
 
                 # If message is rsa verified, proceed to do aes decryption.
                 if rsa_message_verified:
-                    self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Message RSA verified.")
+                    self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) Message RSA verified.")
 
                     decrypted_message = security.aes_decrypt(b64encoded_rsa_decrypted_session_key, b64encoded_iv_and_ciphertext)
-                    self.print_and_log(f"[X] ({self.get_current_date()} {self.get_current_time()}) Plaintext:\n{decrypted_message}")
+                    self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) Plaintext:\n{decrypted_message}")
 
                     return decrypted_message
 
                 else:
-                    self.print_and_log(f"[!] ({self.get_current_date()} {self.get_current_time()}) RSA Signature verification failed.")
+                    self.print_and_log(f"[!] ({self.get_current_date} {self.get_current_time}) RSA Signature verification failed.")
                     return "error"
 
             else:
-                self.print_and_log(f"[!] ({self.get_current_date()} {self.get_current_time()}) HMAC Message verification failed.")
+                self.print_and_log(f"[!] ({self.get_current_date} {self.get_current_time}) HMAC Message verification failed.")
                 return "error"
 
     def server_start(self):
         signal.signal(signal.SIGINT, server.signal_handler)
 
         self.clear_screen()
-        print(f"[+] ({self.get_current_date()} {self.get_current_time()}) Starting server.")
+        print(f"[+] ({self.get_current_date} {self.get_current_time}) Starting server.")
 
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_connection:
                 server_connection.bind((self.server_ip, self.server_port))
-                self.print_and_log(f"[+] ({self.get_current_date()} {self.get_current_time()}) Successfully created socket.")
+                self.print_and_log(f"[+] ({self.get_current_date} {self.get_current_time}) Successfully created socket.")
 
                 while True:
                     try:
                         server_connection.listen()
-                        self.print_and_log(f"\n[+] ({self.get_current_date()} {self.get_current_time()}) Listening for incoming connection.")
+                        self.print_and_log(f"\n[+] ({self.get_current_date} {self.get_current_time}) Listening for incoming connection.")
 
                         connection, address = server_connection.accept()
                         client_ip, client_port = address
@@ -243,11 +248,11 @@ class Server:
                         decrypted_message = self.receive_and_decrypt(connection, client_ip, client_port)
 
                         if decrypted_message == 'exit' or decrypted_message == 'quit':
-                            self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Terminating Server.")
+                            self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Terminating Server.")
                             break
 
                         elif decrypted_message == 'upload_finished':
-                            upload_filename = self.upload_base_directory + self.get_current_date() + " - " + self.get_current_time_for_file() + " uploads.txt"
+                            upload_filename = self.upload_base_directory + self.get_current_date + " - " + self.get_current_time_for_file + " uploads.txt"
 
                             with open(upload_filename, "w", newline = "\n") as upload_fname:
                                 for data in self.uploaded_data:
@@ -263,10 +268,10 @@ class Server:
                             self.uploaded_data.append(decrypted_message)
 
                     except ConnectionError as error:
-                        self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Connection error:\n{error}")
+                        self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Connection error:\n{error}")
 
                     except Exception as error:
-                        self.print_and_log(f"\n[!] ({self.get_current_date()} {self.get_current_time()}) Error:\n{error}")
+                        self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Error:\n{error}")
 
 security = Security()
 server = Server("127.0.0.1", 4444)
