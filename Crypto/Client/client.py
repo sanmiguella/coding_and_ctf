@@ -300,7 +300,7 @@ class Client:
             self.menu()
         
         else:
-            self.print_and_log(f"\n[!] Unable to connect to server, SERVER IP - {self.server_ip} , SERVER PORT - {self.server_port}")
+            self.print_and_log(f"\n[!] Unable to connect to server, SERVER IP - {self.server_ip} , SERVER PORT - {self.server_port}\n")
 
 security = Security()
 client = Client("127.0.0.1", 4444)
