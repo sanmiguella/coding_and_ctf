@@ -128,6 +128,13 @@ class Security:
         
         except (ValueError, TypeError):
             return False
+
+    # Data must be in binary format.
+    def get_file_hash(self, data):
+        hash_sha256 = SHA256.new()
+        hash_sha256.update(data)
+
+        return hash_sha256.hexdigest()
         
 class Client:
     def __init__(self, server_ip, server_port):
@@ -139,6 +146,7 @@ class Client:
         self.data_file = self.menu_base_directory + "menu.txt"
         self.data_block_size = 256
         self.short_sleep_time = 1.2
+        self.long_sleep_time = 2
         self.default_encoding = 'utf-8'
 
     def clear_screen(self):
@@ -174,6 +182,9 @@ class Client:
     
     def short_pause(self):
         sleep(self.short_sleep_time)
+
+    def long_pause(self):
+        sleep(self.long_sleep_time)
 
     def upload_data(self, data_to_send):
         b64encoded_session_key, b64encoded_iv_and_ciphertext = security.aes_encrypt(data_to_send)
@@ -238,7 +249,12 @@ class Client:
                     else:
                         plaintext_block = df.read(self.data_block_size)
 
-            self.upload_data(b"upload_finished")
+            with open(self.data_file, "rb") as df:
+                data = df.read()
+                file_hash = security.get_file_hash(data)
+                data_to_send = f"upload_finished|{file_hash}"
+
+            self.upload_data(data_to_send.encode(self.default_encoding))
             break
 
 security = Security()

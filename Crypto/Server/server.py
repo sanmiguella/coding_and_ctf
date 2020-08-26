@@ -130,6 +130,13 @@ class Security:
         except (ValueError, TypeError):
             return False # Not verified.
 
+    # Data must be in binary format.
+    def get_file_hash(self, data):
+        hash_sha256 = SHA256.new()
+        hash_sha256.update(data)
+
+        return hash_sha256.hexdigest()
+
 class Server:
     def __init__(self, server_ip, server_port):
         self.server_ip = server_ip 
@@ -231,7 +238,7 @@ class Server:
         signal.signal(signal.SIGINT, server.signal_handler)
 
         self.clear_screen()
-        print(f"[+] ({self.get_current_date} {self.get_current_time}) Starting server.")
+        self.print_and_log(f"[+] ({self.get_current_date} {self.get_current_time}) Starting server.")
 
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_connection:
                 server_connection.bind((self.server_ip, self.server_port))
@@ -251,16 +258,30 @@ class Server:
                             self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Terminating Server.")
                             break
 
-                        elif decrypted_message == 'upload_finished':
+                        elif 'upload_finished|' in decrypted_message:
+                            hash_from_client = decrypted_message.split("|")[1]
+
                             upload_filename = self.upload_base_directory + self.get_current_date + " - " + self.get_current_time_for_file + " uploads.txt"
 
                             with open(upload_filename, "w", newline = "\n") as upload_fname:
                                 for data in self.uploaded_data:
                                     upload_fname.write(data)
 
-                            print(f"[+] Saved uploaded data as \"{upload_filename}\"")
+                            self.print_and_log(f"[+] Saved uploaded data as \"{upload_filename}\"")
                             self.uploaded_data.clear()
 
+                            with open(upload_filename, "rb") as upload_fname:
+                                data = upload_fname.read()
+                                uploaded_filename_hash = security.get_file_hash(data)
+                            
+                            self.print_and_log(f"[+] Computed Hash - {uploaded_filename_hash}")
+                            self.print_and_log(f"[+] Hash from Client - {hash_from_client}")
+
+                            if uploaded_filename_hash == hash_from_client:
+                                self.print_and_log("[+] Uploaded file hash fully verified, no tampering detected.")
+                            else:
+                                self.print_and_log("[!] Uploaded file failed hash verification, file may be tampered.")
+                            
                         elif decrypted_message == "error":
                             pass
 
