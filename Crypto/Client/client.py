@@ -170,6 +170,17 @@ class Client:
         current_time = now.strftime("%H_%M_%S")
         return current_time
 
+    def test_connection_to_server(self):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
+                connect_to_server.connect((self.server_ip, self.server_port))
+                connect_to_server.close()
+
+                return True
+        
+        except ConnectionError:
+            return False
+
     def print_and_log(self, data):
         log_filename = self.log_base_directory + self.get_current_date + " - log.txt"
 
@@ -234,7 +245,7 @@ class Client:
             self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Connection error:\n{error}")
             return "break"
 
-    def client_start(self):
+    def upload_file(self):
         while True:
             with open(self.data_file, "rb") as df:
                 self.clear_screen()
@@ -256,6 +267,40 @@ class Client:
 
             self.upload_data(data_to_send.encode(self.default_encoding))
             break
+
+    def menu(self):
+        while True:
+            self.clear_screen()
+
+            print("1. Upload Food Menu.")
+            print("2. Exit.")
+
+            try:
+                option = int(input("\nOption - "))
+
+                if option == 1:
+                    self.clear_screen()
+                    self.upload_file()
+                    self.pause()
+
+                elif option == 2:
+                    self.clear_screen()
+                    self.upload_data(b"exit")
+                    break
+
+            except ValueError:
+                print("\nOnly numbers are accepted.")
+                self.short_pause()
+
+    def client_start(self):
+        # Test connection to server before displaying menu.
+        connection_ok = self.test_connection_to_server()
+
+        if connection_ok:
+            self.menu()
+        
+        else:
+            self.print_and_log(f"\n[!] Unable to connect to server, SERVER IP - {self.server_ip} , SERVER PORT - {self.server_port}")
 
 security = Security()
 client = Client("127.0.0.1", 4444)

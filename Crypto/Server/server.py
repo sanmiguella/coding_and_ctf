@@ -259,6 +259,7 @@ class Server:
                             break
 
                         elif 'upload_finished|' in decrypted_message:
+                            # Command|hash
                             hash_from_client = decrypted_message.split("|")[1]
 
                             upload_filename = self.upload_base_directory + self.get_current_date + " - " + self.get_current_time_for_file + " uploads.txt"
