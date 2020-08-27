@@ -18,7 +18,7 @@ from Crypto.Signature import pss
 
 from datetime import date, datetime
 
-class Security:
+class Security: # Superclass.
     def __init__(self):
         # Location of various key files.
         self.base_key_path = getcwd() + "\\KeyFile\\"
@@ -136,8 +136,9 @@ class Security:
 
         return hash_sha256.hexdigest()
         
-class Client:
+class Client(Security): # Subclass.
     def __init__(self, server_ip, server_port):
+        super().__init__() # Allows calling of methods of superclass in subclass.
         self.server_ip = server_ip
         self.server_port = server_port
         self.buffer_size = 1024
@@ -198,21 +199,21 @@ class Client:
         sleep(self.long_sleep_time)
 
     def upload_data(self, data_to_send):
-        b64encoded_session_key, b64encoded_iv_and_ciphertext = security.aes_encrypt(data_to_send)
+        b64encoded_session_key, b64encoded_iv_and_ciphertext = self.aes_encrypt(data_to_send)
 
         self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) Unencrypted Session key - {b64encoded_session_key}")
         self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) AES encrypted data(iv & ciphertext) ({len(b64encoded_iv_and_ciphertext)} bytes) - {b64encoded_iv_and_ciphertext}")
 
         # 344 Bytes on RSA signature
         # RSA signature on iv and ciphertext
-        client_private_key = security.get_key_from_file(security.client_private_key)
-        rsa_signature_iv_and_ciphertext = security.rsa_sign(b64encoded_iv_and_ciphertext.encode(self.default_encoding), client_private_key)
+        client_private_key = self.get_key_from_file(self.client_private_key)
+        rsa_signature_iv_and_ciphertext = self.rsa_sign(b64encoded_iv_and_ciphertext.encode(self.default_encoding), client_private_key)
         self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) RSA signature on iv and ciphertext ({len(rsa_signature_iv_and_ciphertext)} bytes) - {rsa_signature_iv_and_ciphertext}")    
 
         rsa_signed_b64encoded_iv_and_ciphertext = rsa_signature_iv_and_ciphertext + b64encoded_iv_and_ciphertext 
 
         # HMAC signature -> [RSA signature] + [b64 encoded iv and ciphertext].
-        hmac_signature = security.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(b64encoded_session_key))
+        hmac_signature = self.get_hmac(rsa_signed_b64encoded_iv_and_ciphertext.encode(self.default_encoding), b64decode(b64encoded_session_key))
         self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) HMAC signature ({len(hmac_signature)} bytes)- {hmac_signature}")
 
         try:
@@ -224,8 +225,8 @@ class Client:
 
                 if data_from_server == b"Encrypted data ok":
                     # Encrypt session key with server's public key.
-                    server_public_key = security.get_key_from_file(security.server_public_key)
-                    rsa_encrypted_session_key_bytes = security.rsa_encrypt(b64decode(b64encoded_session_key), server_public_key)
+                    server_public_key = self.get_key_from_file(self.server_public_key)
+                    rsa_encrypted_session_key_bytes = self.rsa_encrypt(b64decode(b64encoded_session_key), server_public_key)
                     b64encoded_rsa_encrypted_session_key = b64encode(rsa_encrypted_session_key_bytes)
 
                     self.print_and_log(f"[X] ({self.get_current_date} {self.get_current_time}) RSA encrypted session key ({len(b64encoded_rsa_encrypted_session_key.decode(self.default_encoding))} bytes) - {b64encoded_rsa_encrypted_session_key.decode(self.default_encoding)}")
@@ -262,7 +263,7 @@ class Client:
 
             with open(self.data_file, "rb") as df:
                 data = df.read()
-                file_hash = security.get_file_hash(data)
+                file_hash = self.get_file_hash(data)
                 data_to_send = f"upload_finished|{file_hash}"
 
             self.upload_data(data_to_send.encode(self.default_encoding))
@@ -302,6 +303,5 @@ class Client:
         else:
             self.print_and_log(f"\n[!] Unable to connect to server, SERVER IP - {self.server_ip} , SERVER PORT - {self.server_port}\n")
 
-security = Security()
 client = Client("127.0.0.1", 4444)
 client.client_start()
