@@ -167,7 +167,5 @@ class Server(Security): # Subclass.
                     except Exception as error:
                         self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Error:\n{error}")
 
-self = Security()
 server = Server("127.0.0.1", 4444)
-
 server.server_start()
