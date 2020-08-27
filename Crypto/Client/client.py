@@ -7,6 +7,7 @@ from time import sleep
 from os import system, getcwd
 from base64 import b64encode, b64decode
 from datetime import date, datetime
+from calendar import day_name
 
 from Security import Security
         
@@ -18,11 +19,13 @@ class Client(Security): # Subclass.
         self.buffer_size = 1024
         self.log_base_directory = getcwd() + "\\Logs\\"
         self.menu_base_directory = getcwd() + "\\Menu\\"
-        self.data_file = self.menu_base_directory + "menu.txt"
+        self.food_file = self.menu_base_directory + "menu.txt"
         self.data_block_size = 256
         self.short_sleep_time = 1.2
         self.long_sleep_time = 2
         self.default_encoding = 'utf-8'
+        self.food_dict = dict()
+        self.todays_menu = dict()
 
     def clear_screen(self):
         system("cls")
@@ -44,6 +47,10 @@ class Client(Security): # Subclass.
         now = datetime.now()
         current_time = now.strftime("%H_%M_%S")
         return current_time
+
+    @property
+    def get_current_day(self):
+        return day_name[date.today().weekday()]
 
     def test_connection_to_server(self):
         try:
@@ -122,7 +129,7 @@ class Client(Security): # Subclass.
 
     def upload_file(self):
         while True:
-            with open(self.data_file, "rb") as df:
+            with open(self.food_file, "rb") as df:
                 self.clear_screen()
                 plaintext_block = df.read(self.data_block_size)
 
@@ -135,7 +142,7 @@ class Client(Security): # Subclass.
                     else:
                         plaintext_block = df.read(self.data_block_size)
 
-            with open(self.data_file, "rb") as df:
+            with open(self.food_file, "rb") as df:
                 data = df.read()
                 file_hash = self.get_file_hash(data)
                 data_to_send = f"upload_finished|{file_hash}"
@@ -143,22 +150,77 @@ class Client(Security): # Subclass.
             self.upload_data(data_to_send.encode(self.default_encoding))
             break
 
+    def read_data_from_file(self):
+        food_data = open(self.food_file, "r").readlines()
+        
+        self.food_dict.clear()  
+
+        # 0 - Monday , 6 - Sunday
+        # Outer Loop.
+        # Will loop from Monday to Sunday
+        for i in range(0, 7):
+            temp_food_dict = dict()
+
+            # Value in index_day will depend on the current index.
+            # If loop index is 0, then index_day will be Monday.
+            index_day = day_name[i] 
+
+            # Inner Loop. 
+            # Will only populate temp food dict as long as the current day in the outer loop matches the day on a particular food data.
+            for food in food_data:
+                food_day, food_name, food_price = food.split(",")
+
+                if food_day == index_day:
+                    temp_food_dict[food_name] = float(food_price)
+                
+            # Will only populate class property if all food for a particular day has been collected.
+            self.food_dict[index_day] = temp_food_dict
+
+        self.todays_menu = self.food_dict.get(self.get_current_day)
+                
+    def print_header(self, data):
+        print("\t" + "=" * 66)
+        print("\t" + f"{data}".center(60))
+        print("\t" + "=" * 66)
+
+    def display_todays_menu(self, food_dict):
+        self.clear_screen()
+        self.print_header(f"Today's Menu ({self.get_current_day})")
+       
+        # https://stackoverflow.com/questions/9535954/printing-lists-as-tabular-data
+        # https://stackoverflow.com/questions/44781484/python-string-formatter-align-center/44781576
+        # -40s : left align string
+        # -11s : left align string
+        # price.center(15) : center align, 15 - width
+        for index, food in enumerate(food_dict, 1):
+            price = food_dict.get(food)
+            price = f"${price:.2f}"
+            print(f"\t[ %i ] %-40s [ %-11s ]" %(index, food, price.center(15)))
+
+        print()
+        self.pause()
+
     def menu(self):
         while True:
             self.clear_screen()
 
-            print("1. Upload Food Menu.")
-            print("2. Exit.")
+            print("1. Display Today's Menu.")
+            print("2. Upload Food Menu.")
+            print("3. Exit.")
 
             try:
                 option = int(input("\nOption - "))
 
                 if option == 1:
+                    self.read_data_from_file()
+                    self.display_todays_menu(self.todays_menu)
+
+                elif option == 2:
                     self.clear_screen()
                     self.upload_file()
                     self.pause()
 
-                elif option == 2:
+                elif option == 3:
                     self.clear_screen()
                     self.upload_data(b"exit")
                     break
