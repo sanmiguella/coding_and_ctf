@@ -93,3 +93,268 @@ upload_finished|2994c8b06139a775de981505379fac2a9030f6028f9248689fa9c9d3d534dc49
 exit
 
 [!] (27_08_2020 13:23:09) Terminating Server.
+[+] (27_08_2020 16:11:20) Starting server.
+[+] (27_08_2020 16:11:20) Successfully created socket.
+
+[+] (27_08_2020 16:11:20) Listening for incoming connection.
+[X] (27_08_2020 16:11:36) Connected by - Client IP : 127.0.0.1 , Client PORT : 54720
+[X] (27_08_2020 16:11:36) AES Encrypted data (iv & ciphertext) - 
+
+[!] (27_08_2020 16:11:36) Connection error:
+[WinError 10053] An established connection was aborted by the software in your host machine
+
+[+] (27_08_2020 16:11:36) Listening for incoming connection.
+[X] (27_08_2020 16:11:45) Connected by - Client IP : 127.0.0.1 , Client PORT : 54723
+[X] (27_08_2020 16:11:45) AES Encrypted data (iv & ciphertext) - 
+
+[!] (27_08_2020 16:11:45) Connection error:
+[WinError 10053] An established connection was aborted by the software in your host machine
+
+[+] (27_08_2020 16:11:45) Listening for incoming connection.
+
+[!] (27_08_2020 16:28:23) Server terminated by CTRL+C , Goodbye!
+[+] (27_08_2020 16:28:52) Starting server.
+[+] (27_08_2020 16:28:52) Successfully created socket.
+
+[+] (27_08_2020 16:28:52) Listening for incoming connection.
+
+[!] (27_08_2020 16:28:58) Server terminated by CTRL+C , Goodbye!
+[+] (27_08_2020 16:29:22) Starting server.
+[+] (27_08_2020 16:29:22) Successfully created socket.
+
+[+] (27_08_2020 16:29:22) Listening for incoming connection.
+[X] (27_08_2020 16:29:24) Connected by - Client IP : 127.0.0.1 , Client PORT : 54839
+[X] (27_08_2020 16:29:24) AES Encrypted data (iv & ciphertext) - 
+
+[!] (27_08_2020 16:29:24) Connection error:
+[WinError 10053] An established connection was aborted by the software in your host machine
+
+[+] (27_08_2020 16:29:24) Listening for incoming connection.
+[X] (27_08_2020 16:29:42) Connected by - Client IP : 127.0.0.1 , Client PORT : 54841
+[X] (27_08_2020 16:29:42) AES Encrypted data (iv & ciphertext) - yKwzLB7gGk4ptPO5SoK3dw==9Ji4x1lQQyFjCmguLqr4jw==
+[X] (27_08_2020 16:29:42) HMAC signature - cb58dc1386a786a2f37f51777bf44ad1ccf046342e750a6a910d72e413cd8da1
+[X] (27_08_2020 16:29:42) RSA encrypted Session key - IsH+6MjeSNMnEhiwP4pfw4U2Nfg3rgITvGdFWE83HGf9cQ9u8EDApCKS3JahOxQ1HAt8CFQ/eORBTXdI20JSgw6oidyOX0FcSe325a1oOtHPBhIWwzHDHOq9Ns0udDW2eZthrrVJ5Zoaks/QLdEkaL7YE6uC3Y85iuvKOqMAbr4rTl6ilcn1gjmTjypJgsbXVm4NwTsXZVbAmfiZddkRYCXFbFbJRIust+fYuyk72uF309M/J9xJPmBBnH4ElWfOP0isn8sJC4sWBtzqANWHb/FwShFPbmfnXsjSjYsAhbEslSWTtbwu84fPdZMjFIFWlbaQE1l6r6weYtFNzFqC+Q==
+[X] (27_08_2020 16:29:42) RSA decrypted Session key - vZlDPrL1E6BklzSbhgzo6tn4QiiiMQy2TnmZs6FbyPo=
+[X] (27_08_2020 16:29:42) Message HMAC verified.
+[X] (27_08_2020 16:29:42) Message RSA verified.
+[X] (27_08_2020 16:29:42) Plaintext:
+exit
+
+[!] (27_08_2020 16:29:42) Terminating Server.
+[+] (27_08_2020 16:41:02) Starting server.
+[+] (27_08_2020 16:41:02) Successfully created socket.
+
+[+] (27_08_2020 16:41:02) Listening for incoming connection.
+[X] (27_08_2020 16:41:05) Connected by - Client IP : 127.0.0.1 , Client PORT : 54920
+[X] (27_08_2020 16:41:05) AES Encrypted data (iv & ciphertext) - SwmdLcnQIhbvxoC0yzSJmQ==MkB6DP7SKlzpc45n7z7cwA==
+[X] (27_08_2020 16:41:05) HMAC signature - 3c5657c913efbe43740f19deccd049ca4aca71085fa669f2f87f4a69a1d9e5f4
+[X] (27_08_2020 16:41:05) RSA encrypted Session key - LcGWhRy+pma1CRl3xcXghMbmgPDXjJ8XY1k5BLXYTEo0owPEc9Qsg7mPe6Wmz20zbAnNhPd0S+zaLMBgfsdd5ShgIdU1m78pEkPNzxaTQB5QJ/hrZczh386ltuM7u3ThhCbxCFMrh3UyKE7hRAKkbEduZcFy2+qWT4VKBm00gz/FTvEa0T+OeU0KMUX2YtYH5oE/eanUuL0al7ks+vrzc8xFWgDsgVI8fGktyt2FOWIaB6jzs8XEIidCk/GXXO3uvdQwdxJfwedIvZ2mfjv+Ol2x69pR1gZ/cb22Uc4oDLtRYn3eW3oQTCpKX4Nkc0pd1AnydXGYNHh1LHhRgHTMQw==
+[X] (27_08_2020 16:41:05) RSA decrypted Session key - vk97iNUiCZDlMP9ZTbUPe8xarRFE6Iq1d41Dlvx/z94=
+[X] (27_08_2020 16:41:05) Message HMAC verified.
+[X] (27_08_2020 16:41:05) Message RSA verified.
+[X] (27_08_2020 16:41:05) Plaintext:
+test connection
+
+[#] Received test connection from client - test ok.
+
+
+[+] (27_08_2020 16:41:05) Listening for incoming connection.
+[X] (27_08_2020 16:41:19) Connected by - Client IP : 127.0.0.1 , Client PORT : 54921
+[X] (27_08_2020 16:41:19) AES Encrypted data (iv & ciphertext) - uTkC1oytQdYwKpakXlc7+g==NJUml7YMTyWYA337nG9Q5Q==
+[X] (27_08_2020 16:41:19) HMAC signature - 2f514ced291c3eb42baa781ac2909a95b18addfcf9dffe7277f8a36a8563e51c
+[X] (27_08_2020 16:41:19) RSA encrypted Session key - OauG57gh4GeNKn2NSuNdiSgcCqvlnj3W5Bnbg2PabPV5kpQVDSOIqIbG05nklN0UXExFMdIKjBze/OoFwDC/56GjHH5/IuLyfrg4X8pcYrs7uucY37RvuDcudAGSRO3XrtRU1/WK/rllBH+zgAP9vRKoydsBCQPIR3gcQpGJLnXmjmlqnaTz4E7QNR5nB7GPiwZcN7cVgUjqWXkPUORjXCf1A13lmetIeTR4mYb3fkwPmDJPadCL1CleagIbeDC9F8R5zhIjex2FJBzDpzpDiVCXgerfd6AUWnmmwsngTVpmidcYYM4aJ6bcAsZro65xU1PQY3P1u0KiBfQYQcIijQ==
+[X] (27_08_2020 16:41:20) RSA decrypted Session key - Ft0QSmVKUTNW85YzFZSY1eqvE+cyneN/+Js7tTLqKdo=
+[X] (27_08_2020 16:41:20) Message HMAC verified.
+[X] (27_08_2020 16:41:20) Message RSA verified.
+[X] (27_08_2020 16:41:20) Plaintext:
+test connection
+
+[#] Received test connection from client - test ok.
+
+
+[+] (27_08_2020 16:41:20) Listening for incoming connection.
+
+[!] (27_08_2020 16:41:39) Server terminated by CTRL+C , Goodbye!
+[+] (27_08_2020 16:42:04) Starting server.
+[+] (27_08_2020 16:42:04) Successfully created socket.
+
+[+] (27_08_2020 16:42:04) Listening for incoming connection.
+[X] (27_08_2020 16:42:13) Connected by - Client IP : 127.0.0.1 , Client PORT : 54931
+[X] (27_08_2020 16:42:13) AES Encrypted data (iv & ciphertext) - mp0YCHhEUNQZ6+Cj0ONk1w==B+kuLVNThd7tn0UJjknCfA==
+[X] (27_08_2020 16:42:13) HMAC signature - 0570ad8d81cb8f9ea243438ed2e53cd48b97c27652d0d824bba3a4d40993c1a0
+[X] (27_08_2020 16:42:13) RSA encrypted Session key - BYGCTUnl73OA9PYnoqikhTQ/sl0Gz15jpOA2qqJ1BkRuOqPeRFC0HTw38Odw9uEwig89A/kh3g/m6aYjxM8cVveYjuU2f3QCeEcIydcTRVL7q1Q2sDQHSmUDOX+Eq5m2ywH2t454T8PUHDqNBgX6/CoAMm722JJq9T/gxjYewLt2CfCypfTd+wrfbpYmlHESpg5RQEAQFUr3z2oWB+sn4A65APm3D9Pw3Ier0y37vpzSd1zTx1QoQ1rx8WnYI7I9RcuPGkSfqNIXKcUEpJts1ngPDMhsEFsI/8ajcUd4ymWay+CR/qS6l8KitN+Z1AUmMCX5EELx1nT5lvvQpR4M4Q==
+[X] (27_08_2020 16:42:13) RSA decrypted Session key - EATn3+Z0P3+kcjUW8kZ4WqF5GfZGOQswRaGytTs8m+M=
+[X] (27_08_2020 16:42:13) Message HMAC verified.
+[X] (27_08_2020 16:42:13) Message RSA verified.
+[X] (27_08_2020 16:42:13) Plaintext:
+test connection
+
+[#] Received test connection from client - test ok.
+
+[+] (27_08_2020 16:42:13) Listening for incoming connection.
+[X] (27_08_2020 16:42:33) Connected by - Client IP : 127.0.0.1 , Client PORT : 54938
+[X] (27_08_2020 16:42:33) AES Encrypted data (iv & ciphertext) - s2yT5y+Ivlws9FX/wIaOig==+XEIN8QDhbcHQ4qoi+a1JA==
+[X] (27_08_2020 16:42:33) HMAC signature - d86ec5a96831f327516551453846ecf2ba2d7b2a96f8be76727c3298fd2619a6
+[X] (27_08_2020 16:42:33) RSA encrypted Session key - KfNztXpI0O3x7pyVPl/f+9T9Xeoz+lxbVnsfxVRjuLNAJbmzaD6B2hR7g9Q6lbmJxRvHwVuLd56TLXDvf9ytNPoAaeKmb9AqpRq75a05Y+gw8XXAThh5hWXOUehIzxxOZnPE1qOe7KBih3VmCW7s7GbOwx80ol4BsRwKQh3Wop/N2fzlu7GK1eH/4k4etDijGChNjKzimjhgC9+RjDc7zfSXnsROZtCFt6NEfhD5s2aAcVKXNuDADxvV6SXS1coFAXBDzQiewK0xvf53eHJjnndTuWPnq+jBD2V1cTQAMyyl7FFOvCNXVT7Qc61hjQ7uZ/pKzHVn5ThEB/AEvtPIeg==
+[X] (27_08_2020 16:42:33) RSA decrypted Session key - UidS2P1eQFlKI5iAyuVMmC6fN51jKU0Z5dpKdfglhQ4=
+[X] (27_08_2020 16:42:33) Message HMAC verified.
+[X] (27_08_2020 16:42:33) Message RSA verified.
+[X] (27_08_2020 16:42:33) Plaintext:
+test connection
+
+[#] Received test connection from client - test ok.
+
+[+] (27_08_2020 16:42:33) Listening for incoming connection.
+[X] (27_08_2020 16:43:44) Connected by - Client IP : 127.0.0.1 , Client PORT : 54958
+[X] (27_08_2020 16:43:44) AES Encrypted data (iv & ciphertext) - yPOSQSrdj9DBsYjvtKigFg==9MMljosH7JnwZtXZDinP0w==
+[X] (27_08_2020 16:43:44) HMAC signature - 68a6863b80708f6e191aabee54593b9e28ef012c55dc5149ff2f864d77b4fc41
+[X] (27_08_2020 16:43:44) RSA encrypted Session key - IQiPaJmMIiBtBloP5kf6wnBbHP0tZ1aOWtKI8hTlbOGrx62O2a1/NTeqPJfUQ+9LIHscrvDTVmhkwYAEim0pfnVq0bxI8z1bx0vnnYsaqTH28L38hFg00Jfyi/W1jQ/VhE5Dd02sbUpqql/zmythxXPdDz2TBnZp3Uy0ADh0xdpIh+Hz9lTQ5Bfx/sa2uwSe9Wo2tWpGyHi/M2Kj19rM86xrp/UUqQWNbdqkhX6HH1+uw9p1hlZJNhPQnH//npz2wl9irghizaKnvfqdjJh/t6JJ2ZrUkGLdCg6lnaVYC8fClHmf/Fgem63PZBWP+GP90nN/GYFURbIA68uMR8wyAQ==
+[X] (27_08_2020 16:43:44) RSA decrypted Session key - jg7BngCTyEV/Qy4rct6c4Xev2iwNk79k2WsgRKdZh78=
+[X] (27_08_2020 16:43:44) Message HMAC verified.
+[X] (27_08_2020 16:43:44) Message RSA verified.
+[X] (27_08_2020 16:43:44) Plaintext:
+test connection
+
+[#] Received test connection from client - test ok.
+
+[+] (27_08_2020 16:43:44) Listening for incoming connection.
+[X] (27_08_2020 16:43:52) Connected by - Client IP : 127.0.0.1 , Client PORT : 54960
+[X] (27_08_2020 16:43:52) AES Encrypted data (iv & ciphertext) - JIUQpiQWLjaLNlS1rjJL5A==AOY4RRxCRSG/OlgdZCxR0g==
+[X] (27_08_2020 16:43:52) HMAC signature - 173c3ce37d5af5f9e6fc682b22159f27e681d1f88076d0c7802ab7c3ed9dfafe
+[X] (27_08_2020 16:43:52) RSA encrypted Session key - EWy8AKi0dTWUozftSh7hpxWXooPc7bBJaTxjUVvczEN7s1qnwIZPG8lYLQAmeacabkzjiKYq3ufhBOuNxZVOp4Q/mNqjsD36m020EmB7qAj+nZwhzDC+b3WbU4dZRpw0tSoakMQrJjgB6M/9pLTOrV06NfgpSSWhPCi//jpoV4D1Io2VhBOMeVCneaX1wt3dx39+l+Exe5wWxs1R4zKBkdM4ULNlHLjFcRSKXnBX4diFmG3h+op5jtk/vjiFL03Tq6b8WIrcDjCQkTz6QYwU/asdNFSHsovrCAAbO9WfHG0phdlmWAFz4vf880ousxdaqUm5USYvZgt4xw66Ca34Vw==
+[X] (27_08_2020 16:43:52) RSA decrypted Session key - JIRo4gDFS8RQ8QJUOSeEZErMax3k1+udvgPxyq1GWOQ=
+[X] (27_08_2020 16:43:52) Message HMAC verified.
+[X] (27_08_2020 16:43:52) Message RSA verified.
+[X] (27_08_2020 16:43:52) Plaintext:
+exit
+
+[!] (27_08_2020 16:43:52) Terminating Server.
+[+] (27_08_2020 16:45:09) Starting server.
+[+] (27_08_2020 16:45:09) Successfully created socket.
+
+[+] (27_08_2020 16:45:09) Listening for incoming connection.
+[X] (27_08_2020 16:45:12) Connected by - Client IP : 127.0.0.1 , Client PORT : 54962
+[X] (27_08_2020 16:45:12) AES Encrypted data (iv & ciphertext) - IfR9z+UHfJ5h29fiB2ubQA==yN9z2YuMUJxy0kmjndBBzA==
+[X] (27_08_2020 16:45:12) HMAC signature - 7ead8e640e6e077231a0ad35273f40e2c704a1d47e9cbef5855e901bac5b5d27
+[X] (27_08_2020 16:45:12) RSA encrypted Session key - g2JyY5zf9V9i2lD6NMIt71WaiC9iNsBbVXleLBs2glnOzhNM50dAwq2Ep1zk3/QMfGZU78W0MPqtd7cjcNxjhrTdyXr8xHehqJikdLvxbso40JgloYSCiG4yMC3nxbTgTBUS/Un2jYnSB4gpf/ZKNMroDupTvvUvMMAqZE0eAhGdTwg5XdZbUSBDD5RgkoZB1pgrw7lzTuGfAXH2oK5+ltBddCulo9XZ6L8FVOwxrgoq8Xf6F+/82e3LkcYiZSbbg/jFewR4oXN/gdxcFpaDlbC/G0for1icV00Cv+ZvEcb3CgJ/YsfNS1du1+RQPnBWNzPahg7edLpP9L9UEyfQjQ==
+[X] (27_08_2020 16:45:12) RSA decrypted Session key - t6hqIcZE69AShNoIBGKCm+u55S8XmSKILUdm/SVFB2k=
+[X] (27_08_2020 16:45:12) Message HMAC verified.
+[X] (27_08_2020 16:45:12) Message RSA verified.
+[X] (27_08_2020 16:45:12) Plaintext:
+test connection
+
+[#] Received test connection from client - test ok.
+
+[+] (27_08_2020 16:45:12) Listening for incoming connection.
+[X] (27_08_2020 16:45:22) Connected by - Client IP : 127.0.0.1 , Client PORT : 54963
+[X] (27_08_2020 16:45:22) AES Encrypted data (iv & ciphertext) - h6FIUeIPWJp6KpNzPKAEbA==m4VxiehFWGTujljKldzJYSn0I4OHQRwLUt/A3Xr9rBGPBAzxMWsNivgYKE02iDUlvK72Vc3u72oLxDCijVAGfxy8CB7976U5NAJ4/DefTYtFgPnLuzaMwPAO3pmheb44UhPS17WCPtbHFxC6SIMb5MQqwOietwRGh6u2dCQDOFiIEIOOveANtK2qtYs937T7u6nmbj3Jt519r9R08hS/nF0cjB8iiNCzW/9Oe6D82xP34C+aFlbVIRNgejom4h4xqroP3p2NbQF7c9rKPpVh8iD9iC871KNpTtJn8SBV7tmzG72iUuBsKwEvHZyjOhvbjExHaLzV4o/sIYFZae+ySA8aJm4H1fKGyEvSRrraTfQ=
+[X] (27_08_2020 16:45:22) HMAC signature - 9792368b8a8c09ad7a4f5c5b1491a67f9cbd793183e7575d4b02a740f2f707c7
+[X] (27_08_2020 16:45:22) RSA encrypted Session key - Z1eu+N9+TUYtyOYCJs5F1sYw+ygvnOPbjF/NDo2SXdCH1HLicL7WgtQVLuipC6XQsL6uH74DXaCR3v4h058Zbit6Uf1qUlBB07eXSD4A62hajsLEKEpv2iXhRRJLKmfABj8AAiRJl5Vf1GXYbtRgf9QVddRLRnxrjWU88w8t9H8jg233eYzK2VRjqoKDCXbZs1kHKU70Lz9xh2WAfjFgh4nJdhGh2ignLJMgDCqrsgZb8RPNGEMZbyQRnwNv9ryMf72iSXPsbvpOeVFj6OYCm0Ydx9BSamc4ZMMUka6iaqzTvssAqomiqwquvOQH3AU9Bxc2meKNOpnze3sHXN7JUw==
+[X] (27_08_2020 16:45:22) RSA decrypted Session key - UW/NPKb0x4Az5FnjN/CEhZh/pAc2ipB9VJb+E0yA14U=
+[X] (27_08_2020 16:45:22) Message HMAC verified.
+[X] (27_08_2020 16:45:22) Message RSA verified.
+[X] (27_08_2020 16:45:22) Plaintext:
+Monday,Chicken Fried Rice,3.5
+Monday,Mamak Fried Rice,3.7
+Monday,Fried Hokkien Noodles,2.4
+Monday,Fried Noodle,2.5
+Tuesday,Fish and Chips,5.5
+Tuesday,Cheese Fries,3.5
+Tuesday,Royale Coleslaw,2.5
+Tuesday,French Fries,2.5
+Tuesday,Spaghetti Bolognaise
+
+[+] (27_08_2020 16:45:22) Listening for incoming connection.
+[X] (27_08_2020 16:45:22) Connected by - Client IP : 127.0.0.1 , Client PORT : 54964
+[X] (27_08_2020 16:45:22) AES Encrypted data (iv & ciphertext) - uW5T58qjOs7wo6H3l/qxnQ==tzB2l9B0SNKNiC3gEZh8SFvzo2uI3rUtHNC7cUumT6u2D+sYYfMI1qyKxin7b2RFK4psXK9FTw0A1jn4iuTYuMjHilmDV3oD4nXZg+liTGgAzUr+IfOD2Yhg+xsIGcsfS+JQfWDPJK2mrPWc1HMMUixccwihopKwW7g1CYoJcc1i76WnUUgRFR6SjMyEofcu3qMbmJApBLahMEACAlqhFh/urjW/C7soykEH+aQ3CJa+PdCALkOaSo0ksRmS2HqiDje0hOr5Qj1h2reDQHVBY/rFTp5xcc9aBlSz+KRRswUbtvJsdga3Xw0clEc+IN/Fve4/F8SvN1SQEHkXbXkYdQOqV7EM4E5sXKv2byafzUY=
+[X] (27_08_2020 16:45:22) HMAC signature - d0c24983d7f23fc9e7e36c91706ef07deee4ccdb72b2d105863883a71ee79401
+[X] (27_08_2020 16:45:22) RSA encrypted Session key - XG80GkAcronLMuIuxPhvHOLhQ6BEGo4L/Viz3cC/haipGytnS9A3MusYd5xMHLAzxfoYSfKlKy0l4sNxAAnm/rmRw9C8jqggVxT3fBYThq+IKgmztvxI8Os3XIjY44W7JLRWlbJtBBjiPWH1lPJXey24HKa/0IXNftk115Rz0Uw6eCZMMr31/P8D1dBHSFchss6e3X5haBMhHywWuDPzXWvfmHlv/dX8qHiyieHnPJm9k3p28aA0uUU6fe4EfLq0BmSASkML8ecfnWMNCb1SLhlVc6DnFnnH+nz6r6eBpNr36xc/1YhaccNogmb5ROKY5+r9iujrn+lhIWGR88OGwg==
+[X] (27_08_2020 16:45:22) RSA decrypted Session key - icVh9zIZuNo5YKiCyMs468vLf6IcS88hecc057qHZU8=
+[X] (27_08_2020 16:45:22) Message HMAC verified.
+[X] (27_08_2020 16:45:22) Message RSA verified.
+[X] (27_08_2020 16:45:22) Plaintext:
+,5.4
+Wednesday,Mee Rebus,4.5
+Wednesday,Asam Laksa,4.9
+Wednesday,Laksa Royale,5.9
+Thursday,Tom Yam,7.0
+Thursday,Nasi Paprik,5.5
+Thursday,Nasi Goreng Paprik,7.0
+Friday,Double Mac Spicy Meal,8.0
+Friday,Samurai Burger Meal,7.0
+Friday,Ebi Burger Meal,6
+
+[+] (27_08_2020 16:45:22) Listening for incoming connection.
+[X] (27_08_2020 16:45:22) Connected by - Client IP : 127.0.0.1 , Client PORT : 54965
+[X] (27_08_2020 16:45:22) AES Encrypted data (iv & ciphertext) - 6hCtbNIjjxT9LkUoPEtPTA==v86+2w66h0yc3OURMfBx6YG0w0hXOZHxt4eFriMwKkp1tDnUFglep3f1/LahZXBNTCHfWPbVt74aseh0v3lBLBKF7NWIo5N6JID8XOSUoRD7xwZXDGXLg5WqbmRMUYFS9kkZTCVEmNgwxTi8SvYSS/o8wU9Ff8omizAD+ccaFzrIohLuP9cr0/M/7GfOr6dWW6+U4acmmtPe7I/UMQNe0mUBySTv1vqjHcYeKodAgW4XrbGQgmELnpIg7DmjR8jXxiW/z1JwIyq48nDh6jNFtMsfRWRzNH3smHZV4RTQBnA=
+[X] (27_08_2020 16:45:22) HMAC signature - 946310c79bfcf0f6264fadf421f0cdb85944f37a8192edf56bfeb78ac582e9eb
+[X] (27_08_2020 16:45:22) RSA encrypted Session key - cMDK0A2raLJI2hFMjY5sUOLGAymXDcEXkzuHaI0LLO+TdqzEYiJoletb5rKoh1T5QPrX35fedX1GM/thwpwwWTJpd1XrVRbDuMEjkloAiAJG28rf81VZFNxP8rWxDGLoqY2Uot0ws1SJBRdVCXbBCSiEc7NWazHwRqFOuxOMi2ckw1hvMKoNyZJ9II00w1771Q5m6qGjN6wG0rzfre+3xzVlPtrDH2ONTvRYqa3LhLIpIT5+Zi1XT1k5M9BYCC56ldPdumjyaE7wFSX5UoiYDE2NwezQA8YelY3ge0ztxPNALoxn1yQAXSUJrvvm5NkwibAc3dWoeffv9HF8dot+3w==
+[X] (27_08_2020 16:45:22) RSA decrypted Session key - P0Io/8Q6uMgIKBaZnGnl2b/4KTy+fxS1BmOy8Bk2+ME=
+[X] (27_08_2020 16:45:22) Message HMAC verified.
+[X] (27_08_2020 16:45:22) Message RSA verified.
+[X] (27_08_2020 16:45:22) Plaintext:
+.5
+Saturday,Rendang Chicken,5.0
+Saturday,Rendang Beef,6.0
+Saturday,Ayam Penyet,6.5
+Saturday,Chicken Congee,5.4
+Sunday,Chicken Kebab,8.0
+Sunday,Chicken Burger,5.5
+Sunday,Beef Burger,5.9
+Sunday,Oblong Burger,5.5
+
+[+] (27_08_2020 16:45:22) Listening for incoming connection.
+[X] (27_08_2020 16:45:22) Connected by - Client IP : 127.0.0.1 , Client PORT : 54966
+[X] (27_08_2020 16:45:22) AES Encrypted data (iv & ciphertext) - SFf2VbgK4LQkkfx1Q5+56A==BkI8xV2UEyTwDbC9TlUcRWNLcJeqp0HqpMQJt0nTcKz3pU3S7qG/pknXy8iZlpUSvtagCCF+eESPgdf13qhnNj0RJfA2zLlzxRyR+SjI2ck3DiPUzgp6b1PAz8WMRWlG
+[X] (27_08_2020 16:45:22) HMAC signature - 35d0d62b3466c4014022396191b26c69b9c2a3912378ed7452d8eb03fbe9c415
+[X] (27_08_2020 16:45:22) RSA encrypted Session key - VKlxQ86kmx2GyXHgzeMo4F20HkdANVdiJVHrzABPqVTcMHnKHqQQ1ZkdIcU21gWoZwPj4xPvkb+6r7udmnWKP77GGQDFLDmiOEuUqnl0OjZ+6ZrXe8tXlOA+BeKH3q+vuSLQLC1fxCBoQHciCsRuaoJQQFQ2z6vqLGBW/xyqLGsE0XjjoaPujMxEhsnvw3PeB29s8TS2aRqrFkn5mCqdIpJgv05zQEeSQ7Pz2Tv6Qvau+y+oi5BhY1WfOwdmmaH8N3OO0t/kfeootQ3PlloI4TpeUSID2K98Mjbi+e4r17KCa3QjjtU+PqnVV12fQWQba3IUJH8gAvS3Q5q37P3zsQ==
+[X] (27_08_2020 16:45:23) RSA decrypted Session key - YS9USIX7buerPI9rEtASCy8Hk4KRraExP1sHjwQccRQ=
+[X] (27_08_2020 16:45:23) Message HMAC verified.
+[X] (27_08_2020 16:45:23) Message RSA verified.
+[X] (27_08_2020 16:45:23) Plaintext:
+upload_finished|2994c8b06139a775de981505379fac2a9030f6028f9248689fa9c9d3d534dc49
+[+] Saved uploaded data as "C:\Users\adminuser\Desktop\Dev\Crypto\Server\Uploads\27_08_2020 - 16_45_23 uploads.txt"
+[+] Computed Hash - 2994c8b06139a775de981505379fac2a9030f6028f9248689fa9c9d3d534dc49
+[+] Hash from Client - 2994c8b06139a775de981505379fac2a9030f6028f9248689fa9c9d3d534dc49
+[+] Uploaded file hash fully verified, no tampering detected.
+
+[+] (27_08_2020 16:45:23) Listening for incoming connection.
+[X] (27_08_2020 16:45:27) Connected by - Client IP : 127.0.0.1 , Client PORT : 54967
+[X] (27_08_2020 16:45:27) AES Encrypted data (iv & ciphertext) - 9QUuZQXB/wLiSNUtiqcJTw==Q8Jv2pItxwmL0jaqoeb2bg==
+[X] (27_08_2020 16:45:27) HMAC signature - 4528078143b911932ed1357808cc0446adba053ea042d248bdfa3a5aa5c0e14f
+[X] (27_08_2020 16:45:27) RSA encrypted Session key - iIbMH7FZXl+TdBvUjO52ntr0uou81dTmUHgIvZdCyfO+YZ5kSJyUeej6Tzpb8eGyiepU2Oj3BbLQDtMwO1uu/3NrUceA0qhKp4hg2qFsGH9lhzyaHbv56BAfhLqOY3q9Nm3z5zl+jJlmWSC1qNu0kretYso0+0w/3wDLp9xXTJsEwq2iPtNbGqiWPoO7FicSyrMP/emJt9hxYWgtW8PscyPdScO0A9GtiJcD1XpsBm6fAP22ZdezmJnlh1xDnLuaTPRI8tpoRxkcBPrNa9RRePhp5k55LJJ1nXjtrG0ARomqY8He8ksqYojh9vf8IumTDcsruxSs4U6DnaSzOoqs8w==
+[X] (27_08_2020 16:45:27) RSA decrypted Session key - VS+EuW1caIAeE2hnF39cppT7Tf5On5jCCYCUzZnBzLo=
+[X] (27_08_2020 16:45:27) Message HMAC verified.
+[X] (27_08_2020 16:45:27) Message RSA verified.
+[X] (27_08_2020 16:45:27) Plaintext:
+exit
+
+[!] (27_08_2020 16:45:27) Terminating Server.
+[+] (27_08_2020 16:45:37) Starting server.
+[+] (27_08_2020 16:45:37) Successfully created socket.
+
+[+] (27_08_2020 16:45:37) Listening for incoming connection.
+[X] (27_08_2020 16:45:40) Connected by - Client IP : 127.0.0.1 , Client PORT : 54970
+[X] (27_08_2020 16:45:40) AES Encrypted data (iv & ciphertext) - SAnoUQSWVXyTCZUNWh07mQ==Vp6fzNdEGJctvGdeGnLQUQ==
+[X] (27_08_2020 16:45:40) HMAC signature - acd4a813be7e4a7e40fe13d77c130d7d2ee58d19af716b2526806dc98b21476f
+[X] (27_08_2020 16:45:40) RSA encrypted Session key - OI2c7kYNAPBDYnuLPZLBG+Yzb5jtUZRxgqQwLNrUHJR88BcNj/+21BISUShcTwslZ+DSL4sh3DpZ/UczFHpLu+VPPpzcTj+6HO9aN7tmqGurm2QI18GSm0XED0gJiMxviXcS8gByxqTYNm34EZ0zZgtlyPfS7fpiVzp+uBgpeEt+TqqjwvOoh+5Tb4aVODFnMptMmt4wICzWmZ6JOaQTrTrjg4dHhaK08YWVSG9ACpUS+32gSVuTZZfBHxZU+62n6+2DSiEo+iWl9C3IpS8hIuBP39GZudj3gln6gIYR131Kyzbe8yTSBk61AdaXMpFaiii5ZZxOEoB327X1z8Sgmg==
+[X] (27_08_2020 16:45:40) RSA decrypted Session key - LNddrSnRoVV7euiIZM5NobUKbInvmkgYPHuYWSK/y7I=
+[X] (27_08_2020 16:45:40) Message HMAC verified.
+[X] (27_08_2020 16:45:40) Message RSA verified.
+[X] (27_08_2020 16:45:40) Plaintext:
+test connection
+
+[#] Received test connection from client - test ok.
+
+[+] (27_08_2020 16:45:40) Listening for incoming connection.
+[X] (27_08_2020 16:45:45) Connected by - Client IP : 127.0.0.1 , Client PORT : 54971
+[X] (27_08_2020 16:45:45) AES Encrypted data (iv & ciphertext) - nHT/z5EP7UuYYmyKOkdLUg==zYJRY13Kvh4r9SaU3iR8og==
+[X] (27_08_2020 16:45:45) HMAC signature - 49b0d5bc149bd536e2c5b901211a46ffcca72af02c9d933ffab938174485c9e9
+[X] (27_08_2020 16:45:45) RSA encrypted Session key - espWaANM/ivcPwbjD/CRA5BOO4OoNSMyyrMXjbz+pRWtjN562VAUuIaYdHMhc9c8ombCxQQRQKMkBNyNumgE6dg6LlQ3PgvtktEK6pHTu6M6FtCJh4khdrz6gZeemymgFv2z+1R9OxGThPbui80px4W07UKFhkmZUc1Y6f+KAlJALTaWun7tTcZaUCZ2OVlUQuH+AjGp7gQNXMqk3Ht5Pz4UXliANBAej8QIGcyvsOM0THK9wdY5Y2FIx2Wwl0hEwgXtHoOqp5xcqwryFmkDcvq+C/8K7I1VFTw84EZFXJNSj6KufjI8twkj3cltZPaE4p83PP5DSuu3Ccq2zeMiqQ==
+[X] (27_08_2020 16:45:45) RSA decrypted Session key - PGhy60Rhu6EKRq3YbYejnbrp1AuG2Eta74dYK8orGUY=
+[X] (27_08_2020 16:45:45) Message HMAC verified.
+[X] (27_08_2020 16:45:45) Message RSA verified.
+[X] (27_08_2020 16:45:45) Plaintext:
+exit
+
+[!] (27_08_2020 16:45:45) Terminating Server.

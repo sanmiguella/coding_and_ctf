@@ -53,14 +53,13 @@ class Client(Security): # Subclass.
         return day_name[date.today().weekday()]
 
     def test_connection_to_server(self):
-        try:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as connect_to_server:
-                connect_to_server.connect((self.server_ip, self.server_port))
-                connect_to_server.close()
+        error = self.upload_data(b"test connection")
 
-                return True
-        
-        except ConnectionError:
+        # not error -> error = none 
+        # else error has some other values inside it.
+        if not error:
+            return True
+        else:
             return False
 
     def print_and_log(self, data):

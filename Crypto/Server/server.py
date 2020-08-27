@@ -130,6 +130,9 @@ class Server(Security): # Subclass.
                             self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Terminating Server.")
                             break
 
+                        elif decrypted_message == 'test connection':
+                            self.print_and_log(f"\n[#] Received test connection from client - test ok.")
+
                         elif 'upload_finished|' in decrypted_message:
                             # Command|hash
                             hash_from_client = decrypted_message.split("|")[1]
