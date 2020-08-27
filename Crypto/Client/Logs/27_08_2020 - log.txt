@@ -1,232 +1,108 @@
-[X] (27_08_2020 13:22:57) Unencrypted Session key - imF67ykC3Mo8FfGMhq/HgxuEqBUpHQgte5MsWJu///8=
-[X] (27_08_2020 13:22:57) AES encrypted data(iv & ciphertext) (388 bytes) - qRYi06bW5uEC1QIZUakNjA==HL36YMZXo8RCzvYGwDHhjNfpuT2fTLDoqc/0Bj+qLi7G+5/jyQbYd/C5prl1VGWmOvgmdYb3Ab7RKk0E7lbDCEYXZIFwNNt2N93kuGHfZby7ccwOJGvLLapmWo+2C06LvhXu2kcDbCPITpD/97tXMOF3nwExGAJMQlyoYuQ4EXj5yqg+pfVnWccvC7r6rouRHfv4WBMImG2nRTMAzmhbw8UlwPIQU0jKrHCjPXYSiRHoVss0MDCZwk1P97S3yg+xs/9iHrGsARZ22/PW2VbS0jcJMUgOXBoe9K1s3oZ64+LYXgh0fAjButgss3jDjbOCVbifcnE+4LCg54q67QD3egR/aJgczcFWSTrOTS/FX78=
-[X] (27_08_2020 13:22:57) RSA signature on iv and ciphertext (344 bytes) - op+txMfFsHQD9nkrOiV0P+FCmuaYYNAgI6mmqpuQCO2xvbDyRAG+0DqT0K9ggAAgkJiVUE8fW9AYN3HH/vYfLHCV9V0f51gReynDfQvdW4OhumEG8nsHofH4GqyfdxoykmoFUaAF0jZ9CZwsmoluJ4suBzFEfWchbyUWiSwMZNka/4YCo9PrLL7clxtyCzJnFiH+Zbkt9v0fMrtWNjTLvWcFJ5LNosA1NBHIC8iW0IWo0nwdEQS6eh4fiyMei2WOPMGI138hFk0lPmKfcN0NZ2AbqXjw0YV1yC7jrwgkA/dTFCnwW9atDf51J9q/n4c43Id/glGR35/b7pW4+h5ZJw==
-[X] (27_08_2020 13:22:57) HMAC signature (64 bytes)- b6be8d6afcfd32bfbca0c0a82d77f1fc2d16691c2f0ad6960d76265ae60bc211
-[X] (27_08_2020 13:22:57) RSA encrypted session key (344 bytes) - h18bdS4d7dO0ZyPLFxDqacpQOJVPC5YcUzS5J+UOeiMZTjY+8OaO64blWk/M/mNBS4GvX3Ah1aFC07m2t0aKdFxpetCNZpdW6Lr3fwLfn6wibb5CR1pQe8mYJwym12ht+PVucdKbOUFLNPKYnLk4f6oN43PFKiPAJZPW2LG2PUqhJFvoWL08IxmIN4Dy4TvAZpBWu8piY6F9hOUbVtBL4IYl5lEoPWtqVkIuoTrdYV0ODKb8TDvFAamMq6RcCYr9E9dP5C3hkqokZu8oVBtBeGdG7xU5HLzKYVZySo8t6NRB/Yoy2Nzk6GDGs9mbe22ayMf5BVHBbb++mYORrNjUaw==
-[!] (27_08_2020 13:22:57) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 13:22:57) Unencrypted Session key - LrwqH3/JwLT+JQOpiako6o0wpicjlHq9gZ8w07VKqpo=
-[X] (27_08_2020 13:22:57) AES encrypted data(iv & ciphertext) (388 bytes) - B0asIqDy97J0WNAtTxgZaw==En7fVTERsvmnRi34Z4mDIyKvJRF2pyKHO0CUOluQ138QgIOi7iLJGZicjDLebK+umUxbj4rErGtbC+++n2cqWf4iCKLIXwPcV7FHa0bERbXxVdJPRyCQgfNLsRykYyy1IyGEcXOmik1vPshpmLIqx1af8D9LTo5QXSKCS+1Lxekj67sgFY1JVzucIEud2Ei93vXJz22j1vWNiD5sO5krYyv8B7CMb5H5/nM4BTj059F78XWaE7lMxPW1UJ6II6mRoDIcUI3JHYAvv2LReQvuXt54s9sMWW8fR9jclM6dGbT5ZbszNwXpClwXXLIracCXFGA43pHH1ZWDgOfsKFko0sTo2V5CywMbmsCQnBm1Y7I=
-[X] (27_08_2020 13:22:57) RSA signature on iv and ciphertext (344 bytes) - Pl4jKQcBPZu7oTKYTJtW1K1qzml7RtpKKGKQNIMz1i9T66qhhNNLdnjxJ5SmHaRPybkH2KrmKAjKgGxLNCZc3BZbpCE1jSy7jm2yttUVif9TdBLwTQXUo22j/3HMlO5m3Y4YWLMXm04NMXjIHSHfizt38P7sXD/H7vP74KwruYyoWM1UZfPelxlCAUlFx5A3FtR3TauIlBYDUuDMZ5D5ssv9tNXy3DaWVspmCmg/8ZYdB6rwpzMB6PJN6hhNyqRHwWekL9iNnoulEwugytJFGjLEFn/S+P5UCw0+cAVfMAJ4OWSUWw5UnbFqXnUpGy93xoPn1HMe6K86mSqlkMtimQ==
-[X] (27_08_2020 13:22:57) HMAC signature (64 bytes)- cddd582da8ecd6ad03a5b120582ad9d1faa17ce3bd2a29cc6c022550793e6266
-[X] (27_08_2020 13:22:57) RSA encrypted session key (344 bytes) - VNffNIDdhifQTgyvMLMD6l8ZZ9ru6Py9oa0SCGLrIg2XlHvXcmIDxzDsvfx1RU3u9LN8UQ7dgDpCRa+4pfR+4LMliD7UpyN64yk4mu2ZEkNVZODz4yQ/vEsjbOiktNB1UYdS15I0FedexnHxzkbK8ZFER0z7OmtjU+WGCVz119WbLxv82JYVOiX7FLfGCqinjCrR4b4+7iTFOoIFO3ewoXuwX/b/23WmCSebxLONYdMlaITnfkpAG5YK/XFeZDlcgdWPrsZPo6TDZSutzMAHZXVxQcXHip2GeNTWaK7SoIqUdnrhoyq9QS5CgGCr4LHXLHNe9N5kNIOj6JhVNOucHA==
-[!] (27_08_2020 13:22:57) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 13:22:57) Unencrypted Session key - 4fSJ5urnu9cnuOsjWtHoZwzI6gW6naSqynb1+jamix0=
-[X] (27_08_2020 13:22:58) AES encrypted data(iv & ciphertext) (324 bytes) - +o8+1RawDpa8CYYmp6gJqQ==6RWk+5nfQYyBkocMIVa+Qd7dxfeRswT1pJN1DAr8+4W05v6ZEWFmqcuyrQiEcNcjGBgzZLJvzQFPF8/E15Wtg0qXSLmLU8J+vckrlQXAiU2Odf/YPgBYpCQDmWSXPaJy9Z3xHehN4fNuRqp6ih+Ye3BIzPFkQhws/fGBs92WvO+W3yGzthOBYa10RhWfGxEvsnTtAMdEPuxYLlR9jvEJZLDHTDCgn0A1o0U5a+kMdNhsU/C91g5LHCTLkTA2Lzaa2MvmorMGa+03egGNToSqe3NzIKhXWWxfH3aIVWaDh+Y=
-[X] (27_08_2020 13:22:58) RSA signature on iv and ciphertext (344 bytes) - QErz6cMBrSTRmsZ7wxzNHD/NatRpA+/yVqS7XQyk1fEzkZwQvUQjJxT3wqsQ/VAXAf8nkmbYZ5ox1oPiedsZj3EC+mR+ATrhItVG3Inycr76b0t1mnubjNZvAHDJkEuGjW1CWDlS6fnVa1EN8gNVU2XOqfSrVN8aOxUofFPQqZRs9CD8hziDk5sISGvpNjyu1vl8L1BT14ednSm92ipNGionGchImT3QYHs9/EdGNZlOMKwfgH0mf+LaNUtuPsSmbKWySONH2BIQctORCm464c6t8pwPbol7owZERGcFeZHhlusnjlWAKShMyxUi46pv1E6Kweo1A+7cwPMwaIfcwQ==
-[X] (27_08_2020 13:22:58) HMAC signature (64 bytes)- 373154557931e0e8dc07ddb220d02fb8079a8fb4d23f12d25a2e938fa0a095a8
-[X] (27_08_2020 13:22:58) RSA encrypted session key (344 bytes) - HOrIzZ89wH8izJV2I6M5GIgGTwngqc9p20uUtCkVcDYrM5QV4HNjA4Hw5Ofsj0eYS6YXqkx5W9Zj4BpaoedstR1Lu5ZfVvp7RPa5gMaHW15hIYSWd5o1BWNY5252bSk+NtnUIoaFAHt9PKpBNrobYU3ZrV75M4bp6C5zilDm+VtYBVZRjYvmP9O29KVrzyHllff5GvfBq5get2N5u+V2yQBClSwDpC1tJZlV9tXZzpFqM/E0KdMZSEul16aQmkrFHaRKE6S1YOo/xVkmtwCgC9jFN+3zqsZP/29SxkVf+ZnpWHT4SXvfi/Zkav2TQrCZyKgyW2Nhhw2O6AnLJoSYaw==
-[!] (27_08_2020 13:22:58) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 13:22:58) Unencrypted Session key - N6tume5bDMTpw7G6t1aQEDNtr2Bd1GDE50YxfPY0AO0=
-[X] (27_08_2020 13:22:58) AES encrypted data(iv & ciphertext) (152 bytes) - o4mLU4QGDzD4W2sb7ZIRSw==cILJwfwK4eUosz3e/YftcadzVulkGFmkFENK1f8zjrt1g2UT/rFJIzn/AR3kUDnww1kmYE4SKslR0Ya2dpyMMQbSQFSpBHu7n5k+tOk3VR1zK2+WkatCV5+E3Vb8K+t4
-[X] (27_08_2020 13:22:58) RSA signature on iv and ciphertext (344 bytes) - Uyzl6pl3/Ly1e889nkWDwFQkZDC6bh3foeOrkzqtonPccH6F6SzJ+mpPFwKAYN5Ju98d9Rfa6T+Dl3iU0Egbv9EeRq5QhZ5esD2Pm5Adr3ry6htjdaOzxz+zracPuQY0PDWk5CzYliH8arhG+3EbRg21B2WRX2o4ww4oUdXGXVc1FpJwMMJyuzb0/Gs/hjd+8xO7/DHV+qyV7y+feczG3s5vibUb7L/Q25p9XKUq0wwxFY/5Ah98/rK6h3YGn/dgVVOP9fAMYwTm42asecygJp+qRoVh+6r4EIwzu1uC/KYq88DOxsO3ZMk6Hs/4WHyquFGBjwR0+sCcLTPCj5y10w==
-[X] (27_08_2020 13:22:58) HMAC signature (64 bytes)- 2900efa32dfed02cd84807891307f2f115ac1013d6089ac6b26e6e7ca54ec146
-[X] (27_08_2020 13:22:58) RSA encrypted session key (344 bytes) - NAtCGx18YXilHZFmBBsCZXRyhbQr64v9uvJ+m+HAtvzqoCrtjLBpMM1s/0AxVBdBdFb+4Csfn1YQhVRiYWWhlb/LYiSKME0CZF8+WQDRMDFT4dOF2n99uMvqwsKsRcxwhI/WI9ghiqqltPzSGL8Trmzejh5BIIs5iKY+IvyQWNGbS4M9l8pEHpcbaQAaDelANzc2q52GDKRs9dW6ZAa1SIYkXgGRZTU5pummTC7JaR212JcHuO7s0z4wo8LtSxt8vCZM4yPlsMVQn4wiyw9z52mHHjwmAkv3FyARGpn2r1Gx/gxoQiF5TGIDiynxTZpdi7LWkEJXXnfC3EYlNo5PzQ==
-[!] (27_08_2020 13:22:58) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 13:23:09) Unencrypted Session key - +1ogbwazc4xIPlBGI0UIUWWEhCU0lZdf0oZyEZLpI28=
-[X] (27_08_2020 13:23:09) AES encrypted data(iv & ciphertext) (48 bytes) - EzOuO3o4jzK8Ks2EmwOuHw==0EclOpGIjkckhzdaqm9UAQ==
-[X] (27_08_2020 13:23:09) RSA signature on iv and ciphertext (344 bytes) - V7UwsSdkkwXVu2cFePtXEnXvCYwDXkFb1CR48Ma3RBhQm1tcqeeQONPh9NBQwjDdInDtSTi7M/cePsvZJCVZ0xMHT/0gkuLKOuImPATp01W1cllxW8JL1Kh92ttgCYkE1rAo6hKB7zOOxXJ/lu7hTUrC4+6F+F0HPWDeOSHJV8Udgzf1JBuhg2ISMvgI643+Lef7hLxYLxYb3D6jhF479lHKljcQGnYdyELJlNvjYiRIZuTCLAXo0lZdUAnqfKZ8iny8bkHmw3m0Pqm1zX+1zMOXQTzZeuaRpPnw5IpQXnZMHtcg1J/T0sR0obDuJKdCwz/9NCDT2x+5qxF5GydezA==
-[X] (27_08_2020 13:23:09) HMAC signature (64 bytes)- b7e9ca5d06e9ae067ee6b202487d4790ec955219624d951d54070b9be4c9c721
-[X] (27_08_2020 13:23:09) RSA encrypted session key (344 bytes) - YpxJ+BtW8YkjiU09P0YDIXvDprXEdbhtBD1HA05Ee10UePS/bTLHgTFSa1l37i4gKAwTRukcX3Kj6nJ8h7rRTDJQ3bybo1kirQOUgsosXx0G7aEHUpI1ab8HQ0O3A32O/HllowuW56C/W933sXq2AarUcUqLaosOEguIzCwF7M0nvkCG67gMzfDpFqjx0AoPSsE/aRQd5vTYCmjk3MPg37gCyxUMcrevg0C5PCD9oWtQdwvaYqQCOTnWI/Ygv8Nxfbz7IIvVg1nQwv6XY+uGPpcv/6twjzsdEujqHA7F+L1u6rNR4rtohIGYsE/rF5PaDy6LkkKx4azhUMQWnJh1QQ==
-[!] (27_08_2020 13:23:09) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:28:25) Unencrypted Session key - eUxdm8byiTnx6GTAZ+Sisb/UlSIQo8tiIqcQKISEG+4=
-[X] (27_08_2020 16:28:25) AES encrypted data(iv & ciphertext) (48 bytes) - KAi/u+aKHQgugiYnlidDRQ==RiUadKud5SWR68TOQsWuQA==
-[X] (27_08_2020 16:28:26) RSA signature on iv and ciphertext (344 bytes) - PGaLyO5yC/5+iH2J/21Gh4gHIFi8Mf93KNa3mEKXm4BqhDAEfad1bjyqg9dPjUgIyWyjG5vxeWuIqexlHuvVXMy7GSV0s5sKy20y6AvW8QZDUocwkyJx6DPUScWmWR4j9rowh3Qdmk3QlrIOuSIzXV34V5Hh5xq4LZb9aUsScW9LMSUxhT8euBXQlz6tOb/DCrfid3UwWpybkZ52OvrGFI+Mta4M3qavU0Guo898abWhCYIOp+wPn9AhPTvrwjKCadYf8M+lYP1DRlu+mHEfZV+4D41FwMIyFGpRjufAdhND2t3/bp/3Rb0xgUh5A+D6zyDdXyafBuxUKH9YDkP2bg==
-[X] (27_08_2020 16:28:26) HMAC signature (64 bytes)- e15d69f96a4af8228f43a914e337e0aa35bc7dac53cc8573dcce5d6feb43fdb0
-
-[!] (27_08_2020 16:28:27) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:29:13) Unencrypted Session key - /XOFmkoBKFbHjywozTJlMgPNWCc3/AhtS67IviS1DEU=
-[X] (27_08_2020 16:29:13) AES encrypted data(iv & ciphertext) (388 bytes) - eGrSIKCSL1wDTFhvFjnhsQ==sll4NZOHV9pjkwkfknA+xfECb+Xe0ZgM31lB1qtiMLYzukF2Z8MTnZDo/gUfLTte55igARGWTFafq9P+zvqdxvGlJzY9sh6pc1vkq7zfP+tTpTIlDqu407M9hF5GwlTRElTN+MwEFQceOR4yViVN6U86p/zXYa3FYhwqX5lSafr/cphoWsYJtlFlumVXvkQM1W8IFavTma4oMheZZmCoNAX/WWnyuzACV1/LF4196mZEYukGs8m3+TUDXdir/EWDHPGYJqELdqxtpmCGe2y+NfSW9KOMw1Wv8jyVAp2wqIRjd/aidex6VpCaNrrg9nJmiWkdF9n7Ry9Bs/wagHIkgGEzGwalrr+dCXIxyAUd9dQ=
-[X] (27_08_2020 16:29:13) RSA signature on iv and ciphertext (344 bytes) - E4rGvPSh98uK4jRl1gMKp7AaTWKOOW7JB9xI+PbYkqFMVJrFUuuMhz8qHk0Mv5P6NSiuJMU5AQ5+Gt9hIxipeND0Q9rAL1vkTY4R3J6j8W+tggrLBRuX9VM3AVl3dIUNVUtS9CB4FIYu78aKVJtoXO5VFd8lSpx73e+h50EdF8jdsoCLtbSDdY3ub52JCnbjhB50ffTc5X5P65KWxPkGhoh5+NEGvLKYaR9Dc+8+uvQCM5ZUzF2frsdGtXREIaxJW44utWX777TbRemu3HMbH+xo+apFZa0rgGkNwmb6vqwSey1MbIWwz7FWgCBu5QR5CWnU63k0w4xRDM+uqVoOpQ==
-[X] (27_08_2020 16:29:13) HMAC signature (64 bytes)- e970fac5bc6bd4bca8e7a893e64e4bcb9fe6f52e287c5472da8b00a5db16f770
-
-[!] (27_08_2020 16:29:14) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:29:42) Unencrypted Session key - vZlDPrL1E6BklzSbhgzo6tn4QiiiMQy2TnmZs6FbyPo=
-[X] (27_08_2020 16:29:42) AES encrypted data(iv & ciphertext) (48 bytes) - yKwzLB7gGk4ptPO5SoK3dw==9Ji4x1lQQyFjCmguLqr4jw==
-[X] (27_08_2020 16:29:42) RSA signature on iv and ciphertext (344 bytes) - Qw0by0vK7BcbP+kXDqM6cF2+Et6NSUG+PsO8hwoptDS+sUtaBIXN1sqkZZ6daaJ6HeRcJY1HUAp/vGeqO/rh02wORXTHVLfTdzpBtZrl0irDHlTRxt1tClumyaGDO5Seb1e7fruD/C90K2qhn7ecQ9CMaNPTStcwV586p1YSoQYNJVN+k6tau4Wx7tAarpqxLDqyGvuvHh9U6YqPpBc1SnDTFTxa6wNzQwF71KXuOR+MqccFnoiBJXB6pQnFPlL8HmKEBDGEn8G2z5iCC5AU6eWviVEiRzEeN6pl23eUvVuB2MRCC6I4ccAflIqnchNz/JwCd1RxXNdKqRDWhieFXw==
-[X] (27_08_2020 16:29:42) HMAC signature (64 bytes)- cb58dc1386a786a2f37f51777bf44ad1ccf046342e750a6a910d72e413cd8da1
-[X] (27_08_2020 16:29:42) RSA encrypted session key (344 bytes) - IsH+6MjeSNMnEhiwP4pfw4U2Nfg3rgITvGdFWE83HGf9cQ9u8EDApCKS3JahOxQ1HAt8CFQ/eORBTXdI20JSgw6oidyOX0FcSe325a1oOtHPBhIWwzHDHOq9Ns0udDW2eZthrrVJ5Zoaks/QLdEkaL7YE6uC3Y85iuvKOqMAbr4rTl6ilcn1gjmTjypJgsbXVm4NwTsXZVbAmfiZddkRYCXFbFbJRIust+fYuyk72uF309M/J9xJPmBBnH4ElWfOP0isn8sJC4sWBtzqANWHb/FwShFPbmfnXsjSjYsAhbEslSWTtbwu84fPdZMjFIFWlbaQE1l6r6weYtFNzFqC+Q==
-[!] (27_08_2020 16:29:42) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:33:42) Unencrypted Session key - 7XPKd03tGEHUbRGx5dye8Mk19HSXwbrV7ayO1H41XcU=
-[X] (27_08_2020 16:33:42) AES encrypted data(iv & ciphertext) (48 bytes) - b6dAe9DER04lnDHcFRWRGw==5/U5ZfuG06qnD4cxHa6Ljw==
-[X] (27_08_2020 16:33:43) RSA signature on iv and ciphertext (344 bytes) - V+Xoui/OyM0UvHMiT7PkPqvs0BtswG2BXOoZP8AFkQAQ6D0rKXuQzCPGpLsSLZMpe8kzjCx++s8vJihDX5DeWvsrc5UZechaJfqYe6RrTlH/efqqiZUlSQjaC8HgSvMNLDhfy0zq02558hjySKcLRYrRwKiAdRDnexI4KZBRfTgtO7wUYv5hPhHLaLZsygmZ6YTcOhsoJrAHiqeT4suHPEycPAP3Xbv9FF7RsJi8g8S5yTruUcbCHrMh3zFoEkXNcqya7LvTTS6j2n1DtpjflvyDC+6wN1wZxZKAG8mdZJiZygEtE91e/xo/erAICPp0ohu5aSAJdg3mrb6h4p4ulQ==
-[X] (27_08_2020 16:33:43) HMAC signature (64 bytes)- 57ec67ea1c6236e0c6493975e5df06322f2dc20b2e74d724dcf6c7238733bae0
-
-[!] (27_08_2020 16:33:44) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:33:52) Unencrypted Session key - 9dgdV2aWuqCgouUTYsqbR8rbzUpJBkw6IlchXW607uc=
-[X] (27_08_2020 16:33:52) AES encrypted data(iv & ciphertext) (388 bytes) - 6rXCarRGOgOyl17lVMtlhA==3Wgw384uzmnuD6gNJsfzFwXREOwC0frtDGesw7uubr4g4auLYDTMTV+1Djb4KwQ3PbDb89pWj2leerXG7Viqf+Gh4Sx+IvuNixVaxQnlNI7y9cwnVktjQvab5PXxAZlR6KX2NeOLCQbEtI1uptkh/liXAlkZXP9QQRndy32kGK8Oo+rO6Vh7zJzrwaQPCD9XzZSSvlQD7JoPLTV2L9jb/K20Pxk/XRgmQgUy2Zbv/BxeI8VHRV3rQ490DWr0Em4E6oaP98bJhZMNY/N52yqDqb2PswYazm0TF8Bldv3gOsCs7jJTzDXOoGe5SLdbh1OysDK6lS7geQKRqnzSltj+dL9wZfuqTcos9i7DSHSEslE=
-[X] (27_08_2020 16:33:52) RSA signature on iv and ciphertext (344 bytes) - cNJBscVkVWxcep4BLhI5KeMH0zxpC51tA32/Bby6Kmtq8hv/FtksSKgz/IaoEdvggwRO7wYeq2PQnnifeB6DufoPRUK6pmQ4Raf1hvB74TBQifDjg2kegOYLaU46mQInmWBdGR9IlH4n1o79m9BrrnVrb1A7ARP1t4tag6LqX56y+GIrfCrUXMq6pEtgTQAdOU2cHN4eNAPCW6oyWGKISpPHsXLn/JOrk/1xm3fN8pXGxCAvSvCpZ99wRI+wVE/teNORmsDxpQtK21/XpEFl0G5U8bdvFalOngTIyYaEs4aWkyTWjTrq60qj3IJgKd+yyj1qSuT8+LFvavHB52v4Vg==
-[X] (27_08_2020 16:33:52) HMAC signature (64 bytes)- 81de616476aee7622fb90589b27e981d5b229289498379246380327b7e1810c4
-
-[!] (27_08_2020 16:33:53) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:35:36) Unencrypted Session key - 57vIhGCAdAn2z98ipFQGdanbdm2xI+muKKKbF76C8mk=
-[X] (27_08_2020 16:35:36) AES encrypted data(iv & ciphertext) (48 bytes) - ewIJ9Kf+Rd48lUa2F4ZiHw==Xq4bY8oWWrsgL4ndIW8/mg==
-[X] (27_08_2020 16:35:36) RSA signature on iv and ciphertext (344 bytes) - oYh8B95S3SypZ7lTBvwF1rUQy8ZjyQgEIWJ9kvDKZypCuyANeJ8CoGREIAKhzP1foq4S9r08C69ZTjnP9lkvufja6LzcKFLPmrlkIET0ZuSeRQQzXnlBpZt3QhEnFojpSmamEALWHEf0XoQyXDTZeMna24aBqzIBk+JXDlhL42HWrRAsWLtRXGd/43QpYyNbBD0nIRWaizvau1IxTqmOLCELmHrDx51rYny8o0e/J1kVcjjSNbJAsWxog6rHYuTQcjOI7olIbm7IzLKJ46Yv/rdkgDHgVT5h+kodnKI1JmcuDtHVcAGRm3tSYOkR/lS1ntR0y49Xbp+MyEcSGap+TQ==
-[X] (27_08_2020 16:35:36) HMAC signature (64 bytes)- 6a66ae04814ba01b3969a09608ae132a7209f23b3717c22d1a6a6fba172f7c16
-
-[!] (27_08_2020 16:35:37) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:35:41) Unencrypted Session key - 8lSZDfj7eDF0Eu/dN0YPkeIjibEPUyEnxA6Hpd6NNvY=
-[X] (27_08_2020 16:35:41) AES encrypted data(iv & ciphertext) (48 bytes) - z9CIRPb6AjyEVfynTdyd6Q==oZ2HVwSUMrMsIDNAppC+Ow==
-[X] (27_08_2020 16:35:41) RSA signature on iv and ciphertext (344 bytes) - FgnU+fNblI/R4hWo64t4/7qlYOfRh5+YVP/6AWsnJ8ctZKyLcJghkdloNfKZeJxwwKoqIuSuu9o9hbbOBfc1rOh2cabeq4WHCw6rkGVcjUToSn7Oyph8yodKZa5oYMv6kMi7yhLtsYQJTjI3I7v4Ns4C2yA+qi1sju7dgtQjjb+G4WI2XVS+zMK/xf+L5Jl/SIHZtNzJ+xP5jPSYAqg6P23SpO5MKUE5TJKVPqm0zUZ4eGDwIw+cqZW+IrCJM7YSTqZZ1wXifpd0S0B3FgShH8RHeZahEJ2af27AtMonjWQnEgn0efW2/TKrgAF/nBEcWvV3glsE3IgUMdQwT6KLUA==
-[X] (27_08_2020 16:35:41) HMAC signature (64 bytes)- 9843318a3359dbe046f04ca6fe4cc270ac78b8eed13cf7e442cece4840013433
-
-[!] (27_08_2020 16:35:42) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:36:11) Unencrypted Session key - kS2czj4JqYlavpJaz9kvHof3GnakoOVcCvIJkqQ6+rw=
-[X] (27_08_2020 16:36:11) AES encrypted data(iv & ciphertext) (48 bytes) - STUNg8AARYW+KVzUAuwoug==vR9WgQA/Eh3nAvAHJK9PPQ==
-[X] (27_08_2020 16:36:11) RSA signature on iv and ciphertext (344 bytes) - jMJUirDJGnHnQoLtpo6XsWXFYSUhbmv7ewO5/BHja+/lBDECVGASTEx+3WgLPdg5oVL96OjIN6L9Uh7OXGu0+5Q35VjF4adYhfGs3T9e77VUE2twsx8JA6VYewx3kSCjgpbWtP1x4EmzRNH4Epc6kmGeWj/12g/2fajUiSiBty2myg4bptAMLAw+NF9a+smFTt0zn5O8zPjPIv426dAXIMbmo58GiCORtqX3Tr2ReAdU82pEAts24CQhO8wMdi9ryde40zl5roAKqa3x2kdNTeNeKliYCEihnqy+LSzzG396H9wJjvg3Ne5hFYVbSak0cqN2rpVlm8oIDz0lV7KZgQ==
-[X] (27_08_2020 16:36:11) HMAC signature (64 bytes)- ef1269b8d69d72458075405160ee4f82d82e91b51ea92ae359cb3873c8ed6745
-
-[!] (27_08_2020 16:36:12) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:36:26) Unencrypted Session key - Mc/N51YZaBpbO32Ylt8Kz7fA5jdI/gxWMTPnyh2GgGk=
-[X] (27_08_2020 16:36:26) AES encrypted data(iv & ciphertext) (48 bytes) - 38KXG8y9k++4DizliNLtEw==O152reytSndox96p7aYEQQ==
-[X] (27_08_2020 16:36:27) RSA signature on iv and ciphertext (344 bytes) - k1EKUxxayn3JmzoSA+z+Iwk32ajRvRW/UVQZZ7e++Y0dNtbUA09CN1dwgftG0hZc3subzRUU0xggoU49YJCfS7ww03VGkwOoEl51E6/BExjqg8bIgeJQjLM1wwDbUuiGyfFUEJWtJJ4gbYmPr5aqmv6LXorWHBm3Y2wGbb/eZVSFGtrkCDF3CJ5RbpNjTD3US1Li9aN1P8eacGHlHUJfZGvk0figrNRsmzSvUkZZi1rkKH3Xw+P+YAsJDF0POdvBMb+h5EXWSlwFREJhfkXAaJQYgbV133F3Bzbn849y78xMzxpt9OT5lc3OmU63KQ/wh2uO3h/F//TbR2Vwk3jFuA==
-[X] (27_08_2020 16:36:27) HMAC signature (64 bytes)- 50c79f704fa57d84a3c8825ff73b5cff66f8ef9d8584a503f5e89f928d72cb23
-
-[!] (27_08_2020 16:36:28) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:36:50) Unencrypted Session key - 7ns9t+Z2zsl1H05ze91eHhRnWxMT6Ebb9sGFbdtlvwg=
-[X] (27_08_2020 16:36:50) AES encrypted data(iv & ciphertext) (48 bytes) - 38Y5EYVU/3UN7IqJtI8WHw==CPxrRrlz6Rojs5908pTjaQ==
-[X] (27_08_2020 16:36:52) RSA signature on iv and ciphertext (344 bytes) - J8ClazhrRgbFnhFIo90aP9ZZRGgU0cDTMFHqHg146+lzX2F8xMWkhh5pWvn6v8Oo22I0iPs5CHF1oR8KTgSVAOLQMUCYj+z1G+VLA+k/0Z+NUSt+OTwov1+PR+ukl3J2HsjD2UBSdFlXgIR9h+fIOuoNDJamvIGAcvG2Xsffuz+TGWrOBbCUXFbxjClUl7eQBDcaUMSoP/ViBupoU7O4CRgmwfObTzF+0YkXRMxeEUN56uXnVMdAKF+axlq6rx0g6CpRSG7/rURRfSjZuL76As9CczOc7s685eTgYieTBDeRcIf0VwimtRlVq4vaDS0ALD+OFKSxdaHiZQOSpFvflw==
-[X] (27_08_2020 16:36:54) HMAC signature (64 bytes)- 91fb49f29c44d0947ee23466ab29d491d1385d6e7dd3078d91549f9eec2f0536
-
-[!] (27_08_2020 16:37:10) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-[X] (27_08_2020 16:40:31) Unencrypted Session key - Fh+e14bHyxkytGU0y0Kphr1TBL73uzUQZOczSUwvHZc=
-[X] (27_08_2020 16:40:31) AES encrypted data(iv & ciphertext) (48 bytes) - fVt051YgRBm1Y8oPfYYGIg==1FQoB0ni5a0sOkZ26MRsUw==
-[X] (27_08_2020 16:40:32) RSA signature on iv and ciphertext (344 bytes) - RfdrmcEG46zq6wM9t/QXEbV+Jwr4Gtc5D98UGBus7j9s21JV8jVJAOXGuhYuW3mTthtR/pvmSNaAw0S77v6GfS+nn6MSomLXLwgvDVtaIhbZTT7ELCD+cFOHwASug6Dz0/b/d2vbBc4eX0QZxO+EIlF7JytwAw5CzkI/PBt2xPvN5/cOBu8cEj9L4J1SUSBt8vMTrLkJbvLRIDrdBregUILRdrFV+0Vcdtc1yzbxqmZP4p/gRHBCMB79pXYnO6168l9s9M+aioQHDfPI+kr8T9E8VRgDtN/v9Z4YOGk5YvZecAZ8R+faPSdUY1z8CCGZ1HsFLfmP9+GUp2bdz2FBMA==
-[X] (27_08_2020 16:40:32) HMAC signature (64 bytes)- e62b3895589318de902be7e18a4d2f81706e7b7d53359893a0707427722aeb4b
-
-[!] (27_08_2020 16:40:33) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-
-[!] Unable to connect to server, SERVER IP - 127.0.0.1 , SERVER PORT - 4444
-
-[X] (27_08_2020 16:40:43) Unencrypted Session key - 6zWwYJtc3zCm/wUf6q3TDBkHtefMthYlhobnfbFGkE8=
-[X] (27_08_2020 16:40:43) AES encrypted data(iv & ciphertext) (48 bytes) - RA4RRzmhXR24p0aqZQdYMQ==kkzSSL6RjMDBBLRsGUbAig==
-[X] (27_08_2020 16:40:43) RSA signature on iv and ciphertext (344 bytes) - nvU1NN6I6tWkYJYthzth/W0vtrR/BjaRzrQODdCPscnaxcxPfyF+5cheMm/IWsTfD87JyjG6brqtZTiYcj+C4wOzXZivPaecMaIfDHHcxBTbsdZmk6YE5SqILiraUZYXRJ65hE/2hoKdXQfW89/JsflFvaHIu3a/FIZNNmOxjEs1N37quRt8QFlYTh4yZkUKdjQ3KrKouy0zsYaiqmvtgV4iKUcCgECBKjiGWRwumpnIgZgJdm2DAU62r74WXUEEic7u3dOOn4u9/LfwelTmTPD+L3MYe10yAr9CPMjLjX8ufWXGd3wyf0+jr5Z2YyWUFX8DVfXAJAtjjVDZs/t9kQ==
-[X] (27_08_2020 16:40:43) HMAC signature (64 bytes)- 654915c01e47fd73c7f75b99ea02739e1f8ce5d13e8a4a63ae14c1efd24e5e2c
-
-[!] (27_08_2020 16:40:44) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-
-[!] Unable to connect to server, SERVER IP - 127.0.0.1 , SERVER PORT - 4444
-
-[X] (27_08_2020 16:40:52) Unencrypted Session key - hSydt4YYU9y3ljVbOtxgiOULsIndus9XObzqDW69VDg=
-[X] (27_08_2020 16:40:52) AES encrypted data(iv & ciphertext) (48 bytes) - lZ3/CDEi8Em1VYWCo+T+VQ==ax2CDnZyd9L4vgaRTcIlrA==
-[X] (27_08_2020 16:40:52) RSA signature on iv and ciphertext (344 bytes) - II5hfnMDAMfUHZYHTrnfA4DOMuh/XHI+2UgfGdd8QUD1fDMJZbOdbnwWCfcFCnNJOgBiKnWFI8j3nVI7wkQS35Gbqhb75zZDZuqYcW/2xoEe9XNSuYSXPY7JQWYlbk7+PRwUZJ8sa+2QZ38PLT1gfaArO/ni9+CJF1WMCyRmi6niqKiqCv7q9BPhJYSkvKGY6vCWFcqK+4WGEfjHmQHgN0aRYITIowOBhCLlDXVTCu3suTOGP7XLk0v88xLJpy4HU4C7PzY3q23uNIguTjv+yvleVDVqXP+ULTf3/jiDBq6x3c3onXpfaUbaKDNsHzmGPq7iFri9Tzx6vDPCBuPoIA==
-[X] (27_08_2020 16:40:52) HMAC signature (64 bytes)- 65a923b8698fdff1f6a520e08ca9cc26cde755dd1ab213f2822a8ae262e2fa88
-
-[!] (27_08_2020 16:40:53) Connection error:
-[WinError 10061] No connection could be made because the target machine actively refused it
-
-[!] Unable to connect to server, SERVER IP - 127.0.0.1 , SERVER PORT - 4444
-
-[X] (27_08_2020 16:41:05) Unencrypted Session key - vk97iNUiCZDlMP9ZTbUPe8xarRFE6Iq1d41Dlvx/z94=
-[X] (27_08_2020 16:41:05) AES encrypted data(iv & ciphertext) (48 bytes) - SwmdLcnQIhbvxoC0yzSJmQ==MkB6DP7SKlzpc45n7z7cwA==
-[X] (27_08_2020 16:41:05) RSA signature on iv and ciphertext (344 bytes) - NnHXDRV4cPXOik1erIoTIgvTO90gABS8QdR7lJTozh8JKKam96IRLjq+iQsOpsf3LNAffRkud+UmosyKH1JsGanwiCyzqxWaIUZCCku9GbhvWGF6SPg+33+pHTSRiYsYdDVtAQ0T4CLYwqs41l6tvLAdKazsAQcY4DbcDfTI1KbuZUQ6kzhSzoXVDvsW2EYAaeHrzprjTf9X39+spKkz07SH3f5JllEtfUjalN8gh+12A9k8zXbyUDt7uPkPaCdfUoyLHshLDg4U44LaWVVK9PgR4vTE1GtHPZKtbNR9khNjuxnRQ9rL9mMtjk5SgzpsWMh68tARwdkgYEgGcVclQA==
-[X] (27_08_2020 16:41:05) HMAC signature (64 bytes)- 3c5657c913efbe43740f19deccd049ca4aca71085fa669f2f87f4a69a1d9e5f4
-[X] (27_08_2020 16:41:05) RSA encrypted session key (344 bytes) - LcGWhRy+pma1CRl3xcXghMbmgPDXjJ8XY1k5BLXYTEo0owPEc9Qsg7mPe6Wmz20zbAnNhPd0S+zaLMBgfsdd5ShgIdU1m78pEkPNzxaTQB5QJ/hrZczh386ltuM7u3ThhCbxCFMrh3UyKE7hRAKkbEduZcFy2+qWT4VKBm00gz/FTvEa0T+OeU0KMUX2YtYH5oE/eanUuL0al7ks+vrzc8xFWgDsgVI8fGktyt2FOWIaB6jzs8XEIidCk/GXXO3uvdQwdxJfwedIvZ2mfjv+Ol2x69pR1gZ/cb22Uc4oDLtRYn3eW3oQTCpKX4Nkc0pd1AnydXGYNHh1LHhRgHTMQw==
-[!] (27_08_2020 16:41:05) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-
-[!] Unable to connect to server, SERVER IP - 127.0.0.1 , SERVER PORT - 4444
-
-[X] (27_08_2020 16:41:19) Unencrypted Session key - Ft0QSmVKUTNW85YzFZSY1eqvE+cyneN/+Js7tTLqKdo=
-[X] (27_08_2020 16:41:19) AES encrypted data(iv & ciphertext) (48 bytes) - uTkC1oytQdYwKpakXlc7+g==NJUml7YMTyWYA337nG9Q5Q==
-[X] (27_08_2020 16:41:19) RSA signature on iv and ciphertext (344 bytes) - eITh5e5rEfXrt7Xk4REon4iZn5wEZIzF4XZVqPQN/BJSD5onQj5xEmp5Sz5lnPsueHyDjkTBhMMyC4VBZyMqJTWcQKFQPNhGoL/u1ESCpyZ0UBPmR/LE0RTEee9x0V5TU6MW2djawo09brfviSUpxN50PriVQoE1P7gdVYw92L6y+anTEQXK2sGNLfqhlcsETZkY/G2TAJ4B+mcdflzmX9+dqveP309+tCThz+kJBO8yi21iX4lyp7RY9L7Y10otz2wYZRrBqFsl/rRB8Em/zb0CyKW9heeEYiCdOiJJX2LSfmYSFG50OXXHAqmwvVN7B7rdWe8GQyNhtUMZZGPzzA==
-[X] (27_08_2020 16:41:19) HMAC signature (64 bytes)- 2f514ced291c3eb42baa781ac2909a95b18addfcf9dffe7277f8a36a8563e51c
-[X] (27_08_2020 16:41:19) RSA encrypted session key (344 bytes) - OauG57gh4GeNKn2NSuNdiSgcCqvlnj3W5Bnbg2PabPV5kpQVDSOIqIbG05nklN0UXExFMdIKjBze/OoFwDC/56GjHH5/IuLyfrg4X8pcYrs7uucY37RvuDcudAGSRO3XrtRU1/WK/rllBH+zgAP9vRKoydsBCQPIR3gcQpGJLnXmjmlqnaTz4E7QNR5nB7GPiwZcN7cVgUjqWXkPUORjXCf1A13lmetIeTR4mYb3fkwPmDJPadCL1CleagIbeDC9F8R5zhIjex2FJBzDpzpDiVCXgerfd6AUWnmmwsngTVpmidcYYM4aJ6bcAsZro65xU1PQY3P1u0KiBfQYQcIijQ==
-[!] (27_08_2020 16:41:19) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-
-[!] Unable to connect to server, SERVER IP - 127.0.0.1 , SERVER PORT - 4444
-
-[X] (27_08_2020 16:41:39) Unencrypted Session key - +KT36GrxV7Gmayt5u7PsMMzujrIkMt+3nV/WpYBEZ/g=
-[X] (27_08_2020 16:41:39) AES encrypted data(iv & ciphertext) (48 bytes) - iGZjtPY4HqheWgqs8rNzRw==VU+/W5LwzkmOGfwU8+RHEQ==
-[X] (27_08_2020 16:41:39) RSA signature on iv and ciphertext (344 bytes) - WzyrBkpx+2wt59wNMpd8q2sWK1FL1kSLSbFg1FPhvWduDrRqnL6jo049SenWREzAK3uyMc1wG2abLgbJNqyq876JaNoqEd/NgDdxpYvCGQLNtMtf/bUX0dunEVlIeVzuXfRiZHAIQWSIjT7qIEzQKdzmzlAEnqUCPaxhGuFEOSWYawUmb5dmSZCB0Lj9ERgivyPKMzmkXBfN5suVZg+CrFBc7RXnrLfEXZUtoOjuE4neNkZ5QFxcJyPOn9pd30tXx5c7ehhM+AcZiE61ag5dTF3blNB9xnxOnxExY6dPzorqy810CBIo+eNXE2F0ODiS7XiPacpK6YA9TvVz/dC0ow==
-[X] (27_08_2020 16:41:39) HMAC signature (64 bytes)- 9b7a1777301a7800d462d8a59513728f711abaeab5317acc6bf9da712f555b29
-
-[!] (27_08_2020 16:41:39) Connection error:
-[WinError 10054] An existing connection was forcibly closed by the remote host
-
-[!] Unable to connect to server, SERVER IP - 127.0.0.1 , SERVER PORT - 4444
-
-[X] (27_08_2020 16:42:12) Unencrypted Session key - EATn3+Z0P3+kcjUW8kZ4WqF5GfZGOQswRaGytTs8m+M=
-[X] (27_08_2020 16:42:12) AES encrypted data(iv & ciphertext) (48 bytes) - mp0YCHhEUNQZ6+Cj0ONk1w==B+kuLVNThd7tn0UJjknCfA==
-[X] (27_08_2020 16:42:13) RSA signature on iv and ciphertext (344 bytes) - U1M8MDwGMmLtrNURe9/Ge2mJppUBqwXDGPfXQpsB7Ej/QLh8bFicGRiQJqUw4lwv8kfVQtYgMDSYyP79RYs8gPs6sLlnU1PGrPnzMyt0DFidaF6Ikz8cNQxa59KF9dfeMD+Ls46P55HtfISEdrPQpr83d6jgJ5bzj8l4aCcE/yNs2343ugOqqwiKYXGa3xJvKsXNN9QTscp6pBbV/sUv5Uyj9/GuB89FYII5l0/FiNxAAu5EIZCXGBrB5dxKN054z/FfwIdht1V6RYTt0BVajOpyxtOZo1bTwFBI0l+Jd2gAiwEGAitji4wGtNL9l6fXVFQKdzOkN0dk8ixs7XLuFg==
-[X] (27_08_2020 16:42:13) HMAC signature (64 bytes)- 0570ad8d81cb8f9ea243438ed2e53cd48b97c27652d0d824bba3a4d40993c1a0
-[X] (27_08_2020 16:42:13) RSA encrypted session key (344 bytes) - BYGCTUnl73OA9PYnoqikhTQ/sl0Gz15jpOA2qqJ1BkRuOqPeRFC0HTw38Odw9uEwig89A/kh3g/m6aYjxM8cVveYjuU2f3QCeEcIydcTRVL7q1Q2sDQHSmUDOX+Eq5m2ywH2t454T8PUHDqNBgX6/CoAMm722JJq9T/gxjYewLt2CfCypfTd+wrfbpYmlHESpg5RQEAQFUr3z2oWB+sn4A65APm3D9Pw3Ier0y37vpzSd1zTx1QoQ1rx8WnYI7I9RcuPGkSfqNIXKcUEpJts1ngPDMhsEFsI/8ajcUd4ymWay+CR/qS6l8KitN+Z1AUmMCX5EELx1nT5lvvQpR4M4Q==
-[!] (27_08_2020 16:42:13) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-
-[!] Unable to connect to server, SERVER IP - 127.0.0.1 , SERVER PORT - 4444
-
-[X] (27_08_2020 16:42:33) Unencrypted Session key - UidS2P1eQFlKI5iAyuVMmC6fN51jKU0Z5dpKdfglhQ4=
-[X] (27_08_2020 16:42:33) AES encrypted data(iv & ciphertext) (48 bytes) - s2yT5y+Ivlws9FX/wIaOig==+XEIN8QDhbcHQ4qoi+a1JA==
-[X] (27_08_2020 16:42:33) RSA signature on iv and ciphertext (344 bytes) - cxtHPmtli3Zaem95L+Xw/cv62EQs/8LFm49ZHCgn1yDuTx9rJ4tBzVT9USPa5ob3mIrIxTZf7CUVDZdZjg9XVquMMXqBvkRfgG9I5QCwKg1IOoexMG37h3oGR8psDifow6+Ng8UlyRli1yk4p4H6pew+wAflH5QU4KGPnLwv0s2RkDbIAc2jdw8hEOAtY3kzLhprj3/q0//dQ85iqhvKJ3I6ZNJti5lkldifVbe9W9+KBSqgzAYRp9USOzjutLif/07N4wOFNwcp50+2oMPLZ0lMuPRVvtDA3HMgdE+4xE/LkayH/RjTqsc73By3+ZHLA05bt7IL3hUF9RnMTv36BA==
-[X] (27_08_2020 16:42:33) HMAC signature (64 bytes)- d86ec5a96831f327516551453846ecf2ba2d7b2a96f8be76727c3298fd2619a6
-[X] (27_08_2020 16:42:33) RSA encrypted session key (344 bytes) - KfNztXpI0O3x7pyVPl/f+9T9Xeoz+lxbVnsfxVRjuLNAJbmzaD6B2hR7g9Q6lbmJxRvHwVuLd56TLXDvf9ytNPoAaeKmb9AqpRq75a05Y+gw8XXAThh5hWXOUehIzxxOZnPE1qOe7KBih3VmCW7s7GbOwx80ol4BsRwKQh3Wop/N2fzlu7GK1eH/4k4etDijGChNjKzimjhgC9+RjDc7zfSXnsROZtCFt6NEfhD5s2aAcVKXNuDADxvV6SXS1coFAXBDzQiewK0xvf53eHJjnndTuWPnq+jBD2V1cTQAMyyl7FFOvCNXVT7Qc61hjQ7uZ/pKzHVn5ThEB/AEvtPIeg==
-[!] (27_08_2020 16:42:33) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:43:43) Unencrypted Session key - jg7BngCTyEV/Qy4rct6c4Xev2iwNk79k2WsgRKdZh78=
-[X] (27_08_2020 16:43:43) AES encrypted data(iv & ciphertext) (48 bytes) - yPOSQSrdj9DBsYjvtKigFg==9MMljosH7JnwZtXZDinP0w==
-[X] (27_08_2020 16:43:44) RSA signature on iv and ciphertext (344 bytes) - FOWB8ueNV9YSdvFI93ZjMDnw4E9BUmvuQSenVcoeLVwLRyTdRGP3HDfU9GG0D2kG88IimFHAsVOY271FOkwfH2TokM9BIYEMSHRmhm/rCok9yB6buemGDsXgmE6Rjcfm7y4dKu9M969Cp/0Glh3fhtUIAkkRGJG5pM8Fji0n8N+MJMkSA4cw0u7qBkQTn9/BzMOYGeYxsSLPsS9V1VWk8wAHf+UgJxK5L0lluBNtAqhl6F1gTrgifixVWcEiby4rHwtpisd5vJL+Z0Varhzw9F56JAI4NU+P9rR1WSIagLZ4j957aVrwB2OSYbRDVCJzUqdcYe7bx0/p7A240gesGw==
-[X] (27_08_2020 16:43:44) HMAC signature (64 bytes)- 68a6863b80708f6e191aabee54593b9e28ef012c55dc5149ff2f864d77b4fc41
-[X] (27_08_2020 16:43:44) RSA encrypted session key (344 bytes) - IQiPaJmMIiBtBloP5kf6wnBbHP0tZ1aOWtKI8hTlbOGrx62O2a1/NTeqPJfUQ+9LIHscrvDTVmhkwYAEim0pfnVq0bxI8z1bx0vnnYsaqTH28L38hFg00Jfyi/W1jQ/VhE5Dd02sbUpqql/zmythxXPdDz2TBnZp3Uy0ADh0xdpIh+Hz9lTQ5Bfx/sa2uwSe9Wo2tWpGyHi/M2Kj19rM86xrp/UUqQWNbdqkhX6HH1+uw9p1hlZJNhPQnH//npz2wl9irghizaKnvfqdjJh/t6JJ2ZrUkGLdCg6lnaVYC8fClHmf/Fgem63PZBWP+GP90nN/GYFURbIA68uMR8wyAQ==
-[!] (27_08_2020 16:43:44) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:43:52) Unencrypted Session key - JIRo4gDFS8RQ8QJUOSeEZErMax3k1+udvgPxyq1GWOQ=
-[X] (27_08_2020 16:43:52) AES encrypted data(iv & ciphertext) (48 bytes) - JIUQpiQWLjaLNlS1rjJL5A==AOY4RRxCRSG/OlgdZCxR0g==
-[X] (27_08_2020 16:43:52) RSA signature on iv and ciphertext (344 bytes) - bENKNDLE21o+Fvq25QtPaLkAmEl3tZV8oq4Fld4sXc4Pw3RhgxPt3aqgnmcye+wnt3WLRzsELvdIn83yWFleOjJIoZmt7/5Ak+vvCaRnWQKQNbZ3uD7ZJ2SLBeYPFCoRRsGrve/GwCZcVDOwD+qqqNmzYrS3dXwhUHqrX9o1RkSUNKPBkUzWhZpNbJ/dl2FuIkgWWE0J8jb4fAVn2GlKMuhqiT7HGAn+HDwIiBKlVDYhKlHqxnY0zgMGOGdZlLyv+JTWQK7ULhlTH7FnUd3+3UWWcMQD6T8O/3tJu5bYvmAROGlX64SeEcdJOuE9P/DBHHZEF5c/B84zuzD1cIFvnQ==
-[X] (27_08_2020 16:43:52) HMAC signature (64 bytes)- 173c3ce37d5af5f9e6fc682b22159f27e681d1f88076d0c7802ab7c3ed9dfafe
-[X] (27_08_2020 16:43:52) RSA encrypted session key (344 bytes) - EWy8AKi0dTWUozftSh7hpxWXooPc7bBJaTxjUVvczEN7s1qnwIZPG8lYLQAmeacabkzjiKYq3ufhBOuNxZVOp4Q/mNqjsD36m020EmB7qAj+nZwhzDC+b3WbU4dZRpw0tSoakMQrJjgB6M/9pLTOrV06NfgpSSWhPCi//jpoV4D1Io2VhBOMeVCneaX1wt3dx39+l+Exe5wWxs1R4zKBkdM4ULNlHLjFcRSKXnBX4diFmG3h+op5jtk/vjiFL03Tq6b8WIrcDjCQkTz6QYwU/asdNFSHsovrCAAbO9WfHG0phdlmWAFz4vf880ousxdaqUm5USYvZgt4xw66Ca34Vw==
-[!] (27_08_2020 16:43:52) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:12) Unencrypted Session key - t6hqIcZE69AShNoIBGKCm+u55S8XmSKILUdm/SVFB2k=
-[X] (27_08_2020 16:45:12) AES encrypted data(iv & ciphertext) (48 bytes) - IfR9z+UHfJ5h29fiB2ubQA==yN9z2YuMUJxy0kmjndBBzA==
-[X] (27_08_2020 16:45:12) RSA signature on iv and ciphertext (344 bytes) - mT6bCtYGOETMnxAHd3qTrTiyBUaoGqSlPfayRL4mcOQPS0vH2WuCqAQ+wtPIDmgOLlAuhWhAUag0VJMj1bz1slqTtYX0+53Pa136nbTy7DEpeDxR/1E36fcsuRF94ZgC6sO/CHblJvwz8cUmI+rS5TEfvWTZsVeXO5X3ItUOM67+l580nISWV8pIrGlb0FEqO5Il7OOPbT+Rr9dmxT1Ue8Sz7zk5VdH3Wb8kkHOd2NWhYabCYdvKzBRBmuqnCtsgZ7weWiqnLklgV7ELuKBcyFeLuegVfKdVXMAm6UQRpk9mdPLuRYZ0p/WoA71gwKt1KQyjebkCMvkg1V33Z0leuQ==
-[X] (27_08_2020 16:45:12) HMAC signature (64 bytes)- 7ead8e640e6e077231a0ad35273f40e2c704a1d47e9cbef5855e901bac5b5d27
-[X] (27_08_2020 16:45:12) RSA encrypted session key (344 bytes) - g2JyY5zf9V9i2lD6NMIt71WaiC9iNsBbVXleLBs2glnOzhNM50dAwq2Ep1zk3/QMfGZU78W0MPqtd7cjcNxjhrTdyXr8xHehqJikdLvxbso40JgloYSCiG4yMC3nxbTgTBUS/Un2jYnSB4gpf/ZKNMroDupTvvUvMMAqZE0eAhGdTwg5XdZbUSBDD5RgkoZB1pgrw7lzTuGfAXH2oK5+ltBddCulo9XZ6L8FVOwxrgoq8Xf6F+/82e3LkcYiZSbbg/jFewR4oXN/gdxcFpaDlbC/G0for1icV00Cv+ZvEcb3CgJ/YsfNS1du1+RQPnBWNzPahg7edLpP9L9UEyfQjQ==
-[!] (27_08_2020 16:45:12) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:21) Unencrypted Session key - UW/NPKb0x4Az5FnjN/CEhZh/pAc2ipB9VJb+E0yA14U=
-[X] (27_08_2020 16:45:21) AES encrypted data(iv & ciphertext) (388 bytes) - h6FIUeIPWJp6KpNzPKAEbA==m4VxiehFWGTujljKldzJYSn0I4OHQRwLUt/A3Xr9rBGPBAzxMWsNivgYKE02iDUlvK72Vc3u72oLxDCijVAGfxy8CB7976U5NAJ4/DefTYtFgPnLuzaMwPAO3pmheb44UhPS17WCPtbHFxC6SIMb5MQqwOietwRGh6u2dCQDOFiIEIOOveANtK2qtYs937T7u6nmbj3Jt519r9R08hS/nF0cjB8iiNCzW/9Oe6D82xP34C+aFlbVIRNgejom4h4xqroP3p2NbQF7c9rKPpVh8iD9iC871KNpTtJn8SBV7tmzG72iUuBsKwEvHZyjOhvbjExHaLzV4o/sIYFZae+ySA8aJm4H1fKGyEvSRrraTfQ=
-[X] (27_08_2020 16:45:22) RSA signature on iv and ciphertext (344 bytes) - EVmHyLKgnDsWyeEENjHqNGBL3/S9Xvkkk7Q1a71Vmripo5GwSdTfYiDBqyEIfBNvBeWRI9bBHcUfkwKDRtjlZEORqbcOMpoQwF32mwX+eG+j3EWnmJJTmEs1oiJ49CnP7FPOKBRabnArYaPyyUNYW40SOrnT/5z4sIcZ3ZhXEKTck6zEvh0uaODq2WfPiw9ggrc+FAsYlKO5tCWULo+geqMUg/6LDbNBTnDGuaAneHkoW8XGd7gAoNIaGBH0sw+oKCW2kdMsMbiEVQGhpaVwxSeaBfVaeIlI6YKc/V50cTsSUWJnZvi/XjEy0XCiIkBhdUiXwM5ggUopzz7qynOCeg==
-[X] (27_08_2020 16:45:22) HMAC signature (64 bytes)- 9792368b8a8c09ad7a4f5c5b1491a67f9cbd793183e7575d4b02a740f2f707c7
-[X] (27_08_2020 16:45:22) RSA encrypted session key (344 bytes) - Z1eu+N9+TUYtyOYCJs5F1sYw+ygvnOPbjF/NDo2SXdCH1HLicL7WgtQVLuipC6XQsL6uH74DXaCR3v4h058Zbit6Uf1qUlBB07eXSD4A62hajsLEKEpv2iXhRRJLKmfABj8AAiRJl5Vf1GXYbtRgf9QVddRLRnxrjWU88w8t9H8jg233eYzK2VRjqoKDCXbZs1kHKU70Lz9xh2WAfjFgh4nJdhGh2ignLJMgDCqrsgZb8RPNGEMZbyQRnwNv9ryMf72iSXPsbvpOeVFj6OYCm0Ydx9BSamc4ZMMUka6iaqzTvssAqomiqwquvOQH3AU9Bxc2meKNOpnze3sHXN7JUw==
-[!] (27_08_2020 16:45:22) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:22) Unencrypted Session key - icVh9zIZuNo5YKiCyMs468vLf6IcS88hecc057qHZU8=
-[X] (27_08_2020 16:45:22) AES encrypted data(iv & ciphertext) (388 bytes) - uW5T58qjOs7wo6H3l/qxnQ==tzB2l9B0SNKNiC3gEZh8SFvzo2uI3rUtHNC7cUumT6u2D+sYYfMI1qyKxin7b2RFK4psXK9FTw0A1jn4iuTYuMjHilmDV3oD4nXZg+liTGgAzUr+IfOD2Yhg+xsIGcsfS+JQfWDPJK2mrPWc1HMMUixccwihopKwW7g1CYoJcc1i76WnUUgRFR6SjMyEofcu3qMbmJApBLahMEACAlqhFh/urjW/C7soykEH+aQ3CJa+PdCALkOaSo0ksRmS2HqiDje0hOr5Qj1h2reDQHVBY/rFTp5xcc9aBlSz+KRRswUbtvJsdga3Xw0clEc+IN/Fve4/F8SvN1SQEHkXbXkYdQOqV7EM4E5sXKv2byafzUY=
-[X] (27_08_2020 16:45:22) RSA signature on iv and ciphertext (344 bytes) - gQpQlafFNUpnbE3tysMpUIk8iiY4AEdRMwnIUArHS3GvOtvxA/5JbadxxmQ6hHFY+87nLpEfrC5jTAsAx1yvC06UV+czVpL4g3MkV8RRUVoxX4NfC0drECZjKOs5LHgPxV8zAS1loej9gMhI/otA3FPhiF7f9TAQqDFH+if1uM61MdJ+M08dsGINjo4RCCqjFwXN5F8fHjPTySZ34rIY6BZvlJT/liM8GGH1xnD7QongJPisBXSV/sisDsJylHBYGxiqVlWUPf5al6DFVGV7DbyuA8xYkQVvUHn3F4PdCnFolUEOO2NocxxnYUDJesJY/tj58wJOL+q/cTzD+60Iug==
-[X] (27_08_2020 16:45:22) HMAC signature (64 bytes)- d0c24983d7f23fc9e7e36c91706ef07deee4ccdb72b2d105863883a71ee79401
-[X] (27_08_2020 16:45:22) RSA encrypted session key (344 bytes) - XG80GkAcronLMuIuxPhvHOLhQ6BEGo4L/Viz3cC/haipGytnS9A3MusYd5xMHLAzxfoYSfKlKy0l4sNxAAnm/rmRw9C8jqggVxT3fBYThq+IKgmztvxI8Os3XIjY44W7JLRWlbJtBBjiPWH1lPJXey24HKa/0IXNftk115Rz0Uw6eCZMMr31/P8D1dBHSFchss6e3X5haBMhHywWuDPzXWvfmHlv/dX8qHiyieHnPJm9k3p28aA0uUU6fe4EfLq0BmSASkML8ecfnWMNCb1SLhlVc6DnFnnH+nz6r6eBpNr36xc/1YhaccNogmb5ROKY5+r9iujrn+lhIWGR88OGwg==
-[!] (27_08_2020 16:45:22) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:22) Unencrypted Session key - P0Io/8Q6uMgIKBaZnGnl2b/4KTy+fxS1BmOy8Bk2+ME=
-[X] (27_08_2020 16:45:22) AES encrypted data(iv & ciphertext) (324 bytes) - 6hCtbNIjjxT9LkUoPEtPTA==v86+2w66h0yc3OURMfBx6YG0w0hXOZHxt4eFriMwKkp1tDnUFglep3f1/LahZXBNTCHfWPbVt74aseh0v3lBLBKF7NWIo5N6JID8XOSUoRD7xwZXDGXLg5WqbmRMUYFS9kkZTCVEmNgwxTi8SvYSS/o8wU9Ff8omizAD+ccaFzrIohLuP9cr0/M/7GfOr6dWW6+U4acmmtPe7I/UMQNe0mUBySTv1vqjHcYeKodAgW4XrbGQgmELnpIg7DmjR8jXxiW/z1JwIyq48nDh6jNFtMsfRWRzNH3smHZV4RTQBnA=
-[X] (27_08_2020 16:45:22) RSA signature on iv and ciphertext (344 bytes) - KFs4aZvt/OJ2orybF785d2+mQj1YllLuEAe7Xd7hxqhFAa2wZjIW0tWgMCpozNyw+01kaUFRYBzKb5Iw+C+5yZqtkMN7m4vUQ0EcdMQSC/gL3sa+H/WmXvUbV0laxLwoSebQEHnyhaZt/TgxIQVOb4DImPkmQCZ36aIvZu5sbtJ+xZEzHRfXC3CTdmQf3x/0OtSatCtin26L4QfMAIV+d9+GNA/vLCURsQ1huiiuFgEjVkGhT6JuV018vn6M6ZaAFO2eSTux8o7urbxNs+mxOIUKXKI8957cnzEkHGRrO4wVcNkjxyXnLSrwuq3FZVXzA64BONFVU7f3Vpz/K/EEBg==
-[X] (27_08_2020 16:45:22) HMAC signature (64 bytes)- 946310c79bfcf0f6264fadf421f0cdb85944f37a8192edf56bfeb78ac582e9eb
-[X] (27_08_2020 16:45:22) RSA encrypted session key (344 bytes) - cMDK0A2raLJI2hFMjY5sUOLGAymXDcEXkzuHaI0LLO+TdqzEYiJoletb5rKoh1T5QPrX35fedX1GM/thwpwwWTJpd1XrVRbDuMEjkloAiAJG28rf81VZFNxP8rWxDGLoqY2Uot0ws1SJBRdVCXbBCSiEc7NWazHwRqFOuxOMi2ckw1hvMKoNyZJ9II00w1771Q5m6qGjN6wG0rzfre+3xzVlPtrDH2ONTvRYqa3LhLIpIT5+Zi1XT1k5M9BYCC56ldPdumjyaE7wFSX5UoiYDE2NwezQA8YelY3ge0ztxPNALoxn1yQAXSUJrvvm5NkwibAc3dWoeffv9HF8dot+3w==
-[!] (27_08_2020 16:45:22) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:22) Unencrypted Session key - YS9USIX7buerPI9rEtASCy8Hk4KRraExP1sHjwQccRQ=
-[X] (27_08_2020 16:45:22) AES encrypted data(iv & ciphertext) (152 bytes) - SFf2VbgK4LQkkfx1Q5+56A==BkI8xV2UEyTwDbC9TlUcRWNLcJeqp0HqpMQJt0nTcKz3pU3S7qG/pknXy8iZlpUSvtagCCF+eESPgdf13qhnNj0RJfA2zLlzxRyR+SjI2ck3DiPUzgp6b1PAz8WMRWlG
-[X] (27_08_2020 16:45:22) RSA signature on iv and ciphertext (344 bytes) - CG48wHagE0RLaPIgQRRubCD9t9qoFpY91e3BAjEKh5olQWw+Qg1G6G4Ww/Mh3C09eE1rKVMsx4m3fFh8WtnPKxSBvhP0WET4xQsb8LLCFDmqpxCyLRoju/qcBDX+bVF5iStFMqijv8coBkOR1N22vHe1BzsPskioZXJBsuiTYquKy6COJq5l3H1E248IBSr+jHSf9bUm6uq8DwfC1/tm4PubIHcPy9jRj47sSZcL1TO1CvQeyvs+mdjyrjQdEoCQU7n5rEfckrgdL+D05buLRbSX/RCp0zR+SWcAcgz7jz6h2wDjxsBiv6+P74H+VYAGuVwuzK/GClHiGvbpCLjf7Q==
-[X] (27_08_2020 16:45:22) HMAC signature (64 bytes)- 35d0d62b3466c4014022396191b26c69b9c2a3912378ed7452d8eb03fbe9c415
-[X] (27_08_2020 16:45:22) RSA encrypted session key (344 bytes) - VKlxQ86kmx2GyXHgzeMo4F20HkdANVdiJVHrzABPqVTcMHnKHqQQ1ZkdIcU21gWoZwPj4xPvkb+6r7udmnWKP77GGQDFLDmiOEuUqnl0OjZ+6ZrXe8tXlOA+BeKH3q+vuSLQLC1fxCBoQHciCsRuaoJQQFQ2z6vqLGBW/xyqLGsE0XjjoaPujMxEhsnvw3PeB29s8TS2aRqrFkn5mCqdIpJgv05zQEeSQ7Pz2Tv6Qvau+y+oi5BhY1WfOwdmmaH8N3OO0t/kfeootQ3PlloI4TpeUSID2K98Mjbi+e4r17KCa3QjjtU+PqnVV12fQWQba3IUJH8gAvS3Q5q37P3zsQ==
-[!] (27_08_2020 16:45:22) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:26) Unencrypted Session key - VS+EuW1caIAeE2hnF39cppT7Tf5On5jCCYCUzZnBzLo=
-[X] (27_08_2020 16:45:26) AES encrypted data(iv & ciphertext) (48 bytes) - 9QUuZQXB/wLiSNUtiqcJTw==Q8Jv2pItxwmL0jaqoeb2bg==
-[X] (27_08_2020 16:45:26) RSA signature on iv and ciphertext (344 bytes) - pcy9xcNH+gYt71dCOAnGak9MfCj0BqfVVj1LGgoRBEYeWDUOrhIQguUd0JYR44ewex0Rthij5yJfKsABiIQY6uaX6k1RPKj+OC3jCvZ5xsf/YHHH1PMKM3fFNT+eD7vYfWp5np0br5ReNJ3Qu1pU0p15M35XGVTxydlT0xYMuKAPHqPE22Oh5U1PlwMUau3QlQomClDsAi6be9ULQ08cLVBUi7Fl6KBtOTS7YYz6i5iB8OsQ3NjzUNh9R+DpwfigVGkWCBy235R/ebm1z/NIoDito/QZWfcSME+YzDa/II957Rdufub140YDYWC7myi1all9p4ZvpG4K/8JfU4pzlQ==
-[X] (27_08_2020 16:45:27) HMAC signature (64 bytes)- 4528078143b911932ed1357808cc0446adba053ea042d248bdfa3a5aa5c0e14f
-[X] (27_08_2020 16:45:27) RSA encrypted session key (344 bytes) - iIbMH7FZXl+TdBvUjO52ntr0uou81dTmUHgIvZdCyfO+YZ5kSJyUeej6Tzpb8eGyiepU2Oj3BbLQDtMwO1uu/3NrUceA0qhKp4hg2qFsGH9lhzyaHbv56BAfhLqOY3q9Nm3z5zl+jJlmWSC1qNu0kretYso0+0w/3wDLp9xXTJsEwq2iPtNbGqiWPoO7FicSyrMP/emJt9hxYWgtW8PscyPdScO0A9GtiJcD1XpsBm6fAP22ZdezmJnlh1xDnLuaTPRI8tpoRxkcBPrNa9RRePhp5k55LJJ1nXjtrG0ARomqY8He8ksqYojh9vf8IumTDcsruxSs4U6DnaSzOoqs8w==
-[!] (27_08_2020 16:45:27) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:39) Unencrypted Session key - LNddrSnRoVV7euiIZM5NobUKbInvmkgYPHuYWSK/y7I=
-[X] (27_08_2020 16:45:39) AES encrypted data(iv & ciphertext) (48 bytes) - SAnoUQSWVXyTCZUNWh07mQ==Vp6fzNdEGJctvGdeGnLQUQ==
-[X] (27_08_2020 16:45:40) RSA signature on iv and ciphertext (344 bytes) - IkFfYwgrqoG4P4mVcibHKvxu/0eP/IXJ76cMkAqXDWKVyOYakEj01unjwujW9LPPBd054XJV0FQzezNcwGn7u2K1yz+rtKH8UYR/2El1ZqdwbuXkhdGfU9fUOBbZ9MQFq0H5yo6c0EN3s3/220aY+Vc7fEcTtdgJYqeBHN1mYOgnRWPMLCaC9atAo1aC3tsOjzvVwtf5XmEtPEaEHvDiMOcz1kwPTcWLcKGXQslBi9sLXwy/6+wl0B1llCIYMKuTCPKLgBWfssAhIqPgSiMcG1Z1TSt32ybKE8zXJHu9h3UyKeyGDni2uTwC0wPJw0L9/gTCWnedeSrxXW+zNZtaMQ==
-[X] (27_08_2020 16:45:40) HMAC signature (64 bytes)- acd4a813be7e4a7e40fe13d77c130d7d2ee58d19af716b2526806dc98b21476f
-[X] (27_08_2020 16:45:40) RSA encrypted session key (344 bytes) - OI2c7kYNAPBDYnuLPZLBG+Yzb5jtUZRxgqQwLNrUHJR88BcNj/+21BISUShcTwslZ+DSL4sh3DpZ/UczFHpLu+VPPpzcTj+6HO9aN7tmqGurm2QI18GSm0XED0gJiMxviXcS8gByxqTYNm34EZ0zZgtlyPfS7fpiVzp+uBgpeEt+TqqjwvOoh+5Tb4aVODFnMptMmt4wICzWmZ6JOaQTrTrjg4dHhaK08YWVSG9ACpUS+32gSVuTZZfBHxZU+62n6+2DSiEo+iWl9C3IpS8hIuBP39GZudj3gln6gIYR131Kyzbe8yTSBk61AdaXMpFaiii5ZZxOEoB327X1z8Sgmg==
-[!] (27_08_2020 16:45:40) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
-[X] (27_08_2020 16:45:45) Unencrypted Session key - PGhy60Rhu6EKRq3YbYejnbrp1AuG2Eta74dYK8orGUY=
-[X] (27_08_2020 16:45:45) AES encrypted data(iv & ciphertext) (48 bytes) - nHT/z5EP7UuYYmyKOkdLUg==zYJRY13Kvh4r9SaU3iR8og==
-[X] (27_08_2020 16:45:45) RSA signature on iv and ciphertext (344 bytes) - RdrkMH3JZBSMLiGFtdNmVsSFP3ppEPZY0rXu7+DdFPjAJOpYT1rvq1ulJiq8OPQ5c0fZUYvjWbb0LtxhzZSPcj7ZH28c4f3fGpWsnAY5WZ57qeoNFsJoaZQmzH/xyN7cpr7l1qiZXOgQLENhnO47qtiFc1iYQIsR8fkDc9aCY4N3tuhfxOlnSScMsuDuGV/wDEvkXaGSI5qZPdc3SxhxcIjreH3UIitZDwIoV9OTtdga7MduExTaS2/HCbmb6ON6BEnb8lARcN3IQDRpvsd7AIq/IgspN8DttgDePTmElt3f+kiZ6R/RQPcqraSpOrZ1CYH7OeNqgMmuz7j5AXY+rA==
-[X] (27_08_2020 16:45:45) HMAC signature (64 bytes)- 49b0d5bc149bd536e2c5b901211a46ffcca72af02c9d933ffab938174485c9e9
-[X] (27_08_2020 16:45:45) RSA encrypted session key (344 bytes) - espWaANM/ivcPwbjD/CRA5BOO4OoNSMyyrMXjbz+pRWtjN562VAUuIaYdHMhc9c8ombCxQQRQKMkBNyNumgE6dg6LlQ3PgvtktEK6pHTu6M6FtCJh4khdrz6gZeemymgFv2z+1R9OxGThPbui80px4W07UKFhkmZUc1Y6f+KAlJALTaWun7tTcZaUCZ2OVlUQuH+AjGp7gQNXMqk3Ht5Pz4UXliANBAej8QIGcyvsOM0THK9wdY5Y2FIx2Wwl0hEwgXtHoOqp5xcqwryFmkDcvq+C/8K7I1VFTw84EZFXJNSj6KufjI8twkj3cltZPaE4p83PP5DSuu3Ccq2zeMiqQ==
-[!] (27_08_2020 16:45:45) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:28:40) Unencrypted Session key - e+w5WNiMacEeelWCFQa9Ip75AOjdBvlsVoL0njaFrF8=
+[X] (27_08_2020 22:28:40) AES encrypted data(iv & ciphertext) (48 bytes) - jDJAdVn8TesPQ7mbDEgnhA==LaArb38NWc7UxgDseCecNg==
+[X] (27_08_2020 22:28:40) RSA signature on iv and ciphertext (344 bytes) - Pb0wgXe7g7ObwD89iFsXtLVBY0/LbB7dRVn+fKjUvq5UbZuUXPW8rFnqKuz0mk1HwrOFaI2tz5tMWYPtjRwAymsDHp87QaPN9TjNhJA9CC1WWhjJq38Bqfdk3knO46GWlgiZvk8iRBN+JL7CjBibd//TBF2HopVLNJyrA9QqiPIqPIqCP7srWnQ946mnwfP75Jk9RfWryhBuddaDUXdJtFFywga7yDMnAcLgeJ3H4EALVdwfmynTCxAHjAbYvR7gBMlBVaVGdQpefKqvOqLFtle3gfqfQk/x8vh6BYTqDL91Kx0tna94pvyYlwL1sDK/MZd7+LX6JtplL8jmUAUQ5Q==
+[X] (27_08_2020 22:28:40) HMAC signature (64 bytes)- cf7c32148ce50fa5f78222477a9257330dc407d4555ef88bd2aa18ef951749a1
+[X] (27_08_2020 22:28:40) RSA encrypted session key (344 bytes) - Y038q4xtclJMNYHimHwYZpjebaeof2o4JJTaDaHU3wsRFeE3Pz98U7jJ5zpkS2hahHdHwPw+N8fU8nzyJG6o3F99uGaFRpGC+1GrE4aR5Fu0GMgUvEf6ObGLOQGkzLBOujq7dqHgrlNybVrbGIkVCCpCY1SkiciTJVsPIo7ZoH2sFwoDJt6gbwjqquXgWAXy0wS4v0eEOnYIGJ0bW3gGSiiWfADtXxg6UFU32Lq9Hl50myqDEu4a6Ce5gHAele8R0DW7rxr6LTkDB5lVTlxWoDlaU50gD4zQGgUYaVKu+87YKDb4P6p8JYpEX2HlYj7Lx4WhS51wNze0SbWiytfp0g==
+[!] (27_08_2020 22:28:41) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:28:46) Unencrypted Session key - 6+EvXSR86ddjVxDsSHpRQEwvDcdBetg14uQvcGK5QRQ=
+[X] (27_08_2020 22:28:46) AES encrypted data(iv & ciphertext) (388 bytes) - 2rTXmAd4248t1Rr0SanleA==Cc9h9ejpdVJ4lsVHCAoMofn0erwOV0u/HNARbPN6UhzIpBrNgWCHHO5V9jVn7cj7TwGc985Nkyji4i+OxywL+W9YpmHkTbEDE3Sdb5+V0+2ILxaV6D3/beETkV22vO9gpO4tYZ2+DGELbiuCvRRqgrfrP5+XjgvPt8tHfTvmQ71skTvYAmG4gvlngU8zj+6a4m6hdARUvJt2IIMYwZGyOjCbHfHUkBKTYQJhf5YocHcT8TmCIbsBgq/KSYyiU7e4Awl33Xqu6mjErDuyI9S3LY4uqysIrhTX91iRs/QMOH1rr4InTXoylTwyxpJNmhbqiJpPZU+xzCGF0cGVAaW5c8bHmy06YXuS106Z6UE9Iu4=
+[X] (27_08_2020 22:28:46) RSA signature on iv and ciphertext (344 bytes) - dINEB/gtkfosRnmn6+c9ug8oz6ahcfkNCe9AnZezFsJCuQqSKoi1/uL6gb+Kb8egoebB2C8kXMlUnc7JlHvbLTrOpRFt/jN05s+thobHxGq4fyrAW26/kwnKOChsIlrB4xQVUe+x6HsmgE9XUwSwBQioVqk1XYknTbvCwCrdWfxdu393ljXeupJRmw22XN5DCLIeObJBhrTmLX/FLFwooM7svcC28NlGCr6iPy9hNnF8tiJUxamYIyV8uEobjdCwk8XycN0JYJtSKyu1UM76qCgaV1MxQtTI0bFHZ47aHiJ2WcGw9KBxNqRl1XeVW2dVsw7XtPTnYj7Fe4W/W1dikQ==
+[X] (27_08_2020 22:28:46) HMAC signature (64 bytes)- 3387eca33b5e9e60cfeabf25aa5983733381e5d00ec6c9727a94ad4529e34a24
+[X] (27_08_2020 22:28:46) RSA encrypted session key (344 bytes) - CZwGtJWeSKRcx1lph1KYsIBcxjm/w3YO9eixp2PD6FP/tONZw4RA2v9VA8D3OKcY7tvXSyHlXaE/Kcov2K11fNSdHNd1D4EOKW90CvFCwMtT5xXFMAZKliaS4DxeKMfx6U2C9YaHRZypTHVRnsDWhOVg08RT6VjHrSzEsAcrDMjJbHL9QiH9nRhssqqdavRwH1yp9YLICymvhstR37veNb3vacsPDEMPeoUHZLulBRhjjW8O985WXbpP1Gb1+kVnZg0DNzjtgPjNjfZUGccggcr01k+GzKhpLhNcRljqicUuZJESsROWLtig6vjhPA1N+rrTafPSyEV6xs7El46eYg==
+[!] (27_08_2020 22:28:46) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:28:46) Unencrypted Session key - 62siCVreF13VJKIOE8SX6wug+aqPMXA3Ar++P2ntzxA=
+[X] (27_08_2020 22:28:46) AES encrypted data(iv & ciphertext) (388 bytes) - 3sAubv3K6DjVTY1W4YyTQQ==5DuRu5XSSGr9URgkIv+MQKiMzoR0UA3ikLT+TPB6690cy7TQ9LAXvU05Tt40tCY6yEiMqUQIwFI5C8T300MK+v///oNz/ZbSZgZneVQCSBuzjWgG61OV5HDu2nZJuLT4J8l42n0dQLP7QFQF/k+45+CwbStmoBJb61HQwFNv+BIzREhKkI4A0LPMYqVPxVE5gFnYdeN6nnArqn3oPWBSHyElvwSGDWjtMnvSMN4qIEPA1zauzhT8ZT0yiy6Lohi4mUzCKoKF8tGYxqtEY0E9reJpPT660CYUaeqLsWPtuHsYQJdkieb4T8qduxdQd8dHnylh8M1OOVuSNQCksP5RAI81HWx08ttJ0eyQGwrIePk=
+[X] (27_08_2020 22:28:46) RSA signature on iv and ciphertext (344 bytes) - aH6ZFm2685RtkSg78ALyKq9ukamG/t7DTOp3Z4jS0rg66S5nKadSKtCMP6MFqmjslTdyRcu+Z7q37Q1Z87jFAms6vUGL5pLD5WEwh6zuZqsF/SurdBvPUdS+nIzWzHjMId93S2GWmxA5lmrFfFgXWMjkvrPzddsZqxAtQRfCPhG1hXpoaMjCKgieL8jfW7bDJONeBESSQ8BTpjScREhW2g1ZGaLr166DbxFGyJQYv39wY6xxxduxCfNwQeNDC3i/1WrjvVucwmxxbpIAYUBRWUbLfFmuwjypWH3mj1p0YSaNi2ToWLKAJRSCJGGdbrFJyNvpIbhPN/J8WlpVU6kfEA==
+[X] (27_08_2020 22:28:46) HMAC signature (64 bytes)- 527c1425d658b312965e7a2de0d8f91d6c32980833850319daa2addbaf332c39
+[X] (27_08_2020 22:28:46) RSA encrypted session key (344 bytes) - GOWfcdddINYeDAt2YbLGJ61LsXUnNTmyf2GiWYGpR54ZXr9ymK1CWSH/pCgibGHYLH/VWG1YtD6zBIxVGhRinYzK2iU6NRYkmzfBhfFaI85lGVseRsfnKlZp8ZrA968Nna8tcVSYgRl9fd1+de8YXku1pnxBvxdJKUJ6okBT7nsP+3VVdoeSg2siXvnzfVOwkT5GVxYrkgsioa5ELwx2ecXuzTNRzRgwtOH8gxwaERmXmVBg70WiKvNnbR36VhfFVL/piDEP8nOOluQVxBxdBDDe9SbLwa4vC1UXW6X4JIQ+XQx0HBUdvAEaFYJys9q7F8p9ucAHjmqjI8LHsElR6g==
+[!] (27_08_2020 22:28:46) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:28:46) Unencrypted Session key - R5apbwBE5fkivtOnLTOY8PGYVqlTtgrcTN76QVZkCBI=
+[X] (27_08_2020 22:28:46) AES encrypted data(iv & ciphertext) (324 bytes) - y6EGzI7k2ZFTqjuyqLkdiA==3pwGNPoM3LXoHNrj+6NS2SH8dRg/wt6daVbOa8O5W/lFD6YF9yjbZy4qifId9GSwUQQdRfy26Cjlqaxy7vvL55s83c+VUa5qHS1HrfgKt1Sk8HE2wNbPg0XjwY7LXfiHY3Tf1bsUpbppJ/ZGfzYzWKbgTmKugA83+YxR6l7jvg9hYEFa9op8XBESiZuFK6VPYhIU80T3Li03tTa1S4C4c1I47cfHoTAIyBJhXZeUB05XAt/OCdh56Fgehnv5XMmC8d48Y0hVeUIgj4Tz4fNKtCvSQfmslGs36jk4Dy2yv9g=
+[X] (27_08_2020 22:28:46) RSA signature on iv and ciphertext (344 bytes) - brlplT5k4YT+t5N611IsnyRpIO2feMAH4FGISbFGV/p0SmyaCUtszYU79qel3NFmYpvzufSBulgouHrjd1myERo+RE/92oF8AKqmjOTjp4QwiZlBSOK9zejS81X3/alpzjcgiT8pCC/sNt7kgk3h+2AaomF9pvrOLx/aAV2GR+S7GDh6ISqGT18gtAa0h55qPjpNgcd5YcOvHXjftC4pd5NUyOjXHmZA/kDDJ8epYWj6JFGFFpqEbdW/LNykAgOGOGJG2eIsBR+qc+sc8IGyru3UdEGVgDE3qwE7/XKKhZ6U9WbxkuHlFqoAF+P0wn1UiYXwhybCRW3YbF9aJdhr/A==
+[X] (27_08_2020 22:28:46) HMAC signature (64 bytes)- 9a9a369b835fb45b18309470192e6c964d78e1895228f1fb088955bf797ace8e
+[X] (27_08_2020 22:28:46) RSA encrypted session key (344 bytes) - eAAf5PSLp0iaMlHG3xkvix3/+yzXR7Jr8edZutRPKEjzj9n1pbcoPBsPoTtOIfzC9FkYIxc3PJMat9Q/UAwKDbYGxUNkxeaE/w74ox7uB+Ft+bURY+drXGJiOMl2eiGavbTwsOyH7WCFLaMZcd3VWwZsmCKQdQOvAgiVByFkOb5bYNl66ApL0TKKmtBnfsuQmPwyTtJRNAME68Vass7NDhRynnWvYn3cHE2P9oPrL4jMJsV1sNzdYa5EKyXaWJ1Eibi4w+4ZlWEbzaQ863AtFc1HOvImJbrO7C4m1LUhPkV0VuAnMFWpqn/FD5KC3vnaBPcfegKIUSj9VWZLdGGJGg==
+[!] (27_08_2020 22:28:46) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:28:46) Unencrypted Session key - mHWMf7TCL7spbolzHXFscnrhZV3C/GW0czG2T9Q8gYk=
+[X] (27_08_2020 22:28:46) AES encrypted data(iv & ciphertext) (152 bytes) - CgY4JaKz1FHKxlPjMWu9fw==cHXhgAN1nqW86B8De3ozDaBkGjui8dZbAcJmVOMBeG5eSpLv4jZyQR78DNwT/przk/Mzl7LckeMUD7QceASituTIeaPq2Gz/qNs9Vr2+P5BOrqeg29IDwQW1Fvn0rZlp
+[X] (27_08_2020 22:28:47) RSA signature on iv and ciphertext (344 bytes) - KfjvG6xEB3WTE5g6GMWOZIvbP+yM3uNKN5sHooBUS3/WNcA8oGNCkYrDBUCBonS0OOMftcvFb83CDTGsuH+VRqp8LLOqw2L4BW/YWlUKh4ixovO1cotCdBopWovhEGVvSyiLBwiHZ162OIXjJg/J2882gGtFR9MwYME9k7vuPhCSqhQOW3oDWX94oMFWTJCJX1omhrlnGbKzcVACPNHZaknOiSvcQMyrwxhWzI6WaRe+IDhxEV924Cp2w33y/MIfkaWCG3bzHdUFkuty2gpYGabx78/tAJ6vw652f2ECTHkM/L/cxeOiKzs3Z3gbN0du9Hb/J1HHO1IPoX/Y6HFzSg==
+[X] (27_08_2020 22:28:47) HMAC signature (64 bytes)- 3e81ce676cebf66a7839a6b0cf5c842f26cb5756e26db740b3f5d82365255c2e
+[X] (27_08_2020 22:28:47) RSA encrypted session key (344 bytes) - OZbGpTz/VtNgMF/EzuUSisY9aDaAC7Q1ao6bIWGGC4uxL/24eQDvpf9JeMs91EHAFDOwpfnRb9SN4YrN6Qn1GU6GtzztKeyKTQ3r8bcf7aeNwgKkdVJR8lj0YIVqBZx/GFSefQWLq9BJ07/TALmlQSpHDQ0H2VckJMimQGhzKI5dWvjmJjFqktvt8uTtaq0FIArjYOXULv5YoOB8JqgFmsIXg5R4bv/tJn3VMtFslT//6d5CaYML0coc3w83N6kd4huxUalrkGzXPihb8vRrBH2srwGMwJ0lc4wAyNyL7sOPZb4Ji5yuedwHTLsdnKbcqNFk1hPbsj6skgYRp212TQ==
+[!] (27_08_2020 22:28:47) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:28:50) Unencrypted Session key - MVx3Dkuae/nEgZNxb1BM9DyviSW+Ph+QOX6p7xbfI6M=
+[X] (27_08_2020 22:28:50) AES encrypted data(iv & ciphertext) (48 bytes) - fDpcLG9WZ7raznvVUMnicw==532U8zlZRuLdUIFEx4ecZg==
+[X] (27_08_2020 22:28:50) RSA signature on iv and ciphertext (344 bytes) - Bq14fEbiOijlRPo0Opmv2aCmsoD0gN7rRNC3DwJ7rItvUVrUpRewB4Cptz13mNTbUijw5FD32chMqk5q3XaaM1cUVmqlE+wsunb2Obga1Qw67KnPSKbGvVJFYS5IFdu7iRHTGaGrJPgj91VMWh+BPVS2HkJJExG5paFT+fwcotDNemoPmKC2GY8opEFbU4JqXHmQKXzcyeis9NR6rCM/HmiYn4a6vBmZsCJkG0K3qyrWCNRyonV3LO0P29MorVJRp60yajrd+SQ472MCOkunfy4pBojcf2Y0VQReMghs/C4gsC3qgbyk+MzLacZPQQPhQ52d3hyy0VVucLGTazA6Hg==
+[X] (27_08_2020 22:28:50) HMAC signature (64 bytes)- e8f0dcf1192f13de9403d960f0df7d57e1d1eea5183b093350856cf4f4ee6bb5
+[X] (27_08_2020 22:28:50) RSA encrypted session key (344 bytes) - FFw4Dbgke2a8jx+3mxX7C9asaB/cwl1qQQD1XsnGvlV/9L3eFjgTsrnqDnVlR9p9mbBAogsgyuEdJtt1Y/eZuXnStFpFBCTYtmMGTMlqFdReHnHorVQIhwGkNfvbuz6ycqK4o4WhYd/3mfbsPL7Tlr/AsJxIwM60o2q4NEB1PSNIMyaqJIeRWsWFWGPYQmpb4ooKoSF/Y+rJcAhyXs+E1plSPKP9cijf3U9HP8Lm/Z3Ii7gBGWOGFoDnGw5xIC5PlDTM8HdkZB4UNKwzVfhEb3F0OonJjxWljgwmtAhExmvBulzKMO08qkclyvI2l5Y3dWZryQqmsiCG1hNT7W/G6w==
+[!] (27_08_2020 22:28:50) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:29:35) Unencrypted Session key - U6CfxeoWNwYvGFZ7lE/mOixQ29UJd6ZTeZJIjxZBl4U=
+[X] (27_08_2020 22:29:35) AES encrypted data(iv & ciphertext) (48 bytes) - ykpSmixDslcpFZVTTx7lgQ==6okhhCoKtg1ZHaTE+massw==
+[X] (27_08_2020 22:29:35) RSA signature on iv and ciphertext (344 bytes) - Hu5L06QMMO4aKKht832tKw1IlLLXBu2oTvVtIep1idkx/UBxHysqGhE5ZAXVOv/RYnLECff3BhDLcYNbJrjogptDfdZ5oNbTjlEm9VjjYAkR+amEP+ZFfLDYed2gs9W6Nyek9PNZpXeYn3RrRy+JoaF21laAmwnNoP0B/muuY1NUoNjsQZO6viaxOmumO0Mi+KYqL7ogp6VS4yFB3VWhQ6E+tZSiXfTqrSI8wnw8lKjVsqHNYa71QpeslgQRck7+XlZ5JblpiLZXFg86KITNx/Zp1stQ4/qmMURPOIdnjfUQ1XmLfwkBM5B3sU/g0uYK2RJ3mJIWjlG91FTV7GFIhQ==
+[X] (27_08_2020 22:29:35) HMAC signature (64 bytes)- 3b713b2bec27de9c79ccdb00e53edee457d32b32c58b8c16d3c77a42a4751086
+[X] (27_08_2020 22:29:35) RSA encrypted session key (344 bytes) - Nq/z8enzoePf2ovVO4ZBAu0xrOZOWxHpmp/QNNKhAvr+d70k3b1pVY5GOmjP9RLYIzn7PcpofWloOcljQ/EO7uVFQN0fz3qtjyMclxFXd3kZErpfuCWFoMFPJ5UEIf4iNMPecaaY1eFAUL06VICVnVv/MwMbDtwDtSYm7aBh33N1IhyRvehjThUVZBiVNI9ZxWs71wbR0db/fu1jXJnu1Mrh9FnMzDs8xnlVDTxP4333z7AWIAnd+l9X2oc4urYqi3pgwPb0KqbmK5VpMI9sRoXov/VEAhz4VLInuliuuqPwLFs74bBn7iE3K9QHmlYSYae/Yyb4lZRx5hdzleW6sA==
+[!] (27_08_2020 22:29:35) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:29:38) Unencrypted Session key - z3DqGDuCBGs+i1XYRZt7Zw8KCylIwvWA4RdfQkZv0LE=
+[X] (27_08_2020 22:29:38) AES encrypted data(iv & ciphertext) (388 bytes) - OdsNi+858ArPrAw3aotcFA==MKcILSt0FeaGOx01Ktk7HW5zd3ToSxvjTfTzGtdj+AAcY0u6VZ2w3uQgb6Mok69gyn02gqXVJ9EuA3yfjG+J1MOGCBkEnhY/Le7XXzhMNSvePjln6OMEtAuiWbYkARTklqMIH/+cEJkUyIEy4R4HoVEnr/+C/kVFwot7l0u1BqfWjMfDGXZTRHc0dM7/pvj/fuyF7O2vmMOlWIjaIF97naPe2QHREfdBTgRSB2uJ6NB7f5ExQyxwzzyJOsDYvCIci1Hlh0D6omwmqWVyZHCGoFpLZHHiAj788PV2IXckR6aDDL6k18RHTq9ICuVZafE26SyzYHxMoVgCismFo9kqdlu9E+W/WkxQar1t6a7Ai+o=
+[X] (27_08_2020 22:29:39) RSA signature on iv and ciphertext (344 bytes) - h9LMlYGMfBFq4qJw7DO9+XaFw/NwgG8vBFA4GMtpL0ZRH+h4qW1VgEZkI9F2A+yhN3x2eHq/826rKHQdbqj1dmzevxToKqC5Z1g8vTBnRhfnkJjzpAea/rmf9vqwOFIOPVreb9I6Ab6XIHI2DXQu8ORf2qc4zA7lwLasMJNubGhYYeTfOowtiOkB4j/QN0R96xEBEpFnlMkaM5SDy+1CBIlSAO/vHFL5ZHmFf5FCocZjSkhzzmOAEaqqpmwQn6NeCAJpP0UH4Ore/751beRd28XLJaEnq1OOxFwDiVj0/co/+RffKXJZ7T1dJASIYOYUilhZNvdVfEMgG9qeU3CI+Q==
+[X] (27_08_2020 22:29:39) HMAC signature (64 bytes)- 04fc08ffd0c6082a2eddfa956d69a28049d1b5779b873348f8a649861a7837f3
+[X] (27_08_2020 22:29:39) RSA encrypted session key (344 bytes) - OfPY4avb+juT3ecvTpG0/D8/xpDnITxxYnjUWWmCWF9BIc7aAb8ohRHasuAIT07jzF7Rqu/Q2I4Uqpko2BikcpgM6XZXUfwsF4VK1G8jp0GxPi9Z3qazT7fcHgiHIae8PakeQ+JHmIdSYxUUJpS6ETiabnZwTAzNtJX50zNtru9uUqGdPr401sLP2OBZHq5SH5JbSQS6V9DqIN608tOXpktA7DDnqWzyrsqyar/7UIk4CBMAmch59oCcf1ktLmCAGmGieYaZizkEd+xLz6DZ8MU2ilyO7x4hoMeibH6PnMWrYzoE7bejbgR/z0NVBOqm+TzB5hkS0oJyL6/6aBFG1A==
+[!] (27_08_2020 22:29:39) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:29:39) Unencrypted Session key - D81qxrKubvipFSz/wTL9c0TKnM4bvlkCpZHt/ZqPt8Q=
+[X] (27_08_2020 22:29:39) AES encrypted data(iv & ciphertext) (388 bytes) - AcrNvfWRJmHbilaClmg0TQ==b0Bavg7TSdwIgbVrfyjxH7/yL+IYG0Ct27LTKznHuhTUCC29SRjNWHYYo9hpLtSoa+VTVwsshHaXZv8/XaFzVMpTWbnCSYqSIjIG0sQsVhWoCEyNExeP/yKjh2/5pLwXvvxMck9iNvO5uA9u5RhyyoXz8OJ0ZdGqmBjIc6f9nkYbczqRW2OTQeIqZqUHA53K9/U1Mvovf5QcM2LkYqd5GoAq0/A8XCinGwTlzaHJbHV4nRfmwhU0wop0ruoXM1kPLt4fkDCls7G4d+yIat+9SH4lkYNZ8vLRP5NDlq3zGpryOF55h+XTeNaP1ANgNsnkippq/tYt8tKaH9+Gzz5HVvbaO7qCsNaVYhc4rpHYyKc=
+[X] (27_08_2020 22:29:39) RSA signature on iv and ciphertext (344 bytes) - ho9FLh369jrtK3RnxTLQWATrf6RSjUxarr415oeDVVAbtvrDEk6gsfAqf1YsI6uym9HS94AN/Zh8BKHcldJq/N/pBPNl4+9Pph8FDlZh/yzgpUKunAF6bMNoBRcgSZPC08+XfkUbTddnB4h4GH+3/1MtUnL2OKwcG7L+S4PR+QJrexw6r1HOD9HG9MMvwdJbjVkKvhX57amPPM8SU+zVE4uLoEOtEWoJI1wux3dmviIwTdHqH6euUlV9/Sff8Nsp20jffcgsrSGG58KtIFwlyFUlSyzvUA8HOCu6xu9x9pK7PJWCYCPtpiDET3+1+mCgNc07eaPFjXbGBCFfvx/12g==
+[X] (27_08_2020 22:29:39) HMAC signature (64 bytes)- 74b55be5046d03b88123d44377f6af286dd8fe65412578498183f9f6e091cd1a
+[X] (27_08_2020 22:29:39) RSA encrypted session key (344 bytes) - TmCyVRL8csOybL+EuNbQwNarIu2ciDddcfg7R9lupRqor2JO1dBTGIqYUmBWSd7nvkRxIF9gQGocogferAXFSi41jB2QAVoWoZ1GQEhc4OZfrNGC1ILI6CfGCd4VwQepZls4C+adJYZP9iISNZRgsFa1A0TbgGwF7Vp/aeivQ8stQUfFXbomEiACnoPR0x24EM0tJ4TQdQxY3excMmaes4XD37deMIjlBwIpfS4vkUUGanffMTbc2FVR9b1azK4JchWd8Y3g8rxuv8M63BCfbaqNNI5ybWyTzZmAjbe4KNan+Wmw4nx2ybiyxDESkPn0BnBVP6UeGDXxjnUmef789g==
+[!] (27_08_2020 22:29:39) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:29:39) Unencrypted Session key - 7M2TzOIoKaT1LiTvZ8EgJ+2swaLmVFjvVft+U3tjOzw=
+[X] (27_08_2020 22:29:39) AES encrypted data(iv & ciphertext) (324 bytes) - 7rt+SPzQHqSgRjTN5uC/BQ==/oqdsgJgMb8AcfDHTTglhcy+h1F/oWs8OyHUY8y4pJJVNu9V0OW44lVYWIucROwY5WnteNXfM5FOfI3ao+0PcU206i1RCbMGJyeV9ii4ICO8eqDN6V37Usow59sZXaVNLSnxqUVEzZBDvBsUptp0qnzRhiFD7i3YcRoKUS/hNvnTwOm1qmInKIQgLYlsaNsEaldfYl+oaC8Liepge+oLtVzYTIEuRTQvtF96b6NZq9lJoNyiTu1V7TOi37fkGp58CicbZStHYtFla8XX+5+98SEWJI6yDFP0eQMXhM9hDW4=
+[X] (27_08_2020 22:29:39) RSA signature on iv and ciphertext (344 bytes) - nfEalP7+vWBU8x2VsOvBlDB2pfLyNIyX9Y8N5pUE1XzZUsFMcTxo8zndo6v+rtKgJtVshNh0mq66d9Z96HUkIqqM5yqgPHWKEJfz36bcv5IpdmaG+JqlxisnaGmTQaYpxD9VSKrljAVcNHd0Aj8BkeMpqR60mhSz7N/Hz/LcndQsp4ovwi5evoNmhMRUJdIqEBLEu8xTiQ3Xuyv+ZdL9/kG7PeRAlknKeWVQIgdgWhEnR5CljyOmB5XmXyYTFx/eg8gpQLjMRU6gTBqmhXsWYy90eKfvlHjlzGC49RbNmm6qK0jgzius0n3blcx/2hqsZXTDmCs+Pd3kXNGhnvqR8w==
+[X] (27_08_2020 22:29:39) HMAC signature (64 bytes)- bffd48a3fae7576eb7ea71e622d264adb1dec708eadd3537f0720e9a388bf379
+[X] (27_08_2020 22:29:39) RSA encrypted session key (344 bytes) - R9mJP598AlukGnUAk7A8T00Hv1gKIlXqgx5pRcdzELOXJsVmoBKt0qKg2KfJ/xoeH8gRcwlIL5/dQ7/p7EBFYehZhfWj6kfEDeL5RN6RIrKN1T0dZEyOW7UVqMZgwms8G0H7NBE3otpJ6JLpx5B3g3Ies3vmbz2+vWmCIrkDQwQW9xsHV7mNeA/8q8D2T3oLDEMAIpBCpdrnnHWHeW8G3BShVcfYktAbsRvwiQTkJicjDP3YrKj0gGq7p5Tah9az764PwcSAm+Tk/vxmbDTI/0IPrU6uzlhnFE8+1in0SEUfoRwiJ0AR0GfGK4+ZRdQJZ+gy/vI594cVpfZ0JlW1vQ==
+[!] (27_08_2020 22:29:39) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:29:39) Unencrypted Session key - t5oJIJrKxi2YqzHFCs59vZEQTDj74ngAYrQHYBltIqQ=
+[X] (27_08_2020 22:29:39) AES encrypted data(iv & ciphertext) (152 bytes) - ueaTya5miLcErbHN2vJizQ==lzIgEvLRl9NTLjo4VS8jkn3g2hI1bPVwS49iqChHcHG4K4V5QAzn3oYoEZMj9hpBkB7UsYRWAeVfnKtwjvguaKCnsOkHeQMYxX7iF5wQ+LVvG9Z8psSR3sdpxZ/gSAlk
+[X] (27_08_2020 22:29:39) RSA signature on iv and ciphertext (344 bytes) - qcegw31AkWyA8wbOu1Re5NtfEiX1iNn5RDU5JKYpKBb1E0PpEi51/oMJWW+2eU4UzStXTFXA+qV1ZXcnt3xioclcTRN8VZT1KtjV5n0yuEjoHZh1HrAz40vHhW7qbP8PVYB5ZKLuogln1dbtenE5xUxGzjAcKNXaeWU2MwUhtqFJGTXFfR6XKGpixEO6AQTMUuaAfC1e3ff1ShkpwYHmoCoXfdsjhX8I46DLm2okF4MMaQ3HmFQT7Qdi9EA2biDPC+LFJyyI0sCSpCIg5uqU9e1w1aC55vErOzYFnNNrn7BF8x+oouZmwRxbh2P+YYPAdMyyC3ISGizGbpH/h01YMQ==
+[X] (27_08_2020 22:29:39) HMAC signature (64 bytes)- bf686084ba1230f409628e9bbe5c47dbc1fdd8fa81766e4cb3812a35bbfde3b8
+[X] (27_08_2020 22:29:39) RSA encrypted session key (344 bytes) - iXin/HBF7ORFJpn/h4MYQuDUvdghNa2sbKU48cjOJ3p7iglqKjhL1tYbbB1X9BPGcdgUk9TD2n0BXGny4PF5Y305Jvq6AleS8BEGnXz9Dx0edo82kqiz9ghrHxSICxx4ZvMCvPSJI2uPBWPNtzYl0HM9BsmsYEDtgxtKqj+B9pKyFTXzk030Z1rGhRUonXY62vxEudrOtJHEZ+BqY9iM5i+ibABGWkrX9zMB+Mev4/H8P2oYgBgkU9L/qGk768aXcnSP6qQdA6VCVNzZAGW6No645QhIj22QrarHEnPAR4IWoNEalNq4mP6Fa0eqZtWqRHZFGKmm7G494yzAiCWKEQ==
+[!] (27_08_2020 22:29:39) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:29:46) Unencrypted Session key - u/1U/fzHSg1UpsCq6pa/G4IygBmnexEKVVtz2uFlxwg=
+[X] (27_08_2020 22:29:46) AES encrypted data(iv & ciphertext) (48 bytes) - Omm+gFJ+gtXLXg2UqEaMlA==agtQIpmagf4t7ldfTSq++Q==
+[X] (27_08_2020 22:29:46) RSA signature on iv and ciphertext (344 bytes) - P9p6Ho4OJ+JLVGoSffMZ2E+TO/Fhsb6tLaNKVqDTeL5a+Q6oNxC8918FQgdzklAF+mvBTVh80jYMIImAYy1gSiNC724gankasIpm3LhQVpDkTGQpaYQH6VDt4nXIobAqi7zV9XQtXKN/CgSnFPp31kdC1lv8Oi61bjPS6GAEimEJ9xeeVw2+VmN/rJUMXbDEgV4sM4WLSH2aLpRw/J8O2v5tkxm1/6KXJnp4LPguDbjelYLRKhHCW8mSWmqcZhUlBFNGSVQz4NM0fHTeJgbTxwIa+7g7S2T8UPUXOToTVmxe2eqAxsdwM3NB2dMSy0cItb7tQLjZhIW33vbzff3mlA==
+[X] (27_08_2020 22:29:46) HMAC signature (64 bytes)- 53080d060c567c0ae20c28fd3a4c605205f2a467767c2d46e1e1209d0c25c309
+[X] (27_08_2020 22:29:46) RSA encrypted session key (344 bytes) - H7z8x5UXtvEWM3XLvS5A8eWl6xFBcfn6qHa7uhI7RCTnEPkQ5ldMV/JYND3FV2Muw1xiyijTyFUpDCEXpWMZt3d7Z0gBO9RL+lvErfUjbdEK8YRBsxblmJXNu+0f+z22ixskXEcoQ0pMIulNAKd3v2b0NXX8Aio0O/zBheYpDXG+9jjIQxUv2CAt7BfnkQJwe85x/U9gL8h5pBVN6smwQ2FojQWsx3MR32ugu06ZHxfwGjarvTKrvjkyhGGNGTeGE/+Bd7MTmCBdYScAPh6d2gIjopFCxjTACwken14qdtfW9tNSXnfF6m5iMnmz/XA+svUd8bPBsvkRgeEmzcvbPg==
+[!] (27_08_2020 22:29:46) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:30:17) Unencrypted Session key - Ti1Rs2Q6P6w/+IzGepbh8Q+AemWyRDJHu8uOMljk/Hg=
+[X] (27_08_2020 22:30:17) AES encrypted data(iv & ciphertext) (48 bytes) - EUL+cJkIN+1E0ymsILA71A==dM02/+kmt7aY/5Emmjhc2A==
+[X] (27_08_2020 22:30:18) RSA signature on iv and ciphertext (344 bytes) - NeYXWtd+Ui+CkF/RgCc4mrIIgzP+lSIojwJfzADnB62LoKo0su+Z/N9k3/biVMlWV+AoMmJUygu/Ds17RUK+rRU2ENcEQjgjps64fNRpKaYvWPnOw7Ry/WH6P9tOOrUnz1eUIYZwaESDJt74ETNjEdGf0dML6rDzhWwwKE/bvnRTSU/MHg9nYpdTD4ztLUwSLpSqdov5YLfgp6OqPOk/NFcuvk5KtZnnlGE0wdJw33/SHosNc0yhPuibAasxDXFn+517yzbgRTmHS44j4moP0RFbEW8t0UNqazq1zv3a+Sz3wwiLWf7VAnAcidRo826K7H4sO0hS1LnTHKKha+xHew==
+[X] (27_08_2020 22:30:18) HMAC signature (64 bytes)- a24b94aeb0c58b80695aa54ae694a31dbf9031ecb8eecd82798c3512527d2b58
+[X] (27_08_2020 22:30:18) RSA encrypted session key (344 bytes) - bsZngsiAlbNOssRz0Llex4bXDRPN7BpgMBA3A0KPnM2zU42/Nk/V9+Vj9YZYnNIHH0ieV8BG/oNxtL6JKpFc/VP1WdfUaSwGHETOcbeVVNbcY/6Uc2Y7BPZcJKOFYDQ/VGjSzK7wZ0pQDeUaRrcSMhjlxfqwIbBHVMVT530vZpINTjVxAcincD2R1hpZ4S96yeFBq/SfRwQNOgd07N8vQNI8njIO+/oD0ChNWNtNGo0Q/gJ2Nnzfnk+gtMgIdFPkSLWGzrZyoXE1RbYT3gsy0e9wSCca8kg8QgD7CiQDZfnodqBgmfq+G2cCYGgDM7T3tn0F/INHw/uuXcprjFsMfA==
+[!] (27_08_2020 22:30:18) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:30:21) Unencrypted Session key - GRFN/5sNnjUgdTdx8p7olz1vzkc1xHbuwrtODE2ZId8=
+[X] (27_08_2020 22:30:21) AES encrypted data(iv & ciphertext) (388 bytes) - a4SAkgwJ06Jg1WIWyvrwmg==v3muUgUjSLHW5mM91plgj2A5RWJxE+MRO1AAlp0u9ohzVdBhWPpEV49HGU+YkdMhAo7T+1W+EKBhXooJX2bIqiQgUbff+jbLPp/hKGajzgn74m70kQ+wvQWbUct0QbGqs4d1PS4xWHC0j+Xx92+pSoZpcuX6XG9mJ5rK86/9E/VP9P6VYG+qzMUGEPtV5Xjnn635B/IXc9qALBM74OKorXL9Nhf+neU3lRP5iGbruJvb+3zqV8gyLLaNRUaotwvtpSX63vA7YpMw/nz0njBRTAek5Ts8VOr9CS9Iv2/IDluNV+m1yJ4c+gNLDE7tJ3TZlz502g+ipqsrqQwnT2r48cJpG3hEyY2H3Z3vlAxDw9g=
+[X] (27_08_2020 22:30:21) RSA signature on iv and ciphertext (344 bytes) - VcNSClwWJA+KheFIgA4YTjtf8fTMxeDUtqqOz3oFl+nW8NisXqHRKii+2zDWz1tD0Ry8fMx+oGeu54MplLMqWFOItjVXmgZReMEb0bfs25ZXVMKYAjZDpLlbd4rmGAP23gCBrnsnLZ0QjeRn1QDP5mPGRKeW8y91qHzfQTWSCJAeIijfRa3xehInIDUmc2Z4q2shLdD82cVers0XwMYcBMpBZkdoChc4du903Gz/wxOQlpdTdZh2m0ZATsZW6eC0e9xaLNWspKaQTDBp0mYLH4KjYBZQGnsnzgHzLiJjXTEBl5VuH6nzF3inN3mYpF06pfjQN2o/gq6eoBTkx83EJQ==
+[X] (27_08_2020 22:30:21) HMAC signature (64 bytes)- 2751ae46999c5d0639025c68dc0e33fb4723399bf6e3b9f8467fb68fe94d7ce7
+[X] (27_08_2020 22:30:21) RSA encrypted session key (344 bytes) - QtAVE7X/pSq/3PYtIn7cT7CoBGLLy0GZUoblm7rwXuAyOrYUtjMwgUyalZfY8s0R1G8arj+Ta9CYeHFUCHn+a6dWhOIuVghKakOXhlvXHCdVHQXwhowrib8udMTQQ1jcUy/966Nf5L3LMFhsIewNIgq+oemCiG56cT/jQoKuxUoart59ouc58vn+A6FNonzSLE/p/CIx2LpTiScrCSnbOAWir8DP/fsCl4fWVWhuo4EfZDSpIsGRcfN7sQfqWhVl+3qy0DA4i86yU/9mLmqRZhNICWShoiJJ5tofPAJUUJpDNuQEPJIJoSqN1loIIPa4R2frBp0emAyeAdlKe4SRBg==
+[!] (27_08_2020 22:30:21) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:30:21) Unencrypted Session key - /rjasHmmqb7YdxjzdsNyk36Ekq3sO2u1NYqxebK+AsU=
+[X] (27_08_2020 22:30:21) AES encrypted data(iv & ciphertext) (388 bytes) - PxjNoDa5jPIMO2EgS0mIVQ==GBrGlJSs9mSramx1syBLTY+NRXD3Djhos3EDW3xNDbst9GRHJx2SIKqFRDqAv+nc3qVwCFXYFh3qhdK9lYqe+8WCPVgS0fuVCAU/nxYTrvlNGNXkJbJEq4qTSJKJBgI7iSi2iz+aUb+qHwKfhYNVFxV6UemC4c+7er5z4ZpvBV4vh/LJVpzs/01JHt5ksoHegxwRk8ThuKKWC+oizk8GjJfK6/C7GgX60wSx6W4fFO/z2do9NvAT5RDTjQKjTvMSm06vOFQAUTI+dpU1GRDnJfV6vOKnXdWd60lGjde5uDcIqgWtzAeUJZoPpq0RHT83OfN7/sNUaCuEK9H2bCeO5Nbe/H2fmoNqq2bwl/A9kHc=
+[X] (27_08_2020 22:30:22) RSA signature on iv and ciphertext (344 bytes) - HzxXPF4FNj8K9h7HdGoo11v6NTMlj9rVJTQHT9q70tgI5ErBIGYk01kplj0CSDovVjY2lCKsMhVtOg5puNrG6mx3m1yD0ePMy2hQQ8RmIpkzQovGbfJtorYMyCyfow0oyMuku+XPvhQi5MEH16wsAox4mO4NJ9c3/UxgnUfaCHgsWw4kKxaV4VvFow2HR5FPLI8fPX2niV6ChZPDtj2W95xxGybgGpzRAHpDpNEowY5P8NYOHjOVbSSCGyqMnBZzB0WeY5yLRwbYb21l459dubFkqpGZA025PKP7xHokPo9Bk7+h963mST9NxibH/SkC0j6pDt3htU7rO7BrjLV1ig==
+[X] (27_08_2020 22:30:22) HMAC signature (64 bytes)- 784786b728270db7dbe611ad778a5771e855f6b2032a3f0faf67ca76a98ac99e
+[X] (27_08_2020 22:30:22) RSA encrypted session key (344 bytes) - eDCOV4kQ7WmZkd+bXXaieTQAJ9ItSQ94AUl8FOZQrhAo6xvQSNPgTbbU7MYEefVJp0854INUyQvZJnshvQHiwW+/ICIauNkM3UXGEdNQUFfeAhA1utx08azVT7nZssHyFe/8gdlgvVPrslUpR5FOlHgcPXMdeQ2iQnDvChKWHvaUcsjkbt9K/TSAh52AhCPY784E3dJj5Zb2fWsl42cQebZp0+G/lf3JDgakY1IySKnFn8o5rM1kjU3aJ/X9k6noeypEK7GuT54ggIqlhhNdfsDs/CEKQm3JuZ6Dcge5gBjwRj8zNCaYNU74Jd80N3s9bu5XNCh7p5a4BjBAm6Oigw==
+[!] (27_08_2020 22:30:22) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:30:22) Unencrypted Session key - Qa3pAK4sUVO/yMfPLkOw7+zSG7IdLKCjs847FQuI77I=
+[X] (27_08_2020 22:30:22) AES encrypted data(iv & ciphertext) (324 bytes) - wuOGM0SEk97Jax/+nZzHnA==8BVHneEeUNZzpSBfxFRlLRpFHIS1NemFVuBfMgoixFZMotP+yDw0lex+ez3EKkSPdPPO1TivDVgsnz46On+WygvP2+cknSJyMskgJa/k67qjY6GAwYpwJipbR+wG1kcQmOJr4VT1lCz1qZ0cVHT9LwDt+28zTQF8z9xni/GluDX1ypCJTKr3OIpCjONkmkK1ZAaUBaDlWdb2IJyfx/D/4pceKN4gkzzUvb8+2qVwodZVhYqleV1x5qtmklf7Iw9NR8oWoejxRUTBM0xxPvef34yQcpoMM0K8l+DxkZc3ge8=
+[X] (27_08_2020 22:30:22) RSA signature on iv and ciphertext (344 bytes) - KbRknEYxn7mkKxhI7Q/mbgaAO0CcFkvRl98mERDU4MtVtxvM6abQ72FJGog3aYodxnPKLSkY7MSHdMGfkwThbpu9uHq6nwNSAwVKwU5cy/r0ljzDEUYY3hEfrUafGLV/bBfwPUajYQk/h+ZtryjsbVPCJQ9K7GmB6fSXKU6sAEr8uAQKjQrpFVLiztvTYLz7vA8446h/M3s6HmkOyAEAqUrXukWpBeA2vbzvwQYwO7Zc9DDyNEbicROpABgouRpk5IPLlusFUNkmkmJyNPfrTnn94CEFIu6R8YRK4SkMp6lre9yR2o6C7yf/Qp/rh52g5D/XHOxOqcRcx5ZkxERwnw==
+[X] (27_08_2020 22:30:22) HMAC signature (64 bytes)- 59cf1398c07d7fcb8a8a9abda1f0a92370ddb647d5a34e4dd49f93f83bd74064
+[X] (27_08_2020 22:30:22) RSA encrypted session key (344 bytes) - BIZsVo7q+2YedR+v+NBghPhB6kzx8GYCeJBqNirv/BbOAB3uHaRl8NoBPki9J8mXqhrzuCelrogqPxkBfBO/NEJKsXCyBnXnLrWqkIu8ZJxRgXJ7eK3OO1QOK5Dfhr5nNWG6BzAs5/QS6Y+D+dSL2+OfipQ9ylJ5oAXWGTROIrCpK6CahIlfbYomZZWWV955drDAysbwfhWRDAXvC3jZa9q0SWqBTyqexocvzqr+ZuOq1eqr5K+u/YMvSD4qDumQ71CVGjJo6gUBNUhSTTuD6Sn1qBVtrbZizBFW2hfWDanSUZYKeqSD+2uvMhCbGy2gc/uihUblVe7RHSon3JXVIQ==
+[!] (27_08_2020 22:30:22) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:30:22) Unencrypted Session key - CNdUqnF8dZKk3XlFb2xRxSzwZLuoz036fNt93udQjaU=
+[X] (27_08_2020 22:30:22) AES encrypted data(iv & ciphertext) (152 bytes) - fqrx1JvCmndZDNvDBQyF3Q==MnLeu2dTF4erZ4G7hS2Tq8f+aNUwG2ldIPIFdAvFddXobNPZ7oPLQBCxKsHPR4EwxdcNAnKfUMf/H3Hld4F/xb0H4h2V3FILv9lotNGxL8rtO0DVGB3bn2Xt465yG9Z/
+[X] (27_08_2020 22:30:22) RSA signature on iv and ciphertext (344 bytes) - OqWVl+EnpK2mIMTQIC7HvLtItWkfKT4+Sr6Vex1JZB15VtwKGcvWcuFHn8iNTo/60Fzxo8T1PBYMjPot4lO2uYleXnYMBWwdcCU7BjBbH+wj6YxOafOSDE7pQqCGnAE/z9doD2wKjyeFLCOOpIzMc2ErmzF0pBaOWD0dUWr3XGlj9kGUEPq18WS7mdbxecKuhh4AOVuDhZjaUht5ErQTYvzwsxPNI8ZjCd2kN+EvZqZs0NAz6AcOxKNFTQVj23TlgdSsV6iZ3R9uhlCWwYZkqqy+doURnWPn0+qdQ6MQA/LcBIxLY4gtrdAN2C24Sv0Sn717KS3W2vFTjqGtSzGvdw==
+[X] (27_08_2020 22:30:22) HMAC signature (64 bytes)- ec2f533ce55a716341050742b4858bc886f4138bae96c56045344a2eb8e81c2b
+[X] (27_08_2020 22:30:22) RSA encrypted session key (344 bytes) - V+G7TUjU/mcU4rrLvXdeZ+395fJoM64iATu0/UdXJ/ccqrV8pY8VgsMBiFkFP+1T0PbiXL++Kzqo4kSxyyyz6lnvP2x7KhZOw7ZxeP11WaV3nw7sYP3jSt99a6HHlAsAzEbmE3j30aJxdrsqEdok9GzPesVWB7UlhFBM8sGqXqAD5MYExbXILMJed77oeDrf2BQsC9qL8dsteaD8DBzbNiQkZZQxBJrut5AcFx3hwIELmN2rcwnn3kA+Szs25xvpb55ismpkpHYP8YSwNYCQFgoFJAl93EzgesjT7jBRsARWuC90tqdGd0XTBCp8uj7NK3c0wkTNulgosvAljFRl7Q==
+[!] (27_08_2020 22:30:22) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444
+[X] (27_08_2020 22:30:26) Unencrypted Session key - fEc1ECmFGYSA92wyZcRMS5Pj3p2ArYI/zsjBrVyUgag=
+[X] (27_08_2020 22:30:26) AES encrypted data(iv & ciphertext) (48 bytes) - LneiprZjU7I92rcRVcf1iQ==wxbjSJ5W+rSvhJD8mZ2VnQ==
+[X] (27_08_2020 22:30:26) RSA signature on iv and ciphertext (344 bytes) - HMr04yx5Jb87P2SHXDtRWxHAHVgo+v+iHr+p+ALT/bqJmoDylC9ZYTir6kyQCzUqaDDsK98uiB35Kr0+iXFWbXMT4viX0jGbE86tziwatjIkQSTwDyUQcpalj+pirdsOyaF0qJahWTyp4XI6kvD/FUouYwvfAu9n4IK3u3VeGIIweWVpQfBl1X5l2IEqM4oWPsUWCzWYYNTwpjYtA78aI/v19IIVO63cD1iLTUhj3ctj61Ba+dzBsm7fxgEw9TrHej7Cus02Vsu0fAlqfwPkPGSZfe7/8mtQRlHt7tddXsaWQGRp70vOjMgctA5BAudypOyl2RrP29JmX17tLwNxtQ==
+[X] (27_08_2020 22:30:26) HMAC signature (64 bytes)- 60a699c77d7892d4fae0bdeee6c102735b7961c686b51870416afca3f56794df
+[X] (27_08_2020 22:30:26) RSA encrypted session key (344 bytes) - WHD1/uUQKkOp/ARVU0oe9WrvH7WabmNGbb2soB1DhmX0GUsH1pVZJJrTbrjGxdEC7Nt3aMbiDupFqObw0mib8UMdV5pWIHPErrR3jtH+o01isom8f8sqFsIx65SUKx7tONfWT/0Cad7AGrD9O5XXJDkI0BVcJbUyaOZimRRc21iZXIrihQEGI1V5kk3o9ZAi43SgwBRw/e8vsIOl/tKiiCIG4LjgXySESgfr5dAh2AD2vVqRJLMzGU1f42f5VwAeEyDEsVec1CidUcyAQZ4Lk0xngVlrejgZ8/Zj2FF7knDs1F3pgK86QOfCl25cq/RUDMEsITo0YEJGJgMMcyxU1Q==
+[!] (27_08_2020 22:30:26) Closed connection to Server - IP: 127.0.0.1 , PORT: 4444

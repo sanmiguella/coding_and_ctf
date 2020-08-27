@@ -70,6 +70,7 @@ class Client(Security): # Subclass.
             log_file.write(data + "\n")
 
     def pause(self):
+        print()
         system("pause")
     
     def short_pause(self):
@@ -120,7 +121,6 @@ class Client(Security): # Subclass.
                     if data_from_server == b"Session key ok":
                         connect_to_server.close()
                         self.print_and_log(f"[!] ({self.get_current_date} {self.get_current_time}) Closed connection to Server - IP: {self.server_ip} , PORT: {self.server_port}")
-                        print()
 
         except ConnectionError as error:
             self.print_and_log(f"\n[!] ({self.get_current_date} {self.get_current_time}) Connection error:\n{error}")
@@ -178,25 +178,29 @@ class Client(Security): # Subclass.
         self.todays_menu = self.food_dict.get(self.get_current_day)
                 
     def print_header(self, data):
-        print("\t" + "=" * 66)
-        print("\t" + f"{data}".center(60))
-        print("\t" + "=" * 66)
+        print("\t" + "-" * 66)
+        print("\t" + "|" + f"{data}".center(64) + "|") 
+        print("\t" + "-" * 66)
 
     def display_todays_menu(self, food_dict):
         self.clear_screen()
-        self.print_header(f"Today's Menu ({self.get_current_day})")
+        self.print_header(f"{self.get_current_day}'s Food Menu")
        
         # https://stackoverflow.com/questions/9535954/printing-lists-as-tabular-data
         # https://stackoverflow.com/questions/44781484/python-string-formatter-align-center/44781576
-        # -40s : left align string
-        # -11s : left align string
+        # -s : left align string
         # price.center(15) : center align, 15 - width
+        print("\t| %-5s | %-36s | %-11s |" %("Index", "Food Name", "Food Price($)".center(15)))
+        print("\t" + "-" * 66)
+
         for index, food in enumerate(food_dict, 1):
             price = food_dict.get(food)
             price = f"${price:.2f}"
-            print(f"\t[ %i ] %-40s [ %-11s ]" %(index, food, price.center(15)))
 
-        print()
+            index_num = str(index) + "."
+            print("\t| %s | %-36s | %-11s |" %(index_num.center(5), food, price.center(15)))
+
+        print("\t" + "-" * 66)
         self.pause()
 
     def menu(self):
@@ -236,7 +240,7 @@ class Client(Security): # Subclass.
             self.menu()
         
         else:
-            self.print_and_log(f"\n[!] Unable to connect to server, SERVER IP - {self.server_ip} , SERVER PORT - {self.server_port}\n")
+            self.print_and_log(f"\n[!] Unable to connect to server, SERVER IP - {self.server_ip} , SERVER PORT - {self.server_port}")
 
 client = Client("127.0.0.1", 4444)
 client.client_start()
