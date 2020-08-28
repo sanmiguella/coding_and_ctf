@@ -178,20 +178,20 @@ class Client(Security): # Subclass.
         self.todays_menu = self.food_dict.get(self.get_current_day)
                 
     def print_header(self, data):
-        print("\t" + "+" + "-" * 64 + "+")
+        print("\t" + "+" + "=" * 64 + "+")
         print("\t" + "|" + f"{data}".center(64) + "|") 
-        print("\t" +  "+" + "-" * 64 + "+")
+        print("\t" +  "+" + "=" * 64 + "+")
 
     def display_todays_menu(self, food_dict):
         self.clear_screen()
-        self.print_header(f"{self.get_current_day}'s Food Menu")
+        self.print_header(f"Today's Food Menu. ({self.get_current_day})")
        
         # https://stackoverflow.com/questions/9535954/printing-lists-as-tabular-data
         # https://stackoverflow.com/questions/44781484/python-string-formatter-align-center/44781576
         # -s : left align string
         # price.center(15) : center align, 15 - width
-        print("\t| %-5s | %-36s | %-11s |" %("Index", "Food Name", "Food Price($)".center(15)))
-        print("\t" + "+" + "-" * 64 + "+")
+        print("\t| %-5s | %-36s | %-11s |" %("Index", "Food Name", "Food Price".center(15)))
+        print("\t" + "+" +  "-" * 7 + "+" + "-" * 38 + "+" + "-" * 17 + "+")
 
         for index, food in enumerate(food_dict, 1):
             price = food_dict.get(food)
@@ -200,7 +200,7 @@ class Client(Security): # Subclass.
             index_num = str(index) + "."
             print("\t| %s | %-36s | %-11s |" %(index_num.center(5), food, price.center(15)))
 
-        print("\t" + "+" + "-" * 64 + "+")
+        print("\t" + "+" +  "-" * 7 + "+" + "-" * 38 + "+" + "-" * 17 + "+")
         self.pause()
 
     def menu(self):
