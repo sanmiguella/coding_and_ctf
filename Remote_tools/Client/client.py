@@ -25,7 +25,7 @@ class Client(Security):
                 data_list = list() 
                 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                                 
-                buffer = input("[#] Input - ")
+                buffer = input("[#] Command > ")
                 encrypted_data = self.generate_encrypted_data(buffer)
                 print(f"\n[!] Encrypted data ({len(encrypted_data)} Bytes) - {encrypted_data}")
                 
@@ -61,7 +61,7 @@ class Client(Security):
                     print(f"\n[>] Detected corruption on decrypted data - {decrypted_data}")
 
                 else:
-                    print(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes) - {decrypted_data}\n")
+                    print(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes):\n{decrypted_data}")
 
                 self.pause()
 
