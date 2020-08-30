@@ -57,7 +57,12 @@ class Client(Security):
                 print(f"[=] Received data ({len(received_data)} Bytes) - {received_data}")
 
                 decrypted_data = self.decrypt_received_data(received_data)
-                print(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes) - {decrypted_data}\n")
+
+                if decrypted_data is None:
+                    print(f"\n[>] Detected corruption on decrypted data - {decrypted_data}")
+
+                else:
+                    print(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes) - {decrypted_data}\n")
 
                 self.pause()
 

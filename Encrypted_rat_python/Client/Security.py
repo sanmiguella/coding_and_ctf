@@ -99,7 +99,6 @@ class Security: # Superclass.
         except ValueError:
             return False
 
-    # message - has to be encoded first.
     # private_key - binary format.
     # returns b64 encoded signature.
     def rsa_sign(self, message, private_key):
@@ -108,7 +107,6 @@ class Security: # Superclass.
 
         return b64encode(signature).decode(self.default_encoding)
     
-    # message - has to be encoded first.
     # signature - binary format.
     # public_key - binary format
     def rsa_verify(self, message, signature, public_key):
@@ -129,29 +127,45 @@ class Security: # Superclass.
 
         return hash_sha256.hexdigest()
 
-    # Simple encryption 
-    # 1. RSA Encrypt Session key with Server's public key 
-    # 2. AES encrypt data(iv + ciphertext)
-    # 3. Combine 1 and 2 - [Encrypted session key][Encrypted data]
     def generate_encrypted_data(self, data):
         b64_encoded_session_key, b64_encoded_iv_and_ciphertext = self.aes_encrypt(data.encode(self.default_encoding))
+
+        rsa_signature_b64_encoded_iv_and_ciphertext = self.get_rsa_signature(b64decode(b64_encoded_iv_and_ciphertext))
         
         server_pub_key = self.get_key_from_file(self.server_public_key)
         b64_encoded_rsa_encrypted_session_key = b64encode(self.rsa_encrypt(b64decode(b64_encoded_session_key), server_pub_key)).decode(self.default_encoding)
         
-        encrypted_data = b64_encoded_rsa_encrypted_session_key + b64_encoded_iv_and_ciphertext
+        # [344 Bytes RSA signature] [344 Bytes RSA encrypted session key] [X Bytes IV and Ciphertext]
+        encrypted_data = rsa_signature_b64_encoded_iv_and_ciphertext + b64_encoded_rsa_encrypted_session_key + b64_encoded_iv_and_ciphertext
         return encrypted_data
 
-    # Simple decryption 
-    # 1. Decrypt RSA-encrypted session key
-    # 2. Decrypt AES-encrypted data with session key
     def decrypt_received_data(self, encrypted_data):
-        # 344 bytes - RSA encrypted session key, After 344 bytes - iv & ciphertext
-        b64_encoded_rsa_encrypted_session_key = encrypted_data[0:344]
-        b64_encoded_iv_and_ciphertext = encrypted_data[344:]
+        # [344 Bytes RSA signature] [344 Bytes RSA encrypted session key] [X Bytes IV and Ciphertext]
+        rsa_signature_b64_encoded_iv_and_ciphertext = encrypted_data[0:344]
+        b64_encoded_rsa_encrypted_session_key = encrypted_data[344:688]
+        b64_encoded_iv_and_ciphertext = encrypted_data[688:]
 
-        client_priv_key = self.get_key_from_file(self.client_private_key)
-        b64_encoded_session_key = b64encode(self.rsa_decrypt(b64decode(b64_encoded_rsa_encrypted_session_key), client_priv_key))
+        verified = self.verify_rsa_signature(rsa_signature_b64_encoded_iv_and_ciphertext, b64_encoded_iv_and_ciphertext)
+
+        if verified:
+            client_priv_key = self.get_key_from_file(self.client_private_key)
+            b64_encoded_session_key = b64encode(self.rsa_decrypt(b64decode(b64_encoded_rsa_encrypted_session_key), client_priv_key))
+            
+            plaintext = self.aes_decrypt(b64_encoded_session_key, b64_encoded_iv_and_ciphertext)
+            return plaintext
         
-        plaintext = self.aes_decrypt(b64_encoded_session_key, b64_encoded_iv_and_ciphertext)
-        return plaintext
+        else:
+            return None    
+
+    # 344 Bytes - signature
+    def get_rsa_signature(self, data):
+        client_priv_key = self.get_key_from_file(self.client_private_key)
+        rsa_signature_b64_encoded_iv_and_ciphertext = self.rsa_sign(data, client_priv_key)
+       
+        return rsa_signature_b64_encoded_iv_and_ciphertext
+
+    def verify_rsa_signature(self, signature, data):
+        server_pub_key = self.get_key_from_file(self.server_public_key)
+        verification_results = self.rsa_verify(b64decode(data), b64decode(signature), server_pub_key)
+
+        return verification_results

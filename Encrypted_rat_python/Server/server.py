@@ -1,6 +1,7 @@
 import socket
 import threading
 import sys, signal
+import subprocess
 
 from os import getcwd, system
 from Security import Security
@@ -49,15 +50,28 @@ class Server(Security):
             self.print_and_log(f"[=] Received data ({len(received_data)} Bytes)- {received_data}")
 
             decrypted_data = self.decrypt_received_data(received_data)
-            self.print_and_log(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes) - {decrypted_data}")
 
-            encrypted_reply = self.generate_encrypted_data(decrypted_data)
+            if decrypted_data is None:
+                self.print_and_log(f"\n[>] Detected corruption on decrypted data - {decrypted_data}")
+                encrypted_reply = self.generate_encrypted_data("Corrupted")
+
+            else:
+                self.print_and_log(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes) - {decrypted_data}")
+
+                try:
+                    command = decrypted_data
+                    output = subprocess.check_output(command,stderr=subprocess.STDOUT, shell=True)
+                
+                except:
+                    output = "Failed to execute command."
+
+                encrypted_reply = self.generate_encrypted_data(output.decode(self.def_encoding))
 
             client_socket.sendall(encrypted_reply.encode(self.def_encoding))
             self.print_and_log(f"\n[+] Sending back reply ({len(encrypted_reply)} Bytes) - {encrypted_reply}")
 
             client_socket.close()
-            self.print_and_log(f"[#] Closed client connection.")
+            self.print_and_log(f"\n[#] Closed client connection.")
 
         except ConnectionResetError as error:
             self.print_and_log(f"\n[!] Connection Reset Error - {error}")
