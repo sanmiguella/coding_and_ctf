@@ -9,7 +9,6 @@ class Client(Security):
         super().__init__()
         self.target = "127.0.0.1"
         self.port = 4444
-        self.def_encoding = "utf-8"
         self.buffer_size = 128
 
     def clear_screen(self):
@@ -32,14 +31,14 @@ class Client(Security):
                 
                 # 344 bytes - RSA encrypted session key, After 344 bytes - iv & ciphertext
                 client_socket.connect((self.target, self.port))
-                client_socket.sendall(encrypted_data.encode(self.def_encoding))                
+                client_socket.sendall(encrypted_data.encode(self.default_encoding))                
                 client_socket.shutdown(socket.SHUT_WR)
 
                 count = 1
                 print(f"\n[*] Send & Receive buffer - ({self.buffer_size} Bytes)")
     
                 while True:
-                    data_block = client_socket.recv(self.buffer_size).decode(self.def_encoding)
+                    data_block = client_socket.recv(self.buffer_size).decode(self.default_encoding)
                     print(f"[~] Data Block {count} ({len(data_block)} Bytes)- {data_block}")
 
                     if not data_block:

