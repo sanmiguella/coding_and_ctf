@@ -4,6 +4,9 @@ import sys, signal
 import subprocess
 import traceback
 
+import concurrent.futures
+import logging
+
 from os import getcwd, system
 from Security import Security
 from base64 import b64encode, b64decode
@@ -83,9 +86,6 @@ class Server(Security):
             client_socket.close()
             self.print_and_log(f"\n[#] Closed client connection.\n")
 
-    def after_timeout(self):
-        print(f"\n[^] KILL MAIN THREAD: {threading}")
-
     def start(self):
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
@@ -103,9 +103,14 @@ class Server(Security):
 
                 self.print_and_log(f"\n[+] Connection accepted - ({client_ip} : {client_port})")
                 
+                '''
                 thread_client_handler = threading.Thread(target=self.handle_client, args=(client_socket,))
                 thread_client_handler.start()
-            
+                '''
+
+                with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+                    executor.submit(self.handle_client, client_socket)
+
             except KeyboardInterrupt:
                 self.print_and_log(f"\n[!] CTRL+C pressed, goodbye!")
                 break
