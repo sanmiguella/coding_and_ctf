@@ -1,0 +1,294 @@
+[#] Encrypting command - dir /?
+
+[!] Encrypted data (736 Bytes) - BREaB+bErJ+SwdoLsev3x4c57GfGHK99EP9LWRpA4JIsEsDgjh9xPdtN6q4DZ0tYjEuM46vpxVgfYfPdrgUJhOAHubOkHg9XRHEOBi0tvPnO63y+3bp6Dhmz+OB3QgnsdjbY5SYbA7NEdBYR1Ml4KU061OetdPcGJMhZnHQ8wT7AKxCc9b+ecoGrpf0dAkNLKPmEmuLF2765DlvPrD5vdKyoJu7h6G+I68I+qGphS0ttfs701tH1ghxg1cGUBjlP+L5QqduIDgYcMosrN8U2OW98i0tbT9L6Mgj5JPQ/5/opvroBQ19oe+YkGFaIs2ZJ1w1soYu51+5sma+RF4JPuQ==FpymQ6KJ0FdKRk9bhW+D7mgnMWL6K05BP/qcGbwJhq2GsLtko2jJnDUBEISAWiF/AFefOgrXmmqiX7IKoTrJu7X0ugJbRhD08TdSyu3G8I1Lfq09EOIUUNZAhHeivxw4Rwu+Pii8/mtpl41iudt6biFR5lcdP9LN/L8jhGaRXN94PImRfHFx7DQeSQaW5PcNsgxAfPnWvl8hsN3OhCNEol9GM2hOzAeoIvGRVQewMB4fAOnHVU+hjs9HF8k3yYS6j3B+btLi7dL599RMPVLwdCs4QH7yqm0UmAqnt6o974B+4Sr6KR8x56MXFyt3hRLdDNxtwJyHFmV7dyRqF7b3Bg==IDmiIF/GfrVnZaor9v2AyA==DmVJWiXlkp0kD5E/3X7VHQ==
+
+[*] Send & Receive buffer - (128 Bytes)
+[~] Data Block 1 (128 Bytes) - L9TKm1jqfI1XyWidvf1QnUHJpgZfU7JjqBPi2RiWtXq06ZA6NyFDBR/pcaBNc0Jbw9Y1sLQzmNwTucMlrbPNI6Y2Rw3S4c+gCJzuLu0EvJnEbFkK5G+BqWMJuejbHld0
+[~] Data Block 2 (128 Bytes) - MNV70k79vCQI4Gm5EOnoRtOi0CC1GNwOOGbumIiFT5+ccV1dXyjY+yNu9lPalIb3/eT3wHFAfnjGYFTmfNzQ44soEDravNfCaioZTdiYZgCjCeJAGtslrGMA6X9Y1XYp
+[~] Data Block 3 (128 Bytes) - JYVyVWniLrE4z72BAJIVjTRklhvjax/Z5HdnAALgz+J7y7PauQUSJWMFFsUaYRqz93lJRzSYwPR9ELTmKigArA==B1zUpadSGZaELfWV588w7EFscIdFlPexok8+v7+S
+[~] Data Block 4 (128 Bytes) - uneNJkGAhubaUoaxF+/JmikkSC8KulPn2Qk1YR2MNdwRKgJyGgKs14u1FpT3929RQXaoy6xuFRsX9mKZxM5aB33qmMu62wwOQLbVejICbMXDJEjPlbXj1YxR9kFdLf5c
+[~] Data Block 5 (128 Bytes) - MiAgt52n2ig0T0OJdtIuH5sFpsj6ra0G8gfFHXjb2lLInuae7DYQUPR+apUW9XTWYOzb8cSB27HVgVr/yXEMiKp+pZWaCgpIqkpbMp3WAzjRqyObl65lUB1iLEa0ncm6
+[~] Data Block 6 (128 Bytes) - 5YOr791hQA8NWc1SfkMXWc1GFUwkEhvgJnW0xK96F3WWJQ==l27EQs2QEArr8mGQtGzGHA==4RbKezCfcxLgONF+wyVvfFSr+P6+Yfr6G0PsWoW3n5LEG2obCAnCQD10
+[~] Data Block 7 (128 Bytes) - GKNYWH0cv2cX9w7CJADAU03hoFhZFXKrnRlFuD0i3ZvAoB9/+z26ZsglaUKB3ySuD5sU7XL7kBbLTHNi/WQ5CV+Tp8Lo7e6R9J8noK0oH46A2S1L6lgJhTAyshl/PmBQ
+[~] Data Block 8 (128 Bytes) - 4nuautLD3b0RydXn7Xp5oBGOsE4xHwq8zETkFsQ7A/3zLCsXfXmpsWqsz5yNjdggNkl026OlHjI9ZdblMG6neLDneo0JmkX5uvwEb2J+7E5pQfDtMXs9/p+Merxkfaq6
+[~] Data Block 9 (128 Bytes) - myuQmvW+5rfx/Hj5LzRf6zJEyslX9zgEPL9jIVY6n2AElDy+0jf5y07PXyIiuVJbF/V+1KS5BhBJWtT6QO+dtT+oVLzSEUdEX64ym6yIpU/0h5mawTWX7bUEzybot2JP
+[~] Data Block 10 (128 Bytes) - uXFvq6bC4dRPVYc3N/9+2q55w5jaqhvEZyxNIpnuieAJbw7IZDT3Zrq3ahH0VFsILi1o+CI5dFkk3fqRYwOnxUk9Lx5uka8qcANWr6IcQdyP+hJMSr79IGJarhOXFVpr
+[~] Data Block 11 (128 Bytes) - wlaXsFRe/FUGraa3MdpEt92sA9rOmE/WSjFgtOFchSyU2SLf1YVawng7Tc2+B/ogmvv6wtOQ56Q76S1ZL1z2UXJoeZdLpvcuYvYV47ZC/Jy7gMk91SynBe57zIOWbhxQ
+[~] Data Block 12 (128 Bytes) - c0UYTvV9shuYKzxzYbaGOngZyF9OWV9WenaBs/bQ7jkXbMPt3CzJZ0gZ4LEy1BtxpVFqjFwj4N2ivSxgiY8iVI83IVmEGxOtFIQqRRRCA4vqHlZV/dR9RI7/AtyoMIPu
+[~] Data Block 13 (128 Bytes) - gPLpUsDxWK3dqrykx8kBFyRXQZmuQInchcIOIurumWNgj3YNF49XHIXTODgKcWyGzAIz/IA82iOJvKjUvjzbdLNmd/DNTs9hy8OXDN4xptY/ogtSoWKJuTNxEhlV7L1s
+[~] Data Block 14 (128 Bytes) - bMdaPQ7If3eywgEomAVI/tDAcW6+aa9Fjxa3J+II1NG2llnMBS/tjv16fi5SawT0ZrKH+ICir8ZxsK9lWcBABekMEOc+Ys2H5xshbE7dsnD/KIm0Wi9x2NFX8lJEbQ7T
+[~] Data Block 15 (128 Bytes) - qgTn4t0ldlLs0FulJ/wV+rs93joGsoWRg6dS6x8uRXCce4gbeZUoLWED7EovZ5zY/YBV+XHq2ULnWVNFWrhGtnfs67Rhp0H+QdHSSlRkxEwFclfvu4OUbxrJGVX83qMJ
+[~] Data Block 16 (128 Bytes) - wCueg2iCO17zrMtYU3KgMDn/S8CZx8gPYd7X5DIIvGCfmIHWE+EnIB3IEDBDtRbV5NN96u4zN4C/0fcVptVlCGH1rVwDC0Et2TldAi8sWao9A3CJdWo28MQRdkuIuKQa
+[~] Data Block 17 (128 Bytes) - hVr46PeUi9Paq9o64RBhn18JCWtWCh9/VaYmFz8jms35ZkbRh2+4pMtiqVC2Tz/8OdNmtVAk7EQj5dzjZLCfMXYwss7fIF6BWjkHl4W7JTBuJNIyg8JmWVlwpXKWQY+x
+[~] Data Block 18 (128 Bytes) - DBOV//hY8wRM2izv+4oteeV/1Cie1mJs+2aF+2nSUr8Myceq6oTzK4XDbG5wJzABPFP9PsJv+4qJBiR0CByIoaroL8f3Sr0xvlh+NoZTGvut6fr4/wrFInRuzZpze0w9
+[~] Data Block 19 (128 Bytes) - os332YWShZqzypoO7X/NXG1pb50OqLzYIPiz2Xya7snZgyWfotKqHwwnnNUQudvOAz0JYGzvcTjOcq3XWYiYmwzN/dpAVO9j0yEt89orrUJKZdlaaVdGjZC53dff9NEt
+[~] Data Block 20 (128 Bytes) - 3PdcDsXNiW04AYPSC46DFAXF3ZTtpT4H9uoCs/m+czx5OzCt/gxusSJLy0KvEnntzCJSLafjYHGp0txWb8SWLFytzTbgmGe8WINnQvGClgRDISMjPAWYL520kX860oh/
+[~] Data Block 21 (128 Bytes) - aBKR/in9kaEk/2VT/UC98NKOEFpOuReN+AzGCvJljCIlM5uP7iWTpjEgRun9qcwmYfEwCriEqOLv9oY7UsMPQGd54kqImsMlIauCqFN+6mmOhLMLINn0Gj11EQuWFRtS
+[~] Data Block 22 (128 Bytes) - eAXad32F8ttRnoxQPVnw2CAmzmjjzdwPcd3dPMhgUwVnAU+AewQW/YrnEW5IVo0qPhr+sNyMPtS/h2HzvBot6dhlP+LLN1tXBXAvYpTKsoXFNXlYbD5y2eTiHI1/KSP1
+[~] Data Block 23 (128 Bytes) - gwB/CU5hzhsxDddVh1Pr3tRF4qdOFsoYAISIGaCIAvXM5b4GFH7RJIJAD79/UX+RYx2gVLKAfFGHR62qr43tpeMer8Z3b/73fIeX5jsQaxvShd0wO9xTBDfo++4crkpU
+[~] Data Block 24 (128 Bytes) - orlefpELM4BJUz5HC6rdLI/jZW9N0H6QhnKlpPIiGam9cNnvgzxJIX7SKp3XEtd9N6x08bxYdsYkj/ttucb5rxjw4eScx7LeYtGmHss9p0B4zJ5dfLn1vPsdajlw2nS2
+[~] Data Block 25 (128 Bytes) - bn7iNAfrdpOTFn7PHwHxy3wwvan+laoL+oPEKmYI+5+eBo9/UaJnlDNwv9zy/7PJeyVNEUIxN0jAv0GvfYOPRBLn9H2bNPAbwPir6fDec1d+L6NQf/V/rTX1AVosAsj5
+[~] Data Block 26 (128 Bytes) - xpyqT9ylGD9odq3Ik0seWZm9mKhAKTqdaoBv8gFf7WMUOWkPBsJDuiyUhLHpZw5bGqpxVpktx0OpM8H75mhipH+soiHilw2ttafqoajdcs/Gs/yJRs1AsyUQsMSAX1b1
+[~] Data Block 27 (128 Bytes) - dCeZb2MWPGkZIUqvuqdyE0qZLa5WJn4uV7WSyFrwzYz4OvsqyJVLbD8h3KSUSXKkKnE+OSM/kyVavNtYWjTwf5qYYwFcJKZ1aodVOD2N2r7tE910cfhH0zIrsR300uJJ
+[~] Data Block 28 (128 Bytes) - JwAR1pf3uEWF1S9hk31wL6SF0Hl4xcDcxJbcmG2/+6Tn9kB3XAbU7KaSukkfoWCBiGQA5jZJZ7zd9tSJzPRywVwS1dSBbqDiHsKHO9tfwFumOEvgXKXjbYDrYurK4P1e
+[~] Data Block 29 (72 Bytes) - 8uZCRNKhD4NdRzxj/FFCD4zNgqukjDnWiluaJars5csYM6mFg8CLE2rdtPVTilNgl9cu9sos
+[~] Data Block 30 (0 Bytes) - 
+
+[=] Received data (3656 Bytes) - L9TKm1jqfI1XyWidvf1QnUHJpgZfU7JjqBPi2RiWtXq06ZA6NyFDBR/pcaBNc0Jbw9Y1sLQzmNwTucMlrbPNI6Y2Rw3S4c+gCJzuLu0EvJnEbFkK5G+BqWMJuejbHld0MNV70k79vCQI4Gm5EOnoRtOi0CC1GNwOOGbumIiFT5+ccV1dXyjY+yNu9lPalIb3/eT3wHFAfnjGYFTmfNzQ44soEDravNfCaioZTdiYZgCjCeJAGtslrGMA6X9Y1XYpJYVyVWniLrE4z72BAJIVjTRklhvjax/Z5HdnAALgz+J7y7PauQUSJWMFFsUaYRqz93lJRzSYwPR9ELTmKigArA==B1zUpadSGZaELfWV588w7EFscIdFlPexok8+v7+SuneNJkGAhubaUoaxF+/JmikkSC8KulPn2Qk1YR2MNdwRKgJyGgKs14u1FpT3929RQXaoy6xuFRsX9mKZxM5aB33qmMu62wwOQLbVejICbMXDJEjPlbXj1YxR9kFdLf5cMiAgt52n2ig0T0OJdtIuH5sFpsj6ra0G8gfFHXjb2lLInuae7DYQUPR+apUW9XTWYOzb8cSB27HVgVr/yXEMiKp+pZWaCgpIqkpbMp3WAzjRqyObl65lUB1iLEa0ncm65YOr791hQA8NWc1SfkMXWc1GFUwkEhvgJnW0xK96F3WWJQ==l27EQs2QEArr8mGQtGzGHA==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
+
+[>] Decrypted data (2194 Bytes):
+Displays a list of files and subdirectories in a directory.
+
+DIR [drive:][path][filename] [/A[[:]attributes]] [/B] [/C] [/D] [/L] [/N]
+  [/O[[:]sortorder]] [/P] [/Q] [/R] [/S] [/T[[:]timefield]] [/W] [/X] [/4]
+
+  [drive:][path][filename]
+              Specifies drive, directory, and/or files to list.
+
+  /A          Displays files with specified attributes.
+  attributes   D  Directories                R  Read-only files
+               H  Hidden files               A  Files ready for archiving
+               S  System files               I  Not content indexed files
+               L  Reparse Points             -  Prefix meaning not
+  /B          Uses bare format (no heading information or summary).
+  /C          Display the thousand separator in file sizes.  This is the
+              default.  Use /-C to disable display of separator.
+  /D          Same as wide but files are list sorted by column.
+  /L          Uses lowercase.
+  /N          New long list format where filenames are on the far right.
+  /O          List by files in sorted order.
+  sortorder    N  By name (alphabetic)       S  By size (smallest first)
+               E  By extension (alphabetic)  D  By date/time (oldest first)
+               G  Group directories first    -  Prefix to reverse order
+  /P          Pauses after each screenful of information.
+  /Q          Display the owner of the file.
+  /R          Display alternate data streams of the file.
+  /S          Displays files in specified directory and all subdirectories.
+  /T          Controls which time field displayed or used for sorting
+  timefield   C  Creation
+              A  Last Access
+              W  Last Written
+  /W          Uses wide list format.
+  /X          This displays the short names generated for non-8dot3 file
+              names.  The format is that of /N with the short name inserted
+              before the long name. If no short name is present, blanks are
+              displayed in its place.
+  /4          Displays four-digit years
+
+Switches may be preset in the DIRCMD environment variable.  Override
+preset switches by prefixing any switch with - (hyphen)--for example, /-W.
+
+[#] Encrypting command - ping google.com
+
+[!] Encrypted data (736 Bytes) - Dd59iyLZ7NRMymue111E/2UhLPhTmQiAbedomRghnm11P2xh7nrYR3TXtFIApGIkvFxtjsgsMK3QkWsK7qfMHrtvTG/4r2+fXGM8DdVZk6BonBWGaA7HURQl+MUQV7IRZ5cA6SJEdbaIH9m/sstq200pBzh8/TCkFrli+LzvYUqCle8A806oLxUuhnHfk/A2CMPd2VifniiF01zFxJn/8dukEs3A/bgJqkywpr1ItICt2lN/yoKnupDT0TdwMNrSjPz4ijatUHlZ4YEms+pXiwz4LL5+uSidICwjsqFqEJieTYjo+SHw3Wg3FAbmPyBhg5b99gfe5Uzhg0OgxrFGfw==O1QxBymbnSyRzAd0mD6HC8oHNOG8txhv+elgxuqKhoJboHHnkZM37zrCvfMZvFX+QQKREA2Vr2hb2gZoGMmH0WC9cImcVcFYYdNAguZaDshQ08iNVl2lCs3hWIi0I6bre3mQNnaDzGL+b45PhOCY9NtT6Ay+yYCGHvRwlh/TJZMC13rFZ/Pr2BZxR5Ug/L4DDWEWRFssQtdEzq9IQrXHx1fy1vfWOKpNJC+F2eeUUjUrn1fk4AZl3PcfASZYTJYal+CJZA/Y0IfGFtzySE5EjYhoszj3jr7NAII70z6MaNJJyKV9fxJG34IGdCf792Il8nsbeyT5Fa6U2OGdDseOpQ==o+Pv6S3X7QgPxmfGUs7+Kg==/ntJFxN7ELCez0ena3vbUQ==
+
+[*] Send & Receive buffer - (128 Bytes)
+[~] Data Block 1 (128 Bytes) - d7HdQfn5hig02ew5t+QQ+DYmwHI7VgccT1+GD8chc5XdWZ+1mWJPV7GZ+wKz5wTM2E6lm5m8pWmO0wbwHchfwh9bWc5rZMo7FBBZxrJdg9s5BQI3h6xIkxx/xXn4ZrGc
+[~] Data Block 2 (128 Bytes) - NuIviN04+T+bALz/QvoWB9URTWl/1WzqhA78+KTkGgnvLQcd50zRiAz+78N6Unde5Mr43FHz6rJcf+Q+DBS8RLvc0CPcfKGxQEf7xvNvmZVJmeVk+bPh7Rm2/GSLdU57
+[~] Data Block 3 (128 Bytes) - UNPvNroAxCUivx94tZyb3YnJSCOVgxNC8qSIZD1WUMxNkoE36ZL+1j7FIu+33OqNDFU9ThiwF7eIFDxwMDRuEg==MAFRuk1osBVc7ltzu33R6ao+Ru8ysnXYG1xedGvi
+[~] Data Block 4 (128 Bytes) - kD69YIv4xTXfMm0ZiIhP2aa6Vw+KoVUw9veTLadzfunXDCflUdruL4+ogjZzeoVm4ts8+JLQwFAnl8exdN+3OTB7L7lXeba30RZnJIBIxlF54k9YYEvHaOYFXElicXl/
+[~] Data Block 5 (128 Bytes) - 2ikkrfGNgCs0gDRIx7VPXz7dZrqwpLlNY+nLoHsgDRqHwqosxZ1ZvnH+FiCwJK7suI3vQ0CiEzu85LnrH+J1KIKddk6m0o2WrwWS7JoozCIrxmhJdpGBTuujDkaLLxQ+
+[~] Data Block 6 (128 Bytes) - rkBOmLZ5P9d4KAQanLqoR8cY8iYyLAU8pXG+xCUJEdH4XA==gy9/c+xIqvJQNu0wj/ZTbQ==t3qxr7UwTkecMg6yujn5B2iaguMZls9+27Uceqc4XDLy+H8W9XsUXozh
+[~] Data Block 7 (128 Bytes) - AYoTW3RAv0L2jvPYdX+w6R+WUbJ8fEwsGVg/Ns5+OG5RdzfQVSZsrRR3GwiFSk1TkUdOzz1P1qlJcSVFGm7zQtZ4DqwmLaOB165akijLsu+xT0aBoSwSW0YHG78rITqv
+[~] Data Block 8 (128 Bytes) - b4xLnWuS3M0Y2SxXuCInOf72vTKbES6igXcoxxlfcQMb/KcRvuVmCF3niNefohrP3swJPed3UjGWUd6MGHeqWSyOiSQfXKAx3tly+Jw8H1fF10JuPg1jfH9FPcz64iSS
+[~] Data Block 9 (128 Bytes) - wQY3tTCO2d3nJA57J52vuxH0inhUOd/kGCETtQVbpXyx3VXabRLfhL5WNXMuTQE45RtUVRFbu8u07B5mJVwvLkiNio6qxThxtDnIGV/xWgf2ENqRcAmm/rfpO2EZS57S
+[~] Data Block 10 (128 Bytes) - K/eKFAGOqK8Fus8UpxEv2IfI50+8IiLOMJVj9jOsaDOGTli2lb6hsyxXgEOpvh501VaXVZEeG1xLcuqnw5p+gYG+m1tqwaeEwiFtwwSPoN4ihrVb38PSAUM5Iwb7d1kp
+[~] Data Block 11 (72 Bytes) - IWBsiSBp/frIQTR11euHgjgqRBLHF9WKl1vd6stHbaVDZWbxNWyYv1fy6jtf949W//WMDpKm
+[~] Data Block 12 (0 Bytes) - 
+
+[=] Received data (1352 Bytes) - d7HdQfn5hig02ew5t+QQ+DYmwHI7VgccT1+GD8chc5XdWZ+1mWJPV7GZ+wKz5wTM2E6lm5m8pWmO0wbwHchfwh9bWc5rZMo7FBBZxrJdg9s5BQI3h6xIkxx/xXn4ZrGcNuIviN04+T+bALz/QvoWB9URTWl/1WzqhA78+KTkGgnvLQcd50zRiAz+78N6Unde5Mr43FHz6rJcf+Q+DBS8RLvc0CPcfKGxQEf7xvNvmZVJmeVk+bPh7Rm2/GSLdU57UNPvNroAxCUivx94tZyb3YnJSCOVgxNC8qSIZD1WUMxNkoE36ZL+1j7FIu+33OqNDFU9ThiwF7eIFDxwMDRuEg==MAFRuk1osBVc7ltzu33R6ao+Ru8ysnXYG1xedGvikD69YIv4xTXfMm0ZiIhP2aa6Vw+KoVUw9veTLadzfunXDCflUdruL4+ogjZzeoVm4ts8+JLQwFAnl8exdN+3OTB7L7lXeba30RZnJIBIxlF54k9YYEvHaOYFXElicXl/2ikkrfGNgCs0gDRIx7VPXz7dZrqwpLlNY+nLoHsgDRqHwqosxZ1ZvnH+FiCwJK7suI3vQ0CiEzu85LnrH+J1KIKddk6m0o2WrwWS7JoozCIrxmhJdpGBTuujDkaLLxQ+rkBOmLZ5P9d4KAQanLqoR8cY8iYyLAU8pXG+xCUJEdH4XA==gy9/c+xIqvJQNu0wj/ZTbQ==t3qxr7UwTkecMg6yujn5B2iaguMZls9+27Uceqc4XDLy+H8W9XsUXozhAYoTW3RAv0L2jvPYdX+w6R+WUbJ8fEwsGVg/Ns5+OG5RdzfQVSZsrRR3GwiFSk1TkUdOzz1P1qlJcSVFGm7zQtZ4DqwmLaOB165akijLsu+xT0aBoSwSW0YHG78rITqvb4xLnWuS3M0Y2SxXuCInOf72vTKbES6igXcoxxlfcQMb/KcRvuVmCF3niNefohrP3swJPed3UjGWUd6MGHeqWSyOiSQfXKAx3tly+Jw8H1fF10JuPg1jfH9FPcz64iSSwQY3tTCO2d3nJA57J52vuxH0inhUOd/kGCETtQVbpXyx3VXabRLfhL5WNXMuTQE45RtUVRFbu8u07B5mJVwvLkiNio6qxThxtDnIGV/xWgf2ENqRcAmm/rfpO2EZS57SK/eKFAGOqK8Fus8UpxEv2IfI50+8IiLOMJVj9jOsaDOGTli2lb6hsyxXgEOpvh501VaXVZEeG1xLcuqnw5p+gYG+m1tqwaeEwiFtwwSPoN4ihrVb38PSAUM5Iwb7d1kpIWBsiSBp/frIQTR11euHgjgqRBLHF9WKl1vd6stHbaVDZWbxNWyYv1fy6jtf949W//WMDpKm
+
+[>] Decrypted data (466 Bytes):
+
+Pinging google.com [74.125.24.100] with 32 bytes of data:
+Reply from 74.125.24.100: bytes=32 time=6ms TTL=108
+Reply from 74.125.24.100: bytes=32 time=7ms TTL=108
+Reply from 74.125.24.100: bytes=32 time=6ms TTL=108
+Reply from 74.125.24.100: bytes=32 time=4ms TTL=108
+
+Ping statistics for 74.125.24.100:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 4ms, Maximum = 7ms, Average = 5ms
+
+[#] Encrypting command - dir c:\windows
+
+[!] Encrypted data (736 Bytes) - db0HZkRT/HiRe+sG+NyxxRfI5chX66iMvgFZkogoba3X+gH+75O6PjgDuvIz2yeUOPdOYlW/3YRBhfA43IBxhyK7I0ESB2hmgFoJEM3gTED+NCM8LQPRlMKSapomL5Ss3vdEtH6P9QHGOPdgCiO/NJM7OLYGm8hOt9EneUxLV/IFlwLeNRh7mOgH0akrZRGoOZ5L0kDRji5Oe4FeSXY0gPwLD8qLVNehuVrS03YRRmejsTiGx14rlSKiWbSER08xH5qNKaAG6PU0ZT/bt1q99kVj32FnGcIcdCK4j2P5ajcMn+vsNAskDepVn/htOAFJM+I0JhAN4fLGZjCWQisUgA==hF0SxL/ygq4TebX1n75h/cseSyU6dH3ry0qfOTDOZvAcokcBZLq9Z8LgXrmW9wejm63CvCZpSUvmXt3RXG2NCF6y2qDrPuQw5ERdP6hUmDJj6V0n8VHeKsO+bv+hhflmWmXNO8U9tGg7h3dTtLW/cElrhN06+8RO8lxGA8BUKS2IYB9MbXEhT8FSMIGrxEFYb9eKLZNfGCpuoxptngenGKgfEIFGB3roQQgWJuVCHJ8yKa2y1gNQkhDi7jCmJKqlG5Ct/hzs2GFxDhcA3P7dUQ9ThqbddFu29BqA9EMCy51VAxRd9eFbRWxeyeJ7KB7gie3bO3+7UKaZ/TUzc4tVuw==Fig/Hb3QfBzXy0vulUymVA==7YgHaQ/NqKJOWTHu+07nIg==
+
+[*] Send & Receive buffer - (128 Bytes)
+[~] Data Block 1 (128 Bytes) - dOe56M+aVyLlu4tZ+yjPpROAMBNTl2SFWKHNRjVIS9NkfUSGcGNeqcn8ifJfLMYoTBVQJ2lrBvKDKFM5NmD0DlX7x+7c+gaXJhW5i38oTuJonJWQWsh0CH1rAsoUuErM
+[~] Data Block 2 (128 Bytes) - SERmbgVpzI4FezC8FpE9OJacqOP7yuyggSIXeejCckcm63CztTZO2/8mQOhy/cRK6ZMHxrPxBIzPdzU9NYt5jzxgqiO5pGc6PJ3uB6NzpSlqMipWbI/Q3aViK4xN5ZgI
+[~] Data Block 3 (128 Bytes) - iqYhVz+hCR58dXPOo4VUUpFjSZ7Ke2BZ6jFD6389mIFAjT4sHb449rVCn8X3h5ZSGovY4o+Zy9yzhJVr/JrggA==e9tGZxsxBbnNvD1ZQ8/+PIE9S/FKTAa7Z3eZO0Yn
+[~] Data Block 4 (128 Bytes) - NbZuVLmHMSiqyKi517xSksL7LAclSgw95WAg9sSH4e0IBcK1FXwFXu8qLGWoQFmDzjAyqgKzgEk+D6iCOcXIP1lmexzjBvrjES7nElaNa65CehJomeW3voClPOpqY638
+[~] Data Block 5 (128 Bytes) - pM60Kd5Btiups8Yx8Wl1ICBa+mWoJt7WuV7LPxtRgClv11nVVriPiaacHQUvbM44d/WIXl3SEaG3lCdLjuCWw4dtheSODkyjCcqRgoIuLEOaRcsZky1FMc2LSYKxKcNX
+[~] Data Block 6 (128 Bytes) - jv+4KPsRtlOdGs7GSzHrjjJTNNGYF69Jm22Wethp5BRrHA==qi1G12z8elldGqlgpt8ihw==g9aalta+jwmNi1mVlb4mPGZn6ggFzDLax9UmeQ1rofToW9etfjcfq0hC
+[~] Data Block 7 (128 Bytes) - fsv3h4y4UImEGf9mlhE08oT1kVq6Py9MLB5RvI63KHMxdliPAl+/b3L2PKtQo9PpURf2HjEF2grUGRvXT7Np+4DIb/t/UZUraPcV7/cqcpMpgA9MEp6MMxaukEjbXGng
+[~] Data Block 8 (128 Bytes) - 0al04Y0ckH7+WuRO0Zrm2FQbtPAuIcf0cf5kJ1rOEYjZWd5ESzIBFZXuAu+/aDx4tLQOYTqFmhjIT6fBKw99rGOsNPOOcWXrZ4HzMtM03CCqjACozLTm4VbVyDKJVh6C
+[~] Data Block 9 (128 Bytes) - bs4Hj+Mg0KafNEHX11nqyenl0/Nlm6+NU1qLNVeiLO5Dg7sn/x8y9EV7AmLgPWzMzMbRxQyVb9sj8L/bPFaDSDy+wXMCjNDrM9PoUys+85jP6HE4sododZbHwHOIDVX0
+[~] Data Block 10 (128 Bytes) - ssu3hs8MJXUggY7OVqNzOzVW040cyS6XbsgVAYKiApaS1Y68R0yNcb00ryMFy4aYOfdgqKQh3/BmfoQ/ffTJAs/wTkz2FWNI3bPG8OKmYk/LvN7nuhwrjjEMpg1zxcP5
+[~] Data Block 11 (128 Bytes) - KWAwZGg0LFOx3XXhc/4A11stCLdA/6oHafKNrkZTPBpZIXCB8OJIGLCz3aFu6YT+UCvUZHj/wom3jKytABsBTrS62rXhjkC3ibMU9I0O37S8OIiv5qEZUncd0+4Ppcz6
+[~] Data Block 12 (128 Bytes) - Cl5MaUViqka6ommWw1GdVymGeFqyz1+lMZbPqtU38UMWFFyxk1Qf6maYHUKnp+Kg1Odo08hDnR6gVdnP/B53U+Rg3F/X3cPxddeo4iu/lc28Cm0OeQr/yofV3l2B/IvG
+[~] Data Block 13 (128 Bytes) - H7NaY2ROtJKtX50GNWcITUk5U+lGjnw5M5m2VB16mBgJuILLoZVkXvmd4dt6nJvo0vNbR8SDzEgFr6LvOZw4RLAxRF9cSJ/XFzi70b84593+wbL0xvTO+M/nL4hmMcT7
+[~] Data Block 14 (128 Bytes) - GFajSjgZ7XPJEVGccFUOf+YsODmIfVwPfScH9S++cKpSqTLIRqwbYAjQsT4/6vfz0euJ2PfGQ1n6G2/oeREsJBzR4PpJ4D4qbPomBviFpBxIhTlT92eqXla42K/TuTk7
+[~] Data Block 15 (128 Bytes) - BP4x2FlddGu70YHSuh1wEbaGundJq+tYOTWVs/Ha99dnzfOeE+aCI3qW4/nmvRPZwZc63YGInyuUfNp958mer5883wZRNWmBXKCa7ZO78qZu9TmeCdSiVTm/72SP4DAh
+[~] Data Block 16 (128 Bytes) - uKhcoDyySxda0ZPR0xI2GVAsaGp9MkY+gWhKgX4/pgxmWWl6FipK54waryGy/Nu5qHeseXh5yZzaAdYpSOErEfVavhaF9ZrpmhSuEzd8cDz5rB0c3HQjw0ZdMyVksBSG
+[~] Data Block 17 (128 Bytes) - 1TmixcXg3c0kAR09qUFBa5PjGdXfeOrYIyDZTpsqNhkU/N7wJf9GM8cymHYrbdvapcazAEgfJ0JJmJf5ejmi3LNQVE4+r4zb3D7nhf7x+DH83dg5chiXRF7VcY5dXrsK
+[~] Data Block 18 (128 Bytes) - /d75USZk2fABZ0bXdPWOV7o3KcWfnb3c4B/Vst533pea8dmqVGXQaiLwxqV7HoXbPfgzY+g7swAJW5fcg7TmK9SspaxXvQZVMIp+U3F/N00QR2JiJAS/CgWIQJBsIpGK
+[~] Data Block 19 (128 Bytes) - wWCtvQyRWP5h1oybGskAXYY4fcfLdy27XeCKR+b3qvszd31PjZyF6pSvl60weF99j3W+U4wSCSHw7u5FdCxpRDG8NCKCncLqAkol+X1qfDWO8ilbnw1+rIujfjS+57N2
+[~] Data Block 20 (128 Bytes) - 6vE6DQ9vN0ymIAV2ulCHSx6ePzNqz8fu+oHUoGQ9wHwhPIBS4kc/wVqK30sX8R3ALOCkWILx2ieHcwSJN03QoAP/4WQ3u1fPec+y5c4Lg1tGIw9qZcSpNUXaZRwmYRBX
+[~] Data Block 21 (128 Bytes) - OOrLIACVr9Mv6bvlsPoWsh1gwP8l9As4AD2/kmx2JRL/PSsCzxJrHYqtE+xsaCvEPzpY7rUzPxoOxMugAQujmv3Z4gOjQbvFSAOyR2cJrOLOiCRZj4eSK5Rjw/nzx3mW
+[~] Data Block 22 (128 Bytes) - z0nhJIZ7463pVWd0lslwCPqCnmAtlYlHnX/F3977gZkqPq2dGzZZrk+DxKN04dTBhXhl96aG8naKZt4Mtp3QVMGZfjZvsJB2Yi/fxl6ZvmE211uyXJH7d/+kDzqso4+7
+[~] Data Block 23 (128 Bytes) - NmW2MQDuVAEaheIbmD4bQN+5xnyO48WMAsSHVd9GS/ZW/F5rn5Ve7p906YzTuTMd8Hk7Yjks6A+9330QZC+V04E+x8D94D7X1e+ujpBdp+/nFgIZ8ipA55HkbVDoU/Fl
+[~] Data Block 24 (128 Bytes) - fD+RwJPgfnGx79XOY86xPVfolvtx0ccoiug4A2M+O0xRR0qHz76R5NQ7P5EiJd9hwQsbXMnpKth2/BwqkvUgcqcL6NnOrox3Y836ccDZRD4xE49AgszfjfrNvF4G7+Km
+[~] Data Block 25 (128 Bytes) - GTe39SVjpGFP18s11rYYzw/u+FXLDVVfh1ygm1yYp93GYHf5LrSL8mK0aolPl5T9sNVDsNWRzcLOawgprHO5Ugce8ZPtzMkTgcaIsb+AXBy/c/vGv9Ia3OoTuPaB2LpW
+[~] Data Block 26 (128 Bytes) - N6IMk8TRD8O3js0xi+FSpOgb0k4LS+1YE6/Dy9dTbzevBns9TZeOXJZJTUhvWGSjGJXzJcbrXrVBfyDuV9BIwBNxl4jY1qkRT6nuIJChT7d7jiqrVw/XvQ9tjiqG5l3C
+[~] Data Block 27 (128 Bytes) - /voLYi6/OFS1aPjSfJuPf80Q83aJHUHUCl9pwAx3v1qQJDj6wWsvcmncgC9Q7ZhMu6hDrMl3tNTEL5EHRPVpQhaivYudbeGfUAeijBNV+6n17yw6N1FjYcroqiSKqQ/C
+[~] Data Block 28 (128 Bytes) - 6LGkgI1PCMQb4LxHEZ4UvsSZWosoHbUmi1rLKZ9JJ6IXLEXxUsEijDXeKv/E2TPQD4H6l+f8ZGORKVBCPlmUSXDqerQuCe8heHM/nV9d3EcrcMBLEiGB6k9+4qm6STQf
+[~] Data Block 29 (128 Bytes) - aZUXI/057Tg82iVNWFA5bv/YwYrRb3Xk1Ns7CoGt8DbsMn5fsWgoiaeek+qBrMBNyHD2ssoLgI+BnPTzmYPEZM62Fw61q7w3Lqg9n82Bh/+BSJjllVUE6+7Xz0C+/Cu8
+[~] Data Block 30 (128 Bytes) - oOemGhIRLiQfX/fNocECKdBMK48ycKVGyhNsuglCWUBqSEVIkYe1fCjHVJYYi1Zv8AKrILUaK+wwHryM+E2XaWrTGI3GVcX0lCSgUFovRdoLKDS9BvE0UPscKRQbYCuP
+[~] Data Block 31 (128 Bytes) - yO+yTwxR4gmBPqo/eKwkMeCZAp4G6I/xc8i+xnMXUonO5TQquNTQ6kN7f8H3+Hy9SmQxkwK9tibEwVUw1QyI/ho1Y9Moe/dodbK3EUwZMG44CbWsn537GFRaGPM8OCOh
+[~] Data Block 32 (128 Bytes) - Ro4cRUtHUpMZMA+Xj6sms9ZdU1WEKs9/LapDO8aV6LBGeaC4GU+ocXSY3lf/og826NX7Ub0cLD3/yQ8syE0ce0iuFwIStcEnZMzIJg/ZG4YAild5OGqvDO2XortKC0kP
+[~] Data Block 33 (128 Bytes) - u6kgiMUNKE/3o+kkJQrfbnNpJqA6tNqny6crS64rxLDOLCit02k0zEtA9Wu+xTTU3e8z19x1MpYppTJQ1cTQNnfjP7Mb9vN7Z0s7vP0Nqa2crfTZtnAEVRyOdq1bUPqQ
+[~] Data Block 34 (128 Bytes) - isjsfBmCFYxZ9XZaGBFnM56l0UXGUGBJh17WyVMQdM0Mi4v5a7+eXfy7IKdD6EfNlaM1WWy1hrfBgjd/8C/vJIK/EluMTKNLpHC7xm28J2bT/F9JnJ+KU0hwQzs0dgqr
+[~] Data Block 35 (128 Bytes) - btst9wt268LccOhtag7YEZZk2/OyrULlX7peLMPS+TdphqRG/fRWZH9XsXFmwd6LPcvDY2oSYyW/XnAHQ3RbG2QoynQc3KycKRtiBmFDahyedd+s+yiLJQBnO6u6mQeC
+[~] Data Block 36 (128 Bytes) - C13aOjoQ3NJ5YzoUFoxyQ/+ooLdHU7mggv5UIKHpBLpLBh153UF4Xx2D++a2pIb0EFRW47LWNH/VoKPuHLzydf39frBG5geU2fhXHOEY0acoYm4PSYrrvsnRw4UBPaQY
+[~] Data Block 37 (128 Bytes) - G60evF0jsngX33hH0hkeyjVeZ1o/mWD2XaJeXO/yYzzQDys0PoNkI54r/p4YWMeh6guhzuU6WJEgYwCAh228OA1ciwCTKgG2gx41p2O858zsZ2UeqgeY2oEgG5kpLC+a
+[~] Data Block 38 (128 Bytes) - vcrhZCJ77cdvDtIfJTkXFemGdjV1V0u32LMjihx+JJBb9YvJbyJMMEKi8yoC1S1Q4uASoMlXNlHut7GAZgTeAAjS4NxUqqm3Rplgz5AnSWSwWKId3xbPjgyEOe6s+oQD
+[~] Data Block 39 (128 Bytes) - AiLAKW1+K3K0BXd1JDQ2S25hKwC9+T0i0XGlVlmV6vYPpKQxuJ3UBf61FYSMXabRERRnavPzE/VsxaxkyHqCgHn8ghzHZVJaJPGcbSkI+LiXuPNLT+IVmDpI6kQzlxlV
+[~] Data Block 40 (128 Bytes) - yDJLoLAyJjNh5s1l+FmLW6isTJck5hgrdWcxjfAr8EEARMufnSJBAlEbh9VFSi6sHBmI1VeX2byDPpH6rwZUP7raKZF9cLHvhY2me/sz/rvePvH5SoZdPWt881QGBnW3
+[~] Data Block 41 (128 Bytes) - pCvQ3yPQB5ZeezTYR4DltTWcJ0WVJW48nz1Ye+c2zaGjFmUCah8sm0wyrur4E8fi2mB/8URNgdG5Af1IP8qwa8yGH3iH1IKTxN2ludL49p+OhJ9ZejiMSx3pXevt0i70
+[~] Data Block 42 (128 Bytes) - Glhc5X7akARs31zkDOeW8gnrrIpayt1JVb7iwNXlMJip30T4qLQNWcSciRWiCh+iJx6V6SWl0SzRGL33yYjVT/fUpEOjdPf+LrZSMa5c5972G/eXnTNHPXVYj7JURdpG
+[~] Data Block 43 (128 Bytes) - owgCT10m0SlQPiWe0hAcsXbJHv/sW9dpjWo1pEIm2CYxYI5WVecN17QZcHq/8zQNOYEBancdfzsxW1roisvl5g1G8Qtx3aexerHPIA/+TBQUzEt5ofkJbEeQoEcBaooG
+[~] Data Block 44 (128 Bytes) - gYa5v5OSjI/vcnEl6efbfSqrwX/jnHD1nqn1ETcnB3Azinmn2U4p9SDyOfChW5K/GZrZbCRjMCuUIFx4rmwKZXuVIwWP7nn3bRs+P8grEqf6Lr+OadbR74XzsZRY4GIs
+[~] Data Block 45 (128 Bytes) - mMLcJIhLyTWJZArAt8UFcBDTMOVP3tHBg7hFvfH1w4ML5tilTLPOYRn+3Q9py3nw5M9u3AnlApMhlaJoJS/P/Vg55u6UeABURA9yyMu/+xcG0XWgpXjiuCSUODDj/JoQ
+[~] Data Block 46 (128 Bytes) - M84CGEYr8vnVNOIeNJhohuNfE2reIvPagr3zWBMcgKqxI7uDWzYkekVYfMbzeiR8S1XQSWXvz9w7rfg1/Rh74/2VfZFPVBxgUiDkKgJTtlDM/zjLfoeZ5bdyUav0UaRC
+[~] Data Block 47 (128 Bytes) - 5n2s0IgbHwT9RzcmPpL7duEM0TBXQ5Y8vVb66hO9t6wM5nDzE5vgylhSMeqz3rY8FtKEbUdGlqQ/CY+jByHxIW/vYpgw5x8xZ1dWTjNws+DNcxoNv1PJ2v8G9oIFvIeJ
+[~] Data Block 48 (128 Bytes) - 0soHZOfADQq+cs6LM2PIyTExmUSvBY/rUxvMIs8nsFUX4zvBAdyV7yfUUsKTzSnHF6FsIvToLx3hU8maDD6VSsdaMR9KFoTNuAXcWg1osTGrryWgvj+Pw8xgJ/aOB/UH
+[~] Data Block 49 (128 Bytes) - mcJm+Wh49DKpLYE/INS7PNTfij8u7KrMy2a1ERSGzkdou5mpcwDoeo99BJnBg1wm7avuls4PHGxlPWgzEyWJtZbfYoosyAEr9bhImfyx+wXTMmZngQgt61JciFFyDFDV
+[~] Data Block 50 (128 Bytes) - Y0VsFu7qBnD4fAw5RZVj/U4+2+J6lo2rHkHoGiTGNso1koyQNmwHLrSEok9hvLK9W3LWgir5N+7HrtVg7ZG39gAzz4MXsOCCGSIVOamhe+2tfUiPTBCBU+azbZB027ZI
+[~] Data Block 51 (128 Bytes) - xXV73PAHjkYQOaBnjm7qvGBNUlayra+tgT2SurDg6NzLHxaJnywUnhsZ2DCY6bqDlzaYF1kZn+EsR1Y6Ad/cZICHD6PxDC/z8BJ/mJyD9yFVZkPtoNTB6zWSevQRNLmp
+[~] Data Block 52 (128 Bytes) - W1fbRoJdRhxHaZVURrKGALaQUg0c4aJaVOX6vfRd6HIiGyRDmXFbwC+LI1KmbrrWvkv0/GXHx0AN2yT05WjEhxkWRdPifEDQweiQ9HRNmFQ4d3ZO3kCd5b/FxQSfg4fb
+[~] Data Block 53 (128 Bytes) - a1oCm3PBuwzw2S9I/MQP/UCdYdwD4ZGrE7kbAl8qMGga75DCJIj8u+lrnALRJbsitoP/SHGePOUTUtGW5puKjhSglLeb0mR9Hjjj0KceoBbIThj5ndm+D1HRlovEWbp6
+[~] Data Block 54 (128 Bytes) - kR9edewtGxetEkvvnf/ZXiugrawbMT8dkxG+eZLBAHqSqX0JObP11uykWvWiery+i0tT9q4v89kQdMWqEesyvv1BLI4nK5AuvtrUTN2/INsTjWY4xBo5H+XMbkbNFRy6
+[~] Data Block 55 (128 Bytes) - w4KoNV52qc/OjIlqW4jtBK3KS0f5p6TH4wG0mLt+Cu0IAYNX9EknWdf1FxAAJQpJg0a07vWTq1Jw2WPvyeHmz753thX+xhl34LEaVJVaoK+5OXwl+OBTVOMUgzG/MU4n
+[~] Data Block 56 (128 Bytes) - KTQabFKbGrGv1O6fvzJcZ2CUW6QseWmHx5mZSkYZ78Z5pVbhX7kwsP8WFkIdje8iaZBUZ25DZnJO/KhVolsW5mx1AZT3OnyfD1L6k5Eps/VebenCT0y+heompgJCn6fM
+[~] Data Block 57 (128 Bytes) - 4JqPi2ooJyLx/T0/KBSA/eU2ciGROcMjHBre4xqfXlEY3rrqpv6sM9wDsiaRR7WC6CAJW275glZVDW4iq/Gn7tP8L7xavdeKpZdAdaVAw3tecNAxCsGAM39qpTomPUfj
+[~] Data Block 58 (128 Bytes) - AAKuHlxb+mu5oj2h2D1lL+ct3YQdWkxt6d7yXEym+YfDpLEm0MF9JlBwh3L29f67qyiezOtdTAVLemesdBAcyHS+ld2P35KXzuKdbjgYOxKyqgNnbWla2D8fhScn482r
+[~] Data Block 59 (96 Bytes) - F2FHKMRa0KC0qKD+eZH8sExLBFm8GfnhppiDOFkqkrBLqsJMrXQW9S3g0rnbD6WtsMEZLtfDPgmFXpdAQ5sFkbB4LZvZ0Q==
+[~] Data Block 60 (0 Bytes) - 
+
+[=] Received data (7520 Bytes) - dOe56M+aVyLlu4tZ+yjPpROAMBNTl2SFWKHNRjVIS9NkfUSGcGNeqcn8ifJfLMYoTBVQJ2lrBvKDKFM5NmD0DlX7x+7c+gaXJhW5i38oTuJonJWQWsh0CH1rAsoUuErMSERmbgVpzI4FezC8FpE9OJacqOP7yuyggSIXeejCckcm63CztTZO2/8mQOhy/cRK6ZMHxrPxBIzPdzU9NYt5jzxgqiO5pGc6PJ3uB6NzpSlqMipWbI/Q3aViK4xN5ZgIiqYhVz+hCR58dXPOo4VUUpFjSZ7Ke2BZ6jFD6389mIFAjT4sHb449rVCn8X3h5ZSGovY4o+Zy9yzhJVr/JrggA==e9tGZxsxBbnNvD1ZQ8/+PIE9S/FKTAa7Z3eZO0YnNbZuVLmHMSiqyKi517xSksL7LAclSgw95WAg9sSH4e0IBcK1FXwFXu8qLGWoQFmDzjAyqgKzgEk+D6iCOcXIP1lmexzjBvrjES7nElaNa65CehJomeW3voClPOpqY638pM60Kd5Btiups8Yx8Wl1ICBa+mWoJt7WuV7LPxtRgClv11nVVriPiaacHQUvbM44d/WIXl3SEaG3lCdLjuCWw4dtheSODkyjCcqRgoIuLEOaRcsZky1FMc2LSYKxKcNXjv+4KPsRtlOdGs7GSzHrjjJTNNGYF69Jm22Wethp5BRrHA==qi1G12z8elldGqlgpt8ihw==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
+
+[>] Decrypted data (5088 Bytes):
+ Volume in drive C has no label.
+ Volume Serial Number is 16F2-7D76
+
+ Directory of c:\windows
+
+04/07/2020  11:06 PM    <DIR>          .
+04/07/2020  11:06 PM    <DIR>          ..
+22/08/2013  11:36 PM    <DIR>          addins
+22/08/2013  11:36 PM    <DIR>          ADFS
+26/06/2020  08:49 AM    <DIR>          AppCompat
+25/06/2020  08:02 AM    <DIR>          apppatch
+27/06/2020  08:23 AM    <DIR>          AppReadiness
+25/06/2020  06:14 PM    <DIR>          Ashampoo PDF
+25/06/2020  06:27 AM    <DIR>          assembly
+22/08/2013  07:21 PM            56,832 bfsvc.exe
+22/08/2013  11:36 PM    <DIR>          Boot
+22/08/2013  11:36 PM    <DIR>          Branding
+22/11/2014  01:16 PM    <DIR>          Camera
+16/08/2020  10:36 PM    <DIR>          CbsTemp
+25/06/2020  06:06 AM    <DIR>          CSC
+22/08/2013  11:36 PM    <DIR>          Cursors
+25/06/2020  08:28 AM    <DIR>          debug
+22/08/2013  11:36 PM    <DIR>          DesktopTileResources
+22/08/2013  11:36 PM    <DIR>          diagnostics
+22/08/2013  11:43 PM    <DIR>          DigitalLocker
+16/08/2020  10:39 PM            56,298 DPINST.LOG
+25/06/2020  06:04 AM             2,988 DtcInstall.log
+22/11/2014  01:15 PM    <DIR>          en-GB
+22/11/2014  08:22 AM    <DIR>          en-US
+28/08/2016  03:44 AM         2,755,504 explorer.exe
+22/11/2014  01:16 PM    <DIR>          FileManager
+22/08/2013  11:36 PM    <DIR>          Globalization
+25/06/2020  06:12 AM    <DIR>          Help
+02/06/2017  08:06 PM         1,001,984 HelpPane.exe
+22/11/2014  09:14 AM            17,408 hh.exe
+22/11/2014  01:16 PM    <DIR>          IME
+25/06/2020  08:02 AM    <DIR>          ImmersiveControlPanel
+29/08/2020  04:07 PM    <DIR>          Inf
+22/08/2013  11:36 PM    <DIR>          InputMethod
+22/08/2013  11:36 PM    <DIR>          L2Schemas
+15/07/2020  06:49 PM    <DIR>          LiveKernelReports
+25/06/2020  03:48 PM    <DIR>          Logs
+22/11/2014  01:16 PM    <DIR>          MediaViewer
+22/08/2013  03:01 PM            43,131 mib.bin
+24/08/2020  05:53 AM    <DIR>          Microsoft.NET
+25/06/2020  08:02 AM    <DIR>          Migration
+22/08/2013  11:36 PM    <DIR>          ModemLogs
+10/07/2015  01:13 AM           221,184 notepad.exe
+24/03/2018  07:50 AM             1,951 NvContainerRecovery.bat
+22/08/2013  11:36 PM    <DIR>          Offline Web Pages
+25/06/2020  06:06 AM    <DIR>          Panther
+22/08/2013  11:36 PM    <DIR>          Performance
+16/08/2020  10:43 PM            62,828 PFRO.log
+22/08/2013  11:36 PM    <DIR>          PLA
+25/06/2020  08:02 AM    <DIR>          PolicyDefinitions
+31/08/2020  11:16 AM    <DIR>          Prefetch
+22/08/2013  02:51 PM            36,235 Professional.xml
+13/05/2020  10:42 PM           913,480 py.exe
+13/05/2020  10:42 PM            59,976 pyshellext.amd64.dll
+13/05/2020  10:42 PM           913,992 pyw.exe
+22/11/2014  09:13 AM           154,624 regedit.exe
+22/08/2013  11:36 PM    <DIR>          Registration
+22/08/2013  10:47 PM    <DIR>          rescache
+22/08/2013  11:36 PM    <DIR>          Resources
+22/08/2013  11:36 PM    <DIR>          SchCache
+22/08/2013  11:36 PM    <DIR>          schemas
+25/06/2020  06:46 AM             3,584 SECOH-QAD.dll
+25/06/2020  06:26 AM             4,608 SECOH-QAD.exe
+22/11/2014  08:45 AM    <DIR>          security
+22/08/2013  10:45 PM    <DIR>          ServiceProfiles
+22/11/2014  01:16 PM    <DIR>          servicing
+22/08/2013  10:45 PM    <DIR>          Setup
+26/08/2020  10:39 AM             8,841 setupact.log
+27/06/2020  08:55 AM                 0 setuperr.log
+22/11/2014  08:45 AM    <DIR>          SKB
+25/06/2020  06:52 AM    <DIR>          SoftwareDistribution
+22/08/2013  11:36 PM    <DIR>          Speech
+30/05/2020  10:30 AM           129,024 splwow64.exe
+22/08/2013  02:51 PM            35,891 Starter.xml
+22/08/2013  11:36 PM    <DIR>          System
+22/08/2013  09:25 PM               219 system.ini
+25/08/2020  05:49 PM    <DIR>          System32
+22/08/2013  11:36 PM    <DIR>          SystemResources
+24/08/2020  05:52 AM    <DIR>          SysWOW64
+22/08/2013  11:36 PM    <DIR>          TAPI
+22/08/2013  10:45 PM    <DIR>          Tasks
+31/08/2020  10:58 AM    <DIR>          Temp
+25/06/2020  08:02 AM    <DIR>          ToastData
+22/08/2013  11:36 PM    <DIR>          tracing
+22/11/2014  01:16 PM    <DIR>          twain_32
+22/11/2014  09:15 AM            54,272 twain_32.dll
+22/11/2014  01:20 PM             5,446 vmgcoinstall.log
+22/08/2013  11:36 PM    <DIR>          vpnplugins
+22/08/2013  11:36 PM    <DIR>          Vss
+22/08/2013  11:36 PM    <DIR>          Web
+22/08/2013  09:25 PM                92 win.ini
+30/08/2020  07:45 AM         2,295,802 WindowsUpdate.log
+22/11/2014  09:13 AM             9,728 winhlp32.exe
+25/06/2020  08:02 AM    <DIR>          WinStore
+24/08/2020  05:52 AM    <DIR>          WinSxS
+18/06/2013  10:54 PM           316,640 WMSysPr9.prx
+22/11/2014  09:14 AM            11,264 write.exe
+              29 File(s)      9,173,826 bytes
+              68 Dir(s)  380,325,285,888 bytes free
+
+[#] Encrypting command - f
+
+[!] Encrypted data (736 Bytes) - b0KC6NmrXdzVGFQpJhKao+dvV1Hk0EGqMA8y9mwsvzD299pFe14C93kX9Zi2SFegtK/O1k7Bs1tLmabi13QofQptIzwHcC6+e5kFjOHB8E0rM4LYrZqImXypkQHP0AmjC3gj79THxWBQqABEI9yEy03GOTXxzmLG3YTqoRFOikhwE11bqzCcvznbi3wvEJTVEnaVt3jpGh7F+QLZtVbWMfPo82vmIR3jAnW5JPp4yA+s/PRdzqakeXqeFZUJULgUzfvdqIj6zP7hAYwjzV6RqZweXhXuKfh2ybyQ+JkVq6wtKhCgDE9WIbMglnMdtp5ax92PdLqmMH4P9O05Z+t/rQ==WaAguFWvquJZ8RGJFtORmO2V33Cs4OUVFoa0fmiYQ3EwB8XaM0b8HBYMEd+5ixkJ3xhfYplOgtjyiEaYNFaxAUSgPVk0WDOlXQup/4hJ4E4ULzG8oeUeOkte/L/BAOm72zc2IzCGCvgEQP2NGV0MpujIJ2yncm/lbh5orDzhEKdroOEA20mcUSpeizfkZGmNZu4DkxC1hbG9HvCO+o2mKih6qDzto5kuEvif1UIrBXwQ/TRxO8FvLGkBugKlOfU+ojNkZH6nUGTWxMBhqEICii3SSxQoc0ijW9m+h+oM6MtOYG1sxCwP5KLUAUq3H1QKHGb7ULnkd18toSj746ZHNw==CGu3fFPaIvMyb9mYbx2rMw==8plQK/Ar6XJIxTlYe6NZjA==
+
+[*] Send & Receive buffer - (128 Bytes)
+
+[!] Socket Error - [WinError 10054] An existing connection was forcibly closed by the remote host
