@@ -1,6 +1,6 @@
 import socket
 
-from os import system
+from os import system, getcwd
 from Security import Security
 from base64 import b64encode, b64decode
  
@@ -9,6 +9,7 @@ class Client(Security):
         super().__init__()
         self.target = "127.0.0.1"
         self.port = 4444
+        self.log_file = getcwd() + "\\Logs\\client_log.txt"
         self.buffer_size = 128
 
     def clear_screen(self):
@@ -16,6 +17,11 @@ class Client(Security):
 
     def pause(self):
         system("pause")
+
+    def print_and_log(self, data):
+        with open(self.log_file, "a+", newline="\n") as log_file:
+            log_file.write(f"{data}\n")
+            print(data)
 
     def client_sender(self):
         try:
@@ -25,9 +31,11 @@ class Client(Security):
                 data_list = list() 
                 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                                 
-                buffer = input("[#] Command > ")
-                encrypted_data = self.generate_encrypted_data(buffer)
-                print(f"\n[!] Encrypted data ({len(encrypted_data)} Bytes) - {encrypted_data}")
+                command = input("[#] Command > ")
+                self.print_and_log(f"[#] Encrypting command - {command}")
+
+                encrypted_data = self.generate_encrypted_data(command)
+                self.print_and_log(f"\n[!] Encrypted data ({len(encrypted_data)} Bytes) - {encrypted_data}")
                 
                 # 344 bytes - RSA encrypted session key, After 344 bytes - iv & ciphertext
                 client_socket.connect((self.target, self.port))
@@ -35,11 +43,11 @@ class Client(Security):
                 client_socket.shutdown(socket.SHUT_WR)
 
                 count = 1
-                print(f"\n[*] Send & Receive buffer - ({self.buffer_size} Bytes)")
+                self.print_and_log(f"\n[*] Send & Receive buffer - ({self.buffer_size} Bytes)")
     
                 while True:
                     data_block = client_socket.recv(self.buffer_size).decode(self.default_encoding)
-                    print(f"[~] Data Block {count} ({len(data_block)} Bytes)- {data_block}")
+                    self.print_and_log(f"[~] Data Block {count} ({len(data_block)} Bytes) - {data_block}")
 
                     if not data_block:
                         break
@@ -52,27 +60,27 @@ class Client(Security):
                 for data in data_list:
                     received_data += data
 
-                print(f"\n[=] Data list - {data_list}")
-                print(f"[=] Received data ({len(received_data)} Bytes) - {received_data}")
+                #self.print_and_log(f"\n[=] Data list - {data_list}")
+                self.print_and_log(f"\n[=] Received data ({len(received_data)} Bytes) - {received_data}")
 
                 decrypted_data = self.decrypt_received_data(received_data)
 
                 if decrypted_data is None:
-                    print(f"\n[>] Detected corruption on decrypted data - {decrypted_data}")
+                    self.print_and_log(f"\n[>] Detected corruption on decrypted data - {decrypted_data}")
 
                 else:
-                    print(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes):\n{decrypted_data}")
+                    self.print_and_log(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes):\n{decrypted_data}")
 
                 self.pause()
 
         except KeyboardInterrupt:
-            print(f"\n\n[!] Ctrl+C detected, exiting client.")
+            self.print_and_log(f"\n\n[!] Ctrl+C detected, exiting client.")
 
         except socket.error as socket_error:
-            print(f"\n[!] Socket Error - {socket_error}")
+            self.print_and_log(f"\n[!] Socket Error - {socket_error}")
 
         except Exception as error:
-            print(f"\n[!] Error - {error}")
+            self.print_and_log(f"\n[!] Error - {error}")
 
         finally:
             client_socket.close()
