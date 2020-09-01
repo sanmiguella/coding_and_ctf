@@ -5,7 +5,6 @@ import subprocess
 import traceback
 
 import concurrent.futures
-import logging
 
 from os import getcwd, system
 from Security import Security
@@ -27,32 +26,34 @@ class Server(Security):
     def clear_screen(self):
         system("cls")
 
-    def handle_client(self, client_socket):
+    def receive_and_decrypt(self, client_socket):
+        print(f"\n[*] Send & Recv buffer - ({self.buffer_size} Bytes)")
+
+        data_list = list()
+        count = 1
+        received_data = ""
+        
+        while True:
+            data_block = client_socket.recv(self.buffer_size).decode(self.default_encoding)
+            self.print_and_log(f"[~] Data Block {count} ({len(data_block)} Bytes) - {data_block}")
+
+            if not data_block:
+                break
+
+            data_list.append(data_block)
+            count += 1
+
+        for data in data_list:
+            received_data += data
+
+        self.print_and_log(f"\n[=] Received data ({len(received_data)} Bytes)- {received_data}")
+
+        decrypted_data = self.decrypt_received_data(received_data)
+        return decrypted_data
+
+    def handle_remote_command(self, client_socket):
         try:
-            data_list = list()
-            count = 1
-            received_data = ""
-
-            print(f"\n[*] Send & Recv buffer - ({self.buffer_size} Bytes)")
-
-            while True:
-                data_block = client_socket.recv(self.buffer_size).decode(self.default_encoding)
-                self.print_and_log(f"[~] Data Block {count} ({len(data_block)} Bytes) - {data_block}")
-
-                if not data_block:
-                    break
-
-                client_socket.sendall(received_data.encode(self.default_encoding))
-                data_list.append(data_block)
-                count += 1
-
-            for data in data_list:
-                received_data += data
-
-            #self.print_and_log(f"\n[=] Data list - {data_list}")
-            self.print_and_log(f"\n[=] Received data ({len(received_data)} Bytes)- {received_data}")
-
-            decrypted_data = self.decrypt_received_data(received_data)
+            decrypted_data = self.receive_and_decrypt(client_socket)
 
             if decrypted_data is None:
                 self.print_and_log(f"\n[>] Detected corruption on decrypted data - {decrypted_data}")
@@ -61,22 +62,22 @@ class Server(Security):
             else:
                 self.print_and_log(f"\n[>] Decrypted data ({len(decrypted_data)} Bytes) - {decrypted_data}")
 
-            # https://stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output
-            command = decrypted_data
-            result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            self.print_and_log(f"\n[X] Executing command - {command}")
-            
-            # If stdout is empty, it means that there's errors running the program.
-            if result.stdout == b'':
-                result = result.stderr
-
-            else: 
-                result = result.stdout
-
-            encrypted_reply = self.generate_encrypted_data(result.decode(self.default_encoding))
+                # https://stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output
+                command = decrypted_data
+                result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                self.print_and_log(f"\n[X] Executing command - {command}")
                 
-            client_socket.sendall(encrypted_reply.encode(self.default_encoding))
-            self.print_and_log(f"\n[+] Sending back reply ({len(encrypted_reply)} Bytes) - {encrypted_reply}")
+                # If stdout is empty, it means that there's errors running the program.
+                if result.stdout == b'':
+                    result = result.stderr
+
+                else: 
+                    result = result.stdout
+
+                encrypted_reply = self.generate_encrypted_data(result.decode(self.default_encoding))
+                    
+                client_socket.sendall(encrypted_reply.encode(self.default_encoding))
+                self.print_and_log(f"\n[+] Sending back reply ({len(encrypted_reply)} Bytes) - {encrypted_reply}")
 
         except ConnectionResetError as connection_error:
             self.print_and_log(f"\n[!] Socket Error - {connection_error}")
@@ -109,7 +110,7 @@ class Server(Security):
                 '''
 
                 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-                    executor.submit(self.handle_client, client_socket)
+                    executor.submit(self.handle_remote_command, client_socket)
 
             except KeyboardInterrupt:
                 self.print_and_log(f"\n[!] CTRL+C pressed, goodbye!")

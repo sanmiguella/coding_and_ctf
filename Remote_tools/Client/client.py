@@ -16,6 +16,7 @@ class Client(Security):
         system("cls")
 
     def pause(self):
+        print()
         system("pause")
 
     def print_and_log(self, data):
@@ -23,7 +24,7 @@ class Client(Security):
             log_file.write(f"{data}\n")
             print(data)
 
-    def client_sender(self):
+    def send_remote_command(self):
         try:
             while True:
                 self.clear_screen()
@@ -60,7 +61,6 @@ class Client(Security):
                 for data in data_list:
                     received_data += data
 
-                #self.print_and_log(f"\n[=] Data list - {data_list}")
                 self.print_and_log(f"\n[=] Received data ({len(received_data)} Bytes) - {received_data}")
 
                 decrypted_data = self.decrypt_received_data(received_data)
@@ -86,7 +86,7 @@ class Client(Security):
             client_socket.close()
 
     def start(self):
-        self.client_sender()
+        self.send_remote_command()
                
 client = Client()
 client.start()
