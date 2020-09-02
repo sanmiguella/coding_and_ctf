@@ -1,0 +1,4 @@
+02-09-2020 18:45:44 Requested testphp.vulnweb.com/userinfo.php with POST, Data - b'uname=zzz&pass=zzz'
+02-09-2020 18:51:37 Requested testphp.vulnweb.com/userinfo.php with POST, Data - b'uname=f&pass=z'
+02-09-2020 18:52:05 Requested testphp.vulnweb.com/userinfo.php with POST, Data - b'uname=f&pass=t'
+02-09-2020 18:55:01 Requested testphp.vulnweb.com/userinfo.php with POST, Data - b'uname=f&pass=z'
