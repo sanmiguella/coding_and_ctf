@@ -7,6 +7,7 @@ from struct import pack
 from netaddr import IPNetwork, IPAddress
 from ctypes import *
 from colorama import init, Fore
+from tqdm import tqdm, trange
 
 class ICMP(Structure):
     _fields_ = [
@@ -71,8 +72,6 @@ class Prettify:
         self.reset = Fore.RESET
         init()  
 
-# ICMP Type 3: Destination unreachable
-# ICMP Code 3: Port unreachable
 class Scanner(Prettify):
     def __init__(self, subnet):
         super().__init__()
@@ -80,24 +79,30 @@ class Scanner(Prettify):
         self.unreachable_port = 65212
         self.magic_message = b"MR ROBOT"
         self.sleep_time = 5
+    
+    def clear_screen(self):
+        system("cls")
 
     def short_pause(self):
         sleep(self.sleep_time)
 
-    def start_scanning(self):
-        sender = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    def start_scanning(self):        
+        print(f"{self.yellow}")
+        for i in trange(10):
+            sleep(0.5)
+        print(f"{self.reset}")
 
-        # SOCK_DGRAM: UDP
-        for ip in IPNetwork(self.subnet):
-            try:
-                # https://netaddr.readthedocs.io/en/latest/tutorial_01.html
-                ip = str(ip) 
-                sender.sendto(self.magic_message, (ip, self.unreachable_port))
-                #print(f"[#] Sending magic message to \"{ip}\"")
-            
-            except Exception as error:
-                print(f"[!] Error - {error}")
-        
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sender:
+            # SOCK_DGRAM: UDP
+            for ip in IPNetwork(self.subnet):
+                try:
+                    # https://netaddr.readthedocs.io/en/latest/tutorial_01.html
+                    ip = str(ip) 
+                    sender.sendto(self.magic_message, (ip, self.unreachable_port))
+                
+                except Exception as error:
+                    print(f"[!] Error - {error}")
+                
 class Sniffer(Scanner):
     def __init__(self, listen_addr, subnet):
         super().__init__(subnet)
@@ -105,12 +110,7 @@ class Sniffer(Scanner):
         self.socket_proto = ""
         self.buf_size = 65565
 
-    def clear_screen(self):
-        system("cls")
-
     def start_host_discovery(self):
-        self.clear_screen()
-
         os_version = name
 
         if os_version == "nt": 
@@ -128,10 +128,12 @@ class Sniffer(Scanner):
         if os_version == "nt":
             sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 
-        t_network_scan = threading.Thread(target = self.start_scanning)
+        t_network_scan = threading.Thread(target=self.start_scanning)
         t_network_scan.start()
 
-        try:
+        try:  
+            self.clear_screen()
+      
             while True:
                 # Read in a packet.
                 raw_buf = sniffer.recvfrom(self.buf_size)[0]
@@ -160,13 +162,14 @@ class Sniffer(Scanner):
 
                             if data == self.magic_message:
                                 # Make sure packet has our magic message.
-                                print(f"{self.magenta}[>] {self.red}{ip_header.src_addr} {self.cyan} -> {self.green} {ip_header.dst_addr}{self.reset}")
+                                print(f"{self.magenta}[>] {self.red}{ip_header.src_addr}{self.yellow}(src) {self.cyan}->{self.green} {ip_header.dst_addr}{self.yellow}(dst){self.reset}")
                                 print(f"{self.magenta}[+] {self.yellow}ICMP data: {self.cyan}{data.decode()}\n{self.reset}")
 
         except KeyboardInterrupt:
             # For windows, turn promiscuous mode off.
             if os_version == "nt":
                 sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
+                print(f"{self.magenta}[!]{self.cyan}Goodbye!{self.reset}")
 
 sniffer = Sniffer("192.168.2.9", "192.168.2.0/24")
 sniffer.start_host_discovery()
