@@ -175,5 +175,6 @@ class Sniffer(Scanner):
                 sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
                 print(f"{self.magenta}[!]{self.cyan}Goodbye!{self.reset}")
 
-sniffer = Sniffer("192.168.2.9", "192.168.2.0/24")
-sniffer.start_host_discovery()
+if __name__ == '__main__':
+    sniffer = Sniffer("192.168.2.9", "192.168.2.0/24")
+    sniffer.start_host_discovery()
