@@ -77,19 +77,23 @@ class Scanner(Prettify):
         super().__init__()
         self.subnet = subnet
         self.unreachable_port = 65212
-        self.magic_message = b"MR ROBOT"
-        self.sleep_time = 5
-    
+        self.magic_message = b"TEST DATA!"
+        self.short_sleep_time = 2
+        self.mini_sleep_time = 0.5
+
     def clear_screen(self):
         system("cls")
 
     def short_pause(self):
-        sleep(self.sleep_time)
+        sleep(self.short_sleep_time)
 
-    def start_scanning(self):        
-        print(f"{self.yellow}")
-        for i in trange(10):
-            sleep(0.5)
+    def mini_pause(self):
+        sleep(self.mini_sleep_time)
+
+    def start_scanning(self):  
+        print(f"{self.green}")
+        for i in tqdm(range(10), leave=False, ascii=True):
+            self.mini_pause()
         print(f"{self.reset}")
 
         with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sender:
@@ -163,7 +167,7 @@ class Sniffer(Scanner):
                             if data == self.magic_message:
                                 # Make sure packet has our magic message.
                                 print(f"{self.magenta}[>] {self.red}{ip_header.src_addr}{self.yellow}(src) {self.cyan}->{self.green} {ip_header.dst_addr}{self.yellow}(dst){self.reset}")
-                                print(f"{self.magenta}[+] {self.yellow}ICMP data: {self.cyan}{data.decode()}\n{self.reset}")
+                                print(f"{self.magenta}[+] {self.yellow}ICMP data: {self.cyan}\"{data.decode()}\"\n{self.reset}")
 
         except KeyboardInterrupt:
             # For windows, turn promiscuous mode off.
