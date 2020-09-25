@@ -9,8 +9,8 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            //"args": ["encrypt", "P@ssw0rd", "test.txt", "enc.txt"],
-            "args": ["decrypt", "P@ssw0rd", "enc.txt", "dec.txt"],
+            //"args": ["encrypt", "P@ssw0rd", "test.txt"],
+            "args": ["decrypt", "P@ssw0rd", "gAAAAABfbgJPRnh53vOwoa65h9RKQlnYM0Lp-nEUrbQ2wFhNoBkNmUmNi7WlCKpvi6wSm6wWR-MbiQFEL6zKax-GuIHS0U4alA=="],
             "console": "integratedTerminal"
         }
     ]
