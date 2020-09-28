@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            //"args": ["-c", "ab", "cd", "ef"],
+            //"args": ["--cap", "ab", "cd", "ef"],
+            //"args": ["-u", "ab", "cd", "ef"],
+            //"args": ["--upper", "ab", "cd", "ef"],
+            //"args": ["-l", "AB", "CD", "EF"],
+            //"args": ["--lower", "AB", "CD", "EF"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
