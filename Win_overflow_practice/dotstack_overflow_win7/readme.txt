@@ -40,3 +40,12 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 
 C:\Users\adminuser\Desktop>
 
+-------------------------------------------------------
+
+Comparing bytes from file with memory :
+[+] Comparing with memory at location : 0x016419f8 (Stack)
+!!! Hooray, normal shellcode unmodified !!!
+Bytes omitted from input: 00 0a
+
+!mona compare -a esp -f c:\test\badchar_test.bin
+
