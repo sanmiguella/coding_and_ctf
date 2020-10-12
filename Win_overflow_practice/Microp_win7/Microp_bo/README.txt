@@ -1,1 +1,1 @@
-windows 7 sp 1
+windows 7 sp 1 bo
