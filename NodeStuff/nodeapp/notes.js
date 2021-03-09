@@ -32,16 +32,21 @@ const addNote = function(title, body) {
 const removeNote = function(title) {
     const notes = loadNotes();
 
-    const notesToKeep = notes.filter(function(note) {
-        return note.title !== title;
-    });
+    if (notes.length > 0) {
+        const notesToKeep = notes.filter(function(note) {
+            return note.title !== title;
+        });
 
-    if (notesToKeep.length === notes.length) {
-        console.log(`${chalk.yellow.bold(`${title} not found!`)}`);
+        if (notesToKeep.length === notes.length) {
+            console.log(`${chalk.yellow.bold(`${title} not found!`)}`);
+        } else {
+            saveNotes(notesToKeep);
+            console.log(`${chalk.yellow.bold(`Removed ${title}!`)}`);
+        }
+
     } else {
-        saveNotes(notesToKeep);
-        console.log(`${chalk.yellow.bold(`Removed ${title}!`)}`);
-    }  
+        console.log(`${chalk.yellow.bold("At least one entry is needed for remove command to be used.")}`);
+    }
 }
 
 const saveNotes = function(notes) {
