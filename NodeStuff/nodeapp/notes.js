@@ -37,11 +37,13 @@ const removeNote = function(title) {
             return note.title !== title;
         });
 
-        if (notesToKeep.length === notes.length) {
-            console.log(`${chalk.yellow.bold(`${title} not found!`)}`);
-        } else {
+
+        if (notes.length > notesToKeep.length) {
             saveNotes(notesToKeep);
             console.log(`${chalk.yellow.bold(`Removed ${title}!`)}`);
+            
+        } else {
+            console.log(`${chalk.yellow.bold(`${title} not found!`)}`);
         }
 
     } else {
