@@ -80,7 +80,7 @@ IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 Interface 11
 ============
 Name         : Intel(R) 82574L Gigabit Network Connection
-Hardware MAC : 00:0c:29:0e:14:43
+Hardware MAC : SNIPPED
 MTU          : 1500
 IPv4 Address : 192.168.234.150
 IPv4 Netmask : 255.255.255.0
