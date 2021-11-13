@@ -127,3 +127,5 @@ Upon connecting to port 9999 on pivot machine, I will be able to access nessus o
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; form-action 'self'; frame-src https://store.tenable.com; default-src 'self'; connect-src 'self'; script-src 'self'; img-src 'self' data:; style-src 'self'; object-src 'none'; base-uri 'self';" />
+
+

