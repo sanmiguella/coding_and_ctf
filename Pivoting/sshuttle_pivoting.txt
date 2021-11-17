@@ -1,0 +1,78 @@
+## On pivot machine, the subnet that needs to be accessed by attacker machine
+┌─[root@pivot]─[~]
+└──╼ #ip a|grep eth0
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    inet 192.168.234.180/24 brd 192.168.234.255 scope global dynamic noprefixroute eth0
+┌─[root@pivot]─[~]
+└──╼ #
+
+## Use pivot machine as the medium. 
+## Exclude compromised server from the subnet range.
+## Destination subnet will be 192.168.234.0/24
+┌──[root@attack]─[~]
+└──╼ # ping pivot -c1
+PING pivot (192.168.179.130) 56(84) bytes of data.
+64 bytes from pivot (192.168.179.130): icmp_seq=1 ttl=64 time=0.284 ms
+
+--- pivot ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.284/0.284/0.284/0.000 ms
+┌──[root@attack]─[~]
+└──╼ # sshuttle -r root@pivot 192.168.234.0/24 -x 192.168.179.130 -v
+Starting sshuttle proxy (version 1.0.5).
+fw: Starting firewall with Python version 3.9.2
+fw: ready method name nat.
+c : IPv6 disabled since it isn't supported by method nat.
+c : Method: nat
+c : IPv4: on
+c : IPv6: off (not available with nat method)
+c : UDP : off (not available with nat method)
+c : DNS : off (available)
+c : User: off (available)
+c : Subnets to forward through remote host (type, IP, cidr mask width, startPort, endPort):
+c :   (<AddressFamily.AF_INET: 2>, '192.168.234.0', 24, 0, 0)
+c : Subnets to exclude from forwarding:
+c :   (<AddressFamily.AF_INET: 2>, '192.168.179.130', 32, 0, 0)
+c :   (<AddressFamily.AF_INET: 2>, '127.0.0.1', 32, 0, 0)
+c : TCP redirector listening on ('127.0.0.1', 12300).
+c : Starting client with Python version 3.9.2
+c : Connecting to server...
+ s: Starting server with Python version 3.9.2
+ s: latency control setting = True
+ s: auto-nets:False
+c : Connected to server.
+fw: setting up.
+fw: iptables -t nat -N sshuttle-12300
+fw: iptables -t nat -F sshuttle-12300
+fw: iptables -t nat -I OUTPUT 1 -j sshuttle-12300
+fw: iptables -t nat -I PREROUTING 1 -j sshuttle-12300
+fw: iptables -t nat -A sshuttle-12300 -j RETURN -m ttl --ttl 63
+fw: iptables -t nat -A sshuttle-12300 -j RETURN -m addrtype --dst-type LOCAL
+fw: iptables -t nat -A sshuttle-12300 -j RETURN --dest 192.168.179.130/32 -p tcp
+fw: iptables -t nat -A sshuttle-12300 -j RETURN --dest 127.0.0.1/32 -p tcp
+fw: iptables -t nat -A sshuttle-12300 -j REDIRECT --dest 192.168.234.0/24 -p tcp --to-ports 12300
+
+## Meanwhile on attacking machine, there isn't any need for proxychain. Just need to specify IP address.
+┌──[root@attack]─[~]
+└──╼ # curl -s -D- http://192.168.234.150:8080
+HTTP/1.1 403 Forbidden
+Date: Wed, 17 Nov 2021 14:18:42 GMT
+X-Content-Type-Options: nosniff
+Set-Cookie: JSESSIONID.26c32745=node0xnm4r9o6hftc1xlbhbhw132nc1597.node0; Path=/; HttpOnly
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: text/html;charset=utf-8
+X-Hudson: 1.395
+X-Jenkins: 2.303.2
+X-Jenkins-Session: 7735bcf4
+Content-Length: 548
+Server: Jetty(9.4.43.v20210629)
+
+<html><head><meta http-equiv='refresh' content='1;url=/login?from=%2F'/><script>window.location.replace('/login?from=%2F');</script></head><body style='background-color:white; color:white;'>
+
+
+Authentication required
+<!--
+-->
+
+</body></html>                                       
+                                                 
