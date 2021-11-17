@@ -6,6 +6,7 @@
 ┌─[root@pivot]─[~]
 └──╼ #
 
+
 ## Use pivot machine as the medium. 
 ## Exclude compromised server from the subnet range.
 ## Destination subnet will be 192.168.234.0/24
@@ -51,6 +52,7 @@ fw: iptables -t nat -A sshuttle-12300 -j RETURN -m addrtype --dst-type LOCAL
 fw: iptables -t nat -A sshuttle-12300 -j RETURN --dest 192.168.179.130/32 -p tcp
 fw: iptables -t nat -A sshuttle-12300 -j RETURN --dest 127.0.0.1/32 -p tcp
 fw: iptables -t nat -A sshuttle-12300 -j REDIRECT --dest 192.168.234.0/24 -p tcp --to-ports 12300
+
 
 ## Meanwhile on attacking machine, there isn't any need for proxychain. Just need to specify IP address.
 ┌──[root@attack]─[~]
