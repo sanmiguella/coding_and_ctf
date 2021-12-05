@@ -4,4 +4,4 @@ Vulnerable VM (MASKCRAFTER I) official DL: https://www.vulnhub.com/entry/maskcra
 
 Vulnerable VM (MASKCRAFTER I) alternative DL: https://drive.google.com/open?id=1KJ7pEnEf1RnjOv_yBd0Q_IgNI2fJ6Ucp
 
-Vulnerable VM (MASKCRAFTER II): https://1drv.ms/u/s!AlbcP3nMz2q6mEinRy3RsWSQnZVM?e=mELtCw
+Vulnerable VM (MASKCRAFTER II): https://1drv.ms/u/s!AlbcP3nMz2q6mSq6oUFbTAj_u69e?e=JpB0Yy
