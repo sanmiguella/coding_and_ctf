@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import ipaddress
 import argparse
+import threading
 from ping3 import ping
 
 responsive_hosts = []
@@ -9,6 +10,24 @@ def save_hosts_to_file(save_file):
     with open(save_file,'w') as sf:
         for host in responsive_hosts:
             sf.write(f"{host}\n")
+
+def ping_host(host):
+    try:
+        response = ping(host, unit='ms')
+
+        if response == False:
+            print(f"{host} :: Host unknown.")
+        elif response == None:
+            print(f"{host} :: Timed out.")
+        else:
+            print(f"Response from {host} :: {response} ms")
+            responsive_hosts.append(host)
+
+    except AttributeError:
+        pass
+
+    except Exception as err:
+        print(f"Response from {host} :: {err}")
 
 if __name__ == "__main__":
     ipv4_subnet = []
@@ -20,23 +39,15 @@ if __name__ == "__main__":
     ipv4_subnet = args.ipv4_subnet
     ipv4_hosts = [str(ip) for ip in ipaddress.IPv4Network(ipv4_subnet)]
 
+    threads = list()
     for host in ipv4_hosts:
-        try:
-            host = host.strip()
+        host = host.strip()
+        t = threading.Thread(target=ping_host, args=(host,))
+        threads.append(t)
+        t.start()
 
-            print(f"\n--> Pinging {host} <--\n")
-            response = ping(host, unit='ms')
-
-            if response == False:
-                print("[!] Host unknown.")
-            elif response == None:
-                print("[!] Timed out.")
-            else:
-                print(f"Response from {host} :: {response} ms")
-                responsive_hosts.append(host)
-
-        except Exception as err:
-            pass
+    for index, thread in enumerate(threads):
+        thread.join()
 
     print("\n[+] List of responsive hosts:\n")
     for host in responsive_hosts:
