@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import ipaddress
 import argparse
-import threading
+#import threading
+import concurrent.futures
 from ping3 import ping
 
 responsive_hosts = []
@@ -10,6 +11,8 @@ def save_hosts_to_file(save_file):
     with open(save_file,'w') as sf:
         for host in responsive_hosts:
             sf.write(f"{host}\n")
+
+    print(f"\n[+] Saved file to {save_file}\n")
 
 def ping_host(host):
     try:
@@ -37,23 +40,26 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     ipv4_subnet = args.ipv4_subnet
-    ipv4_hosts = [str(ip) for ip in ipaddress.IPv4Network(ipv4_subnet)]
+    ipv4_hosts = [str(ip).strip() for ip in ipaddress.IPv4Network(ipv4_subnet)]
+   
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+        for host in ipv4_hosts:
+            executor.submit(ping_host, host)
 
+    '''
     threads = list()
     for host in ipv4_hosts:
-        host = host.strip()
         t = threading.Thread(target=ping_host, args=(host,))
         threads.append(t)
         t.start()
 
     for index, thread in enumerate(threads):
         thread.join()
+    '''
 
     print("\n[+] List of responsive hosts:\n")
     for host in responsive_hosts:
         print(host)
 
-    save_file = "./ipv4_hosts.txt"
-    print(f"\n[+] Saving to {save_file}\n")
     save_hosts_to_file("./ipv4_hosts.txt")
 
