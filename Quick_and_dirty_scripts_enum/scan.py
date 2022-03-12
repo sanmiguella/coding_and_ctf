@@ -14,6 +14,7 @@ def read_from_file(file_to_read):
 
 def save_valid_hosts():
     vf = "./valid.txt"
+    valid.sort()
 
     with open(vf, 'w') as valid_file:
         for valid_url in valid:
@@ -23,6 +24,7 @@ def save_valid_hosts():
 
 def save_maybe_valid_hosts():
     mvf = "./maybe_valid.txt"
+    maybe_valid.sort()
 
     with open(mvf, 'w') as maybe_valid_file:
         for maybe_valid_url in maybe_valid:
