@@ -26,7 +26,6 @@ def create_zipfile(filename):
 
     print(f"[+] Successfully create {zip_filename}")
 
-
 def save_open_ports(target):
     filename = f"portscan-ipv4-{target}.txt"
     open_ports.sort()
