@@ -3,9 +3,28 @@ import argparse
 import socket
 import concurrent.futures
 import sys
+from zipfile import ZipFile
 from datetime import datetime
 
 open_ports = []
+
+def banner():
+    intro = """
+    ██ ██████  ██    ██  ██████      ███████  ██████  █████  ███    ██ ███    ██ ███████ ██████  
+    ██ ██   ██ ██    ██ ██           ██      ██      ██   ██ ████   ██ ████   ██ ██      ██   ██ 
+    ██ ██████  ██    ██ ███████      ███████ ██      ███████ ██ ██  ██ ██ ██  ██ █████   ██████  
+    ██ ██       ██  ██  ██    ██          ██ ██      ██   ██ ██  ██ ██ ██  ██ ██ ██      ██   ██ 
+    ██ ██        ████    ██████      ███████  ██████ ██   ██ ██   ████ ██   ████ ███████ ██   ██ 
+    """
+    print(intro)
+
+def create_zipfile(filename):
+    zip_filename = f"{filename}.zip"
+
+    with ZipFile(zip_filename,'w') as archive: 
+        archive.write(filename)
+
+    print(f"[+] Successfully create {zip_filename}")
 
 def save_open_ports(target):
     filename = f"portscan-ipv6-{target}.txt"
@@ -16,6 +35,7 @@ def save_open_ports(target):
            f.write(f"{port}\n")
 
     print(f"[+] Saved results to {filename}")
+    create_zipfile(filename)
 
 def scan_port(target, port):
     sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
@@ -39,6 +59,7 @@ if __name__ == "__main__":
     target = socket.getaddrinfo(target, None, socket.AF_INET6)[0][4][0]
 
     try:
+        banner()
         dt_format = "%d/%m/%Y %H:%M:%S"
 
         print(f"[+] Target :: {target}")

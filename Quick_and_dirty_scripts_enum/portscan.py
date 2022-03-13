@@ -3,12 +3,32 @@ import argparse
 import socket
 import concurrent.futures
 import sys
+from zipfile import ZipFile
 from datetime import datetime
 
 open_ports = []
 
+def banner():
+    intro = """
+    ██ ██████  ██    ██ ██   ██     ███████  ██████  █████  ███    ██ ███    ██ ███████ ██████  
+    ██ ██   ██ ██    ██ ██   ██     ██      ██      ██   ██ ████   ██ ████   ██ ██      ██   ██ 
+    ██ ██████  ██    ██ ███████     ███████ ██      ███████ ██ ██  ██ ██ ██  ██ █████   ██████  
+    ██ ██       ██  ██       ██          ██ ██      ██   ██ ██  ██ ██ ██  ██ ██ ██      ██   ██ 
+    ██ ██        ████        ██     ███████  ██████ ██   ██ ██   ████ ██   ████ ███████ ██   ██ 
+    """
+    print(intro)
+
+def create_zipfile(filename):
+    zip_filename = f"{filename}.zip"
+
+    with ZipFile(zip_filename,'w') as archive:
+        archive.write(filename)
+
+    print(f"[+] Successfully create {zip_filename}")
+
+
 def save_open_ports(target):
-    filename = f"portscan-{target}.txt"
+    filename = f"portscan-ipv4-{target}.txt"
     open_ports.sort()
 
     with open(filename,'w') as f:
@@ -16,6 +36,7 @@ def save_open_ports(target):
            f.write(f"{port}\n")
 
     print(f"[+] Saved results to {filename}")
+    create_zipfile(filename)
 
 def scan_port(target, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -39,8 +60,10 @@ if __name__ == "__main__":
     target = socket.gethostbyname(target)
 
     try:
+        banner()
         dt_format = "%d/%m/%Y %H:%M:%S"
 
+        print(f"[+] Target :: {target}")
         print(f"[+] Started scan at :: {str(datetime.now().strftime(dt_format))}")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
