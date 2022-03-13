@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import ipaddress
 import argparse
-#import threading
 import concurrent.futures
 from ping3 import ping
 
