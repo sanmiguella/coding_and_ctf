@@ -2,8 +2,19 @@
 import argparse
 import socket
 import concurrent.futures
+import uuid
 
 ipv4_list = []
+
+def banner():
+    intro = '''
+    ██ ██████  ██    ██ ██   ██     ██████  ███████ ███████  ██████  ██      ██    ██ ███████ ██████  
+    ██ ██   ██ ██    ██ ██   ██     ██   ██ ██      ██      ██    ██ ██      ██    ██ ██      ██   ██ 
+    ██ ██████  ██    ██ ███████     ██████  █████   ███████ ██    ██ ██      ██    ██ █████   ██████  
+    ██ ██       ██  ██       ██     ██   ██ ██           ██ ██    ██ ██       ██  ██  ██      ██   ██ 
+    ██ ██        ████        ██     ██   ██ ███████ ███████  ██████  ███████   ████   ███████ ██   ██
+    '''
+    print(intro)
 
 def read_from_file(file_to_read):
     with open(file_to_read,'r') as f:
@@ -26,8 +37,8 @@ def save_ipv4_list(filename):
     ipv4_list.sort()
 
     with open(filename,'w') as ipv4_file:
-        for ipv4 in ipv4_list:
-            ipv4_file.write(f"{ipv4}\n")
+        for host in ipv4_list:
+            ipv4_file.write(f"{host}\n")
 
     print(f"\n[+] Saved file to {filename}")
 
@@ -39,8 +50,12 @@ if __name__=="__main__":
     hostnames = read_from_file(args.file_to_read)
     stripped_hostnames = [hostname.strip() for hostname in hostnames]
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+    banner()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         for hostname in stripped_hostnames:
             executor.submit(resolve_hostname, hostname)
 
-    save_ipv4_list("./ipv4_list.txt")
+    print(f"\n[+] IPv4 address count: {len(ipv4_list)}")
+    prepend_filename = uuid.uuid4().hex
+    filename = f"{prepend_filename}-ipv4_list.txt"
+    save_ipv4_list(filename)

@@ -2,9 +2,22 @@
 import requests
 import argparse
 import concurrent.futures
+import uuid
 
 valid = []
 maybe_valid = []
+
+requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+
+def banner():
+    intro = '''
+    ██    ██  █████  ██      ██ ██████   █████  ████████  ██████  ██████  
+    ██    ██ ██   ██ ██      ██ ██   ██ ██   ██    ██    ██    ██ ██   ██ 
+    ██    ██ ███████ ██      ██ ██   ██ ███████    ██    ██    ██ ██████  
+     ██  ██  ██   ██ ██      ██ ██   ██ ██   ██    ██    ██    ██ ██   ██ 
+       ████   ██   ██ ███████ ██ ██████  ██   ██    ██     ██████  ██   ██ 
+    '''
+    print(intro)
 
 def read_from_file(file_to_read):
     with open(file_to_read,'r') as f:
@@ -13,7 +26,8 @@ def read_from_file(file_to_read):
     return(urls)
 
 def save_valid_hosts():
-    vf = "./valid.txt"
+    prepend_filename = uuid.uuid4().hex
+    vf = f"{prepend_filename}-valid.txt"
     valid.sort()
 
     with open(vf, 'w') as valid_file:
@@ -23,7 +37,8 @@ def save_valid_hosts():
     print(f"[+] Written valid hosts to :: {vf}")
 
 def save_maybe_valid_hosts():
-    mvf = "./maybe_valid.txt"
+    prepend_filename = uuid.uuid4().hex
+    mvf = f"{prepend_filename}-maybe_valid.txt"
     maybe_valid.sort()
 
     with open(mvf, 'w') as maybe_valid_file:
@@ -34,7 +49,7 @@ def save_maybe_valid_hosts():
 
 def initiate_request(url):
     try:
-        response = requests.get(url)
+        response = requests.get(url, verify=False)
         response_code = response.status_code
         print(f"{url} :: {response_code}")
 
@@ -54,6 +69,7 @@ if __name__=="__main__":
     urls = read_from_file(args.file_to_read)
     urls_stripped = [url.strip() for url in urls]
 
+    banner()
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         for url in urls_stripped:
             url = f"https://{url}"

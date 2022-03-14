@@ -2,8 +2,19 @@
 import argparse
 import socket
 import concurrent.futures
+import uuid
 
 ipv6_list = []
+
+def banner():
+    intro = '''
+    ██ ██████  ██    ██  ██████      ██████  ███████ ███████  ██████  ██      ██    ██ ███████ ██████  
+    ██ ██   ██ ██    ██ ██           ██   ██ ██      ██      ██    ██ ██      ██    ██ ██      ██   ██ 
+    ██ ██████  ██    ██ ███████      ██████  █████   ███████ ██    ██ ██      ██    ██ █████   ██████  
+    ██ ██       ██  ██  ██    ██     ██   ██ ██           ██ ██    ██ ██       ██  ██  ██      ██   ██ 
+    ██ ██        ████    ██████      ██   ██ ███████ ███████  ██████  ███████   ████   ███████ ██   ██ 
+    '''
+    print(intro)
 
 def read_from_file(file_to_read):
     with open(file_to_read,'r') as f:
@@ -19,7 +30,7 @@ def save_ipv6_list(filename):
         for ipv6 in ipv6_list:
             ipv6_file.write(f"{ipv6}\n")
 
-    print(f"\n[+] Written file to {filename}")
+    print(f"[+] Written file to {filename}")
 
 def resolve_hostname(hostname):
     try:
@@ -44,4 +55,7 @@ if __name__=="__main__":
         for hostname in stripped_hostnames:
             executor.submit(resolve_hostname, hostname)
 
-    save_ipv6_list("./ipv6_list.txt")
+    print(f"\n[+] IPv6 address count: {len(ipv6_list)}")
+    prepend_filename = uuid.uuid4().hex
+    filename = f"{prepend_filename}-ipv6_list.txt"
+    save_ipv6_list(filename)
