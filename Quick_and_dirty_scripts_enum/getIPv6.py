@@ -2,7 +2,6 @@
 import argparse
 import socket
 import concurrent.futures
-import uuid
 
 ipv6_list = []
 
@@ -45,17 +44,18 @@ def resolve_hostname(hostname):
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description="Get IPv6 from hostname")
-    parser.add_argument("file_to_read", help="Enter file containing a list of hostnames")
+    parser.add_argument("file_to_read", help="File containing a list of hostnames")
+    parser.add_argument("-o", "--outfile", help="Output file to write results to", required=True)
 
     args = parser.parse_args()
     hostnames = read_from_file(args.file_to_read)
     stripped_hostnames = [hostname.strip() for hostname in hostnames]
+    outfile = args.outfile
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor: 
         for hostname in stripped_hostnames:
             executor.submit(resolve_hostname, hostname)
 
     print(f"\n[+] IPv6 address count: {len(ipv6_list)}")
-    prepend_filename = uuid.uuid4().hex
-    filename = f"{prepend_filename}-ipv6_list.txt"
-    save_ipv6_list(filename)
+
+    save_ipv6_list(outfile)

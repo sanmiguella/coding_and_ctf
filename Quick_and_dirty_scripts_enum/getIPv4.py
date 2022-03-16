@@ -2,7 +2,6 @@
 import argparse
 import socket
 import concurrent.futures
-import uuid
 
 ipv4_list = []
 
@@ -44,11 +43,13 @@ def save_ipv4_list(filename):
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description="Get IPv4 from hostname")
-    parser.add_argument("file_to_read", help="Enter file containing a list of hostnames")
+    parser.add_argument("file_to_read", help="File containing a list of hostnames")
+    parser.add_argument("-o", "--outfile", help="Output file to write results to", required=True)
 
     args = parser.parse_args()
     hostnames = read_from_file(args.file_to_read)
     stripped_hostnames = [hostname.strip() for hostname in hostnames]
+    outfile = args.outfile
 
     banner()
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
@@ -56,6 +57,4 @@ if __name__=="__main__":
             executor.submit(resolve_hostname, hostname)
 
     print(f"\n[+] IPv4 address count: {len(ipv4_list)}")
-    prepend_filename = uuid.uuid4().hex
-    filename = f"{prepend_filename}-ipv4_list.txt"
-    save_ipv4_list(filename)
+    save_ipv4_list(outfile)
