@@ -21,8 +21,7 @@ def read_from_file(file_to_read):
 
     return(urls)
 
-def save_sslerror_hosts():
-    ssl_err_file = f"sslerror.txt"
+def save_sslerror_hosts(ssl_err_file):
     ssl_err_list.sort()
 
     with open(ssl_err_file, 'w') as sef:
@@ -46,11 +45,13 @@ def initiate_request(url):
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Check host(s) for code SSL errors.')
-    parser.add_argument("file_to_read", help="Enter file containing a list of hosts")
+    parser.add_argument("file_to_read", help="File containing a list of hosts")
+    parser.add_argument("-o", "--outfile", help="File to write results of a list of hosts with SSL errors", required=True)
 
     args = parser.parse_args()
     urls = read_from_file(args.file_to_read)
     urls_stripped = [url.strip() for url in urls]
+    outfile = args.outfile
 
     banner()
   
@@ -59,4 +60,4 @@ if __name__=="__main__":
             url = f"https://{url}"
             executor.submit(initiate_request, url)
     
-    save_sslerror_hosts()
+    save_sslerror_hosts(outfile)
