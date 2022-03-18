@@ -34,7 +34,6 @@ def read_from_file(file_to_read):
 
 def check_for_aem(url):
     try:
-        print(url)
         html_content = requests.get(url).text
         soup = BeautifulSoup(html_content, "lxml")
         img = soup.find_all("img")
@@ -68,4 +67,7 @@ if __name__ == "__main__":
             url = f"https://{host}"
             executor.submit(check_for_aem, url)
 
-    save_aem_sites(outfile)
+    if not aem_sites:
+        print("\n[!] No aem sites found")
+    else:
+        save_aem_sites(outfile)
