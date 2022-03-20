@@ -67,3 +67,7 @@ if __name__ == "__main__":
             url = f"https://{host}"
             executor.submit(check_for_aem, url)
 
+    if not aem_sites:
+        print("\n[!] No AEM sites found.")
+    else:
+        save_aem_sites(outfile)
