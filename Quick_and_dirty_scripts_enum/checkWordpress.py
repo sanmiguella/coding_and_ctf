@@ -47,7 +47,7 @@ def check_for_wordpress(url):
                 wordpress_sites.append(url)
                 break
 
-    except Exceptions as err:
+    except Exception as err:
         print(f"[!] Error :: {err}")
 
 if __name__ == "__main__":

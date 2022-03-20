@@ -48,7 +48,7 @@ def check_for_aem(url):
                 aem_sites.append(url)
                 break
 
-    except Exceptions as err:
+    except Exception as err:
         print(f"[!] Error :: {err}")
 
 if __name__ == "__main__":
@@ -67,7 +67,3 @@ if __name__ == "__main__":
             url = f"https://{host}"
             executor.submit(check_for_aem, url)
 
-    if not aem_sites:
-        print("\n[!] No aem sites found")
-    else:
-        save_aem_sites(outfile)

@@ -43,7 +43,7 @@ def check_for_gmapapi(url):
                 for result in results:
                     print(f"- {result}")
 
-    except Exceptions as err:
+    except Exception as err:
         print(f"[!] Error :: {err}")
 
 if __name__ == "__main__":
