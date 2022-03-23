@@ -39,7 +39,7 @@ def scan(target, scan_type):
         print(f'[!] {err}')
 
 if __name__ == "__main__":
-    parser = ArgumentParser(description='Scan web servers using python3 nmap library.')
+    parser = ArgumentParser(description='Scan servers using python3 nmap library.')
     parser.add_argument("-t", "--target", help="Target to scan.")
     parser.add_argument("-i", "--ifile", help="File containing list of hosts.")
     parser.add_argument("-6", "--v6", help="Set this to 6 for IPv6 portscan, else it will default to IPv4.")
