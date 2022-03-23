@@ -20,7 +20,8 @@ def scan(target, scan_type):
             nm.scan(target, arguments='-6 -sT')
 
         for host in nm.all_hosts():
-            print(f"\n{host} ({nm[host].hostname()})")
+            print(f"\nIP: {host}")
+            print(f"Hostname: {nm[host].hostname()}")
 
             for proto in nm[host].all_protocols():
                 lport = nm[host][proto].keys()
@@ -28,7 +29,7 @@ def scan(target, scan_type):
                 data_obj = Texttable(0)
                 data_obj.set_cols_align(["l", "l", "l"])
                 data_obj.set_cols_dtype(["t", "t", "t"])
-                data_obj.add_row(["Port Number", "State", "Protocol"])
+                data_obj.add_row(["Port", "State", "Protocol"])
 
                 for port in lport:
                     data_obj.add_row([port, nm[host][proto][port]['state'], proto])
@@ -42,14 +43,16 @@ if __name__ == "__main__":
     parser = ArgumentParser(description='Scan servers using python3 nmap library.')
     parser.add_argument("-t", "--target", help="Target to scan.")
     parser.add_argument("-i", "--ifile", help="File containing list of hosts.")
-    parser.add_argument("-6", "--v6", help="Set this to 6 for IPv6 portscan, else it will default to IPv4.")
+    parser.add_argument("-6", "--v6", help="IPv6 portscan.", action='store_true')
     args = parser.parse_args()
 
     target = args.target
     inputfile = args.ifile
     v6 = args.v6
 
-    if v6 != "6":
+    if v6:
+        v6 = "6"
+    else:
         v6 = "4"
 
     if target:
