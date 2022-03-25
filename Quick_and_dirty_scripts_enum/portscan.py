@@ -3,7 +3,6 @@ import argparse
 import socket
 import concurrent.futures
 import sys
-import ipaddress
 import os
 from datetime import datetime
 
@@ -58,8 +57,6 @@ if __name__ == "__main__":
     try:
         if target:
             target = target.strip()
-            ipaddress.ip_address(target)
-
             target = socket.gethostbyname(target)
 
             banner()
