@@ -3,10 +3,9 @@ import argparse
 import socket
 import concurrent.futures
 import sys
-from zipfile import ZipFile
+import ipaddress
+import os
 from datetime import datetime
-
-open_ports = []
 
 def banner():
     intro = """
@@ -18,24 +17,21 @@ def banner():
     """
     print(intro)
 
-def create_zipfile(filename):
-    zip_filename = f"{filename}.zip"
+def save_open_ports(target, odir):
+    if odir != "":
+        filename = f"{odir}/portscan-ipv4-{target}.txt"
+    else:
+        filename = f"portscan-ipv4-{target}.txt"
 
-    with ZipFile(zip_filename,'w') as archive:
-        archive.write(filename)
-
-    print(f"[+] Successfully create {zip_filename}")
-
-def save_open_ports(target):
-    filename = f"portscan-ipv4-{target}.txt"
     open_ports.sort()
 
     with open(filename,'w') as f:
-        for port in open_ports:
-           f.write(f"{port}\n")
+        f.write(f"{target}\n\n")
 
-    print(f"[+] Saved results to {filename}")
-    create_zipfile(filename)
+        for port in open_ports:
+           f.write(f"{port} / tcp\n")
+
+    print(f"Saved results to :: {filename}")
 
 def scan_port(target, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -43,43 +39,56 @@ def scan_port(target, port):
     result = sock.connect_ex((target, port))
 
     if result == 0:
-        print(f"Port {port} is open.")
+        print(f"[+] {port} is open.")
         open_ports.append(port)
 
     sock.close()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Host to perform port scan on.')
-    parser.add_argument("target", help="IPv4 address of target")
+    parser = argparse.ArgumentParser(description='IPv4 TCP port scanner.')
+    parser.add_argument("-t", "--target", help="IPv4 address of target.")
+    parser.add_argument("-d", "--odir", help="Directory to save scans to.")
 
     args = parser.parse_args()
-
     target = args.target
-    target = target.strip()
-    target = socket.gethostbyname(target)
+    odir = args.odir
+
+    open_ports = []
 
     try:
-        banner()
-        dt_format = "%d/%m/%Y %H:%M:%S"
+        if target:
+            target = target.strip()
+            ipaddress.ip_address(target)
 
-        print(f"[+] Target :: {target}")
-        print(f"[+] Started scan at :: {str(datetime.now().strftime(dt_format))}")
+            target = socket.gethostbyname(target)
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
-            for port in range(1, 65535):
-                executor.submit(scan_port, target, port)
+            banner()
+            dt_format = "%d/%m/%Y %H:%M:%S"
 
-        print(f"[+] Scan completed at :: {str(datetime.now().strftime(dt_format))}")
-        save_open_ports(target)
+            print(f"Target :: {target}")
+            print(f"Started scan at :: {str(datetime.now().strftime(dt_format))}\n")
+
+            with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
+                for port in range(1, 65535):
+                    executor.submit(scan_port, target, port)
+
+            print(f"\nScan completed at :: {str(datetime.now().strftime(dt_format))}")
+
+            if odir:    
+                os.makedirs(odir, exist_ok=True)
+                save_open_ports(target, odir)
+            else:
+                save_open_ports(target, "")
+
+        else:
+            parser.print_help()
+            sys.exit()
 
     except KeyboardInterrupt:
-        print("[!] Exiting now.")
-        sys.exit()
+        print("\n[!] Exiting now.")
 
-    except socket.gaierror as err:
-        print(f"[!] Error :: {err}")
-        sys.exit()
+    except Exception as err:
+        print(f"\n[!] {err}")
 
-    except socket.error as err:
-        print(f"[!] Error :: {err}")
+    finally:
         sys.exit()
