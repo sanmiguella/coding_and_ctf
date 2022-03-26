@@ -79,7 +79,6 @@ if __name__ == "__main__":
 
         else:
             parser.print_help()
-            sys.exit()
 
     except KeyboardInterrupt:
         print("\n[!] Exiting now.")
