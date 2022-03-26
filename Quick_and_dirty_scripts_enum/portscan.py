@@ -8,11 +8,12 @@ from datetime import datetime
 
 def banner():
     intro = """
-    ██ ██████  ██    ██ ██   ██     ███████  ██████  █████  ███    ██ ███    ██ ███████ ██████  
-    ██ ██   ██ ██    ██ ██   ██     ██      ██      ██   ██ ████   ██ ████   ██ ██      ██   ██ 
-    ██ ██████  ██    ██ ███████     ███████ ██      ███████ ██ ██  ██ ██ ██  ██ █████   ██████  
-    ██ ██       ██  ██       ██          ██ ██      ██   ██ ██  ██ ██ ██  ██ ██ ██      ██   ██ 
-    ██ ██        ████        ██     ███████  ██████ ██   ██ ██   ████ ██   ████ ███████ ██   ██ 
+    ██████╗  ██████╗ ██████╗ ████████╗    ███████╗ ██████╗ █████╗ ███╗   ██╗███╗   ██╗███████╗██████╗ 
+    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝    ██╔════╝██╔════╝██╔══██╗████╗  ██║████╗  ██║██╔════╝██╔══██╗
+    ██████╔╝██║   ██║██████╔╝   ██║       ███████╗██║     ███████║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝
+    ██╔═══╝ ██║   ██║██╔══██╗   ██║       ╚════██║██║     ██╔══██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗
+    ██║     ╚██████╔╝██║  ██║   ██║       ███████║╚██████╗██║  ██║██║ ╚████║██║ ╚████║███████╗██║  ██║
+    ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝       ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
     """
     print(intro)
 
@@ -32,8 +33,12 @@ def save_open_ports(target, odir):
 
     print(f"Saved results to :: {filename}")
 
-def scan_port(target, port):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+def scan_port(target, port, v6):
+    if v6:
+        sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+    else:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
     socket.setdefaulttimeout(1)
     result = sock.connect_ex((target, port))
 
@@ -44,20 +49,26 @@ def scan_port(target, port):
     sock.close()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='IPv4 TCP port scanner.')
-    parser.add_argument("-t", "--target", help="IPv4 address of target.")
+    parser = argparse.ArgumentParser(description='TCP port scanner.')
+    parser.add_argument("-t", "--target", help="IP address of target.")
     parser.add_argument("-d", "--odir", help="Directory to save scans to.")
+    parser.add_argument("-6", "--v6", help="IPv6 scan.", action="store_true")
 
     args = parser.parse_args()
     target = args.target
     odir = args.odir
+    v6 = args.v6
 
     open_ports = []
 
     try:
         if target:
             target = target.strip()
-            target = socket.gethostbyname(target)
+        
+            if v6:
+                target = socket.getaddrinfo(target, None, socket.AF_INET6)[0][4][0]
+            else:
+                target = socket.gethostbyname(target)
 
             banner()
             dt_format = "%d/%m/%Y %H:%M:%S"
@@ -67,7 +78,7 @@ if __name__ == "__main__":
 
             with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
                 for port in range(1, 65535):
-                    executor.submit(scan_port, target, port)
+                    executor.submit(scan_port, target, port, v6)
 
             print(f"\nScan completed at :: {str(datetime.now().strftime(dt_format))}")
 
