@@ -14,13 +14,13 @@ else
     # Remove https:// ; Only include domain names
     dname=$(echo $line | awk -F '//' '{print $2}')
 
-    echo -e "++ Performing top ports scan on $dname ++\n"
+    echo -e "\n++ Performing top ports scan on $dname ++\n"
     nmap -sT -sC -sV --min-rate 50 -v $dname -oA "nmap-$dname" 2> /dev/null
 
-    echo -e "++ Performing nikto scan on $dname ++\n"
+    echo -e "\n++ Performing nikto scan on $dname ++\n"
     nikto -h $dname -port 443 -Tuning x6 2> /dev/null | tee "nikto-$dname"
 
-    echo -e "++ Performing dirb scan on $dname ++\n"
+    echo -e "\n++ Performing dirb scan on $dname ++\n"
     dirb $line -o "dirb-$dname" 2> /dev/null
   done < $FNAME
 
