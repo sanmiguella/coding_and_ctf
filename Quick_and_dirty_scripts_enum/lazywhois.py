@@ -15,12 +15,12 @@ def performWhois(ip):
     res = obj.lookup_whois()
     #pprint(res)
 
-    if simpleView:
-        #https://stackoverflow.com/questions/275018/how-do-i-remove-a-trailing-newline#:~:text=You%20may%20use%20line%20%3D%20line,the%20string%2C%20not%20just%20one.
-        regUnwanted = re.compile("[\r\n]")
-        desc = res['nets'][0]['description']
-        desc = regUnwanted.sub(" ", desc)
+    # https://stackoverflow.com/questions/275018/how-do-i-remove-a-trailing-newline#:~:text=You%20may%20use%20line%20%3D%20line,the%20string%2C%20not%20just%20one.
+    regUnwanted = re.compile("[\r\n]")
+    desc = res['nets'][0]['description']
+    desc = regUnwanted.sub(" ", desc)
 
+    if simpleView:
         # Query | Cidr | Description | Asn
         data = f"{res['query']} | {res['nets'][0]['cidr']} | {desc} | {res['asn']}\n"
     elif neatView:
