@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 import argparse
 import sys
+import re
 from ipwhois import IPWhois
 #from pprint import pprint
 
 def readFromFile(file_to_read):
-    with open(file_to_read, 'r') as f:
-        hostnames = f.readlines()
-
+    with open(file_to_read, 'r') as f: hostnames = f.readlines()
     return(hostnames)
 
 def performWhois(ip):
@@ -17,13 +16,18 @@ def performWhois(ip):
     #pprint(res)
 
     if simpleView:
+        #https://stackoverflow.com/questions/275018/how-do-i-remove-a-trailing-newline#:~:text=You%20may%20use%20line%20%3D%20line,the%20string%2C%20not%20just%20one.
+        regUnwanted = re.compile("[\r\n]")
+        desc = res['nets'][0]['description']
+        desc = regUnwanted.sub(" ", desc)
+
         # Query | Cidr | Description | Asn
-        data = f"{res['query']} | {res['nets'][0]['cidr']} | {res['nets'][0]['description']} | {res['asn']}\r\n"
+        data = f"{res['query']} | {res['nets'][0]['cidr']} | {desc} | {res['asn']}\n"
     elif neatView:
-        data  = f"Query: {res['query']}\r\n"
-        data += f"Cidr: {res['nets'][0]['cidr']}\r\n"
-        data += f"Description: {res['nets'][0]['description']}\r\n"
-        data += f"Asn: {res['asn']}\r\n"
+        data  = f"Query: {res['query']}\n"
+        data += f"Cidr: {res['nets'][0]['cidr']}\n"
+        data += f"Description: {desc}\n"
+        data += f"Asn: {res['asn']}\n"
 
     print(data)
     return(data)
@@ -53,11 +57,6 @@ if __name__ == "__main__":
         for ip in ipList:
             try:
                 dataToWrite = performWhois(ip)
-                f.write(dataToWrite + "\r\n")
-
-            except KeyboardInterrupt:
-                print('\nExiting...\n')
-                sys.exit()
-
+                f.write(dataToWrite + "\n")
             except Exception as err:
                 print(f'\n{err}\n')
