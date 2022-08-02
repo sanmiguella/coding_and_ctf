@@ -16,9 +16,8 @@ def performWhois(ip):
     res = obj.lookup_whois()
     #pprint(res)
 
-    data  = f"Description: {res['nets'][0]['description']} - {res['query']}\r\n"
+    data  = f"Info: {res['nets'][0]['description']} | {res['query']} | {res['nets'][0]['cidr']}\r\n"
     data += f"Asn: {res['asn']}\r\n"
-    data += f"Cidr: {res['nets'][0]['cidr']}\r\n"
 
     print(data)
     return(data)
