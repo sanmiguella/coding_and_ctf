@@ -32,7 +32,18 @@ def performWhois(ip):
     print(data)
     return(data)
 
+def showBanner():
+    banner = '''
+    ██       █████  ███████ ██    ██ ██     ██ ██   ██  ██████  ██ ███████ 
+    ██      ██   ██    ███   ██  ██  ██     ██ ██   ██ ██    ██ ██ ██      
+    ██      ███████   ███     ████   ██  █  ██ ███████ ██    ██ ██ ███████ 
+    ██      ██   ██  ███       ██    ██ ███ ██ ██   ██ ██    ██ ██      ██ 
+    ███████ ██   ██ ███████    ██     ███ ███  ██   ██  ██████  ██ ███████ 
+    '''
+    print(banner)
+
 if __name__ == "__main__":
+    showBanner()
     parser = argparse.ArgumentParser(description="Get whois data from IP address")
     parser.add_argument("file_to_read", help="File containing a list of IP addresses")
     parser.add_argument("-o", "--outfile", help="Output file to write results to", required=True)
