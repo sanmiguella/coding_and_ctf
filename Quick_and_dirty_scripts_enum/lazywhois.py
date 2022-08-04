@@ -2,6 +2,8 @@
 import argparse
 import sys
 import re
+import socket
+import concurrent.futures
 from ipwhois import IPWhois
 #from pprint import pprint
 
@@ -22,15 +24,32 @@ def performWhois(ip):
 
     if simpleView:
         # Query | Cidr | Description | Asn
-        data = f"{res['query']} | {res['nets'][0]['cidr']} | {desc} | {res['asn']}\n"
+        data = f"{res['query']} | {res['nets'][0]['cidr']} | {desc} | {res['asn']}"
+        print(data)
+        data += "\n"
     elif neatView:
         data  = f"Query: {res['query']}\n"
         data += f"Cidr: {res['nets'][0]['cidr']}\n"
         data += f"Description: {desc}\n"
         data += f"Asn: {res['asn']}\n"
+        print(data)
 
-    print(data)
     return(data)
+
+def resolveIPv4(hostname):
+    try:
+        ipv4Addr = socket.gethostbyname(hostname)
+        ipList.append(ipv4Addr)
+    except:
+        pass
+
+def resolveIPv6(hostname):
+    try:
+        # https://stackoverflow.com/questions/15373288/python-resolve-a-host-name-with-ipv6-address
+        ipv6Addr = socket.getaddrinfo(hostname, None, socket.AF_INET6)[0][4][0]
+        ipList.append(ipv6Addr)
+    except:
+        pass
 
 def showBanner():
     banner = '''
@@ -44,15 +63,14 @@ def showBanner():
 
 if __name__ == "__main__":
     showBanner()
-    parser = argparse.ArgumentParser(description="Get whois data from IP address")
-    parser.add_argument("file_to_read", help="File containing a list of IP addresses")
+    parser = argparse.ArgumentParser(description="Get whois data from a list of hostnames.")
+    parser.add_argument("hostListFile", help="File containing a list of hostnames.")
     parser.add_argument("-o", "--outfile", help="Output file to write results to", required=True)
     parser.add_argument("-s", "--simple", help="Simple view", action='store_true')
     parser.add_argument("-n", "--neat", help="Neat view", action='store_true')
 
     args = parser.parse_args()
-    ipAddresses = readFromFile(args.file_to_read)
-    ipList = [ipAddress.strip() for ipAddress in ipAddresses]
+    hostListFile = args.hostListFile
     outfile = args.outfile
     simpleView = args.simple
     neatView = args.neat
@@ -64,10 +82,29 @@ if __name__ == "__main__":
         print("\nPlease set either -s or -n.\n")
         sys.exit()
 
+    ipList= []
+    hosts = readFromFile(args.hostListFile)
+    hostList = [host.strip() for host in hosts]
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+        for host in hostList:
+            executor.submit(resolveIPv4, host)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+        for host in hostList:
+            executor.submit(resolveIPv6, host)
+
+    #print(ipList)
+
     with open(outfile, 'w') as f:
         for ip in ipList:
             try:
                 dataToWrite = performWhois(ip)
-                f.write(dataToWrite + "\n")
+
+                if neatView:
+                    f.write(dataToWrite + "\n")
+                elif simpleView:
+                    f.write(dataToWrite)
+
             except Exception as err:
                 print(f'\n{err}\n')

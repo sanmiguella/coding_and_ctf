@@ -33,10 +33,10 @@ def save_ipv6_list(filename):
 
 def resolve_hostname(hostname):
     try:
-        result = socket.getaddrinfo(hostname, 443, socket.AF_INET6)
+        result = socket.getaddrinfo(hostname, None, socket.AF_INET6)
         ipv6 = result[0][4][0]
         ipv6_list.append(f"{hostname} {ipv6}")
-        print(f"{hostname} :: {ipv6}")
+        print(f"{hostname} {ipv6}")
 
     except Exception as err:
         #print(f"{hostname} :: {err}")
