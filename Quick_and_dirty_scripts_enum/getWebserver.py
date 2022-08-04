@@ -7,16 +7,15 @@ def getWebserver(hostname):
     try:
         r = requests.get(f"https://{hostname}")
         webServer = r.headers['Server']
+
         data = f"{hostname} : {webServer}"
         print(data)
         data += "\n"
-
     except Exception as err :
         if verbose:
             data = f"{hostname} - {err}"
             print(data)
             data += "\n"
-
     finally:
        resultsList.append(data) 
 
