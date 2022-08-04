@@ -25,7 +25,7 @@ def saveValidHosts():
         for valid_url in valid:
             vf.write(valid_url + "\n")
 
-    print(f"[+] Written valid hosts to :: {validfile}")
+    print(f"[+] Written valid hosts to {validfile}")
 
 def saveMaybeValidHosts():
     maybeValid.sort()
@@ -34,21 +34,23 @@ def saveMaybeValidHosts():
         for maybeValid_url in maybeValid:
             mf.write(maybeValid_url + "\n")
 
-    print(f"[+] Written maybe valid hosts to :: {maybefile}")
+    print(f"[+] Written maybe valid hosts to {maybefile}")
 
 def initiateRequest(url):
     try:
         response = requests.get(url, verify=False)
         responseCode = response.status_code
-        print(f"{url} :: {responseCode}")
+        print(f"{url} : {responseCode}")
+
+        strippedUrl = url.replace('https://','')
 
         if responseCode == 200:
-            valid.append(url)
+            valid.append(strippedUrl)
         else:
-            maybeValid.append(url)
+            maybeValid.append(strippedUrl)
 
     except Exception as err:
-        print(f"{url} :: {err}")
+        print(f"{url} : {err}")
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Check list of hosts for HTTP 200 ok.')
