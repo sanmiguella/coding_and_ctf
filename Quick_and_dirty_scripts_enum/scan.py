@@ -3,9 +3,6 @@ import requests
 import argparse
 import concurrent.futures
 
-valid = []
-maybe_valid = []
-
 requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
 def banner():
@@ -18,13 +15,10 @@ def banner():
     '''
     print(intro)
 
-def read_from_file(file_to_read):
-    with open(file_to_read,'r') as f:
-        urls = f.readlines()
+def readFromFile():
+    with open(hostListFile,'r') as f: return(f.readlines())
 
-    return(urls)
-
-def save_valid_hosts(validfile):
+def saveValidHosts():
     valid.sort()
 
     with open(validfile, 'w') as vf:
@@ -33,47 +27,51 @@ def save_valid_hosts(validfile):
 
     print(f"[+] Written valid hosts to :: {validfile}")
 
-def save_maybe_valid_hosts(maybefile):
-    maybe_valid.sort()
+def saveMaybeValidHosts():
+    maybeValid.sort()
 
     with open(maybefile, 'w') as mf:
-        for maybe_valid_url in maybe_valid:
-            mf.write(maybe_valid_url + "\n")
+        for maybeValid_url in maybeValid:
+            mf.write(maybeValid_url + "\n")
 
     print(f"[+] Written maybe valid hosts to :: {maybefile}")
 
-def initiate_request(url):
+def initiateRequest(url):
     try:
         response = requests.get(url, verify=False)
-        response_code = response.status_code
-        print(f"{url} :: {response_code}")
+        responseCode = response.status_code
+        print(f"{url} :: {responseCode}")
 
-        if response_code == 200:
+        if responseCode == 200:
             valid.append(url)
         else:
-            maybe_valid.append(url)
+            maybeValid.append(url)
 
     except Exception as err:
         print(f"{url} :: {err}")
 
 if __name__=="__main__":
-    parser = argparse.ArgumentParser(description='Check host(s) for code 200.')
-    parser.add_argument("file_to_read", help="Enter file containing a list of hosts")
+    parser = argparse.ArgumentParser(description='Check list of hosts for HTTP 200 ok.')
+    parser.add_argument("fileToRead", help="Enter file containing a list of hosts")
     parser.add_argument("-vf", "--validfile", help="File which contains a list of HTTP 200 ok hosts.", required=True)
-    parser.add_argument("-mf", "--maybefile", help="File which contains a list of hosts whose response code isn't HTTP 200 ok.", required=True)
+    parser.add_argument("-mf", "--maybefile", help="File which contains a list of hosts where the response code isn't HTTP 200 ok.", required=True)
+
+    valid = []
+    maybeValid = []
 
     args = parser.parse_args()
-    urls = read_from_file(args.file_to_read)
-    urls_stripped = [url.strip() for url in urls]
+    hostListFile = args.fileToRead
+    urls = readFromFile()
+    urlsStripped = [url.strip() for url in urls]
     validfile = args.validfile
     maybefile = args.maybefile
 
     banner()
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
-        for url in urls_stripped:
+        for url in urlsStripped:
             url = f"https://{url}"
-            executor.submit(initiate_request, url)
+            executor.submit(initiateRequest, url)
 
     print()
-    save_valid_hosts(validfile)
-    save_maybe_valid_hosts(maybefile)
+    saveValidHosts()
+    saveMaybeValidHosts()
