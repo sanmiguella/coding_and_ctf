@@ -7,8 +7,8 @@ import concurrent.futures
 from ipwhois import IPWhois
 #from pprint import pprint
 
-def readFromFile(file_to_read):
-    with open(file_to_read, 'r') as f: hostnames = f.readlines()
+def readFromFile(fileToRead):
+    with open(fileToRead, 'r') as f: hostnames = f.readlines()
     return(hostnames)
 
 def performWhois(ip):
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         sys.exit()
 
     ipList= []
-    hosts = readFromFile(args.hostListFile)
+    hosts = readFromFile(hostListFile)
     hostList = [host.strip() for host in hosts]
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
