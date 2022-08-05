@@ -2,13 +2,17 @@
 import requests
 import argparse
 import concurrent.futures
+import socket
 
 def getWebserver(hostname):
     try:
         r = requests.get(f"https://{hostname}")
         webServer = r.headers['Server']
 
-        data = f"{hostname} : {webServer}"
+        ipv4 = resolveHostnameToIPv4(hostname)
+        ipv6 = resolveHostnameToIPv6(hostname)
+
+        data = f"{hostname} | {ipv4} | {ipv6} | {webServer}"
         print(data)
         data += "\n"
     except Exception as err :
@@ -26,6 +30,22 @@ def saveToFile():
     with open(outfile,'w') as f: 
         for result in resultsList:
             f.write(result)
+
+def resolveHostnameToIPv4(hostname):
+    try:
+        data = socket.gethostbyname(hostname)
+    except:
+        data = 'No IPv4 address'
+    finally:
+        return(data)
+
+def resolveHostnameToIPv6(hostname):
+    try:
+        data = socket.getaddrinfo(hostname, None, socket.AF_INET6)[0][4][0]
+    except:
+        data = 'No IPv6 address'
+    finally:
+        return(data)
 
 def showBanner():
     banner = '''
