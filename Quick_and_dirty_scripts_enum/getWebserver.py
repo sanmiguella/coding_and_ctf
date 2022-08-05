@@ -27,6 +27,8 @@ def readFromFile():
     with open(hostListFile,'r') as f: return(f.readlines())
 
 def saveToFile():
+    resultsList.sort()
+
     with open(outfile,'w') as f: 
         for result in resultsList:
             f.write(result)
@@ -35,7 +37,7 @@ def resolveHostnameToIPv4(hostname):
     try:
         data = socket.gethostbyname(hostname)
     except:
-        data = 'No IPv4 address'
+        data = 'NoIPv4'
     finally:
         return(data)
 
@@ -43,7 +45,7 @@ def resolveHostnameToIPv6(hostname):
     try:
         data = socket.getaddrinfo(hostname, None, socket.AF_INET6)[0][4][0]
     except:
-        data = 'No IPv6 address'
+        data = 'NoIPv6'
     finally:
         return(data)
 
