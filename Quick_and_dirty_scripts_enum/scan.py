@@ -38,20 +38,20 @@ def saveOtherCodeHosts():
     print(f"Written hosts which responds with other codes to {otherCodeFile}")
 
 def initRequest(url):
+    strippedUrl = url.replace('https://','')
+
     try:
         response = requests.get(url,verify=False)
         responseCode = response.status_code
 
-        strippedUrl = url.replace('https://','')
-        print(f"{strippedUrl} : {responseCode}")
+        if responseCode == 200: validCode.append(strippedUrl)
+        else: otherCode.append(strippedUrl)
 
-        if responseCode == 200:
-            validCode.append(strippedUrl)
-        else:
-            otherCode.append(strippedUrl)
-
+        msg = f"{strippedUrl} : {responseCode}"
     except Exception as err:
-        print(f"{strippedUrl} : {err}")
+        msg = f"{strippedUrl} : {err}"
+    finally:
+        print(msg)
 
 if __name__=="__main__":
     banner()
@@ -59,6 +59,7 @@ if __name__=="__main__":
     parser.add_argument("fileToRead", help="File containing a list of hosts.")
     parser.add_argument("-vf", "--validCodeFile", help="Writes to file a list of HTTP 200 ok hosts.", required=True)
     parser.add_argument("-of", "--otherCodeFile", help="Writes to file a list of hosts where response code isn't HTTP 200.", required=True)
+    parser.add_argument("-t", "--threads", help="Number of threads to use, default is 4.")
 
     validCode = []
     otherCode = []
@@ -72,7 +73,13 @@ if __name__=="__main__":
     validCodeFile = args.validCodeFile
     otherCodeFile = args.otherCodeFile
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+    tr = args.threads
+    if tr is None: tr = 4
+    else: tr = int(tr)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=tr) as executor:
+        print(f'Executing scan with {tr} threads.\n')
+
         for url in urlsStripped:
             executor.submit(initRequest,f"https://{url}")
 
