@@ -21,12 +21,12 @@ def resolveHostname(hostname):
     try:
         ipv4 = socket.gethostbyname(hostname)
     except:
-        ipv4 = 'No IPv4'
+        ipv4 = 'NoIPv4'
 
     try:
         ipv6 = socket.getaddrinfo(hostname, None, socket.AF_INET6)[0][4][0]
     except:
-        ipv6 = 'No IPv6'
+        ipv6 = 'NoIPv6'
 
     data = f"{hostname} | {ipv4} | {ipv6}"
     ipList.append(data)

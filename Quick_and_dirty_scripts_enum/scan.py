@@ -83,5 +83,6 @@ if __name__=="__main__":
         for url in urlsStripped:
             executor.submit(initRequest,f"https://{url}")
 
+    print()
     saveValidHosts()
     saveOtherCodeHosts()
