@@ -32,14 +32,14 @@ def resolveHostname(hostname):
     ipList.append(data)
     print(data)
 
-def saveIP(filename):
+def saveIP():
     ipList.sort()
 
-    with open(filename,'w') as ipFile:
+    with open(outfile,'w') as ipFile:
         for result in ipList:
             ipFile.write(f"{result}\n")
 
-    print(f"\nSaved results to {filename}")
+    print(f"\nSaved results to {outfile}")
 
 if __name__=="__main__":
     ipList = []
@@ -49,14 +49,14 @@ if __name__=="__main__":
     parser.add_argument("-o", "--outfile", help="File to write results to", required=True)
 
     args = parser.parse_args()
+    outfile = args.outfile
     hostnameFileList = args.fileToRead
     hostnames = readFromFile()
     strippedHostnames = [hostname.strip() for hostname in hostnames]
-    outfile = args.outfile
 
     banner()
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         for hostname in strippedHostnames:
             executor.submit(resolveHostname, hostname)
 
-    saveIP(outfile)
+    saveIP()
