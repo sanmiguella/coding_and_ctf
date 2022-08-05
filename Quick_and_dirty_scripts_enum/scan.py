@@ -7,11 +7,12 @@ requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.
 
 def banner():
     intro = '''
-    ██    ██  █████  ██      ██ ██████   █████  ████████  ██████  ██████  
-    ██    ██ ██   ██ ██      ██ ██   ██ ██   ██    ██    ██    ██ ██   ██ 
-    ██    ██ ███████ ██      ██ ██   ██ ███████    ██    ██    ██ ██████  
-     ██  ██  ██   ██ ██      ██ ██   ██ ██   ██    ██    ██    ██ ██   ██ 
-       ████   ██   ██ ███████ ██ ██████  ██   ██    ██     ██████  ██   ██ 
+    ███████╗ ██████╗ █████╗ ███╗   ██╗
+    ██╔════╝██╔════╝██╔══██╗████╗  ██║
+    ███████╗██║     ███████║██╔██╗ ██║
+    ╚════██║██║     ██╔══██║██║╚██╗██║
+    ███████║╚██████╗██║  ██║██║ ╚████║
+    ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝
     '''
     print(intro)
 
@@ -19,61 +20,61 @@ def readFromFile():
     with open(hostListFile,'r') as f: return(f.readlines())
 
 def saveValidHosts():
-    valid.sort()
+    validCode.sort()
 
-    with open(validfile, 'w') as vf:
-        for valid_url in valid:
-            vf.write(valid_url + "\n")
+    with open(validCodeFile,'w') as f:
+        for result in validCode:
+            f.write(f"{result}\n")
 
-    print(f"[+] Written valid hosts to {validfile}")
+    print(f"Written hosts which responds with http 200 to {validCodeFile}")
 
-def saveMaybeValidHosts():
-    maybeValid.sort()
+def saveOtherCodeHosts():
+    otherCode.sort()
 
-    with open(maybefile, 'w') as mf:
-        for maybeValid_url in maybeValid:
-            mf.write(maybeValid_url + "\n")
+    with open(otherCodeFile,'w') as f:
+        for result in otherCode:
+            f.write(f"{result}\n")
 
-    print(f"[+] Written maybe valid hosts to {maybefile}")
+    print(f"Written hosts which responds with other codes to {otherCodeFile}")
 
-def initiateRequest(url):
+def initRequest(url):
     try:
-        response = requests.get(url, verify=False)
+        response = requests.get(url,verify=False)
         responseCode = response.status_code
-        print(f"{url} : {responseCode}")
 
         strippedUrl = url.replace('https://','')
+        print(f"{strippedUrl} : {responseCode}")
 
         if responseCode == 200:
-            valid.append(strippedUrl)
+            validCode.append(strippedUrl)
         else:
-            maybeValid.append(strippedUrl)
+            otherCode.append(strippedUrl)
 
     except Exception as err:
-        print(f"{url} : {err}")
+        print(f"{strippedUrl} : {err}")
 
 if __name__=="__main__":
-    parser = argparse.ArgumentParser(description='Check list of hosts for HTTP 200 ok.')
-    parser.add_argument("fileToRead", help="Enter file containing a list of hosts")
-    parser.add_argument("-vf", "--validfile", help="File which contains a list of HTTP 200 ok hosts.", required=True)
-    parser.add_argument("-mf", "--maybefile", help="File which contains a list of hosts where the response code isn't HTTP 200 ok.", required=True)
+    banner()
+    parser = argparse.ArgumentParser(description='Check a list of hosts which responds with HTTP 200 code.')
+    parser.add_argument("fileToRead", help="File containing a list of hosts.")
+    parser.add_argument("-vf", "--validCodeFile", help="Writes to file a list of HTTP 200 ok hosts.", required=True)
+    parser.add_argument("-of", "--otherCodeFile", help="Writes to file a list of hosts where response code isn't HTTP 200.", required=True)
 
-    valid = []
-    maybeValid = []
+    validCode = []
+    otherCode = []
 
     args = parser.parse_args()
     hostListFile = args.fileToRead
+
     urls = readFromFile()
     urlsStripped = [url.strip() for url in urls]
-    validfile = args.validfile
-    maybefile = args.maybefile
 
-    banner()
+    validCodeFile = args.validCodeFile
+    otherCodeFile = args.otherCodeFile
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         for url in urlsStripped:
-            url = f"https://{url}"
-            executor.submit(initiateRequest, url)
+            executor.submit(initRequest,f"https://{url}")
 
-    print()
     saveValidHosts()
-    saveMaybeValidHosts()
+    saveOtherCodeHosts()
