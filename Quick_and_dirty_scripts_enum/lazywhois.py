@@ -24,16 +24,15 @@ def performWhois(ip):
     if simpleView:
         # Query | Cidr | Description | Asn
         data = f"{res['query']} | {res['nets'][0]['cidr']} | {desc} | {res['asn']}"
-        print(data)
-        data += "\n"
     elif neatView:
         data  = f"Query: {res['query']}\n"
         data += f"Cidr: {res['nets'][0]['cidr']}\n"
         data += f"Description: {desc}\n"
         data += f"Asn: {res['asn']}\n"
-        print(data)
 
-    return(data)
+    print(data)
+    data += "\n"
+    resultList.append(data)
 
 def resolveIPv4(hostname):
     try:
@@ -48,15 +47,22 @@ def resolveIPv6(hostname):
         ipv6Addr = socket.getaddrinfo(hostname, None, socket.AF_INET6)[0][4][0]
         ipList.append(ipv6Addr)
     except:
+        # Invalid hostnames will not appear in the ip list
         pass
+
+def saveToFile():
+    resultList.sort()
+    with open(outfile,'w') as f:
+        for result in resultList: f.write(result)
 
 def showBanner():
     banner = '''
-    ██       █████  ███████ ██    ██ ██     ██ ██   ██  ██████  ██ ███████ 
-    ██      ██   ██    ███   ██  ██  ██     ██ ██   ██ ██    ██ ██ ██      
-    ██      ███████   ███     ████   ██  █  ██ ███████ ██    ██ ██ ███████ 
-    ██      ██   ██  ███       ██    ██ ███ ██ ██   ██ ██    ██ ██      ██ 
-    ███████ ██   ██ ███████    ██     ███ ███  ██   ██  ██████  ██ ███████ 
+    ██╗      █████╗ ███████╗██╗   ██╗██╗    ██╗██╗  ██╗ ██████╗ ██╗███████╗
+    ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║    ██║██║  ██║██╔═══██╗██║██╔════╝
+    ██║     ███████║  ███╔╝  ╚████╔╝ ██║ █╗ ██║███████║██║   ██║██║███████╗
+    ██║     ██╔══██║ ███╔╝    ╚██╔╝  ██║███╗██║██╔══██║██║   ██║██║╚════██║
+    ███████╗██║  ██║███████╗   ██║   ╚███╔███╔╝██║  ██║╚██████╔╝██║███████║
+    ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝    ╚══╝╚══╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚══════╝
     '''
     print(banner)
 
@@ -67,6 +73,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--outfile", help="Output file to write results to", required=True)
     parser.add_argument("-s", "--simple", help="Simple view", action='store_true')
     parser.add_argument("-n", "--neat", help="Neat view", action='store_true')
+    parser.add_argument("-t", "--threads", help="Number of threads to use, default is 10.")
 
     args = parser.parse_args()
     hostListFile = args.hostListFile
@@ -81,29 +88,30 @@ if __name__ == "__main__":
         print("\nPlease set either -s or -n.\n")
         sys.exit()
 
+    tr = args.threads
+    if tr is None: tr = 10
+    else: tr = int(tr)
+
+    resultList = []
     ipList= []
     hosts = readFromFile()
     hostList = [host.strip() for host in hosts]
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+    print(f'Executing operations with {tr} threads.')
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=tr) as executor:
+        print('Resolving hostnames to IPv4..')
         for host in hostList:
-            executor.submit(resolveIPv4, host)
+            executor.submit(resolveIPv4,host)
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=tr) as executor:
+        print('Resolving hostnames to IPv6..\n')
         for host in hostList:
-            executor.submit(resolveIPv6, host)
+            executor.submit(resolveIPv6,host)
 
-    #print(ipList)
-
-    with open(outfile,'w') as f:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=tr) as executor:
         for ip in ipList:
-            try:
-                dataToWrite = performWhois(ip)
+            executor.submit(performWhois,ip)
 
-                if neatView:
-                    f.write(dataToWrite + "\n")
-                elif simpleView:
-                    f.write(dataToWrite)
-
-            except Exception as err:
-                print(f'\n{err}\n')
+    print(f'\nSaving results to {outfile}.')
+    saveToFile()
