@@ -10,7 +10,7 @@ def readFromFile(fileToRead):
 
 def checkForSubTakeover(host):
     try:
-        answers = dns.resolver.query(host,'CNAME')
+        answers = dns.resolver.resolve(host,'CNAME')
         cname = ''
         for rdata in answers: cname += str(rdata)
         cnameResult = f'{answers.qname} > {cname}'
@@ -42,13 +42,24 @@ def saveToFile():
         print('\nNo results. Exiting program...')
         sys.exit()
 
+def showBanner():
+    banner = '''
+    ███████ ██    ██ ██████  ████████ ██   ██  ██████  
+    ██      ██    ██ ██   ██    ██    ██  ██  ██    ██ 
+    ███████ ██    ██ ██████     ██    █████   ██    ██ 
+         ██ ██    ██ ██   ██    ██    ██  ██  ██    ██ 
+    ███████  ██████  ██████     ██    ██   ██  ██████  
+    '''
+    print(banner)
+
 if __name__ == "__main__":
     requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
+    showBanner()
     parser = argparse.ArgumentParser(description='Check list of hosts for subdomain takeover.')
     parser.add_argument('hostsFileToRead', help='File containing list of hosts.')
     parser.add_argument('-f', '--fingerprintFile', help='File containing fingerprints for subdomain takeover.',required=True)
-    parser.add_argument('-t', '--threads', help='Number of threads to use, default is 4.')
+    parser.add_argument('-t', '--threads', help='Number of threads to use, default is 10.')
     parser.add_argument('-o', '--outfile', help='File to write results to.',required=True)
 
     takeover = []
@@ -58,7 +69,7 @@ if __name__ == "__main__":
     outfile = args.outfile
 
     tr = args.threads
-    if tr is None: tr = 4
+    if tr is None: tr = 10
     else: tr = int(args.threads)
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=tr) as executor:
