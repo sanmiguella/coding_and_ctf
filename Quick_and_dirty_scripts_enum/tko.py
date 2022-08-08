@@ -47,9 +47,9 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Check list of hosts for subdomain takeover.')
     parser.add_argument('hostsFileToRead', help='File containing list of hosts.')
-    parser.add_argument('-f', '--fingerprintFile', help='File containing fingerprints for subdomain takeover.', required=True)
+    parser.add_argument('-f', '--fingerprintFile', help='File containing fingerprints for subdomain takeover.',required=True)
     parser.add_argument('-t', '--threads', help='Number of threads to use, default is 4.')
-    parser.add_argument('-o', '--outfile', help='File to write results to.')
+    parser.add_argument('-o', '--outfile', help='File to write results to.',required=True)
 
     takeover = []
     args = parser.parse_args()
