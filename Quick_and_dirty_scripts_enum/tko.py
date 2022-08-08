@@ -13,27 +13,32 @@ def checkForSubTakeover(host):
         answers = dns.resolver.resolve(host,'CNAME')
         cname = ''
         for rdata in answers: cname += str(rdata)
-        cnameResult = f'{answers.qname} > {cname}'
+        cnameResult = f'{answers.qname} - {cname} (CNAME)'
     except:
-        cnameResult = f'{host} > No_cname_detected'
-    finally:
-        print(cnameResult)
+        cnameResult = f'{host} - NoCNAME'
 
+    notFound = True
     try:
         res = requests.get(f'https://{host}',verify=False).text
-
+        
         for fingerprint in fingerprintList:
             if fingerprint in res:
-                msg = f'Takeover detected: {host} | {cnameResult} | Fingerprint: {fingerprint}'
+                msg = f'Host: {host} | {cnameResult} | Fingerprint: "{fingerprint}"'
                 takeover.append(msg)
-                print(msg)
+                notFound = False
                 break
+        
+        if notFound:
+            msg = f'Host: {host} | {cnameResult} | No fingerprint matched'
+   
+        print(msg)
     except:
         pass
 
 def saveToFile():
     if len(takeover) > 0:
         takeover.sort()
+
         with open(outfile,'w') as f:
             for result in takeover: f.write(f'{result}\n')
 
