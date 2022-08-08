@@ -23,8 +23,7 @@ def saveValidHosts():
     validCode.sort()
 
     with open(validCodeFile,'w') as f:
-        for result in validCode:
-            f.write(f"{result}\n")
+        for result in validCode: f.write(f"{result}\n")
 
     print(f"Written hosts which responds with http 200 to {validCodeFile}")
 
@@ -32,8 +31,7 @@ def saveOtherCodeHosts():
     otherCode.sort()
 
     with open(otherCodeFile,'w') as f:
-        for result in otherCode:
-            f.write(f"{result}\n")
+        for result in otherCode: f.write(f"{result}\n")
 
     print(f"Written hosts which responds with other codes to {otherCodeFile}")
 
@@ -79,9 +77,7 @@ if __name__=="__main__":
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=tr) as executor:
         print(f'Executing scan with {tr} threads.\n')
-
-        for url in urlsStripped:
-            executor.submit(initRequest,f"https://{url}")
+        for url in urlsStripped: executor.submit(initRequest,f"https://{url}")
 
     print()
     saveValidHosts()
