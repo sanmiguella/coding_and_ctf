@@ -30,10 +30,9 @@ def checkForSubTakeover(host):
         
         if notFound:
             msg = f'Host: {host} | {cnameResult} | No fingerprint matched'
-   
-        print(msg)
     except Exception as err:
         msg = f'Host: {host} | Error: {err}'
+    finally:
         print(msg)
 
 def saveToFile():
