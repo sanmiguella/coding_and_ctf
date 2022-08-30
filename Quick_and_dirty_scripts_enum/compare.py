@@ -3,10 +3,6 @@ from xml.dom import minidom
 import argparse
 import texttable
 
-ipv4_dict = dict()
-ipv6_dict = dict()
-ipv4_to_ipv6_dict = dict()
-
 def readXML(filename, ip_type):
     # https://stackoverflow.com/questions/69320197/write-nmap-xml-scans-in-a-file-and-compare-them
     xmldoc = minidom.parse(filename)
@@ -64,6 +60,9 @@ def show_output():
     tableObj.set_cols_align(["l", "l", "l"])
     tableObj.set_cols_dtype(["t", "t", "t"])
 
+    # No borders
+    tableObj.set_deco(tableObj.HEADER)
+
     tableObj.add_row(["Mac Address", "Legacy IP", "IPv6"])
     for mac_addr in ipv4_to_ipv6_dict:
         ipv4_addr = ipv4_to_ipv6_dict[mac_addr][0]
@@ -73,13 +72,17 @@ def show_output():
     print(tableObj.draw())
 
 if __name__ == "__main__":
+    ipv4_dict = dict()
+    ipv6_dict = dict()
+    ipv4_to_ipv6_dict = dict()
+
     parser = argparse.ArgumentParser(description="Compares IPv4 and IPv6 nmap.xml file.")
-    parser.add_argument("-4", "--v4", help="IPv4 nmap xml file.", required=True)
-    parser.add_argument("-6", "--v6", help="IPv6 nmap xml file.", required=True)
+    parser.add_argument("-4", "--xml4", help="IPv4 nmap xml file.", required=True)
+    parser.add_argument("-6", "--xml6", help="IPv6 nmap xml file.", required=True)
     args = parser.parse_args()
 
-    ipv4_xmlFile = args.v4 
-    ipv6_xmlFile = args.v6
+    ipv4_xmlFile = args.xml4 
+    ipv6_xmlFile = args.xml6
 
     readXML(ipv4_xmlFile, "ipv4")
     readXML(ipv6_xmlFile, "ipv6")
