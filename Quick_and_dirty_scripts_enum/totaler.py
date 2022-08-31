@@ -9,10 +9,10 @@ def parseXML():
     hostTag = doc.getElementsByTagName('host')
 
     tableObj = texttable.Texttable(0)
-    tableObj.set_cols_align(["l", "l", "l"])
-    tableObj.set_cols_dtype(["t", "t", "t"])
+    tableObj.set_cols_align(["l", "l", "l", "l"])
+    tableObj.set_cols_dtype(["t", "t", "t", "t"])
     tableObj.set_deco(tableObj.HEADER)
-    tableObj.add_row(['IP Address', 'Hostname', 'Ports'])
+    tableObj.add_row(['IP Address', 'Hostname', 'Port(s)', 'Num of Port(s)'])
 
     hostCount = 0
     portCount = 0
@@ -31,13 +31,13 @@ def parseXML():
             hostname = hostnameTag.getAttribute('name')
 
         ports = ''
-        for i, p in enumerate(portsTag, 1):
+        for portsPerHostCount, p in enumerate(portsTag, 1):
             portID = p.getAttribute('portid')
             ports += f'{portID} '
             portCount += 1
 
         ports = ports.strip().replace(' ', ', ')
-        tableObj.add_row([ipAddr, hostname, ports])
+        tableObj.add_row([ipAddr, hostname, ports, portsPerHostCount])
 
     print(tableObj.draw()) 
     print(f'\nTotal host(s): {hostCount}\nTotal port(s): {portCount}')
