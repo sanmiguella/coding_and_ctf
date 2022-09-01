@@ -9,38 +9,50 @@ def parseXML():
     hostTag = doc.getElementsByTagName('host')
 
     tableObj = texttable.Texttable(0)
-    tableObj.set_cols_align(["l", "l", "l", "l"])
-    tableObj.set_cols_dtype(["t", "t", "t", "t"])
-    tableObj.set_deco(tableObj.HEADER)
-    tableObj.add_row(['IP Address', 'Hostname', 'Port(s)', 'Num of Port(s)'])
+    tableObj.set_cols_align(["l", "l", "l"])
+    tableObj.set_cols_dtype(["t", "t", "t"])
+    tableObj.set_deco(tableObj.HEADER) # Comment out to include borders.
+    tableObj.add_row(['IP Address', 'Hostname', 'Num of Port(s)'])
 
-    hostCount = 0
-    portCount = 0
+    totalHostCount = 0
+    totalPortCount = 0
+    portsFound = False
 
-    for i, ht in enumerate(hostTag):
+    for ht in hostTag:
         addressTag = ht.getElementsByTagName('address')
         hostnamesTag = ht.getElementsByTagName('hostnames')
         portsTag = ht.getElementsByTagName('port')
 
         for i, a in enumerate(addressTag, 1):
             ipAddr = a.getAttribute('addr')
-            hostCount += 1
 
-        for h in hostnamesTag:
-            hostnameTag = h.getElementsByTagName('hostname')[0]
-            hostname = hostnameTag.getAttribute('name')
+        hostname = 'None'
+        try:
+            for h in hostnamesTag:
+                hostnameTag = h.getElementsByTagName('hostname')[0]
+                hostname = hostnameTag.getAttribute('name')
+        except:
+            pass
 
-        ports = ''
-        for portsPerHostCount, p in enumerate(portsTag, 1):
-            portID = p.getAttribute('portid')
-            ports += f'{portID} '
-            portCount += 1
+        portsPerHostCount = 0
+        try:
+            for p in portsTag:
+                #portID = p.getAttribute('portid')
+                portsPerHostCount += 1
+                totalPortCount += 1
+                portsFound = True
 
-        ports = ports.strip().replace(' ', ', ')
-        tableObj.add_row([ipAddr, hostname, ports, portsPerHostCount])
+            # Host count will only get incremented if the total number of port > 0.
+            if portsFound:
+                totalHostCount += 1
+                portsFound = False
+        except:
+            pass
+
+        tableObj.add_row([ipAddr, hostname, portsPerHostCount])
 
     print(tableObj.draw()) 
-    print(f'\nTotal host(s): {hostCount}\nTotal port(s): {portCount}')
+    print(f'\nTotal host(s): {totalHostCount}\nTotal port(s): {totalPortCount}')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get total number of hosts and services from nmap xml file.")
