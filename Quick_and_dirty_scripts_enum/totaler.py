@@ -49,7 +49,9 @@ def parseXML():
         except:
             pass
 
-        tableObj.add_row([ipAddr, hostname, portsPerHostCount])
+        # Only add entries if ports per host > 0
+        if portsPerHostCount > 0:
+            tableObj.add_row([ipAddr, hostname, portsPerHostCount])
 
     print(tableObj.draw()) 
     print(f'\nTotal host(s): {totalHostCount}\nTotal port(s): {totalPortCount}')
