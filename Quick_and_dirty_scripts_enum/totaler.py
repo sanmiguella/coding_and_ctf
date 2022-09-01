@@ -19,12 +19,11 @@ def parseXML():
     portsFound = False
 
     for ht in hostTag:
-        addressTag = ht.getElementsByTagName('address')
+        addressTag = ht.getElementsByTagName('address')[0]
         hostnamesTag = ht.getElementsByTagName('hostnames')
         portsTag = ht.getElementsByTagName('port')
 
-        for i, a in enumerate(addressTag, 1):
-            ipAddr = a.getAttribute('addr')
+        ipAddr = addressTag.getAttribute('addr')
 
         hostname = 'None'
         try:
