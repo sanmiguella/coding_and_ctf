@@ -4,6 +4,7 @@ import requests
 import argparse
 import concurrent.futures
 import re
+requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
 wordpress_sites = []
 
@@ -34,7 +35,7 @@ def read_from_file(file_to_read):
 
 def check_for_wordpress(url):
     try:
-        html_content = requests.get(url).text
+        html_content = requests.get(url, verify=False).text
         soup = BeautifulSoup(html_content, "lxml")
         body = soup.find_all("body")
         search_str = r'wp-content'
