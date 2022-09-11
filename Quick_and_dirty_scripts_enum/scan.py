@@ -33,10 +33,11 @@ def initRequest(url):
         response = requests.get(url, verify=False)
         responseCode = response.status_code
 
-        if responseCode == 200: validCode.append(strippedUrl)
-        else: otherCode.append(strippedUrl)
-
-        msg = f"{strippedUrl} : {responseCode}"
+        if responseCode == 200: 
+            validCode.append(strippedUrl)
+        else: 
+            msg = f"{strippedUrl} : {responseCode}"
+            otherCode.append(msg)
     except Exception as err:
         msg = f"{strippedUrl} : {err}"
     finally:
