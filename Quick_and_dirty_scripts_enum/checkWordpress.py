@@ -27,7 +27,7 @@ def check_for_wordpress(url):
         html_content = requests.get(url, verify=False).text
         soup = BeautifulSoup(html_content, "lxml")
         body = soup.find_all("body")
-        search_str = r'wp-content|\/wp-content\/|\/wp-includes\/'
+        search_str = r'wp-content|\/wp-includes\/'
 
         for string in body:
             matchObj = re.search(search_str, str(string))
