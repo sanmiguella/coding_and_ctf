@@ -34,7 +34,7 @@ class Scanner:
         except Exception as err:
             print(f"\n[!] {err}")
         else:
-            print(f"\n[+] Wrote results to {self.outfile}\n")
+            print(f"\n[>] Wrote results to {self.outfile}\n")
         finally:
             self.found.clear()
 
@@ -59,6 +59,7 @@ class Scanner:
         wordlist = self.readFile()
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.threadsNum) as executor:
+            print()
             print(f"[+] Scanning {self.domainName} with {self.threadsNum} threads...")
             print(f"[+] Wordlists contains {len(wordlist)} entries.")
             print(f"[+] Output file - {self.outfile}")
@@ -110,6 +111,7 @@ class MassDirBruteScan(Scanner):
             self.domainName = host
             self.outfile = f"{urlparse(host).netloc}.txt"
 
+            print()
             print(f"[+] Scanning {host} with {self.threadsNum} threads...")
             print(f"[+] Wordlists contains {len(wordlist)} entries.")
             print(f"[+] Output file - {self.outfile}")
@@ -126,6 +128,7 @@ if __name__ == "__main__":
     subParser = parser.add_subparsers(dest="command")
 
     dirScanParser = subParser.add_parser("dir", help="File|Dir bruteforcing.")
+    dirScanParser.add_argument("-b", "--blacklist", help="Response code to blacklist. -b 200,302,etc")
     dirScanParser.add_argument("-w", "--wordlist", help="Wordlist.", required=True)
     dirScanParser.add_argument("-o", "--outfile", help="Writes results to file.")
     dirScanParser.add_argument("-t", "--threads", nargs="?", const=10, type=int, default=10, help="Threads. Default is 10.")
@@ -145,12 +148,29 @@ if __name__ == "__main__":
 
     if command == "dir" and (args.hostfile is not None):
         massBrute = MassDirBruteScan(args.domain, args.wordlist, args.threads, args.outfile, args.hostfile)
+
+        if args.blacklist is not None:
+            blacklistCodes = [int(code.strip()) for code in args.blacklist.split(",")]
+
+            for code in blacklistCodes:
+                massBrute.blacklistCode.append(code)
+
         massBrute.scan()
+
     elif command == "dir":
         dirBrute = Scanner(args.domain, args.wordlist, args.threads, args.outfile)
+
+        if args.blacklist is not None:
+            blacklistCodes = [int(code.strip()) for code in args.blacklist.split(",")]
+
+            for code in blacklistCodes:
+                dirBrute.blacklistCode.append(code)
+
         dirBrute.scan()
+
     elif command == "sub":
         subBrute = SubDomainScanner(args.domain, args.wordlist, args.threads, args.outfile)
         subBrute.scan()
+
     else:
         parser.print_usage()
