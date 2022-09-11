@@ -63,7 +63,11 @@ class Scanner:
             print(f"[+] Scanning {self.domainName} with {self.threadsNum} threads...")
             print(f"[+] Wordlists contains {len(wordlist)} entries.")
             print(f"[+] Output file - {self.outfile}")
-            print(f"[+] Blacklisted response code - {self.blacklistCode}\n")
+
+            if command != "sub":
+                print(f"[+] Blacklisted response code - {self.blacklistCode}\n")
+            else:
+                print()
 
             for fuzz in wordlist:
                 executor.submit(self.checkResponse, fuzz)
