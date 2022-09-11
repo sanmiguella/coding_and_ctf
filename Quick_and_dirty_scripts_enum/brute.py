@@ -13,18 +13,7 @@ class Scanner:
         self.threadsNum = threadsNum
         self.outfile = outfile
         self.found = []
-        self.showBanner()
         self.timeout = 60
-
-    def showBanner(self):
-        msg = '''
-██████  ██████  ██    ██ ████████ ███████ 
-██   ██ ██   ██ ██    ██    ██    ██      
-██████  ██████  ██    ██    ██    █████   
-██   ██ ██   ██ ██    ██    ██    ██      
-██████  ██   ██  ██████     ██    ███████
-'''
-        print(msg)
 
     def readFile(self):
         try:
@@ -44,7 +33,9 @@ class Scanner:
         except Exception as err:
             print(f"\n[!] {err}")
         else:
-            print(f"\n[+] Written file to {self.outfile}")
+            print(f"\n[+] Results saved to {self.outfile}\n")
+        finally:
+            self.found.clear()
 
     def checkResponse(self, fuzz):
         try:
@@ -69,15 +60,13 @@ class Scanner:
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.threadsNum) as executor:
             print(f"[+] Scanning {self.domainName} with {self.threadsNum} threads...")
             print(f"[+] Wordlists contains {len(wordlist)} entries.")
-            print(f"[+] Save results - {self.outfile}\n")
+            print(f"[+] Will save results to {self.outfile}\n")
 
             for fuzz in wordlist:
                 executor.submit(self.checkResponse, fuzz)
 
         if self.outfile is not None:
             self.writeFile()
-
-        self.found.clear()
 
 class SubDomainScanner(Scanner):
     def __init__(self, domainName, wordlist, threadsNum, outfile):
@@ -128,7 +117,6 @@ class MassDirBruteScan(Scanner):
                     executor.submit(self.checkResponse, fuzz)
 
             self.writeFile()
-            self.found.clear()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Enumerate files/folders from a given domain name.")
