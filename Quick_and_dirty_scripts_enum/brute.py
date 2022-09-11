@@ -12,8 +12,9 @@ class Scanner:
         self.wordlist = wordlist
         self.threadsNum = threadsNum
         self.outfile = outfile
-        self.found = []
         self.timeout = 60
+        self.found = []
+        self.blacklistCode = [404,403]
 
     def readFile(self):
         try:
@@ -33,7 +34,7 @@ class Scanner:
         except Exception as err:
             print(f"\n[!] {err}")
         else:
-            print(f"\n[+] Results saved to {self.outfile}\n")
+            print(f"\n[+] Wrote results to {self.outfile}\n")
         finally:
             self.found.clear()
 
@@ -48,7 +49,7 @@ class Scanner:
         else:
             responseCode = r.status_code
 
-            if responseCode == 404 or responseCode == 403:
+            if responseCode in self.blacklistCode:
                 pass
             else:
                 print(f"{url} -> {responseCode}")
@@ -60,7 +61,8 @@ class Scanner:
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.threadsNum) as executor:
             print(f"[+] Scanning {self.domainName} with {self.threadsNum} threads...")
             print(f"[+] Wordlists contains {len(wordlist)} entries.")
-            print(f"[+] Will save results to {self.outfile}\n")
+            print(f"[+] Output file - {self.outfile}")
+            print(f"[+] Blacklisted response code - {self.blacklistCode}\n")
 
             for fuzz in wordlist:
                 executor.submit(self.checkResponse, fuzz)
@@ -110,7 +112,8 @@ class MassDirBruteScan(Scanner):
 
             print(f"[+] Scanning {host} with {self.threadsNum} threads...")
             print(f"[+] Wordlists contains {len(wordlist)} entries.")
-            print(f"[+] Save results - {self.outfile}\n")
+            print(f"[+] Output file - {self.outfile}")
+            print(f"[+] Blacklisted response code - {self.blacklistCode}\n")
 
             with concurrent.futures.ThreadPoolExecutor(max_workers=self.threadsNum) as executor:
                 for fuzz in wordlist:
@@ -119,29 +122,34 @@ class MassDirBruteScan(Scanner):
             self.writeFile()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Enumerate files/folders from a given domain name.")
-    parser.add_argument("--dir", help="File/Directory BruteForcing.", action="store_true")
-    parser.add_argument("--hostfile", help="List of hosts to perform File/Directory BruteForcing on.")
-    parser.add_argument("--sub", help="SubDomain BruteForcing.", action="store_true")
-    parser.add_argument("-d", "--domain", help="Domain name of target: 'https://test.com' for file/directory bruteforcing. 'test.com' for subdomain bruteforcing.")
-    parser.add_argument("-w", "--wordlist", help="Wordlist containing file(s)/folder(s).", required=True)
-    parser.add_argument("-o", "--outfile", help="File to save results to.")
-    parser.add_argument("-t", "--threads", nargs="?", const=10, type=int, default=10, help="Number of threads to use, default is 10.")
+    parser = argparse.ArgumentParser(description="Bruteforce file|dir|subdomain(s).")
+    subParser = parser.add_subparsers(dest="command")
+
+    dirScanParser = subParser.add_parser("dir", help="File|Dir bruteforcing.")
+    dirScanParser.add_argument("-w", "--wordlist", help="Wordlist.", required=True)
+    dirScanParser.add_argument("-o", "--outfile", help="Writes results to file.")
+    dirScanParser.add_argument("-t", "--threads", nargs="?", const=10, type=int, default=10, help="Threads. Default is 10.")
+
+    singleOrMassScanParser = dirScanParser.add_mutually_exclusive_group() 
+    singleOrMassScanParser.add_argument("-f", "--hostfile", help="Host file format: https://test.com")
+    singleOrMassScanParser.add_argument("-d", "--domain", help="Domain format: https://test.com")
+
+    subScanParser = subParser.add_parser("sub", help="Subdomain bruteforcing.")
+    subScanParser.add_argument("-d", "--domain", help="Domain format: test.com")
+    subScanParser.add_argument("-w", "--wordlist", help="Wordlist.", required=True)
+    subScanParser.add_argument("-o", "--outfile", help="Writes results to file.")
+    subScanParser.add_argument("-t", "--threads", nargs="?", const=10, type=int, default=10, help="Threads. Default is 10.")
     
     args = parser.parse_args()
+    command = args.command
 
-    dirScan = args.dir
-    subScan = args.sub
-
-    if dirScan and subScan:
-        print("\n[!] Choose either File/Directory or SubDomain bruteforcing.")
-    elif dirScan and (args.hostfile is not None):
+    if command == "dir" and (args.hostfile is not None):
         massBrute = MassDirBruteScan(args.domain, args.wordlist, args.threads, args.outfile, args.hostfile)
         massBrute.scan()
-    elif dirScan:
+    elif command == "dir":
         dirBrute = Scanner(args.domain, args.wordlist, args.threads, args.outfile)
         dirBrute.scan()
-    elif subScan:
+    elif command == "sub":
         subBrute = SubDomainScanner(args.domain, args.wordlist, args.threads, args.outfile)
         subBrute.scan()
     else:
