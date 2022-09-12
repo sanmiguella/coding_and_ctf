@@ -2,23 +2,24 @@
 import requests
 import argparse
 import sys
-import concurrent.futures
 import os
 import shutil
 
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from bs4 import BeautifulSoup
 from url_downloader import save_file
+from threading import Thread
 
 requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
 def getJSlinks(url, download):
+    jsLinks = list()
+
     try:
-        print()
         res = requests.get(url, verify=False)
 
     except Exception as err:
-        print(f"[!] Error : {err}")
+        print(f"[!] Error (getJSlinks) - {err}")
         pass
 
     else:
@@ -26,12 +27,16 @@ def getJSlinks(url, download):
         scriptTags = soup.find_all('script')
 
         if len(scriptTags) > 0:
+            print()
+
             for tag in scriptTags:
                 src = tag.get('src')
                 
                 if src is not None:
-                    print(f"[+] Found {src}")
-                    jsLinks.append(src)
+                    jsUrl = urljoin(url, src)
+                    
+                    print(f"[+] Found {jsUrl}")
+                    jsLinks.append(jsUrl)
 
             if len(jsLinks) > 0:
                 hostname = urlparse(url).netloc
@@ -42,60 +47,62 @@ def getJSlinks(url, download):
                         f.write(f"{link.strip()}\n")        
 
                 if download:
-                    downloadJSlinks(url)
+                    downloadJSlinks(url, jsLinks)
 
-                jsLinks.clear()
+def downloadJSlinks(url, jsLinks):
+    try: 
+        cwd = os.getcwd()
+        hostname = urlparse(url).netloc
+        fullPath = f"{cwd}/{hostname}"
 
-        else:
-            print(f"[>] No JS file(s) found on {url}")
+        if os.path.exists(fullPath):
+            shutil.rmtree(fullPath, ignore_errors=True)    
 
-def downloadJSlinks(url):
-    if len(jsLinks) > 0:
-        try: 
-            currentDir = os.getcwd()
-            hostname = urlparse(url).netloc
-            fullPath = f"{currentDir}/{hostname}"
+        os.mkdir(fullPath)
 
-            if os.path.exists(fullPath):
-                shutil.rmtree(fullPath, ignore_errors=True)    
+    except Exception as err:
+        print(f"[!] Error (downloadJSlinks) - {err}")
+        pass
 
-            os.mkdir(fullPath)
+    else:
+        print(f"[o] Initiating download on {url}")
+        threads = list()
 
-        except Exception as err:
-            print(f"[!] Error : {err}")
-            pass
+        for link in jsLinks:
+            localFilename = link.split('/')[-1]
 
-        else:
-            for link in jsLinks:
-                localFilename = link.split('/')[-1]
+            try:
+                t = Thread(target=downloadWrapper, args=(link, fullPath, localFilename))
+                threads.append(t)
+                t.start()
 
-                try:
-                    print(f"[o] Downloading {link}")
-                    save_file(url=link, file_path=fullPath, file_name=localFilename)
+            except Exception as dlErr:
+                print(f"[!] Download Error - {link} - {dlErr}")
+                pass
 
-                except Exception as downloadErr:
-                    print(f"[!] {link} : {downloadErr}")
-                    pass
+        for thread in threads:
+            thread.join()
 
-        finally:
-            jsLinks.clear()
-            print()
+    finally:
+        print()
+
+def downloadWrapper(link, fullPath, localFilename):
+    save_file(url=link, file_path=fullPath, file_name=localFilename)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get JS file(s) from website(s).")
     subParser = parser.add_subparsers(dest="command") 
 
-    singleSiteParser = subParser.add_parser("single", help="Get a list of JS file(s) from a single website.")
+    singleSiteParser = subParser.add_parser("single", help="Get JS file(s) from a single website.")
     singleSiteParser.add_argument("-u", "--url", help="Url to download JS file(s) from. Format: https://example.com", required=True)
-    singleSiteParser.add_argument("-d", "--download", help="Download the scraped JS file(s).", action='store_true')
+    singleSiteParser.add_argument("-d", "--download", help="Download JS file(s).", action='store_true')
 
     multipleSiteParser = subParser.add_parser("multiple", help="Get a list of JS file(s) from multiple websites.")
-    multipleSiteParser.add_argument("-f", "--file", help="File containing list of urls.", required=True)
-    multipleSiteParser.add_argument("-d", "--download", help="Download the scraped JS file(s).", action='store_true')
+    multipleSiteParser.add_argument("-f", "--file", help="File containing multiple Url(s).", required=True)
+    multipleSiteParser.add_argument("-d", "--download", help="Download JS file(s).", action='store_true')
 
     args =parser.parse_args()
     command = args.command
-    jsLinks = []
 
     if command == "single":
         getJSlinks(args.url, args.download)
