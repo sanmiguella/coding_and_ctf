@@ -12,6 +12,19 @@ from threading import Thread
 
 requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
+def formDirPath(url):
+    cwd = os.getcwd()
+    hostname = urlparse(url).netloc
+    return(f"{cwd}/{hostname}")
+
+def checkIfDirExists(url):
+    fullPath = formDirPath(url)
+
+    if os.path.exists(fullPath):
+        shutil.rmtree(fullPath, ignore_errors=True)    
+
+    os.mkdir(fullPath)
+
 def getJSlinks(url, download):
     jsLinks = list()
 
@@ -39,55 +52,45 @@ def getJSlinks(url, download):
                     jsLinks.append(jsUrl)
 
             if len(jsLinks) > 0:
-                hostname = urlparse(url).netloc
-                linksFilename = f"{hostname}-js-files.txt"
+                checkIfDirExists(url)
 
-                with open(linksFilename, 'w') as f:
+                fullPath = formDirPath(url)
+                absPath = f"{fullPath}/list_of_js_files.txt"
+
+                with open(absPath, 'w') as f:
                     for link in jsLinks:
                         f.write(f"{link.strip()}\n")        
+
+                print(f"[o] Saved results to {absPath}")
 
                 if download:
                     downloadJSlinks(url, jsLinks)
 
-def downloadJSlinks(url, jsLinks):
-    try: 
-        cwd = os.getcwd()
-        hostname = urlparse(url).netloc
-        fullPath = f"{cwd}/{hostname}"
-
-        if os.path.exists(fullPath):
-            shutil.rmtree(fullPath, ignore_errors=True)    
-
-        os.mkdir(fullPath)
-
-    except Exception as err:
-        print(f"[!] Error (downloadJSlinks) - {err}")
-        pass
-
-    else:
-        print(f"[o] Initiating download on {url}")
-        threads = list()
-
-        for link in jsLinks:
-            localFilename = link.split('/')[-1]
-
-            try:
-                t = Thread(target=downloadWrapper, args=(link, fullPath, localFilename))
-                threads.append(t)
-                t.start()
-
-            except Exception as dlErr:
-                print(f"[!] Download Error - {link} - {dlErr}")
-                pass
-
-        for thread in threads:
-            thread.join()
-
-    finally:
-        print()
-
 def downloadWrapper(link, fullPath, localFilename):
     save_file(url=link, file_path=fullPath, file_name=localFilename)
+
+def downloadJSlinks(url, jsLinks):
+    fullPath = formDirPath(url)
+    threads = list()
+
+    print(f"[o] Initiating download on {url}")
+
+    for link in jsLinks:
+        localFilename = link.split('/')[-1]
+
+        try:
+            t = Thread(target=downloadWrapper, args=(link, fullPath, localFilename))
+            threads.append(t)
+            t.start()
+
+        except Exception as dlErr:
+            print(f"[!] Download Error - {link} - {dlErr}")
+            pass
+
+    for thread in threads:
+        thread.join()
+
+    print()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get JS file(s) from website(s).")
