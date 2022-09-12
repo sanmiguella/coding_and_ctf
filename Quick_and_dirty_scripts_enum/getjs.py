@@ -101,7 +101,7 @@ if __name__ == "__main__":
     multipleSiteParser.add_argument("-f", "--file", help="File containing multiple Url(s).", required=True)
     multipleSiteParser.add_argument("-d", "--download", help="Download JS file(s).", action='store_true')
 
-    args =parser.parse_args()
+    args = parser.parse_args()
     command = args.command
 
     if command == "single":
