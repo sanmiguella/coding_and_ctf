@@ -52,16 +52,14 @@ def getJSlinks(url, download):
                     jsLinks.append(jsUrl)
 
             if len(jsLinks) > 0:
-                checkIfDirExists(url)
+                hostname = urlparse(url).netloc
+                jsLinksFile = f"jsLinks-{hostname}.txt"
 
-                fullPath = formDirPath(url)
-                absPath = f"{fullPath}/list_of_js_files.txt"
-
-                with open(absPath, 'w') as f:
+                with open(jsLinksFile, 'w') as f:
                     for link in jsLinks:
                         f.write(f"{link.strip()}\n")        
 
-                print(f"[o] Saved results to {absPath}")
+                print(f"[o] Saved results to {jsLinksFile}")
 
                 if download:
                     downloadJSlinks(url, jsLinks)
@@ -70,7 +68,9 @@ def downloadWrapper(link, fullPath, localFilename):
     save_file(url=link, file_path=fullPath, file_name=localFilename)
 
 def downloadJSlinks(url, jsLinks):
+    checkIfDirExists(url)
     fullPath = formDirPath(url)
+
     threads = list()
 
     print(f"[o] Initiating download on {url}")
