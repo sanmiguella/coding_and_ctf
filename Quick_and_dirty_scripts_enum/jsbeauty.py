@@ -27,12 +27,13 @@ class MassBeautify(Beautify):
         self.directory = directory
 
     def beautify(self):
-        jsFiles = os.scandir(self.directory)
+        for directory in self.directory:
+            jsFiles = os.scandir(directory)
 
-        for file in jsFiles:
-            jsFile = file.path
-            beautifiedJS = jsbeautifier.beautify_file(jsFile)
-            self.writeToFile(beautifiedJS, jsFile)
+            for file in jsFiles:
+                jsFile = file.path
+                beautifiedJS = jsbeautifier.beautify_file(jsFile)
+                self.writeToFile(beautifiedJS, jsFile)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Beautify JS file.")     
@@ -43,7 +44,7 @@ if __name__ == "__main__":
     singleBeautifyParser.add_argument("-s", "--show", help="Show results to stdout.", action="store_true")
 
     multipleBeautifyParser = subParser.add_parser("multiple", help="Beautify multiple JS file.")
-    multipleBeautifyParser.add_argument("-d", "--dir", help="Directory containing JS files to beautify.", required=True)
+    multipleBeautifyParser.add_argument("-d", "--dir", nargs='+', help="Directory containing JS files to beautify.", required=True)
 
     args = parser.parse_args()
     cmd = args.command
