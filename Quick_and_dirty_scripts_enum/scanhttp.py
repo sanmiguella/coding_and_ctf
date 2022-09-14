@@ -22,7 +22,7 @@ class HttpScan:
         data = [line.strip() for line in lines]
         return(data)
             
-    def saveValidHosts(self):
+    def saveValidResults(self):
         self.validResults.sort()
 
         with open(self.validOutputFile, 'w') as f:
@@ -31,7 +31,7 @@ class HttpScan:
         print(f"\n[>] Written hosts that responded with http 200 to {self.validOutputFile}.")
         self.validResults.clear()
 
-    def saveOtherCodeHosts(self):
+    def saveOtherResults(self):
         self.otherResults.sort()
 
         with open(self.otherOutputFile, 'w') as f:
@@ -72,8 +72,8 @@ class HttpScan:
                 url = f"https://{url}"
                 executor.submit(self.checkResponse, url)
 
-        self.saveValidHosts()
-        self.saveOtherCodeHosts()
+        self.saveValidResults()
+        self.saveOtherResults()
  
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Check hosts that responds with HTTP 200 ok.')
