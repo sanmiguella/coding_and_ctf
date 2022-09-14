@@ -12,10 +12,18 @@ from threading import Thread
 
 requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
+def readFromFile(filename):
+    with open(filename, "r") as f:
+        urls = [line.strip() for line in f.readlines()]
+    
+    return(urls)
+
+def getHostname(url):
+    return(urlparse(url).netloc)
+
 def formDirPath(url):
-    cwd = os.getcwd()
-    hostname = urlparse(url).netloc
-    return(f"{cwd}/{hostname}")
+    hostname = getHostname(url)
+    return(f"{os.getcwd()}/{hostname}")
 
 def checkIfDirExists(url):
     fullPath = formDirPath(url)
@@ -32,7 +40,7 @@ def getJSlinks(url, download):
         res = requests.get(url, verify=False)
 
     except Exception as err:
-        print(f"[!] Error (getJSlinks) - {err}")
+        #print(f"[!] Get JS links error - {err}")
         pass
 
     else:
@@ -47,17 +55,15 @@ def getJSlinks(url, download):
                 
                 if src is not None:
                     jsUrl = urljoin(url, src)
-                    
-                    print(f"[+] Found {jsUrl}")
                     jsLinks.append(jsUrl)
+                    print(f"[+] Found {jsUrl}")
 
             if len(jsLinks) > 0:
-                hostname = urlparse(url).netloc
+                hostname = getHostname(url)
                 jsLinksFile = f"jsLinks-{hostname}.txt"
 
                 with open(jsLinksFile, 'w') as f:
-                    for link in jsLinks:
-                        f.write(f"{link.strip()}\n")        
+                    f.writelines("%s\n" % link.strip() for link in jsLinks)
 
                 print(f"[o] Saved results to {jsLinksFile}")
 
@@ -75,22 +81,26 @@ def downloadJSlinks(url, jsLinks):
 
     print(f"[o] Initiating download on {url}")
 
-    for link in jsLinks:
-        localFilename = link.split('/')[-1]
+    for jsLink in jsLinks:
+        localFilename = jsLink.split('/')[-1]
 
         try:
-            t = Thread(target=downloadWrapper, args=(link, fullPath, localFilename))
-            threads.append(t)
-            t.start()
+            tr = Thread(target=downloadWrapper, args=(jsLink, fullPath, localFilename))
+            threads.append(tr)
+            tr.start()
 
-        except Exception as dlErr:
-            print(f"[!] Download Error - {link} - {dlErr}")
+        except Exception as err:
+            #print(f"[!] Download erro - {jsLink} - {err}")
             pass
 
     for thread in threads:
         thread.join()
 
     print()
+
+def massGet(urls, download):
+    for url in urls:
+        getJSlinks(url, download)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get JS file(s) from website(s).")
@@ -111,13 +121,7 @@ if __name__ == "__main__":
         getJSlinks(args.url, args.download)
 
     elif command == "multiple":
-        with open(args.file, "r") as f:
-            lines = f.readlines()
-
-        urls = [line.strip() for line in lines]
-
-        for url in urls:
-            getJSlinks(url, args.download)
+        massGet(readFromFile(args.file), args.download)
 
     else:
         parser.print_usage()
