@@ -6,71 +6,82 @@ from urllib.parse import urlparse
 
 requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
-def readFromFile():
-    with open(args.file,'r') as f:
-        return(f.readlines())
+class HttpScan:
+    def __init__(self, file, validOutputFile, otherOutputFile, threads):
+        self.file = file
+        self.validOutputFile = validOutputFile
+        self.otherOutputFile = otherOutputFile 
+        self.threads = threads
+        self.validResults = list()
+        self.otherResults = list()
 
-def saveValidHosts():
-    validCode.sort()
+    def readFromFile(self):
+        with open(self.file, 'r') as f:
+            lines = f.readlines()
 
-    with open(validOutputFile, 'w') as f:
-        for result in validCode:
-            f.write(f"{result}\n")
+        data = [line.strip() for line in lines]
+        return(data)
+            
+    def saveValidHosts(self):
+        self.validResults.sort()
 
-    print(f"\n[>] Written hosts that responded with http 200 to {validOutputFile}.")
-    validCode.clear()
+        with open(self.validOutputFile, 'w') as f:
+            f.writelines("%s\n" % result for result in self.validResults)
 
-def saveOtherCodeHosts():
-    otherCode.sort()
+        print(f"\n[>] Written hosts that responded with http 200 to {self.validOutputFile}.")
+        self.validResults.clear()
 
-    with open(otherOutputFile, 'w') as f:
-        for result in otherCode:
-            f.write(f"{result}\n")
+    def saveOtherCodeHosts(self):
+        self.otherResults.sort()
 
-    print(f"[>] Written hosts that responded with other codes to {otherOutputFile}.")
-    otherCode.clear()
+        with open(self.otherOutputFile, 'w') as f:
+            f.writelines("%s\n" % result for result in self.otherResults)
 
-def initRequest(url):
-    domainName = urlparse(url).netloc
+        print(f"[>] Written hosts that responded with other codes to {self.otherOutputFile}.")
+        self.otherResults.clear()
 
-    try:
-        response = requests.get(url, verify=False)
-    except Exception as err:
-        msg = f"{domainName} : {err}"
-    else:
-        resCode = response.status_code
+    def checkResponse(self, url):
+        domainName = urlparse(url).netloc
 
-        if resCode == 200:
-            validCode.append(domainName)
+        try:
+            res = requests.get(url, verify=False)
+
+        except Exception as err:
+            msg = f"{domainName} : {err}"
+
         else:
-            otherCode.append(f"{domainName} : {resCode}")
-    finally:
-        msg = f"{domainName} : {resCode}"
-        print(msg)
+            resCode = res.status_code
 
+            if resCode == 200:
+                self.validResults.append(domainName)
+
+            else:
+                self.otherResults.append(f"{domainName} : {resCode}")
+
+        finally:
+            output = f"{domainName} : {resCode}"
+            print(output)
+    
+    def scan(self):
+        urls = self.readFromFile()
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads) as executor:
+            print(f'[+] Executing scan with {self.threads} threads.\n')
+
+            for url in urls:
+                url = f"https://{url}"
+                executor.submit(self.checkResponse, url)
+
+        self.saveValidHosts()
+        self.saveOtherCodeHosts()
+ 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Check hosts that responds with HTTP 200 ok.')
     parser.add_argument("-f", "--file", help="Host file.", required=True)
     parser.add_argument("-vf", "--validOutputFile", nargs="?", const="vf.txt", default="vf.txt", help="Writes to file a list of HTTP 200 ok hosts. Default file is vf.txt.")
     parser.add_argument("-of", "--otherOutputFile", nargs="?", const="of.txt", default="of.txt", help="Writes to file a list of hosts where response code isn't HTTP 200. Default file is of.txt.")
     parser.add_argument("-t", "--threads", nargs="?", const=10, type=int, default=10,  help="Threads. Default is 10.")
-
-    validCode = []
-    otherCode = []
-
     args = parser.parse_args()
 
-    lines = readFromFile()
-    urls = [line.strip() for line in lines]
-
-    validOutputFile = args.validOutputFile
-    otherOutputFile = args.otherOutputFile
-
-    with concurrent.futures.ThreadPoolExecutor(max_workers=args.threads) as executor:
-        print(f'[+] Executing scan with {args.threads} threads.\n')
-
-        for url in urls:
-            executor.submit(initRequest, f"https://{url}")
-
-    saveValidHosts()
-    saveOtherCodeHosts()
+    scanner = HttpScan(args.file, args.validOutputFile, args.otherOutputFile, args.threads)
+    scanner.scan()
