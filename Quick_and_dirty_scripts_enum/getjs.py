@@ -77,7 +77,7 @@ def downloadJSlinks(url, jsLinks):
     checkIfDirExists(url)
     fullPath = formDirPath(url)
 
-    threads = list()
+    threads_downloadJSlinks = list()
 
     print(f"[o] Initiating download on {url}")
 
@@ -86,21 +86,26 @@ def downloadJSlinks(url, jsLinks):
 
         try:
             tr = Thread(target=downloadWrapper, args=(jsLink, fullPath, localFilename))
-            threads.append(tr)
+            threads_downloadJSlinks.append(tr)
             tr.start()
 
         except Exception as err:
             #print(f"[!] Download erro - {jsLink} - {err}")
             pass
 
-    for thread in threads:
+    for thread in threads_downloadJSlinks:
         thread.join()
 
-    print()
-
 def massGet(urls, download):
+    threads_MassGet = list()
+
     for url in urls:
-        getJSlinks(url, download)
+        tr = Thread(target=getJSlinks, args=(url, download))
+        threads_MassGet.append(tr)
+        tr.start()
+
+    for thread in thread_MassGet:
+        thread.join()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get JS file(s) from website(s).")
