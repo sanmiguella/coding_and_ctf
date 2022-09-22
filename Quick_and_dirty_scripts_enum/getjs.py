@@ -104,7 +104,7 @@ def massGet(urls, download):
         threads_MassGet.append(tr)
         tr.start()
 
-    for thread in thread_MassGet:
+    for thread in threads_MassGet:
         thread.join()
 
 if __name__ == "__main__":
