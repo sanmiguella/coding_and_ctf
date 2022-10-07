@@ -43,7 +43,6 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--threads", nargs="?", const=20, type=int, default=20, help="Number of threads, default is 20.")
 
     args = parser.parse_args()
-    outfile = args.outfile
     urls = read_from_file(args.file)
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.threads) as executor:
@@ -55,5 +54,5 @@ if __name__ == "__main__":
     links = np.unique(links).tolist()
     links.sort()
 
-    if outfile:
-        save_links(outfile, links)
+    if args.outfile:
+        save_links(args.outfile, links)
