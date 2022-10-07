@@ -15,12 +15,6 @@ def save_links(filename, links):
 
     print(f"\n[+] Saved file to {filename}")
 
-def read_from_file(file_to_read):
-    with open(file_to_read,'r') as f:
-        urls = [url.strip() for url in f.readlines()]
-
-    return(urls)
-
 def check_webpage_for_links(url):
     try:
         html_content = requests.get(url, verify=False).text
