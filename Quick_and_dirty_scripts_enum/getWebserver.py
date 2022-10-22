@@ -49,20 +49,9 @@ def resolveHostnameToIPv6(hostname):
     finally:
         return(data)
 
-def showBanner():
-    banner = '''
-     ██████  ███████ ████████ ██     ██ ███████ ██████  ███████ ███████ ██████  ██    ██ ███████ ██████  
-     ██       ██         ██    ██     ██ ██      ██   ██ ██      ██      ██   ██ ██    ██ ██      ██   ██ 
-     ██   ███ █████      ██    ██  █  ██ █████   ██████  ███████ █████   ██████  ██    ██ █████   ██████  
-     ██    ██ ██         ██    ██ ███ ██ ██      ██   ██      ██ ██      ██   ██  ██  ██  ██      ██   ██ 
-      ██████  ███████    ██     ███ ███  ███████ ██████  ███████ ███████ ██   ██   ████   ███████ ██   ██ 
-    '''
-    print(banner)
-
 if __name__ == "__main__":
-    showBanner()
     parser = argparse.ArgumentParser(description="Get webserver name/version from list of hostnames.")
-    parser.add_argument("hostListFile", help="File containing a list of hostnames.")
+    parser.add_argument("hostListFile", help="File containing a list of hostnames with no http:// or https://")
     parser.add_argument("-o", "--outfile", help="File to write results to.")
     parser.add_argument("-v", "--verbose", help="Show errors.", action='store_true')
 
@@ -73,10 +62,11 @@ if __name__ == "__main__":
     hostListFile = args.hostListFile
     hosts = readFromFile()
     hostList = [host.strip() for host in hosts]
-    resultsList = []
+    resultsList = list()
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         for host in hostList:
             executor.submit(getWebserver, host)
 
-    saveToFile()
+    if outfile:
+        saveToFile()
