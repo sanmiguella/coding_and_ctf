@@ -101,7 +101,7 @@ class SubDomainScanner(Scanner):
             print(f"[!] {err}")
 
         else:
-            print(f"Valid: {subDomain}")
+            print(f"{subDomain}")
             self.found.append(f"{fuzz}.{self.domainName}")
 
 class MassDirBruteScan(Scanner):
@@ -168,7 +168,7 @@ class DnsScan(SubDomainScanner):
             pass
 
         if (resolvedToIPv4 is not None) or (resolvedToIPv6 is not None):
-            print(f"Valid: {subDomain}")
+            print(f"{subDomain}")
             self.found.append(subDomain)
 
     def scan(self):
