@@ -156,20 +156,21 @@ class DnsScan(SubDomainScanner):
         resolvedToIPv6 = None
 
         try:
-            resolvedToIPv4 = resolver.query(subDomain, self.recordType_A)[0]
+            resolvedToIPv4 = resolver.resolve(subDomain, self.recordType_A)[0]
 
         except:
             pass
 
         try:
-            resolvedToIPv6 = resolver.query(subDomain, self.recordType_AAAA)[0]
+            resolvedToIPv6 = resolver.resolve(subDomain, self.recordType_AAAA)[0]
 
         except:
             pass
 
-        if (resolvedToIPv4 is not None) or (resolvedToIPv6 is not None):
-            print(f"{subDomain}")
-            self.found.append(subDomain)
+        finally:
+            if (resolvedToIPv4 is not None) or (resolvedToIPv6 is not None):
+                print(f"{subDomain}")
+                self.found.append(subDomain)
 
     def scan(self):
         wordlist = self.readFile()
