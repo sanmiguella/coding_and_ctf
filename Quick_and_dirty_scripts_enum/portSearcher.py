@@ -5,7 +5,8 @@ import argparse
 def parse_xml():
     xmlDoc = minidom.parse(xmlFile)
     hostTag = xmlDoc.getElementsByTagName('host')
-
+    notFound = True
+  
     for host in hostTag:
         addressTag = host.getElementsByTagName('address')[0]
         ipAddr = addressTag.getAttribute('addr')
@@ -22,8 +23,12 @@ def parse_xml():
             listedPortsExistOnHost = all(port in host_portList for port in portList)
             
             if listedPortsExistOnHost:
+                notFound = False
                 ports =  ' '.join(str(port) for port in host_portList)
                 print(f'[+] {portList} found on {ipAddr} - {ports}')
+
+    if notFound:
+        print(f'[-] {portList} not found on {xmlFile}')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Get host from port(s)')
