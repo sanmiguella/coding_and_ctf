@@ -1,39 +1,55 @@
 #!/usr/bin/env python3
 from xml.dom import minidom
 import argparse
+import texttable
 
 def parse_xml():
-    xmlDoc = minidom.parse(xmlFile)
-    hostTag = xmlDoc.getElementsByTagName('host')
-    notFound = True
-  
-    for host in hostTag:
-        addressTag = host.getElementsByTagName('address')[0]
-        ipAddr = addressTag.getAttribute('addr')
+    try:
+        xmlDoc = minidom.parse(xmlFile)
+        hostTag = xmlDoc.getElementsByTagName('host')
+        notFound = True
+        foundCount = 0
+     
+        tableObj = texttable.Texttable(0)
+        tableObj.set_cols_align(['l', 'l']) # Align left
+        tableObj.set_cols_dtype(['t', 't']) # Data type text
+        tableObj.add_row(['IP Address', 'Port(s) open']) # Table header
 
-        host_portList = list()
-        portsTag = host.getElementsByTagName('port')
+        for host in hostTag:
+            addressTag = host.getElementsByTagName('address')[0]
+            ipAddr = addressTag.getAttribute('addr')
 
-        for singlePort in portsTag:
-            portNum = int(singlePort.getAttribute('portid'))
-            portStatusTag = singlePort.getElementsByTagName('state')[0]
-            portStatus = portStatusTag.getAttribute('state')
+            host_portList = list()
+            portsTag = host.getElementsByTagName('port')
 
-            # Only get open ports for a single host
-            if portStatus == 'open':
-                host_portList.append(portNum)
+            for singlePort in portsTag:
+                portNum = int(singlePort.getAttribute('portid'))
+                portStatusTag = singlePort.getElementsByTagName('state')[0]
+                portStatus = portStatusTag.getAttribute('state')
 
-        if len(host_portList) > 0:
-            # https://thispointer.com/python-check-if-a-list-contains-all-the-elements-of-another-list/
-            listedPortsExistOnHost = all(port in host_portList for port in portList)
-            
-            if listedPortsExistOnHost:
-                notFound = False
-                ports =  ' '.join(str(port) for port in host_portList)
-                print(f'[+] {portList} found on {ipAddr} - {ports}')
+                # Only get open ports for a single host
+                if portStatus == 'open':
+                    host_portList.append(portNum)
 
-    if notFound:
-        print(f'[-] {portList} not found on {xmlFile}')
+            if len(host_portList) > 0:
+                # https://thispointer.com/python-check-if-a-list-contains-all-the-elements-of-another-list/
+                listedPortsExistOnHost = all(port in host_portList for port in portList)
+                
+                if listedPortsExistOnHost:
+                    notFound = False
+                    foundCount += 1
+                    ports =  ', '.join(str(port) for port in host_portList)
+                    tableObj.add_row([ipAddr, ports]) # Table data
+
+        if notFound:
+            print(f'[-] No results')
+        else:
+            ports = ', '.join(str(port) for port in portList)
+            print(f'Found a total of {foundCount} IP addresses that has ports {ports} open')
+            print(tableObj.draw())
+    
+    except Exception as err:
+        print(f'[!] {err}')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Get host from port(s)')
@@ -42,6 +58,16 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     xmlFile = args.xmlfile
-    portList = args.ports
 
-    parse_xml()
+    # https://realpython.com/python-sort/
+    portList = sorted(args.ports)
+    noError = True
+
+    for port in portList:
+        if port < 1 or port > 65535:
+            noError = False
+            print('[-] Ports range 1-65535')
+            break
+
+    if noError:
+        parse_xml()
