@@ -16,7 +16,12 @@ def parse_xml():
 
         for singlePort in portsTag:
             portNum = int(singlePort.getAttribute('portid'))
-            host_portList.append(portNum)
+            portStatusTag = singlePort.getElementsByTagName('state')[0]
+            portStatus = portStatusTag.getAttribute('state')
+
+            # Only get open ports for a single host
+            if portStatus == 'open':
+                host_portList.append(portNum)
 
         if len(host_portList) > 0:
             # https://thispointer.com/python-check-if-a-list-contains-all-the-elements-of-another-list/
