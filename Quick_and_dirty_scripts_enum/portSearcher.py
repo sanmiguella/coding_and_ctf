@@ -15,6 +15,10 @@ def parse_xml():
         tableObj.set_cols_dtype(['t', 't']) # Data type text
         tableObj.add_row(['IP Address', 'Port(s) open']) # Table header
 
+        if noBorder:
+            # No borders
+            tableObj.set_deco(tableObj.HEADER)
+
         for host in hostTag:
             addressTag = host.getElementsByTagName('address')[0]
             ipAddr = addressTag.getAttribute('addr')
@@ -63,6 +67,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Get host from port(s)')
     parser.add_argument('-f', '--xmlfile', help='Nmap xml file to read data from', required=True)
     parser.add_argument('-p', '--ports', nargs='+', type=int,  help='Ports separated by space', required=True)
+    parser.add_argument('-nb', default=False, action='store_true', help='No table borders.')
     
     parseOpt = parser.add_mutually_exclusive_group(required=True)
     parseOpt.add_argument('-any', action='store_true', help='Matches any of the port(s).')
@@ -74,6 +79,7 @@ if __name__ == "__main__":
     # https://realpython.com/python-sort/
     portList = sorted(args.ports)
     noError = True
+    noBorder = args.nb
 
     for port in portList:
         if port < 1 or port > 65535:
