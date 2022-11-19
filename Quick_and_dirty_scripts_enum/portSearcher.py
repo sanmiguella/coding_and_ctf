@@ -32,8 +32,11 @@ def parse_xml():
                     host_portList.append(portNum)
 
             if len(host_portList) > 0:
-                # https://thispointer.com/python-check-if-a-list-contains-all-the-elements-of-another-list/
-                listedPortsExistOnHost = all(port in host_portList for port in portList)
+                if args.any:
+                    # https://thispointer.com/python-check-if-a-list-contains-all-the-elements-of-another-list/
+                    listedPortsExistOnHost = any(port in host_portList for port in portList)
+                else:
+                    listedPortsExistOnHost = all(port in host_portList for port in portList)
                 
                 if listedPortsExistOnHost:
                     notFound = False
@@ -45,7 +48,12 @@ def parse_xml():
             print(f'[-] No results')
         else:
             ports = ', '.join(str(port) for port in portList)
-            print(f'Found a total of {foundCount} IP addresses that has ports {ports} open')
+
+            if args.any:
+                print(f'Found a total of {foundCount} IP addresses that matches any of the port(s) : ({ports})')
+            else:
+                print(f'Found a total of {foundCount} IP addresses that matches all of the port(s) : ({ports})')
+
             print(tableObj.draw())
     
     except Exception as err:
@@ -55,6 +63,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Get host from port(s)')
     parser.add_argument('-f', '--xmlfile', help='Nmap xml file to read data from', required=True)
     parser.add_argument('-p', '--ports', nargs='+', type=int,  help='Ports separated by space', required=True)
+    
+    parseOpt = parser.add_mutually_exclusive_group(required=True)
+    parseOpt.add_argument('-any', action='store_true', help='Matches any of the port(s).')
+    parseOpt.add_argument('-all', action='store_true', help='Matches all of the port(s).')
 
     args = parser.parse_args()
     xmlFile = args.xmlfile
