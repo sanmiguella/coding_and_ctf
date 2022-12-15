@@ -53,13 +53,13 @@ def startScan(ipList):
         openPorts.clear()
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='TCP port scanner.')
+    parser = argparse.ArgumentParser(description='TCP port scanner. Connect-scan only, IPv4.')
     parser.add_argument('-d', '--dir', help='Directory to save results to.', required=True)
     parser.add_argument('-t', '--threads', nargs='?', const=50, type=int, default=50, help='Number of threads. Default is 50.')
 
     parseOpt = parser.add_mutually_exclusive_group(required=True)
     parseOpt.add_argument('-s', '--subnet', help='Subnet to scan.')
-    parseOpt.add_argument('-f', '--filelist', help='File containing list of host(s)')
+    parseOpt.add_argument('-f', '--filelist', help='File containing list of host(s).')
     parseOpt.add_argument('-i', '--ip', nargs='+', help='Target IP(s) separated by spaces.')
     
     args = parser.parse_args()
