@@ -13,11 +13,11 @@ def saveOpenPorts(ip, saveDir):
     else:
         filename = f'portscan-{ip}.txt'
 
+    ports = ', '.join(str(port) for port in openPorts)
+
     with open(filename, 'w') as f:
         f.write(f'host : {ip}\n')
-
-        for port in openPorts:
-            f.write(f'{port} : open\n')
+        f.write(f'open : {ports}')
 
     print(f'Saved results to :: {filename}')
 
