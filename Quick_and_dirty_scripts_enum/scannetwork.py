@@ -23,7 +23,7 @@ def saveOpenPorts(ip, saveDir):
 
 def scanPort(ip, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #socket.setdefaulttimeout(1)
+    socket.setdefaulttimeout(1)
     result = sock.connect_ex((ip, port))
 
     if result == 0:
