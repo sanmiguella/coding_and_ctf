@@ -92,3 +92,26 @@ if (ObjC.available) {
         }
     });
 }
+
+## results
+$ frida -U -p 290 -l ./testj1.js 
+     ____
+    / _  |   Frida 16.0.18 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to iOS Device (id=1e8743c3696cd0bc77827231f15f77409ce9a419)
+                                                                                
+[iOS Device::PID::290 ]-> Hooking native function stat64: /bin/bash
+Hooking native function stat: /bin/bash
+stat64 Bypass!!!
+stat Bypass!!!
+Hooking native function stat64: /etc/apt
+Hooking native function stat: /etc/apt
+stat64 Bypass!!!
+stat Bypass!!!
