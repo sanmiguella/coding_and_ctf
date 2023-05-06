@@ -1,0 +1,94 @@
+## Disassembled code
+    if ((uVar1 & 1) == 0) {
+      __stubs::_objc_msgSend(&_OBJC_CLASS_$_NSFileManager,"defaultManager");
+      uVar2 = __stubs::_objc_retainAutoreleasedReturnValue();
+      uVar1 = __stubs::_objc_msgSend(uVar2,"fileExistsAtPath:",&cf_/bin/bash);
+      __stubs::_objc_release(uVar2);
+      if ((uVar1 & 1) == 0) {
+        __stubs::_objc_msgSend(&_OBJC_CLASS_$_NSFileManager,"defaultManager");
+        uVar2 = __stubs::_objc_retainAutoreleasedReturnValue();
+        uVar1 = __stubs::_objc_msgSend(uVar2,"fileExistsAtPath:",&cf_/usr/sbin/sshd);
+        __stubs::_objc_release(uVar2);
+        if ((uVar1 & 1) == 0) {
+          __stubs::_objc_msgSend(&_OBJC_CLASS_$_NSFileManager,"defaultManager");
+          uVar2 = __stubs::_objc_retainAutoreleasedReturnValue();
+          uVar1 = __stubs::_objc_msgSend(uVar2,"fileExistsAtPath:",&cf_/etc/apt);
+          __stubs::_objc_release(uVar2);
+          
+## Bypass1
+$ objection -g 290 explore
+Using USB device `iOS Device`
+Agent injected and responds ok!
+
+     _   _         _   _
+ ___| |_|_|___ ___| |_|_|___ ___
+| . | . | | -_|  _|  _| | . |   |
+|___|___| |___|___|_| |_|___|_|_|
+      |___|(object)inject(ion) v1.11.0
+
+     Runtime Mobile Exploration
+        by: @leonjza from @sensepost
+
+[tab] for command suggestions
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # ios jailbreak disable
+(agent) Registering job 323036. Type: ios-jailbreak-disable
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # (agent) [323036] fileExistsAtPath: check for /bin/bash was successful with: 0x1, marking it as failed.
+(agent) [323036] fileExistsAtPath: check for /usr/sbin/sshd was successful with: 0x1, marking it as failed.
+(agent) [323036] fileExistsAtPath: check for /etc/apt was successful with: 0x1, marking it as failed.
+
+## Bypass 2
+# https://codeshare.frida.re/@liangxiaoyi1024/ios-jailbreak-detection-bypass/
+
+if (ObjC.available) {
+    var paths = [
+        "/bin/bash",
+        "/usr/bin/sshd",
+        "/etc/apt"
+    ];
+
+    var f = Module.findExportByName("libSystem.B.dylib", "stat64");
+    Interceptor.attach(f, {
+        onEnter: function(args) {
+            this.is_common_path = false;
+            var arg = Memory.readUtf8String(args[0]);
+            
+            for (var path in paths) {
+                if (arg.indexOf(paths[path]) > -1) {
+                    console.log("Hooking native function stat64: " + arg);
+                    this.is_common_path = true;
+                    //return -1;
+                }
+            }
+        },
+
+        onLeave: function(retval) {
+            if (this.is_common_path) {
+                console.log("stat64 Bypass!!!");
+                retval.replace(-1);
+            }
+        }
+    });
+
+    var f = Module.findExportByName("libSystem.B.dylib", "stat");
+    Interceptor.attach(f, {
+        onEnter: function(args) {
+            this.is_common_path = false;
+            var arg = Memory.readUtf8String(args[0]);
+            
+            for (var path in paths) {
+                if (arg.indexOf(paths[path]) > -1) {
+                    console.log("Hooking native function stat: " + arg);
+                    this.is_common_path = true;
+                    //return -1;
+                }
+            }
+        },
+        
+        onLeave: function(retval) {
+            if (this.is_common_path) {
+                console.log("stat Bypass!!!");
+                retval.replace(-1);
+            }
+        }
+    });
+}

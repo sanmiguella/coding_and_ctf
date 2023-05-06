@@ -1,0 +1,10 @@
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # ios keychain dump
+Note: You may be asked to authenticate using the devices passcode or TouchID
+Save the output by adding `--json keychain.json` to this command
+Dumping the iOS keychain...
+Created                    Accessible            ACL   Type      Account                    Service                                                Data
+-------------------------  --------------------  ----  --------  -------------------------  -----------------------------------------------------  ------------------------------------
+2023-05-01 02:06:12 +0000  WhenUnlocked          None  Password  FlurryAPIKey               com.highaltitudehacks.DVIAswiftv2com.flurry.analytics
+2023-05-01 02:06:12 +0000  WhenUnlocked          None  Password  FlurrySessionTimestampKey  com.highaltitudehacks.DVIAswiftv2com.flurry.analytics
+2023-05-01 02:06:13 +0000  AlwaysThisDeviceOnly  None  Password  FlurrySessionInstallIDKey  com.highaltitudehacks.DVIAswiftv2com.flurry.analytics  2FA79DA8-3BE3-4323-BF19-81EB6F7DDB07
+2023-05-01 03:17:25 +0000  WhenUnlocked          None  Password  keychainValue              com.highaltitudehacks.DVIAswiftv2                      hellouserkeychain

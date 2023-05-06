@@ -1,0 +1,32 @@
+...highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # cd 'Application Support'
+/var/mobile/Containers/Data/Application/06DB2E05-2125-435A-AE0A-00C28900545A/Library/Application Support
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # ls
+NSFileType  Perms  NSFileProtection                      Read  Write  Owner         Group         Size      Creation                   Name
+----------  -----  ------------------------------------  ----  -----  ------------  ------------  --------  -------------------------  ----------------
+Directory     493  n/a                                   True  True   mobile (501)  mobile (501)  448.0 B   2023-05-01 02:06:12 +0000  FlurryFiles
+Regular       420  CompleteUntilFirstUserAuthentication  True  True   mobile (501)  mobile (501)  8.1 KiB   2023-05-06 16:36:01 +0000  Model.sqlite-wal
+Regular       420  CompleteUntilFirstUserAuthentication  True  True   mobile (501)  mobile (501)  32.0 KiB  2023-05-06 16:36:01 +0000  Model.sqlite-shm
+Regular       420  CompleteUntilFirstUserAuthentication  True  True   mobile (501)  mobile (501)  24.0 KiB  2023-05-06 16:36:01 +0000  Model.sqlite
+
+Readable: True  Writable: True
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # sqlite connect Model.sqlite
+
+SQLite @ Model.sqlite > .tables
++--------------+
+| name         |
++--------------+
+| ZUSER        |
+| Z_METADATA   |
+| Z_MODELCACHE |
+| Z_PRIMARYKEY |
++--------------+
+Time: 0.014s
+SQLite @ Model.sqlite > select * from `ZUSER`;
++------+-------+-------+--------------------+-----------+-----------+-----------+
+| Z_PK | Z_ENT | Z_OPT | ZEMAIL             | ZNAME     | ZPASSWORD | ZPHONE    |
++------+-------+-------+--------------------+-----------+-----------+-----------+
+| 1    | 1     | 1     | coreemail@mail.com | core user | password  | 123459798 |
++------+-------+-------+--------------------+-----------+-----------+-----------+
+1 row in set
+Time: 0.005s
+SQLite @ Model.sqlite >

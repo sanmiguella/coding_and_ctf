@@ -1,0 +1,17 @@
+# file cat userInfo.plist
+Downloading /var/mobile/Containers/Data/Application/06DB2E05-2125-435A-AE0A-00C28900545A/Documents/userInfo.plist to /tmp/tmpbdmq_5sl.file
+Streaming file from device...
+Writing bytes to destination...
+Successfully downloaded /var/mobile/Containers/Data/Application/06DB2E05-2125-435A-AE0A-00C28900545A/Documents/userInfo.plist to /tmp/tmpbdmq_5sl.file
+====
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>password</key>
+        <string>test1234</string>
+        <key>username</key>
+        <string>test1234</string>
+</dict>
+</plist>
+====

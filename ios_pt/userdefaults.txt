@@ -1,0 +1,6 @@
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # ios plist cat Preferences/com.highaltitudehacks.DVIAswiftv2.plist
+{
+    DemoValue = hellouser1234;
+}
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # pwd print
+Current directory: /var/mobile/Containers/Data/Application/06DB2E05-2125-435A-AE0A-00C28900545A/Library

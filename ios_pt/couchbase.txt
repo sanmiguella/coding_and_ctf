@@ -1,0 +1,15 @@
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # ls
+NSFileType  Perms  NSFileProtection    Read  Write  Owner         Group         Size       Creation                   Name
+----------  -----  ------------------  ----  -----  ------------  ------------  ---------  -------------------------  --------------
+Regular       420  CompleteUnlessOpen  True  True   mobile (501)  mobile (501)  32.0 KiB   2023-05-06 16:45:23 +0000  db.sqlite3-shm
+Regular       420  CompleteUnlessOpen  True  True   mobile (501)  mobile (501)  120.7 KiB  2023-05-06 16:45:23 +0000  db.sqlite3-wal
+Regular       420  CompleteUnlessOpen  True  True   mobile (501)  mobile (501)  4.0 KiB    2023-05-06 16:45:23 +0000  db.sqlite3
+Directory     493  CompleteUnlessOpen  True  True   mobile (501)  mobile (501)  64.0 B     2023-05-06 16:45:23 +0000  attachments
+
+Readable: True  Writable: True
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # pwd
+Current directory: /var/mobile/Containers/Data/Application/06DB2E05-2125-435A-AE0A-00C28900545A/Library/Application Support/CouchbaseLite/dvcouchbasedb.cblite2
+....highaltitudehacks.DVIAswiftv2 on (iPhone: 15.7.5) [usb] # 
+
+sqlite> select * from revs;
+1|1|1-dfcf8bfebd8a032fcdf3d851627f4128||1|0|{"password":"couchbasepassword","username":"couchbaseuser"}|1|
