@@ -6,20 +6,20 @@ import re
 import threading
 import validators
 
-def getJsFromURL(url):
-    response = requests.get(url)
+def getJsFileFromTargetURL():
+    response = requests.get(targetUrl)
     tree = bs(response.text, 'html.parser') # Parse into tree
 
     scriptList = list()
 
     for script in tree.find_all('script'):
-        src = script.get('src')
+        jsSrc = script.get('src')
 
-        if src is not None:
-            if not src.startswith('http') and not src.startswith('https'):
-                src = url + src 
+        if jsSrc is not None:
+            if not jsSrc.startswith('http') and not jsSrc.startswith('https'):
+                jsSrc = targetUrl + jsSrc 
             
-            scriptList.append(src)
+            scriptList.append(jsSrc)
 
     scriptList.sort()
     return(scriptList)
@@ -40,11 +40,11 @@ def processURL(url):
 
     urls.extend(validURLs)
 
-def getURLs(urlList):
+def getURLsFromJsSrc(jsURLs):
     threads = list()
 
-    for url in urlList:
-        t = threading.Thread(target=processURL, args=(url,))
+    for jsURL in jsURLs:
+        t = threading.Thread(target=processURL, args=(jsURL,))
         threads.append(t)
         t.start()
 
@@ -52,23 +52,29 @@ def getURLs(urlList):
         t.join()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='CLI Tool that gets link from from javascript files on a target website.')
+    parser = argparse.ArgumentParser(description='Comand-line tool that retrieves hyperlinks from JavaScript files on a specified website.')
     parser.add_argument('-u', '--url', help='Target URL.')
     args = parser.parse_args()
 
-    url = args.url
+    targetUrl = args.url
 
-    if url is not None:
-        scriptList = getJsFromURL(url)
+    if targetUrl is not None:
+        validated = validators.url(targetUrl)
 
-        urls = list()
-        getURLs(scriptList)
+        if validated:
+            scriptList = getJsFileFromTargetURL()
 
-        uniqueURLs = list(set(urls))
-        uniqueURLs.sort()
+            urls = list()
+            getURLsFromJsSrc(scriptList)
 
-        for url in uniqueURLs:
-            print(url)
+            uniqueURLs = list(set(urls))
+            uniqueURLs.sort()
 
-    else:
-        print('URL must not be empty and URL must start with http:// or https://')
+            if len(uniqueURLs) > 0:
+                for index, url in enumerate(uniqueURLs, start=1):
+                    print(f'{index}. {url}')
+            else:
+                print('No results.')
+
+        else:
+            print('URL must not be empty and URL must start with http:// or https://')
